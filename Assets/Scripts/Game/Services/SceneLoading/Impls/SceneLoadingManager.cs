@@ -24,7 +24,8 @@ namespace Game.Services.SceneLoading.Impls
                 .AddProcess(new OpenLoadingWindowProcess(_signalBus))
                 .AddProcess(new LoadingProcess(ELevelName.GAME, LoadSceneMode.Additive))
                 .AddProcess(new LoadingProcess(levelName, LoadSceneMode.Additive))
-                .AddProcess(new SetActiveSceneProcess(ELevelName.GAME))
+                //.AddProcess(new SetActiveSceneProcess(ELevelName.GAME))
+                .AddProcess(new SetActiveSceneProcess(levelName))
                 .AddProcess(new UnloadProcess(ELevelName.GAME));
                 
             if (!string.IsNullOrWhiteSpace(_currentLevel.ToString()))
@@ -46,8 +47,8 @@ namespace Game.Services.SceneLoading.Impls
             _processor
                 .AddProcess(new OpenLoadingWindowProcess(_signalBus))
                 .AddProcess(new LoadingProcess(ELevelName.GAME, LoadSceneMode.Additive))
-                .AddProcess(new LoadingProcess(ELevelName.StartLevel, LoadSceneMode.Additive))
-                .AddProcess(new SetActiveSceneProcess(ELevelName.GAME))
+                .AddProcess(new LoadingProcess(ELevelName.CITY, LoadSceneMode.Additive))
+                .AddProcess(new SetActiveSceneProcess(ELevelName.CITY))
                 .AddProcess(new UnloadProcess(ELevelName.MainMenu))
                 .AddProcess(new RunContextProcess("SceneContext"))
                 .AddProcess(new WaitUpdateProcess(4))

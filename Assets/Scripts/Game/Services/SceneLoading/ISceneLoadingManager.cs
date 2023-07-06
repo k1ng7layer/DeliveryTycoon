@@ -1,4 +1,6 @@
-﻿namespace Core.SceneLoading
+﻿using Game.Services.SceneLoading;
+
+namespace Core.SceneLoading
 {
     public interface ISceneLoadingManager
     {

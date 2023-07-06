@@ -5,6 +5,7 @@
     "com.jeffcampbellmakesgames.genesis": "https://github.com/jeffcampbellmakesgames/genesis.git#release/stable",
     "com.playdarium.unirx": "https://gitlab.com/nazgull30/unirxplaydarium.git#upm",
     "com.playdarium.zenject": "https://gitlab.com/nazgull30/zenjectplaydarium.git#upm",
+    "com.unity.ai.navigation": "1.0.0-exp.4",
     "com.unity.collab-proxy": "1.17.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.15",

@@ -1,10 +1,10 @@
-﻿namespace Core.SceneLoading
+﻿namespace Game.Services.SceneLoading
 {
     public enum ELevelName
     {
         SPLASH,
         GAME,
         MainMenu,
-        StartLevel
+        CITY
     }
 }

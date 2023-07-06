@@ -1,4 +1,5 @@
 ﻿using Core.SceneLoading;
+using Game.Services.SceneLoading;
 using Game.UI.MainMenu.Views;
 using SimpleUi.Abstracts;
 using UniRx;
@@ -23,7 +24,7 @@ namespace Game.UI.MainMenu.Controllers
 
         private void LoadGame()
         {
-            _loadingManager.LoadGameLevel(ELevelName.StartLevel);
+            _loadingManager.LoadGameLevel(ELevelName.CITY);
         }
     }
 }

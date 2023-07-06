@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.SceneLoading;
+using Game.Services.SceneLoading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

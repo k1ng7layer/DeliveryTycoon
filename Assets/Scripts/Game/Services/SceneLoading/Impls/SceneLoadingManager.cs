@@ -46,7 +46,7 @@ namespace Game.Services.SceneLoading.Impls
             _processor
                 .AddProcess(new OpenLoadingWindowProcess(_signalBus))
                 .AddProcess(new LoadingProcess(ELevelName.GAME, LoadSceneMode.Additive))
-                .AddProcess(new LoadingProcess(ELevelName.StartLevel, LoadSceneMode.Additive))
+                .AddProcess(new LoadingProcess(ELevelName.CITY, LoadSceneMode.Additive))
                 .AddProcess(new SetActiveSceneProcess(ELevelName.GAME))
                 .AddProcess(new UnloadProcess(ELevelName.MainMenu))
                 .AddProcess(new RunContextProcess("SceneContext"))

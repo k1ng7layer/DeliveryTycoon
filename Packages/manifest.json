@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.elestrago.simpleui": "https://gitlab.com/elestrago63/simpleui.git#upm",
+    "com.jeffcampbellmakesgames.entitasredux": "https://github.com/jeffcampbellmakesgames/entitas-redux.git#releases/stable",
+    "com.jeffcampbellmakesgames.genesis": "https://github.com/jeffcampbellmakesgames/genesis.git#release/stable",
     "com.playdarium.unirx": "https://gitlab.com/nazgull30/unirxplaydarium.git#upm",
     "com.playdarium.zenject": "https://gitlab.com/nazgull30/zenjectplaydarium.git#upm",
     "com.unity.collab-proxy": "1.17.1",
@@ -42,8 +45,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.jeffcampbellmakesgames.entitasredux" : "https://github.com/jeffcampbellmakesgames/entitas-redux.git#releases/stable",
-    "com.jeffcampbellmakesgames.genesis": "https://github.com/jeffcampbellmakesgames/genesis.git#release/stable"
+    "com.unity.modules.xr": "1.0.0"
   }
 }

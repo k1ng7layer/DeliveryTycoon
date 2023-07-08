@@ -1,4 +1,5 @@
 ﻿using Ecs.Views;
+using Ecs.Views.Linkable;
 using JCMG.EntitasRedux;
 
 namespace Ecs.Game.Components.Common

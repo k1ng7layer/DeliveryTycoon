@@ -2,11 +2,13 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Ecs.Views
+namespace Ecs.Views.Linkable.Impl
 {
     [RequireComponent(typeof(EntityLink))]
     public class ObjectView : MonoBehaviour, ILinkableView, 
-        ILinkRemovedListener
+        ILinkRemovedListener,
+        IPositionAddedListener,
+        IRotationAddedListener
     {
         [SerializeField] private EntityLink entityLink;
 		
@@ -26,6 +28,14 @@ namespace Ecs.Views
             entityLink.Link(_entity);
             _entity.OnDestroyEntity += OnDestroyEntity;
             _entity.AddLinkRemovedListener(this);
+            _entity.AddPositionAddedListener(this);
+            _entity.AddTransform(transform);
+            
+            if (_entity.HasRotation)
+                transform.rotation = _entity.Rotation.Value;
+
+            if (_entity.HasPosition)
+                transform.position = _entity.Position.Value;
         }
 
         private void OnDestroyEntity(IEntity entity)
@@ -68,6 +78,16 @@ namespace Ecs.Views
         public void OnLinkRemoved(GameEntity entity)
         {
             OnDestroyEntity(entity);
+        }
+
+        public virtual void OnPositionAdded(GameEntity entity, Vector3 value)
+        {
+            transform.position = value;
+        }
+
+        public virtual void OnRotationAdded(GameEntity entity, Quaternion value)
+        {
+            transform.rotation = value;
         }
     }
 }

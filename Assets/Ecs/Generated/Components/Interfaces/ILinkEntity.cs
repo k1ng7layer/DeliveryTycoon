@@ -12,7 +12,7 @@ public partial interface ILinkEntity
 	Ecs.Game.Components.Common.LinkComponent Link { get; }
 	bool HasLink { get; }
 
-	void AddLink(Ecs.Views.ILinkableView newView);
-	void ReplaceLink(Ecs.Views.ILinkableView newView);
+	void AddLink(Ecs.Views.Linkable.ILinkableView newView);
+	void ReplaceLink(Ecs.Views.Linkable.ILinkableView newView);
 	void RemoveLink();
 }

@@ -12,7 +12,7 @@ public partial class GameEntity
 	public Ecs.Game.Components.Common.LinkComponent Link { get { return (Ecs.Game.Components.Common.LinkComponent)GetComponent(GameComponentsLookup.Link); } }
 	public bool HasLink { get { return HasComponent(GameComponentsLookup.Link); } }
 
-	public void AddLink(Ecs.Views.ILinkableView newView)
+	public void AddLink(Ecs.Views.Linkable.ILinkableView newView)
 	{
 		var index = GameComponentsLookup.Link;
 		var component = (Ecs.Game.Components.Common.LinkComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.LinkComponent));
@@ -22,7 +22,7 @@ public partial class GameEntity
 		AddComponent(index, component);
 	}
 
-	public void ReplaceLink(Ecs.Views.ILinkableView newView)
+	public void ReplaceLink(Ecs.Views.Linkable.ILinkableView newView)
 	{
 		var index = GameComponentsLookup.Link;
 		var component = (Ecs.Game.Components.Common.LinkComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.LinkComponent));

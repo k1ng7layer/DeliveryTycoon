@@ -2,7 +2,7 @@
 using SimpleUi.Signals;
 using Zenject;
 
-namespace Ecs.Game.Systems
+namespace Ecs.Game.Systems.Initialize
 {
     public class MainMenuInitializeSystem : IInitializable
     {

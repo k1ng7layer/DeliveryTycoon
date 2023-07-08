@@ -13,39 +13,91 @@ using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
 {
-	public const int Destroyed = 0;
-	public const int Link = 1;
-	public const int Position = 2;
-	public const int LinkRemovedListener = 3;
-	public const int PositionAddedListener = 4;
+	public const int Camera = 0;
+	public const int CameraGlobalTarget = 1;
+	public const int PhysicalCamera = 2;
+	public const int VirtualCamera = 3;
+	public const int Destroyed = 4;
+	public const int Instantiate = 5;
+	public const int Link = 6;
+	public const int Owner = 7;
+	public const int Position = 8;
+	public const int Prefab = 9;
+	public const int Rotation = 10;
+	public const int Transform = 11;
+	public const int Uid = 12;
+	public const int Courier = 13;
+	public const int InstantiateAddedListener = 14;
+	public const int LinkRemovedListener = 15;
+	public const int PositionAddedListener = 16;
+	public const int RotationAddedListener = 17;
 
-	public const int TotalComponents = 5;
+	public const int TotalComponents = 18;
 
 	public static readonly string[] ComponentNames =
 	{
+		"Camera",
+		"CameraGlobalTarget",
+		"PhysicalCamera",
+		"VirtualCamera",
 		"Destroyed",
+		"Instantiate",
 		"Link",
+		"Owner",
 		"Position",
+		"Prefab",
+		"Rotation",
+		"Transform",
+		"Uid",
+		"Courier",
+		"InstantiateAddedListener",
 		"LinkRemovedListener",
-		"PositionAddedListener"
+		"PositionAddedListener",
+		"RotationAddedListener"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(Ecs.Game.Components.Camera.CameraComponent),
+		typeof(Ecs.Game.Components.Camera.CameraGlobalTargetComponent),
+		typeof(Ecs.Game.Components.Camera.PhysicalCameraComponent),
+		typeof(Ecs.Game.Components.Camera.VirtualCameraComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent),
+		typeof(Ecs.Game.Components.Common.InstantiateComponent),
 		typeof(Ecs.Game.Components.Common.LinkComponent),
+		typeof(Ecs.Game.Components.Common.OwnerComponent),
 		typeof(Ecs.Game.Components.Common.PositionComponent),
+		typeof(Ecs.Game.Components.Common.PrefabComponent),
+		typeof(Ecs.Game.Components.Common.RotationComponent),
+		typeof(Ecs.Game.Components.Common.TransformComponent),
+		typeof(Ecs.Game.Components.Common.UidComponent),
+		typeof(Ecs.Game.Components.Courier.CourierComponent),
+		typeof(InstantiateAddedListenerComponent),
 		typeof(LinkRemovedListenerComponent),
-		typeof(PositionAddedListenerComponent)
+		typeof(PositionAddedListenerComponent),
+		typeof(RotationAddedListenerComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 0 },
-		{ typeof(Ecs.Game.Components.Common.LinkComponent), 1 },
-		{ typeof(Ecs.Game.Components.Common.PositionComponent), 2 },
-		{ typeof(LinkRemovedListenerComponent), 3 },
-		{ typeof(PositionAddedListenerComponent), 4 }
+		{ typeof(Ecs.Game.Components.Camera.CameraComponent), 0 },
+		{ typeof(Ecs.Game.Components.Camera.CameraGlobalTargetComponent), 1 },
+		{ typeof(Ecs.Game.Components.Camera.PhysicalCameraComponent), 2 },
+		{ typeof(Ecs.Game.Components.Camera.VirtualCameraComponent), 3 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 4 },
+		{ typeof(Ecs.Game.Components.Common.InstantiateComponent), 5 },
+		{ typeof(Ecs.Game.Components.Common.LinkComponent), 6 },
+		{ typeof(Ecs.Game.Components.Common.OwnerComponent), 7 },
+		{ typeof(Ecs.Game.Components.Common.PositionComponent), 8 },
+		{ typeof(Ecs.Game.Components.Common.PrefabComponent), 9 },
+		{ typeof(Ecs.Game.Components.Common.RotationComponent), 10 },
+		{ typeof(Ecs.Game.Components.Common.TransformComponent), 11 },
+		{ typeof(Ecs.Game.Components.Common.UidComponent), 12 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 13 },
+		{ typeof(InstantiateAddedListenerComponent), 14 },
+		{ typeof(LinkRemovedListenerComponent), 15 },
+		{ typeof(PositionAddedListenerComponent), 16 },
+		{ typeof(RotationAddedListenerComponent), 17 }
 	};
 
 	/// <summary>

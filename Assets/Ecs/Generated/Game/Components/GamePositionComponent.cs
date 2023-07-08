@@ -9,31 +9,42 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	static readonly Ecs.Game.Components.Common.PositionComponent PositionComponent = new Ecs.Game.Components.Common.PositionComponent();
+	public Ecs.Game.Components.Common.PositionComponent Position { get { return (Ecs.Game.Components.Common.PositionComponent)GetComponent(GameComponentsLookup.Position); } }
+	public bool HasPosition { get { return HasComponent(GameComponentsLookup.Position); } }
 
-	public bool IsPosition
+	public void AddPosition(UnityEngine.Vector3 newValue)
 	{
-		get { return HasComponent(GameComponentsLookup.Position); }
-		set
-		{
-			if (value != IsPosition)
-			{
-				var index = GameComponentsLookup.Position;
-				if (value)
-				{
-					var componentPool = GetComponentPool(index);
-					var component = componentPool.Count > 0
-							? componentPool.Pop()
-							: PositionComponent;
+		var index = GameComponentsLookup.Position;
+		var component = (Ecs.Game.Components.Common.PositionComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.PositionComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Value = newValue;
+		#endif
+		AddComponent(index, component);
+	}
 
-					AddComponent(index, component);
-				}
-				else
-				{
-					RemoveComponent(index);
-				}
-			}
-		}
+	public void ReplacePosition(UnityEngine.Vector3 newValue)
+	{
+		var index = GameComponentsLookup.Position;
+		var component = (Ecs.Game.Components.Common.PositionComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.PositionComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Value = newValue;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void CopyPositionTo(Ecs.Game.Components.Common.PositionComponent copyComponent)
+	{
+		var index = GameComponentsLookup.Position;
+		var component = (Ecs.Game.Components.Common.PositionComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.PositionComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Value = copyComponent.Value;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void RemovePosition()
+	{
+		RemoveComponent(GameComponentsLookup.Position);
 	}
 }
 

@@ -9,5 +9,10 @@
 //------------------------------------------------------------------------------
 public partial interface IPositionEntity
 {
-	bool IsPosition { get; set; }
+	Ecs.Game.Components.Common.PositionComponent Position { get; }
+	bool HasPosition { get; }
+
+	void AddPosition(UnityEngine.Vector3 newValue);
+	void ReplacePosition(UnityEngine.Vector3 newValue);
+	void RemovePosition();
 }

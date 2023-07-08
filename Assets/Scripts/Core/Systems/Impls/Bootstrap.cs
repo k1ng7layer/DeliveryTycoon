@@ -56,6 +56,7 @@ namespace Core.Systems.Impls
             if (_isPaused)
                 return;
             
+            _feature.Update();
             _feature.Execute();
         }
 
@@ -69,6 +70,7 @@ namespace Core.Systems.Impls
                 lateUpdateSystem.Late();
             }
             
+            _feature.LateUpdate();
             _feature.Cleanup();
         }
 
@@ -76,6 +78,8 @@ namespace Core.Systems.Impls
         {
             if (_isPaused)
                 return;
+            
+            _feature.FixedUpdate();
             
             foreach (var fixedUpdate in _fixed)
             {
@@ -109,7 +113,5 @@ namespace Core.Systems.Impls
             _feature.Deactivate();
             _contexts.Reset();
         }
-
-      
     }
 }

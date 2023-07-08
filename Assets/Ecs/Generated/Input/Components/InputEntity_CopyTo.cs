@@ -18,7 +18,22 @@ public partial class InputEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-
+		if (component is Ecs.Input.Components.InputVectorComponent InputVector)
+		{
+			CopyInputVectorTo(InputVector);
+		}
+		else if (component is Ecs.Input.Components.InputComponent Input)
+		{
+			IsInput = true;
+		}
+		else if (component is Ecs.Input.Components.CameraScrollInputComponent CameraScrollInput)
+		{
+			IsCameraScrollInput = true;
+		}
+		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		{
+			IsDestroyed = true;
+		}
 		#endif
 	}
 

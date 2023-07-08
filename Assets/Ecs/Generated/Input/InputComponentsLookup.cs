@@ -13,23 +13,35 @@ using JCMG.EntitasRedux;
 
 public static class InputComponentsLookup
 {
+	public const int Destroyed = 0;
+	public const int CameraScrollInput = 1;
+	public const int Input = 2;
+	public const int InputVector = 3;
 
-
-	public const int TotalComponents = 0;
+	public const int TotalComponents = 4;
 
 	public static readonly string[] ComponentNames =
 	{
-
+		"Destroyed",
+		"CameraScrollInput",
+		"Input",
+		"InputVector"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
-
+		typeof(Ecs.Game.Components.Common.DestroyedComponent),
+		typeof(Ecs.Input.Components.CameraScrollInputComponent),
+		typeof(Ecs.Input.Components.InputComponent),
+		typeof(Ecs.Input.Components.InputVectorComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 0 },
+		{ typeof(Ecs.Input.Components.CameraScrollInputComponent), 1 },
+		{ typeof(Ecs.Input.Components.InputComponent), 2 },
+		{ typeof(Ecs.Input.Components.InputVectorComponent), 3 }
 	};
 
 	/// <summary>

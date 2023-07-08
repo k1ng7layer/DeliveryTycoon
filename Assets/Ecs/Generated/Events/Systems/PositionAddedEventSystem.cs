@@ -26,19 +26,19 @@ public sealed class PositionAddedEventSystem : JCMG.EntitasRedux.ReactiveSystem<
 
 	protected override bool Filter(GameEntity entity)
 	{
-		return entity.IsPosition && entity.HasPositionAddedListener;
+		return entity.HasPosition && entity.HasPositionAddedListener;
 	}
 
 	protected override void Execute(System.Collections.Generic.List<GameEntity> entities)
 	{
 		foreach (var e in entities)
 		{
-			
+			var component = e.Position;
 			_listenerBuffer.Clear();
 			_listenerBuffer.AddRange(e.PositionAddedListener.value);
 			foreach (var listener in _listenerBuffer)
 			{
-				listener.OnPositionAdded(e);
+				listener.OnPositionAdded(e, component.Value);
 			}
 		}
 	}

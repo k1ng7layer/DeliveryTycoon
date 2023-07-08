@@ -9,8 +9,10 @@ namespace Installers.Game.Ecs
         protected override void BindContexts()
         {
             BindContext<GameContext>();
+            BindContext<InputContext>();
             
             Container.BindDestroyedCleanup<GameContext, GameEntity>(GameMatcher.Destroyed);
+            Container.BindDestroyedCleanup<InputContext, InputEntity>(InputMatcher.Destroyed);
             BindEventSystem<GameEventSystems>();
 
             var mainFeature = new GameFeature();

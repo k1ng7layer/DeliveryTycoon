@@ -9,5 +9,5 @@
 //------------------------------------------------------------------------------
 public interface IPositionAddedListener
 {
-	void OnPositionAdded(GameEntity entity);
+	void OnPositionAdded(GameEntity entity, UnityEngine.Vector3 value);
 }

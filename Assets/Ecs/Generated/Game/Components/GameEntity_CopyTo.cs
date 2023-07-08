@@ -18,17 +18,69 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Common.LinkComponent Link)
+		if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
+		{
+			IsCourier = true;
+		}
+		else if (component is Ecs.Game.Components.Camera.CameraGlobalTargetComponent CameraGlobalTarget)
+		{
+			IsCameraGlobalTarget = true;
+		}
+		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
+		{
+			IsCamera = true;
+		}
+		else if (component is Ecs.Game.Components.Camera.VirtualCameraComponent VirtualCamera)
+		{
+			IsVirtualCamera = true;
+		}
+		else if (component is Ecs.Game.Components.Camera.PhysicalCameraComponent PhysicalCamera)
+		{
+			IsPhysicalCamera = true;
+		}
+		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
+		{
+			CopyOwnerTo(Owner);
+		}
+		else if (component is Ecs.Game.Components.Common.UidComponent Uid)
+		{
+			CopyUidTo(Uid);
+		}
+		else if (component is Ecs.Game.Components.Common.TransformComponent Transform)
+		{
+			CopyTransformTo(Transform);
+		}
+		else if (component is Ecs.Game.Components.Common.RotationComponent Rotation)
+		{
+			CopyRotationTo(Rotation);
+		}
+		else if (component is Ecs.Game.Components.Common.InstantiateComponent Instantiate)
+		{
+			IsInstantiate = true;
+		}
+		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		{
+			IsDestroyed = true;
+		}
+		else if (component is Ecs.Game.Components.Common.PrefabComponent Prefab)
+		{
+			CopyPrefabTo(Prefab);
+		}
+		else if (component is Ecs.Game.Components.Common.LinkComponent Link)
 		{
 			CopyLinkTo(Link);
 		}
 		else if (component is Ecs.Game.Components.Common.PositionComponent Position)
 		{
-			IsPosition = true;
+			CopyPositionTo(Position);
 		}
-		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		else if (component is RotationAddedListenerComponent RotationAddedListener)
 		{
-			IsDestroyed = true;
+			CopyRotationAddedListenerTo(RotationAddedListener);
+		}
+		else if (component is InstantiateAddedListenerComponent InstantiateAddedListener)
+		{
+			CopyInstantiateAddedListenerTo(InstantiateAddedListener);
 		}
 		else if (component is LinkRemovedListenerComponent LinkRemovedListener)
 		{

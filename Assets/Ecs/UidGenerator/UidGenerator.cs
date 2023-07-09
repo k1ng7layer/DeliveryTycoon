@@ -2,7 +2,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace Ecs.Uid
+namespace Ecs.UidGenerator
 {
     public static unsafe class UidGenerator
     {

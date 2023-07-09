@@ -22,9 +22,21 @@ public partial class GameEntity
 		{
 			IsCourier = true;
 		}
-		else if (component is Ecs.Game.Components.Camera.CameraGlobalTargetComponent CameraGlobalTarget)
+		else if (component is Ecs.Game.Components.Delivery.PartnerComponent Partner)
 		{
-			IsCameraGlobalTarget = true;
+			IsPartner = true;
+		}
+		else if (component is Ecs.Game.Components.Delivery.LevelComponent Level)
+		{
+			CopyLevelTo(Level);
+		}
+		else if (component is Ecs.Game.Components.Delivery.DeliverySourceComponent DeliverySource)
+		{
+			IsDeliverySource = true;
+		}
+		else if (component is Ecs.Game.Components.Delivery.NextDeliveryTimerComponent NextDeliveryTimer)
+		{
+			CopyNextDeliveryTimerTo(NextDeliveryTimer);
 		}
 		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
 		{
@@ -38,21 +50,25 @@ public partial class GameEntity
 		{
 			IsPhysicalCamera = true;
 		}
-		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
+		else if (component is Ecs.Game.Components.Camera.CameraGlobalTargetComponent CameraGlobalTarget)
 		{
-			CopyOwnerTo(Owner);
+			IsCameraGlobalTarget = true;
 		}
-		else if (component is Ecs.Game.Components.Common.UidComponent Uid)
+		else if (component is Ecs.Game.Components.Common.RotationComponent Rotation)
 		{
-			CopyUidTo(Uid);
+			CopyRotationTo(Rotation);
+		}
+		else if (component is Ecs.Game.Components.Common.ActiveComponent Active)
+		{
+			IsActive = true;
 		}
 		else if (component is Ecs.Game.Components.Common.TransformComponent Transform)
 		{
 			CopyTransformTo(Transform);
 		}
-		else if (component is Ecs.Game.Components.Common.RotationComponent Rotation)
+		else if (component is Ecs.Game.Components.Common.UidComponent Uid)
 		{
-			CopyRotationTo(Rotation);
+			CopyUidTo(Uid);
 		}
 		else if (component is Ecs.Game.Components.Common.InstantiateComponent Instantiate)
 		{
@@ -61,6 +77,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
 		{
 			IsDestroyed = true;
+		}
+		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
+		{
+			CopyOwnerTo(Owner);
 		}
 		else if (component is Ecs.Game.Components.Common.PrefabComponent Prefab)
 		{

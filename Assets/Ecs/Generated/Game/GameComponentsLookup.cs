@@ -17,22 +17,27 @@ public static class GameComponentsLookup
 	public const int CameraGlobalTarget = 1;
 	public const int PhysicalCamera = 2;
 	public const int VirtualCamera = 3;
-	public const int Destroyed = 4;
-	public const int Instantiate = 5;
-	public const int Link = 6;
-	public const int Owner = 7;
-	public const int Position = 8;
-	public const int Prefab = 9;
-	public const int Rotation = 10;
-	public const int Transform = 11;
-	public const int Uid = 12;
-	public const int Courier = 13;
-	public const int InstantiateAddedListener = 14;
-	public const int LinkRemovedListener = 15;
-	public const int PositionAddedListener = 16;
-	public const int RotationAddedListener = 17;
+	public const int Active = 4;
+	public const int Destroyed = 5;
+	public const int Instantiate = 6;
+	public const int Link = 7;
+	public const int Owner = 8;
+	public const int Position = 9;
+	public const int Prefab = 10;
+	public const int Rotation = 11;
+	public const int Transform = 12;
+	public const int Uid = 13;
+	public const int Courier = 14;
+	public const int DeliverySource = 15;
+	public const int Level = 16;
+	public const int NextDeliveryTimer = 17;
+	public const int Partner = 18;
+	public const int InstantiateAddedListener = 19;
+	public const int LinkRemovedListener = 20;
+	public const int PositionAddedListener = 21;
+	public const int RotationAddedListener = 22;
 
-	public const int TotalComponents = 18;
+	public const int TotalComponents = 23;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -40,6 +45,7 @@ public static class GameComponentsLookup
 		"CameraGlobalTarget",
 		"PhysicalCamera",
 		"VirtualCamera",
+		"Active",
 		"Destroyed",
 		"Instantiate",
 		"Link",
@@ -50,6 +56,10 @@ public static class GameComponentsLookup
 		"Transform",
 		"Uid",
 		"Courier",
+		"DeliverySource",
+		"Level",
+		"NextDeliveryTimer",
+		"Partner",
 		"InstantiateAddedListener",
 		"LinkRemovedListener",
 		"PositionAddedListener",
@@ -62,6 +72,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Camera.CameraGlobalTargetComponent),
 		typeof(Ecs.Game.Components.Camera.PhysicalCameraComponent),
 		typeof(Ecs.Game.Components.Camera.VirtualCameraComponent),
+		typeof(Ecs.Game.Components.Common.ActiveComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent),
 		typeof(Ecs.Game.Components.Common.InstantiateComponent),
 		typeof(Ecs.Game.Components.Common.LinkComponent),
@@ -72,6 +83,10 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Common.TransformComponent),
 		typeof(Ecs.Game.Components.Common.UidComponent),
 		typeof(Ecs.Game.Components.Courier.CourierComponent),
+		typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent),
+		typeof(Ecs.Game.Components.Delivery.LevelComponent),
+		typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent),
+		typeof(Ecs.Game.Components.Delivery.PartnerComponent),
 		typeof(InstantiateAddedListenerComponent),
 		typeof(LinkRemovedListenerComponent),
 		typeof(PositionAddedListenerComponent),
@@ -84,20 +99,25 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Camera.CameraGlobalTargetComponent), 1 },
 		{ typeof(Ecs.Game.Components.Camera.PhysicalCameraComponent), 2 },
 		{ typeof(Ecs.Game.Components.Camera.VirtualCameraComponent), 3 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 4 },
-		{ typeof(Ecs.Game.Components.Common.InstantiateComponent), 5 },
-		{ typeof(Ecs.Game.Components.Common.LinkComponent), 6 },
-		{ typeof(Ecs.Game.Components.Common.OwnerComponent), 7 },
-		{ typeof(Ecs.Game.Components.Common.PositionComponent), 8 },
-		{ typeof(Ecs.Game.Components.Common.PrefabComponent), 9 },
-		{ typeof(Ecs.Game.Components.Common.RotationComponent), 10 },
-		{ typeof(Ecs.Game.Components.Common.TransformComponent), 11 },
-		{ typeof(Ecs.Game.Components.Common.UidComponent), 12 },
-		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 13 },
-		{ typeof(InstantiateAddedListenerComponent), 14 },
-		{ typeof(LinkRemovedListenerComponent), 15 },
-		{ typeof(PositionAddedListenerComponent), 16 },
-		{ typeof(RotationAddedListenerComponent), 17 }
+		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 4 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 5 },
+		{ typeof(Ecs.Game.Components.Common.InstantiateComponent), 6 },
+		{ typeof(Ecs.Game.Components.Common.LinkComponent), 7 },
+		{ typeof(Ecs.Game.Components.Common.OwnerComponent), 8 },
+		{ typeof(Ecs.Game.Components.Common.PositionComponent), 9 },
+		{ typeof(Ecs.Game.Components.Common.PrefabComponent), 10 },
+		{ typeof(Ecs.Game.Components.Common.RotationComponent), 11 },
+		{ typeof(Ecs.Game.Components.Common.TransformComponent), 12 },
+		{ typeof(Ecs.Game.Components.Common.UidComponent), 13 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 14 },
+		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 15 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 16 },
+		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 17 },
+		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 18 },
+		{ typeof(InstantiateAddedListenerComponent), 19 },
+		{ typeof(LinkRemovedListenerComponent), 20 },
+		{ typeof(PositionAddedListenerComponent), 21 },
+		{ typeof(RotationAddedListenerComponent), 22 }
 	};
 
 	/// <summary>

@@ -12,7 +12,7 @@ public partial interface IUidEntity
 	Ecs.Game.Components.Common.UidComponent Uid { get; }
 	bool HasUid { get; }
 
-	void AddUid(Ecs.Uid.Uid newValue);
-	void ReplaceUid(Ecs.Uid.Uid newValue);
+	void AddUid(Ecs.UidGenerator.Uid newValue);
+	void ReplaceUid(Ecs.UidGenerator.Uid newValue);
 	void RemoveUid();
 }

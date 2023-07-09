@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Ecs.Uid
+namespace Ecs.UidGenerator
 {
     public struct Uid
     {

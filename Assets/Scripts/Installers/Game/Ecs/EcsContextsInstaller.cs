@@ -10,10 +10,17 @@ namespace Installers.Game.Ecs
         {
             BindContext<GameContext>();
             BindContext<InputContext>();
+            BindContext<ActionContext>();
+            BindContext<DeliveryContext>();
             
             Container.BindDestroyedCleanup<GameContext, GameEntity>(GameMatcher.Destroyed);
             Container.BindDestroyedCleanup<InputContext, InputEntity>(InputMatcher.Destroyed);
+            Container.BindDestroyedCleanup<ActionContext, ActionEntity>(ActionMatcher.Destroyed);
+            Container.BindDestroyedCleanup<DeliveryContext, DeliveryEntity>(DeliveryMatcher.Destroyed);
+            
             BindEventSystem<GameEventSystems>();
+            BindEventSystem<DeliveryEventSystems>();
+   
 
             var mainFeature = new GameFeature();
 

@@ -12,7 +12,7 @@ public partial class GameEntity
 	public Ecs.Game.Components.Common.UidComponent Uid { get { return (Ecs.Game.Components.Common.UidComponent)GetComponent(GameComponentsLookup.Uid); } }
 	public bool HasUid { get { return HasComponent(GameComponentsLookup.Uid); } }
 
-	public void AddUid(Ecs.Uid.Uid newValue)
+	public void AddUid(Ecs.UidGenerator.Uid newValue)
 	{
 		var index = GameComponentsLookup.Uid;
 		var component = (Ecs.Game.Components.Common.UidComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.UidComponent));
@@ -22,7 +22,7 @@ public partial class GameEntity
 		AddComponent(index, component);
 	}
 
-	public void ReplaceUid(Ecs.Uid.Uid newValue)
+	public void ReplaceUid(Ecs.UidGenerator.Uid newValue)
 	{
 		var index = GameComponentsLookup.Uid;
 		var component = (Ecs.Game.Components.Common.UidComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.UidComponent));

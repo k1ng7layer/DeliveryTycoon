@@ -1,10 +1,13 @@
-﻿using JCMG.EntitasRedux;
+﻿using Ecs.UidGenerator;
+using JCMG.EntitasRedux;
 
 namespace Ecs.Game.Components.Common
 {
     [Game]
+    [Delivery]
     public class UidComponent : IComponent
     {
-        public Uid.Uid Value;
+        [PrimaryEntityIndex]
+        public Uid Value;
     }
 }

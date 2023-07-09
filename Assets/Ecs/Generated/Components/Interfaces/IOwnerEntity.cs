@@ -12,7 +12,7 @@ public partial interface IOwnerEntity
 	Ecs.Game.Components.Common.OwnerComponent Owner { get; }
 	bool HasOwner { get; }
 
-	void AddOwner(Ecs.Uid.Uid newValue);
-	void ReplaceOwner(Ecs.Uid.Uid newValue);
+	void AddOwner(Ecs.UidGenerator.Uid newValue);
+	void ReplaceOwner(Ecs.UidGenerator.Uid newValue);
 	void RemoveOwner();
 }

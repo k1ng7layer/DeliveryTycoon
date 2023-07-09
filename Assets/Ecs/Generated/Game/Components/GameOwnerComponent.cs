@@ -12,7 +12,7 @@ public partial class GameEntity
 	public Ecs.Game.Components.Common.OwnerComponent Owner { get { return (Ecs.Game.Components.Common.OwnerComponent)GetComponent(GameComponentsLookup.Owner); } }
 	public bool HasOwner { get { return HasComponent(GameComponentsLookup.Owner); } }
 
-	public void AddOwner(Ecs.Uid.Uid newValue)
+	public void AddOwner(Ecs.UidGenerator.Uid newValue)
 	{
 		var index = GameComponentsLookup.Owner;
 		var component = (Ecs.Game.Components.Common.OwnerComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.OwnerComponent));
@@ -22,7 +22,7 @@ public partial class GameEntity
 		AddComponent(index, component);
 	}
 
-	public void ReplaceOwner(Ecs.Uid.Uid newValue)
+	public void ReplaceOwner(Ecs.UidGenerator.Uid newValue)
 	{
 		var index = GameComponentsLookup.Owner;
 		var component = (Ecs.Game.Components.Common.OwnerComponent)CreateComponent(index, typeof(Ecs.Game.Components.Common.OwnerComponent));

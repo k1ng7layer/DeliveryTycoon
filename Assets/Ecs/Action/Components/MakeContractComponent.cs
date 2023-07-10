@@ -4,7 +4,7 @@ using JCMG.EntitasRedux;
 namespace Ecs.Action.Components
 {
     [Action]
-    public class CreateContractComponent : IComponent
+    public class MakeContractComponent : IComponent
     {
         public Uid ShopUid;
     }

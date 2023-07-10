@@ -3,12 +3,12 @@ using JCMG.EntitasRedux;
 
 namespace Ecs.Action.Systems
 {
-    public class CreateContractSystem : ReactiveSystem<ActionEntity>
+    public class MakeContractSystem : ReactiveSystem<ActionEntity>
     {
         private readonly ActionContext _action;
         private readonly GameContext _game;
 
-        public CreateContractSystem(ActionContext action, 
+        public MakeContractSystem(ActionContext action, 
             GameContext game) : base(action)
         {
             _action = action;
@@ -16,9 +16,9 @@ namespace Ecs.Action.Systems
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
-            context.CreateCollector(ActionMatcher.CreateContract);
+            context.CreateCollector(ActionMatcher.MakeContract);
 
-        protected override bool Filter(ActionEntity entity) => entity.HasCreateContract && !entity.IsDestroyed;
+        protected override bool Filter(ActionEntity entity) => entity.HasMakeContract && !entity.IsDestroyed;
 
         protected override void Execute(List<ActionEntity> entities)
         {
@@ -26,7 +26,7 @@ namespace Ecs.Action.Systems
             {
                 entity.IsDestroyed = true;
 
-                var contractorUid = entity.CreateContract.ShopUid;
+                var contractorUid = entity.MakeContract.ShopUid;
 
                 var contractor = _game.GetEntityWithUid(contractorUid);
 

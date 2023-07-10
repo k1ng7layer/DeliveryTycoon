@@ -32,12 +32,14 @@ public static class GameComponentsLookup
 	public const int Level = 16;
 	public const int NextDeliveryTimer = 17;
 	public const int Partner = 18;
-	public const int InstantiateAddedListener = 19;
-	public const int LinkRemovedListener = 20;
-	public const int PositionAddedListener = 21;
-	public const int RotationAddedListener = 22;
+	public const int SelectedShop = 19;
+	public const int ShopName = 20;
+	public const int InstantiateAddedListener = 21;
+	public const int LinkRemovedListener = 22;
+	public const int PositionAddedListener = 23;
+	public const int RotationAddedListener = 24;
 
-	public const int TotalComponents = 23;
+	public const int TotalComponents = 25;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -60,6 +62,8 @@ public static class GameComponentsLookup
 		"Level",
 		"NextDeliveryTimer",
 		"Partner",
+		"SelectedShop",
+		"ShopName",
 		"InstantiateAddedListener",
 		"LinkRemovedListener",
 		"PositionAddedListener",
@@ -87,6 +91,8 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Delivery.LevelComponent),
 		typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent),
 		typeof(Ecs.Game.Components.Delivery.PartnerComponent),
+		typeof(Ecs.Game.Components.Delivery.SelectedShopComponent),
+		typeof(Ecs.Game.Components.Shop.ShopNameComponent),
 		typeof(InstantiateAddedListenerComponent),
 		typeof(LinkRemovedListenerComponent),
 		typeof(PositionAddedListenerComponent),
@@ -114,10 +120,12 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 16 },
 		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 17 },
 		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 18 },
-		{ typeof(InstantiateAddedListenerComponent), 19 },
-		{ typeof(LinkRemovedListenerComponent), 20 },
-		{ typeof(PositionAddedListenerComponent), 21 },
-		{ typeof(RotationAddedListenerComponent), 22 }
+		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 19 },
+		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 20 },
+		{ typeof(InstantiateAddedListenerComponent), 21 },
+		{ typeof(LinkRemovedListenerComponent), 22 },
+		{ typeof(PositionAddedListenerComponent), 23 },
+		{ typeof(RotationAddedListenerComponent), 24 }
 	};
 
 	/// <summary>

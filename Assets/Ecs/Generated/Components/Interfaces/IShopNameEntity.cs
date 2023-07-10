@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface ICreateContractEntity
+public partial interface IShopNameEntity
 {
-	Ecs.Action.Components.CreateContractComponent CreateContract { get; }
-	bool HasCreateContract { get; }
+	Ecs.Game.Components.Shop.ShopNameComponent ShopName { get; }
+	bool HasShopName { get; }
 
-	void AddCreateContract(Ecs.UidGenerator.Uid newShopUid);
-	void ReplaceCreateContract(Ecs.UidGenerator.Uid newShopUid);
-	void RemoveCreateContract();
+	void AddShopName(string newValue);
+	void ReplaceShopName(string newValue);
+	void RemoveShopName();
 }

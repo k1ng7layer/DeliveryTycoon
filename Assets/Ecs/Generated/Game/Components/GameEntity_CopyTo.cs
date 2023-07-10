@@ -18,7 +18,11 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
+		if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
+		{
+			IsCustomer = true;
+		}
+		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
 			CopyShopNameTo(ShopName);
 		}

@@ -4,12 +4,15 @@ using Ecs.Game.Systems.Camera;
 using Ecs.Game.Systems.Initialize;
 using Ecs.Input.Systems;
 using Game.Services.Camera.Impl;
+using Game.Services.DeliveryDestinationService.Impl;
+using Game.Services.DeliveryPriceService.Impl;
 using Game.Services.DeliveryTargetTimeService.Impl;
 using Game.Services.GameLevelProvider.Impl;
 using Game.Services.GameLevelProvider.Views;
 using Game.Services.Input.Impl;
 using Game.Services.RandomProvider.Impl;
 using Game.Services.TimeProvider.Impl;
+using Game.UI.DeliverySourceShop.Windows;
 using UnityEngine;
 using Zenject;
 
@@ -23,6 +26,7 @@ namespace Installers.Game.City
         {
             BindServices();
             BindSystems();
+            BindWindows();
         }
 
         private void BindServices()
@@ -33,11 +37,14 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<SystemRandomProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameLevelProvider>().AsSingle().WithArguments(gameLevelView);
             Container.BindInterfacesAndSelfTo<RandomDeliveryTargetTimeService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DefaultDeliveryPriceService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DeliveryRandomTargetService>().AsSingle();
         }
 
         private void BindSystems()
         {
             Container.BindInterfacesAndSelfTo<InitializeGameSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InitializeCustomersSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeInputSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeCameraSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeDeliverySourcesSystem>().AsSingle();
@@ -47,6 +54,11 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CreateDeliverySystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MakeContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<SelectShopSystem>().AsSingle();
+        }
+
+        private void BindWindows()
+        {
+            Container.BindInterfacesAndSelfTo<ShopViewWindow>().AsSingle();
         }
     }
 }

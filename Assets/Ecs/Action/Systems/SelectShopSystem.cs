@@ -20,9 +20,9 @@ namespace Ecs.Action.Systems
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
-            context.CreateCollector(ActionMatcher.MakeContract);
+            context.CreateCollector(ActionMatcher.SelectShop);
 
-        protected override bool Filter(ActionEntity entity) => entity.HasMakeContract && !entity.IsDestroyed;
+        protected override bool Filter(ActionEntity entity) => entity.HasSelectShop && !entity.IsDestroyed;
 
         protected override void Execute(List<ActionEntity> entities)
         {
@@ -30,9 +30,9 @@ namespace Ecs.Action.Systems
             {
                 entity.IsDestroyed = true;
 
-                var shopUid = entity.MakeContract.ShopUid;
+                var shopUid = entity.SelectShop.ShopUid;
 
-                _game.SetSelectedShop(shopUid);
+                _game.ReplaceSelectedShop(shopUid);
                 
                 _signalBus.OpenWindow<ShopViewWindow>();
             }

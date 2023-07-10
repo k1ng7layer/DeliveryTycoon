@@ -1,4 +1,5 @@
-﻿using Ecs.Views.Linkable.Impl;
+﻿using Db.Shop;
+using Ecs.Views.Linkable.Impl;
 using JCMG.EntitasRedux;
 using SimpleUi.Signals;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace Ecs.Views.Shops
 {
     public class ShopView : ObjectView
     {
-        [SerializeField] private int deliverySourceLevel;
+        [SerializeField] private ShopParameters shopParameters;
 
         private bool _opened;
         private GameEntity _self;
@@ -16,14 +17,14 @@ namespace Ecs.Views.Shops
         [Inject] private readonly SignalBus _signalBus;
         [Inject] private readonly ActionContext _action;
 
-        public int DeliverySourceLevel => deliverySourceLevel;
-
-
+        public ShopParameters ShopParameters => shopParameters;
+        
         public override void Link(IEntity entity, IContext context)
         {
             base.Link(entity, context);
 
             _self = (GameEntity)entity;
+            _self.AddShopName(shopParameters.Name);
         }
 
         private void OnMouseUpAsButton()
@@ -36,6 +37,7 @@ namespace Ecs.Views.Shops
             }
             else
             {
+                _opened = false;
                 _signalBus.BackWindow();
             }
         }

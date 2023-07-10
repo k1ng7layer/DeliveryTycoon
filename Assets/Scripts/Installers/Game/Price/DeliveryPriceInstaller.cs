@@ -7,8 +7,8 @@ namespace Installers.Game.Price
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<DeliveryDistancePriceMultiplier>();
-            Container.BindInterfacesAndSelfTo<DeliveryItemsAmountMultiplier>();
+            Container.BindInterfacesAndSelfTo<DeliveryDistancePriceMultiplier>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DeliveryItemsAmountMultiplier>().AsSingle();
         }
     }
 }

@@ -18,7 +18,11 @@ public partial class ActionEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Action.Components.StartNextDeliveryTimerComponent StartNextDeliveryTimer)
+		if (component is Ecs.Action.Components.CreateContractComponent CreateContract)
+		{
+			CopyCreateContractTo(CreateContract);
+		}
+		else if (component is Ecs.Action.Components.StartNextDeliveryTimerComponent StartNextDeliveryTimer)
 		{
 			CopyStartNextDeliveryTimerTo(StartNextDeliveryTimer);
 		}

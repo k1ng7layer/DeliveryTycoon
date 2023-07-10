@@ -27,6 +27,7 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var currentShopUid = _game.SelectedShop.ShopUid;
             
             _action.CreateEntity().AddMakeContract(currentShopUid);
+            View.EngageContractButton.interactable = false;
         }
 
         public override void OnShow()
@@ -36,6 +37,9 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var currentShopName = currentShop.ShopName.Value;
 
             View.ShopName.text = currentShopName;
+
+            if (currentShop.IsPartner)
+                View.EngageContractButton.interactable = false;
         }
     }
 }

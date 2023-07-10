@@ -27,7 +27,7 @@ namespace Ecs.Game.Systems.Initialize
                 deliverySourceEntity.AddLink(source);
                 deliverySourceEntity.AddPosition(source.transform.position);
                 deliverySourceEntity.AddUid(UidGenerator.UidGenerator.Next());
-                deliverySourceEntity.AddLevel(source.DeliverySourceLevel);
+                deliverySourceEntity.AddLevel(source.ShopParameters.ShopLevel);
                 
                 source.Link(deliverySourceEntity, _game);
             }

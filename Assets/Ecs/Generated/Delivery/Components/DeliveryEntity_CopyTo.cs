@@ -18,23 +18,7 @@ public partial class DeliveryEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Delivery.Components.SourcePositionComponent SourcePosition)
-		{
-			CopySourcePositionTo(SourcePosition);
-		}
-		else if (component is Ecs.Delivery.Components.AmountComponent Amount)
-		{
-			CopyAmountTo(Amount);
-		}
-		else if (component is Ecs.Delivery.Components.SourceComponent Source)
-		{
-			CopySourceTo(Source);
-		}
-		else if (component is Ecs.Delivery.Components.TargetTimeComponent TargetTime)
-		{
-			CopyTargetTimeTo(TargetTime);
-		}
-		else if (component is Ecs.Delivery.Components.DurationComponent Duration)
+		if (component is Ecs.Delivery.Components.DurationComponent Duration)
 		{
 			CopyDurationTo(Duration);
 		}
@@ -42,9 +26,25 @@ public partial class DeliveryEntity
 		{
 			CopyDestinationTo(Destination);
 		}
+		else if (component is Ecs.Delivery.Components.TargetTimeComponent TargetTime)
+		{
+			CopyTargetTimeTo(TargetTime);
+		}
+		else if (component is Ecs.Delivery.Components.SourceComponent Source)
+		{
+			CopySourceTo(Source);
+		}
+		else if (component is Ecs.Delivery.Components.AmountComponent Amount)
+		{
+			CopyAmountTo(Amount);
+		}
 		else if (component is Ecs.Delivery.Components.PriceComponent Price)
 		{
 			CopyPriceTo(Price);
+		}
+		else if (component is Ecs.Delivery.Components.SourcePositionComponent SourcePosition)
+		{
+			CopySourcePositionTo(SourcePosition);
 		}
 		else if (component is Ecs.Game.Components.Delivery.DeliveryComponent Delivery)
 		{

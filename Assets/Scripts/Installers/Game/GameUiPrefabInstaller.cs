@@ -1,4 +1,6 @@
-﻿using Game.UI.MainMenu.Controllers;
+﻿using Game.UI.DeliverySourceShop.Controllers;
+using Game.UI.DeliverySourceShop.Views;
+using Game.UI.MainMenu.Controllers;
 using Game.UI.MainMenu.Views;
 using SimpleUi;
 using UnityEngine;
@@ -11,6 +13,7 @@ namespace Installers.Game
     {
         [SerializeField] private Canvas canvas;
         [Space] [SerializeField] private MainMenuView mainMenuView;
+        [SerializeField] private ShopWindowView shopWindowView;
 
         public override void InstallBindings()
         {
@@ -18,6 +21,7 @@ namespace Installers.Game
             var canvasTransform = canvasView.transform;
             
             Container.BindUiView<MainMenuController, MainMenuView>(mainMenuView, canvasTransform);
+            Container.BindUiView<ShopWindowController, ShopWindowView>(shopWindowView, canvasTransform);
         }
     }
 }

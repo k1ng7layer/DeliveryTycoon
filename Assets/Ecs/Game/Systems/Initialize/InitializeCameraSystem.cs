@@ -38,7 +38,7 @@ namespace Ecs.Game.Systems.Initialize
             cameraFollowEntity.IsCameraGlobalTarget = true;
             cameraFollowEntity.AddPosition(view.transform.position);
             var viewRotationEuler = view.transform.rotation.eulerAngles;
-            var viewRotation = new Vector3(viewRotationEuler.x, 45f, viewRotationEuler.z);
+            var viewRotation = new Vector3(viewRotationEuler.x, viewRotationEuler.y, viewRotationEuler.z);
             
             cameraFollowEntity.AddRotation(Quaternion.Euler(viewRotation));
             cameraFollowEntity.AddLink(view);

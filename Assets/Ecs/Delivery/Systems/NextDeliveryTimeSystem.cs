@@ -42,7 +42,8 @@ namespace Ecs.Delivery.Systems
                     var deliverySourceUid = deliverySourceEntity.Uid.Value; 
                     
                     _action.CreateEntity().AddCreateDelivery(deliverySourceUid);
-                    _action.CreateEntity().AddStartNextDeliveryTimer(deliverySourceUid);
+                    //_action.CreateEntity().AddStartNextDeliveryTimer(deliverySourceUid);
+                    deliverySourceEntity.RemoveNextDeliveryTimer();
                 }
             }
             

@@ -54,6 +54,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CreateDeliverySystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MakeContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<SelectShopSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StartNextDeliveryTimerSystem>().AsSingle();
         }
 
         private void BindWindows()

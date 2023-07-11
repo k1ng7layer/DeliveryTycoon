@@ -56,10 +56,12 @@ namespace Ecs.Action.Systems
                 var deliveryTargetTime = _deliveryTargetTimeService.GetDeliveryTargetTime(deliverySourceLevel);
                 
                 var deliveryEntity = _delivery.CreateDelivery(deliveryTargetTime, deliverySourcePosition, deliveryTargetPosition);
-                
+                deliveryEntity.AddSource(sourceUid);
+                deliveryEntity.AddAmount(2); //TODO:
                 var deliveryPrice = _deliveryPriceService.CalculateDeliveryPrice(deliveryEntity);
                 
                 deliveryEntity.AddPrice(deliveryPrice);
+              
             }
         }
     }

@@ -10,9 +10,12 @@ using Game.Services.DeliveryTargetTimeService.Impl;
 using Game.Services.GameLevelProvider.Impl;
 using Game.Services.GameLevelProvider.Views;
 using Game.Services.Input.Impl;
+using Game.Services.PointerRaycastService;
+using Game.Services.PointerRaycastService.Impl;
 using Game.Services.RandomProvider.Impl;
 using Game.Services.TimeProvider.Impl;
 using Game.UI.DeliverySourceShop.Windows;
+using Game.UI.GameHud.Windows;
 using UnityEngine;
 using Zenject;
 
@@ -39,6 +42,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<RandomDeliveryTargetTimeService>().AsSingle();
             Container.BindInterfacesAndSelfTo<DefaultDeliveryPriceService>().AsSingle();
             Container.BindInterfacesAndSelfTo<DeliveryRandomTargetService>().AsSingle();
+            Container.Bind<IRaycastProvider>().To<RaycastProvider>().AsSingle();
         }
 
         private void BindSystems()
@@ -60,6 +64,7 @@ namespace Installers.Game.City
         private void BindWindows()
         {
             Container.BindInterfacesAndSelfTo<ShopViewWindow>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameHudWindow>().AsSingle();
         }
     }
 }

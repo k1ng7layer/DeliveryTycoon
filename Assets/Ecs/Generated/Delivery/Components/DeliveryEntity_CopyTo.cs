@@ -34,9 +34,9 @@ public partial class DeliveryEntity
 		{
 			CopySourceTo(Source);
 		}
-		else if (component is Ecs.Delivery.Components.AmountComponent Amount)
+		else if (component is Ecs.Delivery.Components.ItemsAmountComponent ItemsAmount)
 		{
-			CopyAmountTo(Amount);
+			CopyItemsAmountTo(ItemsAmount);
 		}
 		else if (component is Ecs.Delivery.Components.PriceComponent Price)
 		{

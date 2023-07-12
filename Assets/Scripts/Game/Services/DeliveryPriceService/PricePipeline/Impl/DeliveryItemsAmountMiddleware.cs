@@ -13,7 +13,7 @@ namespace Game.Services.DeliveryPriceService.PricePipeline.Impl
         
         public float CalculateMultiplier(DeliveryEntity deliveryEntity)
         {
-            var deliveryItemsAmount = deliveryEntity.Amount.Value;
+            var deliveryItemsAmount = deliveryEntity.ItemsAmount.Value;
      
             var deliveryItemsAmountMultiplier = _deliveryParametersProvider.GetItemAmountPriceMultiplier(deliveryItemsAmount);
 

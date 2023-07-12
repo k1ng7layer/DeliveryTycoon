@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IAmountEntity
+public partial interface IItemsAmountEntity
 {
-	Ecs.Delivery.Components.AmountComponent Amount { get; }
-	bool HasAmount { get; }
+	Ecs.Delivery.Components.ItemsAmountComponent ItemsAmount { get; }
+	bool HasItemsAmount { get; }
 
-	void AddAmount(int newValue);
-	void ReplaceAmount(int newValue);
-	void RemoveAmount();
+	void AddItemsAmount(int newValue);
+	void ReplaceItemsAmount(int newValue);
+	void RemoveItemsAmount();
 }

@@ -14,9 +14,9 @@ using JCMG.EntitasRedux;
 public static class DeliveryComponentsLookup
 {
 	public const int DurationAddedListener = 0;
-	public const int Amount = 1;
-	public const int Destination = 2;
-	public const int Duration = 3;
+	public const int Destination = 1;
+	public const int Duration = 2;
+	public const int ItemsAmount = 3;
 	public const int Price = 4;
 	public const int Source = 5;
 	public const int SourcePosition = 6;
@@ -31,9 +31,9 @@ public static class DeliveryComponentsLookup
 	public static readonly string[] ComponentNames =
 	{
 		"DurationAddedListener",
-		"Amount",
 		"Destination",
 		"Duration",
+		"ItemsAmount",
 		"Price",
 		"Source",
 		"SourcePosition",
@@ -47,9 +47,9 @@ public static class DeliveryComponentsLookup
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(DurationAddedListenerComponent),
-		typeof(Ecs.Delivery.Components.AmountComponent),
 		typeof(Ecs.Delivery.Components.DestinationComponent),
 		typeof(Ecs.Delivery.Components.DurationComponent),
+		typeof(Ecs.Delivery.Components.ItemsAmountComponent),
 		typeof(Ecs.Delivery.Components.PriceComponent),
 		typeof(Ecs.Delivery.Components.SourceComponent),
 		typeof(Ecs.Delivery.Components.SourcePositionComponent),
@@ -63,9 +63,9 @@ public static class DeliveryComponentsLookup
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(DurationAddedListenerComponent), 0 },
-		{ typeof(Ecs.Delivery.Components.AmountComponent), 1 },
-		{ typeof(Ecs.Delivery.Components.DestinationComponent), 2 },
-		{ typeof(Ecs.Delivery.Components.DurationComponent), 3 },
+		{ typeof(Ecs.Delivery.Components.DestinationComponent), 1 },
+		{ typeof(Ecs.Delivery.Components.DurationComponent), 2 },
+		{ typeof(Ecs.Delivery.Components.ItemsAmountComponent), 3 },
 		{ typeof(Ecs.Delivery.Components.PriceComponent), 4 },
 		{ typeof(Ecs.Delivery.Components.SourceComponent), 5 },
 		{ typeof(Ecs.Delivery.Components.SourcePositionComponent), 6 },

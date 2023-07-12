@@ -18,11 +18,7 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
-		{
-			IsCustomer = true;
-		}
-		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
+		if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
 			CopyShopNameTo(ShopName);
 		}
@@ -30,9 +26,9 @@ public partial class GameEntity
 		{
 			IsCourier = true;
 		}
-		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
+		else if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
 		{
-			CopySelectedShopTo(SelectedShop);
+			IsCustomer = true;
 		}
 		else if (component is Ecs.Game.Components.Delivery.LevelComponent Level)
 		{
@@ -49,6 +45,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Delivery.NextDeliveryTimerComponent NextDeliveryTimer)
 		{
 			CopyNextDeliveryTimerTo(NextDeliveryTimer);
+		}
+		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
+		{
+			CopySelectedShopTo(SelectedShop);
 		}
 		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
 		{

@@ -9,5 +9,10 @@
 //------------------------------------------------------------------------------
 public partial interface ICourierEntity
 {
-	bool IsCourier { get; set; }
+	Ecs.Game.Components.Courier.CourierComponent Courier { get; }
+	bool HasCourier { get; }
+
+	void AddCourier(Game.Utils.ECourierType newType);
+	void ReplaceCourier(Game.Utils.ECourierType newType);
+	void RemoveCourier();
 }

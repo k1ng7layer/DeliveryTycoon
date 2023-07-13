@@ -18,7 +18,27 @@ public partial class DeliveryEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Delivery.Components.DurationComponent Duration)
+		if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
+		{
+			CopyCourierTo(Courier);
+		}
+		else if (component is Ecs.Game.Components.Delivery.DeliveryComponent Delivery)
+		{
+			IsDelivery = true;
+		}
+		else if (component is Ecs.Game.Components.Common.ActiveComponent Active)
+		{
+			IsActive = true;
+		}
+		else if (component is Ecs.Game.Components.Common.UidComponent Uid)
+		{
+			CopyUidTo(Uid);
+		}
+		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		{
+			IsDestroyed = true;
+		}
+		else if (component is Ecs.Delivery.Components.DurationComponent Duration)
 		{
 			CopyDurationTo(Duration);
 		}
@@ -42,25 +62,17 @@ public partial class DeliveryEntity
 		{
 			CopyPriceTo(Price);
 		}
+		else if (component is Ecs.Delivery.Components.CourierAmountComponent CourierAmount)
+		{
+			CopyCourierAmountTo(CourierAmount);
+		}
 		else if (component is Ecs.Delivery.Components.SourcePositionComponent SourcePosition)
 		{
 			CopySourcePositionTo(SourcePosition);
 		}
-		else if (component is Ecs.Game.Components.Delivery.DeliveryComponent Delivery)
+		else if (component is Ecs.Delivery.Components.DeliveryStatusComponent DeliveryStatus)
 		{
-			IsDelivery = true;
-		}
-		else if (component is Ecs.Game.Components.Common.ActiveComponent Active)
-		{
-			IsActive = true;
-		}
-		else if (component is Ecs.Game.Components.Common.UidComponent Uid)
-		{
-			CopyUidTo(Uid);
-		}
-		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
-		{
-			IsDestroyed = true;
+			CopyDeliveryStatusTo(DeliveryStatus);
 		}
 		else if (component is DurationAddedListenerComponent DurationAddedListener)
 		{

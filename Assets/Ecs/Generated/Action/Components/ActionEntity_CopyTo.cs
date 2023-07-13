@@ -30,9 +30,17 @@ public partial class ActionEntity
 		{
 			CopyMakeContractTo(MakeContract);
 		}
+		else if (component is Ecs.Action.Components.ChangeCoinsComponent ChangeCoins)
+		{
+			CopyChangeCoinsTo(ChangeCoins);
+		}
 		else if (component is Ecs.Action.Components.CreateDeliveryComponent CreateDelivery)
 		{
 			CopyCreateDeliveryTo(CreateDelivery);
+		}
+		else if (component is Ecs.Action.Components.BuyCourierComponent BuyCourier)
+		{
+			IsBuyCourier = true;
 		}
 		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
 		{

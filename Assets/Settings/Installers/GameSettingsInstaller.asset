@@ -15,3 +15,4 @@ MonoBehaviour:
   cameraParameters: {fileID: 11400000, guid: 4eb63ede37fe408498970e1d20988b5b, type: 2}
   deliverySourceParametersProvider: {fileID: 11400000, guid: 8bfef9de3225cc14c940ac4ba0e96841, type: 2}
   deliveryParametersProvider: {fileID: 11400000, guid: 1458f6e229e942d428f30ee1e1dfdb0b, type: 2}
+  employeeSettingsProvider: {fileID: 11400000, guid: 1b2831bcd738d7d40bd07956184ffe5f, type: 2}

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572e62936c40458c95f6581729026258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4879195862957543616, guid: 28d9324eb4899b04092d53216b55b7cc, type: 3}
+  prefab: {fileID: 6500279447233389100, guid: 28d9324eb4899b04092d53216b55b7cc, type: 3}
   collectionRoot: {fileID: 1992090895319701050}
 --- !u!114 &1992090895319701046
 MonoBehaviour:

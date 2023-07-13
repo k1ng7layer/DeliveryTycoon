@@ -18,17 +18,25 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
+		if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
+		{
+			CopyWalletTo(Wallet);
+		}
+		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
 			CopyShopNameTo(ShopName);
-		}
-		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
-		{
-			IsCourier = true;
 		}
 		else if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
 		{
 			IsCustomer = true;
+		}
+		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
+		{
+			CopyCourierTo(Courier);
+		}
+		else if (component is Ecs.Game.Components.Courier.TotalEmployeesComponent TotalEmployees)
+		{
+			CopyTotalEmployeesTo(TotalEmployees);
 		}
 		else if (component is Ecs.Game.Components.Delivery.LevelComponent Level)
 		{
@@ -105,6 +113,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Common.PositionComponent Position)
 		{
 			CopyPositionTo(Position);
+		}
+		else if (component is WalletAddedListenerComponent WalletAddedListener)
+		{
+			CopyWalletAddedListenerTo(WalletAddedListener);
 		}
 		else if (component is RotationAddedListenerComponent RotationAddedListener)
 		{

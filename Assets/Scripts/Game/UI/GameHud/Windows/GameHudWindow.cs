@@ -1,4 +1,7 @@
-﻿using Game.UI.OrderView.Controllers;
+﻿using Game.UI.BuyCourierButton.Controllers;
+using Game.UI.CouriersView.Controllers;
+using Game.UI.OrderView.Controllers;
+using Game.UI.Wallet.Controllers;
 using SimpleUi;
 
 namespace Game.UI.GameHud.Windows
@@ -10,6 +13,9 @@ namespace Game.UI.GameHud.Windows
         protected override void AddControllers()
         {
             AddController<OrderItemCollectionController>();
+            AddController<BuyCourierButtonController>();
+            AddController<WalletController>();
+            AddController<CouriersUiController>();
         }
     }
 }

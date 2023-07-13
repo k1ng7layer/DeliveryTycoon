@@ -14,23 +14,28 @@ using JCMG.EntitasRedux;
 public static class DeliveryComponentsLookup
 {
 	public const int DurationAddedListener = 0;
-	public const int Destination = 1;
-	public const int Duration = 2;
-	public const int ItemsAmount = 3;
-	public const int Price = 4;
-	public const int Source = 5;
-	public const int SourcePosition = 6;
-	public const int TargetTime = 7;
-	public const int Active = 8;
-	public const int Destroyed = 9;
-	public const int Uid = 10;
-	public const int Delivery = 11;
+	public const int CourierAmount = 1;
+	public const int DeliveryStatus = 2;
+	public const int Destination = 3;
+	public const int Duration = 4;
+	public const int ItemsAmount = 5;
+	public const int Price = 6;
+	public const int Source = 7;
+	public const int SourcePosition = 8;
+	public const int TargetTime = 9;
+	public const int Active = 10;
+	public const int Destroyed = 11;
+	public const int Uid = 12;
+	public const int Courier = 13;
+	public const int Delivery = 14;
 
-	public const int TotalComponents = 12;
+	public const int TotalComponents = 15;
 
 	public static readonly string[] ComponentNames =
 	{
 		"DurationAddedListener",
+		"CourierAmount",
+		"DeliveryStatus",
 		"Destination",
 		"Duration",
 		"ItemsAmount",
@@ -41,12 +46,15 @@ public static class DeliveryComponentsLookup
 		"Active",
 		"Destroyed",
 		"Uid",
+		"Courier",
 		"Delivery"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(DurationAddedListenerComponent),
+		typeof(Ecs.Delivery.Components.CourierAmountComponent),
+		typeof(Ecs.Delivery.Components.DeliveryStatusComponent),
 		typeof(Ecs.Delivery.Components.DestinationComponent),
 		typeof(Ecs.Delivery.Components.DurationComponent),
 		typeof(Ecs.Delivery.Components.ItemsAmountComponent),
@@ -57,23 +65,27 @@ public static class DeliveryComponentsLookup
 		typeof(Ecs.Game.Components.Common.ActiveComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent),
 		typeof(Ecs.Game.Components.Common.UidComponent),
+		typeof(Ecs.Game.Components.Courier.CourierComponent),
 		typeof(Ecs.Game.Components.Delivery.DeliveryComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(DurationAddedListenerComponent), 0 },
-		{ typeof(Ecs.Delivery.Components.DestinationComponent), 1 },
-		{ typeof(Ecs.Delivery.Components.DurationComponent), 2 },
-		{ typeof(Ecs.Delivery.Components.ItemsAmountComponent), 3 },
-		{ typeof(Ecs.Delivery.Components.PriceComponent), 4 },
-		{ typeof(Ecs.Delivery.Components.SourceComponent), 5 },
-		{ typeof(Ecs.Delivery.Components.SourcePositionComponent), 6 },
-		{ typeof(Ecs.Delivery.Components.TargetTimeComponent), 7 },
-		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 8 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 9 },
-		{ typeof(Ecs.Game.Components.Common.UidComponent), 10 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliveryComponent), 11 }
+		{ typeof(Ecs.Delivery.Components.CourierAmountComponent), 1 },
+		{ typeof(Ecs.Delivery.Components.DeliveryStatusComponent), 2 },
+		{ typeof(Ecs.Delivery.Components.DestinationComponent), 3 },
+		{ typeof(Ecs.Delivery.Components.DurationComponent), 4 },
+		{ typeof(Ecs.Delivery.Components.ItemsAmountComponent), 5 },
+		{ typeof(Ecs.Delivery.Components.PriceComponent), 6 },
+		{ typeof(Ecs.Delivery.Components.SourceComponent), 7 },
+		{ typeof(Ecs.Delivery.Components.SourcePositionComponent), 8 },
+		{ typeof(Ecs.Delivery.Components.TargetTimeComponent), 9 },
+		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 10 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 11 },
+		{ typeof(Ecs.Game.Components.Common.UidComponent), 12 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 13 },
+		{ typeof(Ecs.Game.Components.Delivery.DeliveryComponent), 14 }
 	};
 
 	/// <summary>

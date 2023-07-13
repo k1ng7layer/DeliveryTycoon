@@ -22,9 +22,18 @@ namespace Game.UI.OrderView.Controllers
         {
             var orderItemView = View.OrderItemCollectionView.Create();
             var orderUid = deliveryEntity.Uid.Value;
+            var orderStatus = deliveryEntity.DeliveryStatus.Value;
             
             if(!_orderItemsTable.ContainsKey(orderUid))
                 _orderItemsTable.Add(orderUid, orderItemView);
+
+            var courierType = deliveryEntity.Courier.Type;
+            var courierAmount = deliveryEntity.CourierAmount.Value;
+
+            orderItemView.courierAmountText.text = $"Courier amount required: {courierAmount}";
+            orderItemView.courierTypeText.text = $"Courier type required: {courierType}";
+
+            ChangeOrderStatus(deliveryEntity, orderStatus);
         }
 
         public void ChangeOrderStatus(DeliveryEntity deliveryEntity, EOrderStatus eOrderStatus)

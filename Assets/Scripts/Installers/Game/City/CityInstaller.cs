@@ -34,6 +34,7 @@ namespace Installers.Game.City
         {
             BindServices();
             BindSystems();
+            StartGameSystems();
             BindWindows();
         }
 
@@ -68,13 +69,18 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<BuyCourierSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ChangeCoinsSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CheckDeliveryStatusSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<StartGameSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CreateCourierSystem>().AsSingle();
         }
 
         private void BindWindows()
         {
             Container.BindInterfacesAndSelfTo<ShopViewWindow>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameHudWindow>().AsSingle();
+        }
+
+        private void StartGameSystems()
+        {
+            Container.BindInterfacesAndSelfTo<StartGameSystem>().AsSingle();
         }
     }
 }

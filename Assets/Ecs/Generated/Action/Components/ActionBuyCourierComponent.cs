@@ -7,36 +7,44 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Ecs.Action.Components.Courier;
-
 public partial class ActionEntity
 {
-	static readonly BuyCourierComponent BuyCourierComponent = new BuyCourierComponent();
+	public Ecs.Action.Components.Courier.BuyCourierComponent BuyCourier { get { return (Ecs.Action.Components.Courier.BuyCourierComponent)GetComponent(ActionComponentsLookup.BuyCourier); } }
+	public bool HasBuyCourier { get { return HasComponent(ActionComponentsLookup.BuyCourier); } }
 
-	public bool IsBuyCourier
+	public void AddBuyCourier(Game.Utils.ECourierType newType)
 	{
-		get { return HasComponent(ActionComponentsLookup.BuyCourier); }
-		set
-		{
-			if (value != IsBuyCourier)
-			{
-				var index = ActionComponentsLookup.BuyCourier;
-				if (value)
-				{
-					var componentPool = GetComponentPool(index);
-					var component = componentPool.Count > 0
-							? componentPool.Pop()
-							: BuyCourierComponent;
+		var index = ActionComponentsLookup.BuyCourier;
+		var component = (Ecs.Action.Components.Courier.BuyCourierComponent)CreateComponent(index, typeof(Ecs.Action.Components.Courier.BuyCourierComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Type = newType;
+		#endif
+		AddComponent(index, component);
+	}
 
-					AddComponent(index, component);
-				}
-				else
-				{
-					RemoveComponent(index);
-				}
-			}
-		}
+	public void ReplaceBuyCourier(Game.Utils.ECourierType newType)
+	{
+		var index = ActionComponentsLookup.BuyCourier;
+		var component = (Ecs.Action.Components.Courier.BuyCourierComponent)CreateComponent(index, typeof(Ecs.Action.Components.Courier.BuyCourierComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Type = newType;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void CopyBuyCourierTo(Ecs.Action.Components.Courier.BuyCourierComponent copyComponent)
+	{
+		var index = ActionComponentsLookup.BuyCourier;
+		var component = (Ecs.Action.Components.Courier.BuyCourierComponent)CreateComponent(index, typeof(Ecs.Action.Components.Courier.BuyCourierComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Type = copyComponent.Type;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void RemoveBuyCourier()
+	{
+		RemoveComponent(ActionComponentsLookup.BuyCourier);
 	}
 }
 

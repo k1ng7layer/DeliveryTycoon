@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IBuyCourierEntity
+public partial interface ICourierSpawnPointEntity
 {
-	Ecs.Action.Components.Courier.BuyCourierComponent BuyCourier { get; }
-	bool HasBuyCourier { get; }
+	Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent CourierSpawnPoint { get; }
+	bool HasCourierSpawnPoint { get; }
 
-	void AddBuyCourier(Game.Utils.ECourierType newType);
-	void ReplaceBuyCourier(Game.Utils.ECourierType newType);
-	void RemoveBuyCourier();
+	void AddCourierSpawnPoint(UnityEngine.Vector3 newValue);
+	void ReplaceCourierSpawnPoint(UnityEngine.Vector3 newValue);
+	void RemoveCourierSpawnPoint();
 }

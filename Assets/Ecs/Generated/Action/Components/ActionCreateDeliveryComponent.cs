@@ -7,18 +7,15 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Ecs.Action.Components.Delivery;
-
 public partial class ActionEntity
 {
-	public CreateDeliveryComponent CreateDelivery { get { return (CreateDeliveryComponent)GetComponent(ActionComponentsLookup.CreateDelivery); } }
+	public Ecs.Action.Components.Delivery.CreateDeliveryComponent CreateDelivery { get { return (Ecs.Action.Components.Delivery.CreateDeliveryComponent)GetComponent(ActionComponentsLookup.CreateDelivery); } }
 	public bool HasCreateDelivery { get { return HasComponent(ActionComponentsLookup.CreateDelivery); } }
 
 	public void AddCreateDelivery(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.CreateDelivery;
-		var component = (CreateDeliveryComponent)CreateComponent(index, typeof(CreateDeliveryComponent));
+		var component = (Ecs.Action.Components.Delivery.CreateDeliveryComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.CreateDeliveryComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
@@ -28,17 +25,17 @@ public partial class ActionEntity
 	public void ReplaceCreateDelivery(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.CreateDelivery;
-		var component = (CreateDeliveryComponent)CreateComponent(index, typeof(CreateDeliveryComponent));
+		var component = (Ecs.Action.Components.Delivery.CreateDeliveryComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.CreateDeliveryComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyCreateDeliveryTo(CreateDeliveryComponent copyComponent)
+	public void CopyCreateDeliveryTo(Ecs.Action.Components.Delivery.CreateDeliveryComponent copyComponent)
 	{
 		var index = ActionComponentsLookup.CreateDelivery;
-		var component = (CreateDeliveryComponent)CreateComponent(index, typeof(CreateDeliveryComponent));
+		var component = (Ecs.Action.Components.Delivery.CreateDeliveryComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.CreateDeliveryComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = copyComponent.DeliverySourceUid;
 		#endif

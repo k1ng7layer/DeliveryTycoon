@@ -7,12 +7,9 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Ecs.Action.Components.Coins;
-
 public partial interface IChangeCoinsEntity
 {
-	ChangeCoinsComponent ChangeCoins { get; }
+	Ecs.Action.Components.Coins.ChangeCoinsComponent ChangeCoins { get; }
 	bool HasChangeCoins { get; }
 
 	void AddChangeCoins(float newValue);

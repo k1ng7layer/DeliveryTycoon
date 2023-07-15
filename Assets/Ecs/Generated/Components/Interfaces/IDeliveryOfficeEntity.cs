@@ -7,12 +7,7 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IBuyCourierEntity
+public partial interface IDeliveryOfficeEntity
 {
-	Ecs.Action.Components.Courier.BuyCourierComponent BuyCourier { get; }
-	bool HasBuyCourier { get; }
-
-	void AddBuyCourier(Game.Utils.ECourierType newType);
-	void ReplaceBuyCourier(Game.Utils.ECourierType newType);
-	void RemoveBuyCourier();
+	bool IsDeliveryOffice { get; set; }
 }

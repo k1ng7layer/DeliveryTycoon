@@ -33,7 +33,7 @@ namespace Game.UI.BuyCourierButton.Controllers
 
         private void BuyCourier()
         {
-            _action.CreateEntity().IsBuyCourier = true;
+            _action.CreateEntity().AddBuyCourier(ECourierType.Foot);
         }
 
         public void OnWalletAdded(GameEntity entity, float value)

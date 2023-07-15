@@ -46,6 +46,10 @@ public partial class GameEntity
 		{
 			CopyTotalEmployeesTo(TotalEmployees);
 		}
+		else if (component is Ecs.Game.Components.Delivery.DeliveryOfficeComponent DeliveryOffice)
+		{
+			IsDeliveryOffice = true;
+		}
 		else if (component is Ecs.Game.Components.Delivery.LevelComponent Level)
 		{
 			CopyLevelTo(Level);
@@ -81,6 +85,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Camera.CameraGlobalTargetComponent CameraGlobalTarget)
 		{
 			IsCameraGlobalTarget = true;
+		}
+		else if (component is Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent CourierSpawnPoint)
+		{
+			CopyCourierSpawnPointTo(CourierSpawnPoint);
 		}
 		else if (component is Ecs.Game.Components.Common.RotationComponent Rotation)
 		{

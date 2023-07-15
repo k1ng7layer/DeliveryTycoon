@@ -7,18 +7,15 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Ecs.Action.Components.CustomersShop;
-
 public partial class ActionEntity
 {
-	public MakeContractComponent MakeContract { get { return (MakeContractComponent)GetComponent(ActionComponentsLookup.MakeContract); } }
+	public Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract { get { return (Ecs.Action.Components.CustomersShop.MakeContractComponent)GetComponent(ActionComponentsLookup.MakeContract); } }
 	public bool HasMakeContract { get { return HasComponent(ActionComponentsLookup.MakeContract); } }
 
 	public void AddMakeContract(Ecs.UidGenerator.Uid newShopUid)
 	{
 		var index = ActionComponentsLookup.MakeContract;
-		var component = (MakeContractComponent)CreateComponent(index, typeof(MakeContractComponent));
+		var component = (Ecs.Action.Components.CustomersShop.MakeContractComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.ShopUid = newShopUid;
 		#endif
@@ -28,17 +25,17 @@ public partial class ActionEntity
 	public void ReplaceMakeContract(Ecs.UidGenerator.Uid newShopUid)
 	{
 		var index = ActionComponentsLookup.MakeContract;
-		var component = (MakeContractComponent)CreateComponent(index, typeof(MakeContractComponent));
+		var component = (Ecs.Action.Components.CustomersShop.MakeContractComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.ShopUid = newShopUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyMakeContractTo(MakeContractComponent copyComponent)
+	public void CopyMakeContractTo(Ecs.Action.Components.CustomersShop.MakeContractComponent copyComponent)
 	{
 		var index = ActionComponentsLookup.MakeContract;
-		var component = (MakeContractComponent)CreateComponent(index, typeof(MakeContractComponent));
+		var component = (Ecs.Action.Components.CustomersShop.MakeContractComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.ShopUid = copyComponent.ShopUid;
 		#endif

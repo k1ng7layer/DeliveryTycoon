@@ -7,12 +7,9 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Ecs.Action.Components.CustomersShop;
-
 public partial interface IMakeContractEntity
 {
-	MakeContractComponent MakeContract { get; }
+	Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract { get; }
 	bool HasMakeContract { get; }
 
 	void AddMakeContract(Ecs.UidGenerator.Uid newShopUid);

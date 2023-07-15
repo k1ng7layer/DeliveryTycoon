@@ -27,7 +27,7 @@ namespace Ecs.Action.Systems.Courier
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
             context.CreateCollector(ActionMatcher.BuyCourier);
 
-        protected override bool Filter(ActionEntity entity) => entity.IsBuyCourier && !entity.IsDestroyed;
+        protected override bool Filter(ActionEntity entity) => entity.HasBuyCourier && !entity.IsDestroyed;
 
         protected override void Execute(List<ActionEntity> entities)
         {
@@ -36,8 +36,9 @@ namespace Ecs.Action.Systems.Courier
                 entity.IsDestroyed = true;
 
                 var wallet = _game.Wallet.Value;
+                var courierTypeToBuy = entity.BuyCourier.Type;
                 
-                var courierSettings = _employeeSettingsProvider.Get(ECourierType.Foot);
+                var courierSettings = _employeeSettingsProvider.Get(courierTypeToBuy);
                 
                 if(wallet < courierSettings.Cost)
                     continue;
@@ -49,11 +50,7 @@ namespace Ecs.Action.Systems.Courier
                 _couriersUiController.SetEmployees(totalCouriers);
 
                 _action.CreateEntity().AddChangeCoins(courierSettings.Cost);
-
-                var courierEntity = _game.CreateEntity();
-                
-                courierEntity.AddCourier(ECourierType.Foot);
-                
+                _action.CreateEntity().AddCreateCourier(ECourierType.Foot);
                 _action.CreateEntity().IsCheckDeliveryStatus = true;
             }
         }

@@ -32,22 +32,24 @@ public static class GameComponentsLookup
 	public const int StandbyEmployees = 16;
 	public const int TotalEmployees = 17;
 	public const int Customer = 18;
-	public const int DeliverySource = 19;
-	public const int Level = 20;
-	public const int NextDeliveryTimer = 21;
-	public const int Partner = 22;
-	public const int SelectedShop = 23;
-	public const int ShopName = 24;
-	public const int Wallet = 25;
-	public const int InstantiateAddedListener = 26;
-	public const int LinkRemovedListener = 27;
-	public const int PositionAddedListener = 28;
-	public const int RotationAddedListener = 29;
-	public const int StandbyEmployeesAddedListener = 30;
-	public const int TotalEmployeesAddedListener = 31;
-	public const int WalletAddedListener = 32;
+	public const int DeliveryOffice = 19;
+	public const int DeliverySource = 20;
+	public const int Level = 21;
+	public const int NextDeliveryTimer = 22;
+	public const int Partner = 23;
+	public const int SelectedShop = 24;
+	public const int CourierSpawnPoint = 25;
+	public const int ShopName = 26;
+	public const int Wallet = 27;
+	public const int InstantiateAddedListener = 28;
+	public const int LinkRemovedListener = 29;
+	public const int PositionAddedListener = 30;
+	public const int RotationAddedListener = 31;
+	public const int StandbyEmployeesAddedListener = 32;
+	public const int TotalEmployeesAddedListener = 33;
+	public const int WalletAddedListener = 34;
 
-	public const int TotalComponents = 33;
+	public const int TotalComponents = 35;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -70,11 +72,13 @@ public static class GameComponentsLookup
 		"StandbyEmployees",
 		"TotalEmployees",
 		"Customer",
+		"DeliveryOffice",
 		"DeliverySource",
 		"Level",
 		"NextDeliveryTimer",
 		"Partner",
 		"SelectedShop",
+		"CourierSpawnPoint",
 		"ShopName",
 		"Wallet",
 		"InstantiateAddedListener",
@@ -107,11 +111,13 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent),
 		typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent),
 		typeof(Ecs.Game.Components.Customer.CustomerComponent),
+		typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent),
 		typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent),
 		typeof(Ecs.Game.Components.Delivery.LevelComponent),
 		typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent),
 		typeof(Ecs.Game.Components.Delivery.PartnerComponent),
 		typeof(Ecs.Game.Components.Delivery.SelectedShopComponent),
+		typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent),
 		typeof(Ecs.Game.Components.Shop.ShopNameComponent),
 		typeof(Ecs.Game.Components.Wallet.WalletComponent),
 		typeof(InstantiateAddedListenerComponent),
@@ -144,20 +150,22 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 16 },
 		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 17 },
 		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 18 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 19 },
-		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 20 },
-		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 21 },
-		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 22 },
-		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 23 },
-		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 24 },
-		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 25 },
-		{ typeof(InstantiateAddedListenerComponent), 26 },
-		{ typeof(LinkRemovedListenerComponent), 27 },
-		{ typeof(PositionAddedListenerComponent), 28 },
-		{ typeof(RotationAddedListenerComponent), 29 },
-		{ typeof(StandbyEmployeesAddedListenerComponent), 30 },
-		{ typeof(TotalEmployeesAddedListenerComponent), 31 },
-		{ typeof(WalletAddedListenerComponent), 32 }
+		{ typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent), 19 },
+		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 20 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 21 },
+		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 22 },
+		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 23 },
+		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 24 },
+		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 25 },
+		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 26 },
+		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 27 },
+		{ typeof(InstantiateAddedListenerComponent), 28 },
+		{ typeof(LinkRemovedListenerComponent), 29 },
+		{ typeof(PositionAddedListenerComponent), 30 },
+		{ typeof(RotationAddedListenerComponent), 31 },
+		{ typeof(StandbyEmployeesAddedListenerComponent), 32 },
+		{ typeof(TotalEmployeesAddedListenerComponent), 33 },
+		{ typeof(WalletAddedListenerComponent), 34 }
 	};
 
 	/// <summary>

@@ -8,10 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Ecs.Action.Components.Coins;
-using Ecs.Action.Components.Courier;
-using Ecs.Action.Components.CustomersShop;
-using Ecs.Action.Components.Delivery;
 using JCMG.EntitasRedux;
 
 public partial class ActionEntity
@@ -22,41 +18,45 @@ public partial class ActionEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		if (component is Ecs.Action.Components.StartGameComponent StartGame)
 		{
-			IsDestroyed = true;
+			IsStartGame = true;
 		}
-		else if (component is CheckDeliveryStatusComponent CheckDeliveryStatus)
-		{
-			IsCheckDeliveryStatus = true;
-		}
-		else if (component is SelectShopComponent SelectShop)
+		else if (component is Ecs.Action.Components.CustomersShop.SelectShopComponent SelectShop)
 		{
 			CopySelectShopTo(SelectShop);
 		}
-		else if (component is StartNextDeliveryTimerComponent StartNextDeliveryTimer)
-		{
-			CopyStartNextDeliveryTimerTo(StartNextDeliveryTimer);
-		}
-		else if (component is MakeContractComponent MakeContract)
+		else if (component is Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract)
 		{
 			CopyMakeContractTo(MakeContract);
 		}
-		else if (component is ChangeCoinsComponent ChangeCoins)
+		else if (component is Ecs.Action.Components.Coins.ChangeCoinsComponent ChangeCoins)
 		{
 			CopyChangeCoinsTo(ChangeCoins);
 		}
-		else if (component is CreateDeliveryComponent CreateDelivery)
+		else if (component is Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent CheckDeliveryStatus)
+		{
+			IsCheckDeliveryStatus = true;
+		}
+		else if (component is Ecs.Action.Components.Delivery.StartNextDeliveryTimerComponent StartNextDeliveryTimer)
+		{
+			CopyStartNextDeliveryTimerTo(StartNextDeliveryTimer);
+		}
+		else if (component is Ecs.Action.Components.Delivery.CreateDeliveryComponent CreateDelivery)
 		{
 			CopyCreateDeliveryTo(CreateDelivery);
 		}
-		else if (component is BuyCourierComponent BuyCourier)
+		else if (component is Ecs.Action.Components.Courier.CreateCourierComponent CreateCourier)
 		{
-			IsBuyCourier = true;
+			CopyCreateCourierTo(CreateCourier);
 		}
-		else if (component is Ecs.Action.Components.StartGameComponent StartGame)
+		else if (component is Ecs.Action.Components.Courier.BuyCourierComponent BuyCourier)
 		{
-			IsStartGame = true;
+			CopyBuyCourierTo(BuyCourier);
+		}
+		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		{
+			IsDestroyed = true;
 		}
 		#endif
 	}

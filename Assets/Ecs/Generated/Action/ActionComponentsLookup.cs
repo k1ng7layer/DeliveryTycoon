@@ -9,63 +9,63 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using Ecs.Action.Components.Coins;
-using Ecs.Action.Components.Courier;
-using Ecs.Action.Components.CustomersShop;
-using Ecs.Action.Components.Delivery;
 using JCMG.EntitasRedux;
 
 public static class ActionComponentsLookup
 {
-	public const int BuyCourier = 0;
-	public const int ChangeCoins = 1;
-	public const int CheckDeliveryStatus = 2;
-	public const int CreateDelivery = 3;
-	public const int MakeContract = 4;
-	public const int SelectShop = 5;
-	public const int StartGame = 6;
+	public const int ChangeCoins = 0;
+	public const int BuyCourier = 1;
+	public const int CreateCourier = 2;
+	public const int MakeContract = 3;
+	public const int SelectShop = 4;
+	public const int CheckDeliveryStatus = 5;
+	public const int CreateDelivery = 6;
 	public const int StartNextDeliveryTimer = 7;
-	public const int Destroyed = 8;
+	public const int StartGame = 8;
+	public const int Destroyed = 9;
 
-	public const int TotalComponents = 9;
+	public const int TotalComponents = 10;
 
 	public static readonly string[] ComponentNames =
 	{
-		"BuyCourier",
 		"ChangeCoins",
-		"CheckDeliveryStatus",
-		"CreateDelivery",
+		"BuyCourier",
+		"CreateCourier",
 		"MakeContract",
 		"SelectShop",
-		"StartGame",
+		"CheckDeliveryStatus",
+		"CreateDelivery",
 		"StartNextDeliveryTimer",
+		"StartGame",
 		"Destroyed"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
-		typeof(BuyCourierComponent),
-		typeof(ChangeCoinsComponent),
-		typeof(CheckDeliveryStatusComponent),
-		typeof(CreateDeliveryComponent),
-		typeof(MakeContractComponent),
-		typeof(SelectShopComponent),
+		typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent),
+		typeof(Ecs.Action.Components.Courier.BuyCourierComponent),
+		typeof(Ecs.Action.Components.Courier.CreateCourierComponent),
+		typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent),
+		typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent),
+		typeof(Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent),
+		typeof(Ecs.Action.Components.Delivery.CreateDeliveryComponent),
+		typeof(Ecs.Action.Components.Delivery.StartNextDeliveryTimerComponent),
 		typeof(Ecs.Action.Components.StartGameComponent),
-		typeof(StartNextDeliveryTimerComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(BuyCourierComponent), 0 },
-		{ typeof(ChangeCoinsComponent), 1 },
-		{ typeof(CheckDeliveryStatusComponent), 2 },
-		{ typeof(CreateDeliveryComponent), 3 },
-		{ typeof(MakeContractComponent), 4 },
-		{ typeof(SelectShopComponent), 5 },
-		{ typeof(Ecs.Action.Components.StartGameComponent), 6 },
-		{ typeof(StartNextDeliveryTimerComponent), 7 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 8 }
+		{ typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent), 0 },
+		{ typeof(Ecs.Action.Components.Courier.BuyCourierComponent), 1 },
+		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 2 },
+		{ typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent), 3 },
+		{ typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent), 4 },
+		{ typeof(Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent), 5 },
+		{ typeof(Ecs.Action.Components.Delivery.CreateDeliveryComponent), 6 },
+		{ typeof(Ecs.Action.Components.Delivery.StartNextDeliveryTimerComponent), 7 },
+		{ typeof(Ecs.Action.Components.StartGameComponent), 8 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 9 }
 	};
 
 	/// <summary>

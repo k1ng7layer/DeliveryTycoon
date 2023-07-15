@@ -7,12 +7,9 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Ecs.Action.Components.Delivery;
-
 public partial class ActionEntity
 {
-	static readonly CheckDeliveryStatusComponent CheckDeliveryStatusComponent = new CheckDeliveryStatusComponent();
+	static readonly Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent CheckDeliveryStatusComponent = new Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent();
 
 	public bool IsCheckDeliveryStatus
 	{

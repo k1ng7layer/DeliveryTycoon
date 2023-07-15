@@ -18,13 +18,53 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
+		if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
 		{
-			IsCourier = true;
+			CopyWalletTo(Wallet);
 		}
-		else if (component is Ecs.Game.Components.Camera.CameraGlobalTargetComponent CameraGlobalTarget)
+		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
-			IsCameraGlobalTarget = true;
+			CopyShopNameTo(ShopName);
+		}
+		else if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
+		{
+			IsCustomer = true;
+		}
+		else if (component is Ecs.Game.Components.Courier.StandbyEmployeesComponent StandbyEmployees)
+		{
+			CopyStandbyEmployeesTo(StandbyEmployees);
+		}
+		else if (component is Ecs.Game.Components.Courier.BusyComponent Busy)
+		{
+			IsBusy = true;
+		}
+		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
+		{
+			CopyCourierTo(Courier);
+		}
+		else if (component is Ecs.Game.Components.Courier.TotalEmployeesComponent TotalEmployees)
+		{
+			CopyTotalEmployeesTo(TotalEmployees);
+		}
+		else if (component is Ecs.Game.Components.Delivery.LevelComponent Level)
+		{
+			CopyLevelTo(Level);
+		}
+		else if (component is Ecs.Game.Components.Delivery.DeliverySourceComponent DeliverySource)
+		{
+			IsDeliverySource = true;
+		}
+		else if (component is Ecs.Game.Components.Delivery.PartnerComponent Partner)
+		{
+			IsPartner = true;
+		}
+		else if (component is Ecs.Game.Components.Delivery.NextDeliveryTimerComponent NextDeliveryTimer)
+		{
+			CopyNextDeliveryTimerTo(NextDeliveryTimer);
+		}
+		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
+		{
+			CopySelectedShopTo(SelectedShop);
 		}
 		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
 		{
@@ -38,21 +78,25 @@ public partial class GameEntity
 		{
 			IsPhysicalCamera = true;
 		}
-		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
+		else if (component is Ecs.Game.Components.Camera.CameraGlobalTargetComponent CameraGlobalTarget)
 		{
-			CopyOwnerTo(Owner);
+			IsCameraGlobalTarget = true;
 		}
-		else if (component is Ecs.Game.Components.Common.UidComponent Uid)
+		else if (component is Ecs.Game.Components.Common.RotationComponent Rotation)
 		{
-			CopyUidTo(Uid);
+			CopyRotationTo(Rotation);
+		}
+		else if (component is Ecs.Game.Components.Common.ActiveComponent Active)
+		{
+			IsActive = true;
 		}
 		else if (component is Ecs.Game.Components.Common.TransformComponent Transform)
 		{
 			CopyTransformTo(Transform);
 		}
-		else if (component is Ecs.Game.Components.Common.RotationComponent Rotation)
+		else if (component is Ecs.Game.Components.Common.UidComponent Uid)
 		{
-			CopyRotationTo(Rotation);
+			CopyUidTo(Uid);
 		}
 		else if (component is Ecs.Game.Components.Common.InstantiateComponent Instantiate)
 		{
@@ -61,6 +105,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
 		{
 			IsDestroyed = true;
+		}
+		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
+		{
+			CopyOwnerTo(Owner);
 		}
 		else if (component is Ecs.Game.Components.Common.PrefabComponent Prefab)
 		{
@@ -73,6 +121,18 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Common.PositionComponent Position)
 		{
 			CopyPositionTo(Position);
+		}
+		else if (component is WalletAddedListenerComponent WalletAddedListener)
+		{
+			CopyWalletAddedListenerTo(WalletAddedListener);
+		}
+		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
+		{
+			CopyStandbyEmployeesAddedListenerTo(StandbyEmployeesAddedListener);
+		}
+		else if (component is TotalEmployeesAddedListenerComponent TotalEmployeesAddedListener)
+		{
+			CopyTotalEmployeesAddedListenerTo(TotalEmployeesAddedListener);
 		}
 		else if (component is RotationAddedListenerComponent RotationAddedListener)
 		{

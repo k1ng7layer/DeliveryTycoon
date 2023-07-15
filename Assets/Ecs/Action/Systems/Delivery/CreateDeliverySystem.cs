@@ -10,7 +10,7 @@ using Game.UI.OrderView.Controllers;
 using Game.Utils;
 using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Systems
+namespace Ecs.Action.Systems.Delivery
 {
     public class CreateDeliverySystem : ReactiveSystem<ActionEntity>
     {

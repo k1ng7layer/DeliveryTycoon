@@ -1,4 +1,8 @@
 ﻿using Ecs.Action.Systems;
+using Ecs.Action.Systems.Coins;
+using Ecs.Action.Systems.Courier;
+using Ecs.Action.Systems.CustomersShop;
+using Ecs.Action.Systems.Delivery;
 using Ecs.Delivery.Systems;
 using Ecs.Game.Systems.Camera;
 using Ecs.Game.Systems.Initialize;

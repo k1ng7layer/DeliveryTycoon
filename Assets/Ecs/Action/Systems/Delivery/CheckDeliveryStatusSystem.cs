@@ -4,7 +4,7 @@ using Game.UI.OrderView.Controllers;
 using JCMG.EntitasRedux;
 using Zenject;
 
-namespace Ecs.Action.Systems
+namespace Ecs.Action.Systems.Delivery
 {
     public class CheckDeliveryStatusSystem : ReactiveSystem<ActionEntity>
     {

@@ -2,7 +2,7 @@
 using Game.UI.Wallet.Controllers;
 using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Systems
+namespace Ecs.Action.Systems.Coins
 {
     public class ChangeCoinsSystem : ReactiveSystem<ActionEntity>
     {

@@ -4,7 +4,7 @@ using JCMG.EntitasRedux;
 using SimpleUi.Signals;
 using Zenject;
 
-namespace Ecs.Action.Systems
+namespace Ecs.Action.Systems.CustomersShop
 {
     public class SelectShopSystem : ReactiveSystem<ActionEntity>
     {

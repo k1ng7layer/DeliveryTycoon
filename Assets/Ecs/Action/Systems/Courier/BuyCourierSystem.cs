@@ -4,7 +4,7 @@ using Game.UI.CouriersView.Controllers;
 using Game.Utils;
 using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Systems
+namespace Ecs.Action.Systems.Courier
 {
     public class BuyCourierSystem : ReactiveSystem<ActionEntity>
     {

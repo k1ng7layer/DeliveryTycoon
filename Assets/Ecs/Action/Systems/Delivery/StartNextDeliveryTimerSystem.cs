@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Systems
+namespace Ecs.Action.Systems.Delivery
 {
     public class StartNextDeliveryTimerSystem : ReactiveSystem<ActionEntity>
     {

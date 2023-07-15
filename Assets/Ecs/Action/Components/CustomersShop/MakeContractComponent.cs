@@ -1,10 +1,10 @@
 ﻿using Ecs.UidGenerator;
 using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Components
+namespace Ecs.Action.Components.CustomersShop
 {
     [Action]
-    public class SelectShopComponent : IComponent
+    public class MakeContractComponent : IComponent
     {
         public Uid ShopUid;
     }

@@ -7,15 +7,18 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Ecs.Action.Components.Delivery;
+
 public partial class ActionEntity
 {
-	public Ecs.Action.Components.StartNextDeliveryTimerComponent StartNextDeliveryTimer { get { return (Ecs.Action.Components.StartNextDeliveryTimerComponent)GetComponent(ActionComponentsLookup.StartNextDeliveryTimer); } }
+	public StartNextDeliveryTimerComponent StartNextDeliveryTimer { get { return (StartNextDeliveryTimerComponent)GetComponent(ActionComponentsLookup.StartNextDeliveryTimer); } }
 	public bool HasStartNextDeliveryTimer { get { return HasComponent(ActionComponentsLookup.StartNextDeliveryTimer); } }
 
 	public void AddStartNextDeliveryTimer(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.StartNextDeliveryTimer;
-		var component = (Ecs.Action.Components.StartNextDeliveryTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent));
+		var component = (StartNextDeliveryTimerComponent)CreateComponent(index, typeof(StartNextDeliveryTimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
@@ -25,17 +28,17 @@ public partial class ActionEntity
 	public void ReplaceStartNextDeliveryTimer(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.StartNextDeliveryTimer;
-		var component = (Ecs.Action.Components.StartNextDeliveryTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent));
+		var component = (StartNextDeliveryTimerComponent)CreateComponent(index, typeof(StartNextDeliveryTimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyStartNextDeliveryTimerTo(Ecs.Action.Components.StartNextDeliveryTimerComponent copyComponent)
+	public void CopyStartNextDeliveryTimerTo(StartNextDeliveryTimerComponent copyComponent)
 	{
 		var index = ActionComponentsLookup.StartNextDeliveryTimer;
-		var component = (Ecs.Action.Components.StartNextDeliveryTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent));
+		var component = (StartNextDeliveryTimerComponent)CreateComponent(index, typeof(StartNextDeliveryTimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = copyComponent.DeliverySourceUid;
 		#endif

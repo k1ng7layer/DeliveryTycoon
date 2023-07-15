@@ -7,9 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Ecs.Action.Components.CustomersShop;
+
 public partial interface ISelectShopEntity
 {
-	Ecs.Action.Components.SelectShopComponent SelectShop { get; }
+	SelectShopComponent SelectShop { get; }
 	bool HasSelectShop { get; }
 
 	void AddSelectShop(Ecs.UidGenerator.Uid newShopUid);

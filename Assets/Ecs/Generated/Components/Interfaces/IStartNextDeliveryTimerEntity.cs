@@ -7,9 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Ecs.Action.Components.Delivery;
+
 public partial interface IStartNextDeliveryTimerEntity
 {
-	Ecs.Action.Components.StartNextDeliveryTimerComponent StartNextDeliveryTimer { get; }
+	StartNextDeliveryTimerComponent StartNextDeliveryTimer { get; }
 	bool HasStartNextDeliveryTimer { get; }
 
 	void AddStartNextDeliveryTimer(Ecs.UidGenerator.Uid newDeliverySourceUid);

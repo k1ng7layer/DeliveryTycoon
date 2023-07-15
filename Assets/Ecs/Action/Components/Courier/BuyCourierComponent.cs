@@ -1,6 +1,6 @@
 ﻿using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Components
+namespace Ecs.Action.Components.Courier
 {
     [Action]
     public class BuyCourierComponent : IComponent

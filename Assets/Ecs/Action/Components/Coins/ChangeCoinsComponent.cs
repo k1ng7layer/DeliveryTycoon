@@ -1,6 +1,6 @@
 ﻿using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Components
+namespace Ecs.Action.Components.Coins
 {
     [Action]
     public class ChangeCoinsComponent : IComponent

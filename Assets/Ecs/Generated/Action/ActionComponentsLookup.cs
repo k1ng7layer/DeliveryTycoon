@@ -9,6 +9,10 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using Ecs.Action.Components.Coins;
+using Ecs.Action.Components.Courier;
+using Ecs.Action.Components.CustomersShop;
+using Ecs.Action.Components.Delivery;
 using JCMG.EntitasRedux;
 
 public static class ActionComponentsLookup
@@ -40,27 +44,27 @@ public static class ActionComponentsLookup
 
 	public static readonly System.Type[] ComponentTypes =
 	{
-		typeof(Ecs.Action.Components.BuyCourierComponent),
-		typeof(Ecs.Action.Components.ChangeCoinsComponent),
-		typeof(Ecs.Action.Components.CheckDeliveryStatusComponent),
-		typeof(Ecs.Action.Components.CreateDeliveryComponent),
-		typeof(Ecs.Action.Components.MakeContractComponent),
-		typeof(Ecs.Action.Components.SelectShopComponent),
+		typeof(BuyCourierComponent),
+		typeof(ChangeCoinsComponent),
+		typeof(CheckDeliveryStatusComponent),
+		typeof(CreateDeliveryComponent),
+		typeof(MakeContractComponent),
+		typeof(SelectShopComponent),
 		typeof(Ecs.Action.Components.StartGameComponent),
-		typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent),
+		typeof(StartNextDeliveryTimerComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(Ecs.Action.Components.BuyCourierComponent), 0 },
-		{ typeof(Ecs.Action.Components.ChangeCoinsComponent), 1 },
-		{ typeof(Ecs.Action.Components.CheckDeliveryStatusComponent), 2 },
-		{ typeof(Ecs.Action.Components.CreateDeliveryComponent), 3 },
-		{ typeof(Ecs.Action.Components.MakeContractComponent), 4 },
-		{ typeof(Ecs.Action.Components.SelectShopComponent), 5 },
+		{ typeof(BuyCourierComponent), 0 },
+		{ typeof(ChangeCoinsComponent), 1 },
+		{ typeof(CheckDeliveryStatusComponent), 2 },
+		{ typeof(CreateDeliveryComponent), 3 },
+		{ typeof(MakeContractComponent), 4 },
+		{ typeof(SelectShopComponent), 5 },
 		{ typeof(Ecs.Action.Components.StartGameComponent), 6 },
-		{ typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent), 7 },
+		{ typeof(StartNextDeliveryTimerComponent), 7 },
 		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 8 }
 	};
 

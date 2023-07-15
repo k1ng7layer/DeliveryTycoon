@@ -7,9 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Ecs.Action.Components.Courier;
+
 public partial class ActionEntity
 {
-	static readonly Ecs.Action.Components.BuyCourierComponent BuyCourierComponent = new Ecs.Action.Components.BuyCourierComponent();
+	static readonly BuyCourierComponent BuyCourierComponent = new BuyCourierComponent();
 
 	public bool IsBuyCourier
 	{

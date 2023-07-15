@@ -7,9 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Ecs.Action.Components.Delivery;
+
 public partial interface ICreateDeliveryEntity
 {
-	Ecs.Action.Components.CreateDeliveryComponent CreateDelivery { get; }
+	CreateDeliveryComponent CreateDelivery { get; }
 	bool HasCreateDelivery { get; }
 
 	void AddCreateDelivery(Ecs.UidGenerator.Uid newDeliverySourceUid);

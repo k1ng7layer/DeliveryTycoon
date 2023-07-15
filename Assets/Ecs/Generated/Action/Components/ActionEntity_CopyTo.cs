@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Ecs.Action.Components.Coins;
+using Ecs.Action.Components.Courier;
+using Ecs.Action.Components.CustomersShop;
+using Ecs.Action.Components.Delivery;
 using JCMG.EntitasRedux;
 
 public partial class ActionEntity
@@ -22,31 +26,31 @@ public partial class ActionEntity
 		{
 			IsDestroyed = true;
 		}
-		else if (component is Ecs.Action.Components.CheckDeliveryStatusComponent CheckDeliveryStatus)
+		else if (component is CheckDeliveryStatusComponent CheckDeliveryStatus)
 		{
 			IsCheckDeliveryStatus = true;
 		}
-		else if (component is Ecs.Action.Components.SelectShopComponent SelectShop)
+		else if (component is SelectShopComponent SelectShop)
 		{
 			CopySelectShopTo(SelectShop);
 		}
-		else if (component is Ecs.Action.Components.StartNextDeliveryTimerComponent StartNextDeliveryTimer)
+		else if (component is StartNextDeliveryTimerComponent StartNextDeliveryTimer)
 		{
 			CopyStartNextDeliveryTimerTo(StartNextDeliveryTimer);
 		}
-		else if (component is Ecs.Action.Components.MakeContractComponent MakeContract)
+		else if (component is MakeContractComponent MakeContract)
 		{
 			CopyMakeContractTo(MakeContract);
 		}
-		else if (component is Ecs.Action.Components.ChangeCoinsComponent ChangeCoins)
+		else if (component is ChangeCoinsComponent ChangeCoins)
 		{
 			CopyChangeCoinsTo(ChangeCoins);
 		}
-		else if (component is Ecs.Action.Components.CreateDeliveryComponent CreateDelivery)
+		else if (component is CreateDeliveryComponent CreateDelivery)
 		{
 			CopyCreateDeliveryTo(CreateDelivery);
 		}
-		else if (component is Ecs.Action.Components.BuyCourierComponent BuyCourier)
+		else if (component is BuyCourierComponent BuyCourier)
 		{
 			IsBuyCourier = true;
 		}

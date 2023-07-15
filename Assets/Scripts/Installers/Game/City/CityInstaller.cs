@@ -10,6 +10,7 @@ using Game.Services.DeliveryTargetTimeService.Impl;
 using Game.Services.GameLevelProvider.Impl;
 using Game.Services.GameLevelProvider.Views;
 using Game.Services.Input.Impl;
+using Game.Services.OrderStatusService.Impl;
 using Game.Services.PointerRaycastService;
 using Game.Services.PointerRaycastService.Impl;
 using Game.Services.RandomProvider.Impl;
@@ -42,6 +43,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<RandomDeliveryTargetTimeService>().AsSingle();
             Container.BindInterfacesAndSelfTo<DefaultDeliveryPriceService>().AsSingle();
             Container.BindInterfacesAndSelfTo<DeliveryRandomTargetService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<OrderStatusService>().AsSingle();
             Container.Bind<IRaycastProvider>().To<RaycastProvider>().AsSingle();
         }
 
@@ -61,6 +63,8 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<StartNextDeliveryTimerSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuyCourierSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ChangeCoinsSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CheckDeliveryStatusSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StartGameSystem>().AsSingle();
         }
 
         private void BindWindows()

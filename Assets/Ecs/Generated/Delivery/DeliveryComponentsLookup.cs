@@ -18,18 +18,19 @@ public static class DeliveryComponentsLookup
 	public const int DeliveryStatus = 2;
 	public const int Destination = 3;
 	public const int Duration = 4;
-	public const int ItemsAmount = 5;
-	public const int Price = 6;
-	public const int Source = 7;
-	public const int SourcePosition = 8;
-	public const int TargetTime = 9;
-	public const int Active = 10;
-	public const int Destroyed = 11;
-	public const int Uid = 12;
-	public const int Courier = 13;
-	public const int Delivery = 14;
+	public const int InWork = 5;
+	public const int ItemsAmount = 6;
+	public const int Price = 7;
+	public const int Source = 8;
+	public const int SourcePosition = 9;
+	public const int TargetTime = 10;
+	public const int Active = 11;
+	public const int Destroyed = 12;
+	public const int Uid = 13;
+	public const int Courier = 14;
+	public const int Delivery = 15;
 
-	public const int TotalComponents = 15;
+	public const int TotalComponents = 16;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -38,6 +39,7 @@ public static class DeliveryComponentsLookup
 		"DeliveryStatus",
 		"Destination",
 		"Duration",
+		"InWork",
 		"ItemsAmount",
 		"Price",
 		"Source",
@@ -57,6 +59,7 @@ public static class DeliveryComponentsLookup
 		typeof(Ecs.Delivery.Components.DeliveryStatusComponent),
 		typeof(Ecs.Delivery.Components.DestinationComponent),
 		typeof(Ecs.Delivery.Components.DurationComponent),
+		typeof(Ecs.Delivery.Components.InWorkComponent),
 		typeof(Ecs.Delivery.Components.ItemsAmountComponent),
 		typeof(Ecs.Delivery.Components.PriceComponent),
 		typeof(Ecs.Delivery.Components.SourceComponent),
@@ -76,16 +79,17 @@ public static class DeliveryComponentsLookup
 		{ typeof(Ecs.Delivery.Components.DeliveryStatusComponent), 2 },
 		{ typeof(Ecs.Delivery.Components.DestinationComponent), 3 },
 		{ typeof(Ecs.Delivery.Components.DurationComponent), 4 },
-		{ typeof(Ecs.Delivery.Components.ItemsAmountComponent), 5 },
-		{ typeof(Ecs.Delivery.Components.PriceComponent), 6 },
-		{ typeof(Ecs.Delivery.Components.SourceComponent), 7 },
-		{ typeof(Ecs.Delivery.Components.SourcePositionComponent), 8 },
-		{ typeof(Ecs.Delivery.Components.TargetTimeComponent), 9 },
-		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 10 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 11 },
-		{ typeof(Ecs.Game.Components.Common.UidComponent), 12 },
-		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 13 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliveryComponent), 14 }
+		{ typeof(Ecs.Delivery.Components.InWorkComponent), 5 },
+		{ typeof(Ecs.Delivery.Components.ItemsAmountComponent), 6 },
+		{ typeof(Ecs.Delivery.Components.PriceComponent), 7 },
+		{ typeof(Ecs.Delivery.Components.SourceComponent), 8 },
+		{ typeof(Ecs.Delivery.Components.SourcePositionComponent), 9 },
+		{ typeof(Ecs.Delivery.Components.TargetTimeComponent), 10 },
+		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 11 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 12 },
+		{ typeof(Ecs.Game.Components.Common.UidComponent), 13 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 14 },
+		{ typeof(Ecs.Game.Components.Delivery.DeliveryComponent), 15 }
 	};
 
 	/// <summary>

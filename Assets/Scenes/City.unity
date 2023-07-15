@@ -186,7 +186,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64945761}
-  m_LocalRotation: {x: 0.41093078, y: 0.5754441, z: -0.4109309, w: 0.57544404}
+  m_LocalRotation: {x: 0.4109308, y: 0.5754441, z: -0.41093087, w: 0.575444}
   m_LocalPosition: {x: -30.47, y: 32.6, z: -8.999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1348,7 +1348,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992566588}
-  m_LocalRotation: {x: 0.41093078, y: 0.5754441, z: -0.4109309, w: 0.57544404}
+  m_LocalRotation: {x: 0.4109308, y: 0.5754441, z: -0.41093087, w: 0.575444}
   m_LocalPosition: {x: -45.059517, y: 31.674997, z: -8.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8628,7 +8628,7 @@ MonoBehaviour:
   entityLink: {fileID: 7830572653242160174}
   shopParameters:
     Name: Simple mini market
-    ShopLevel: 0
+    ShopLevel: 1
   interactableView: {fileID: 1040147186}
 --- !u!114 &7830572653242160174
 MonoBehaviour:

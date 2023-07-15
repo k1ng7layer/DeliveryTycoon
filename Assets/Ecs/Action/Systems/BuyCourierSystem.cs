@@ -49,6 +49,12 @@ namespace Ecs.Action.Systems
                 _couriersUiController.SetEmployees(totalCouriers);
 
                 _action.CreateEntity().AddChangeCoins(courierSettings.Cost);
+
+                var courierEntity = _game.CreateEntity();
+                
+                courierEntity.AddCourier(ECourierType.Foot);
+                
+                _action.CreateEntity().IsCheckDeliveryStatus = true;
             }
         }
     }

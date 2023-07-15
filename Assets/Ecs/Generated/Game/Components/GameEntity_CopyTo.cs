@@ -30,6 +30,14 @@ public partial class GameEntity
 		{
 			IsCustomer = true;
 		}
+		else if (component is Ecs.Game.Components.Courier.StandbyEmployeesComponent StandbyEmployees)
+		{
+			CopyStandbyEmployeesTo(StandbyEmployees);
+		}
+		else if (component is Ecs.Game.Components.Courier.BusyComponent Busy)
+		{
+			IsBusy = true;
+		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{
 			CopyCourierTo(Courier);
@@ -117,6 +125,14 @@ public partial class GameEntity
 		else if (component is WalletAddedListenerComponent WalletAddedListener)
 		{
 			CopyWalletAddedListenerTo(WalletAddedListener);
+		}
+		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
+		{
+			CopyStandbyEmployeesAddedListenerTo(StandbyEmployeesAddedListener);
+		}
+		else if (component is TotalEmployeesAddedListenerComponent TotalEmployeesAddedListener)
+		{
+			CopyTotalEmployeesAddedListenerTo(TotalEmployeesAddedListener);
 		}
 		else if (component is RotationAddedListenerComponent RotationAddedListener)
 		{

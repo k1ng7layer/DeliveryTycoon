@@ -27,23 +27,27 @@ public static class GameComponentsLookup
 	public const int Rotation = 11;
 	public const int Transform = 12;
 	public const int Uid = 13;
-	public const int Courier = 14;
-	public const int TotalEmployees = 15;
-	public const int Customer = 16;
-	public const int DeliverySource = 17;
-	public const int Level = 18;
-	public const int NextDeliveryTimer = 19;
-	public const int Partner = 20;
-	public const int SelectedShop = 21;
-	public const int ShopName = 22;
-	public const int Wallet = 23;
-	public const int InstantiateAddedListener = 24;
-	public const int LinkRemovedListener = 25;
-	public const int PositionAddedListener = 26;
-	public const int RotationAddedListener = 27;
-	public const int WalletAddedListener = 28;
+	public const int Busy = 14;
+	public const int Courier = 15;
+	public const int StandbyEmployees = 16;
+	public const int TotalEmployees = 17;
+	public const int Customer = 18;
+	public const int DeliverySource = 19;
+	public const int Level = 20;
+	public const int NextDeliveryTimer = 21;
+	public const int Partner = 22;
+	public const int SelectedShop = 23;
+	public const int ShopName = 24;
+	public const int Wallet = 25;
+	public const int InstantiateAddedListener = 26;
+	public const int LinkRemovedListener = 27;
+	public const int PositionAddedListener = 28;
+	public const int RotationAddedListener = 29;
+	public const int StandbyEmployeesAddedListener = 30;
+	public const int TotalEmployeesAddedListener = 31;
+	public const int WalletAddedListener = 32;
 
-	public const int TotalComponents = 29;
+	public const int TotalComponents = 33;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -61,7 +65,9 @@ public static class GameComponentsLookup
 		"Rotation",
 		"Transform",
 		"Uid",
+		"Busy",
 		"Courier",
+		"StandbyEmployees",
 		"TotalEmployees",
 		"Customer",
 		"DeliverySource",
@@ -75,6 +81,8 @@ public static class GameComponentsLookup
 		"LinkRemovedListener",
 		"PositionAddedListener",
 		"RotationAddedListener",
+		"StandbyEmployeesAddedListener",
+		"TotalEmployeesAddedListener",
 		"WalletAddedListener"
 	};
 
@@ -94,7 +102,9 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Common.RotationComponent),
 		typeof(Ecs.Game.Components.Common.TransformComponent),
 		typeof(Ecs.Game.Components.Common.UidComponent),
+		typeof(Ecs.Game.Components.Courier.BusyComponent),
 		typeof(Ecs.Game.Components.Courier.CourierComponent),
+		typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent),
 		typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent),
 		typeof(Ecs.Game.Components.Customer.CustomerComponent),
 		typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent),
@@ -108,6 +118,8 @@ public static class GameComponentsLookup
 		typeof(LinkRemovedListenerComponent),
 		typeof(PositionAddedListenerComponent),
 		typeof(RotationAddedListenerComponent),
+		typeof(StandbyEmployeesAddedListenerComponent),
+		typeof(TotalEmployeesAddedListenerComponent),
 		typeof(WalletAddedListenerComponent)
 	};
 
@@ -127,21 +139,25 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Common.RotationComponent), 11 },
 		{ typeof(Ecs.Game.Components.Common.TransformComponent), 12 },
 		{ typeof(Ecs.Game.Components.Common.UidComponent), 13 },
-		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 14 },
-		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 15 },
-		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 16 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 17 },
-		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 18 },
-		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 19 },
-		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 20 },
-		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 21 },
-		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 22 },
-		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 23 },
-		{ typeof(InstantiateAddedListenerComponent), 24 },
-		{ typeof(LinkRemovedListenerComponent), 25 },
-		{ typeof(PositionAddedListenerComponent), 26 },
-		{ typeof(RotationAddedListenerComponent), 27 },
-		{ typeof(WalletAddedListenerComponent), 28 }
+		{ typeof(Ecs.Game.Components.Courier.BusyComponent), 14 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 15 },
+		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 16 },
+		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 17 },
+		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 18 },
+		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 19 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 20 },
+		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 21 },
+		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 22 },
+		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 23 },
+		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 24 },
+		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 25 },
+		{ typeof(InstantiateAddedListenerComponent), 26 },
+		{ typeof(LinkRemovedListenerComponent), 27 },
+		{ typeof(PositionAddedListenerComponent), 28 },
+		{ typeof(RotationAddedListenerComponent), 29 },
+		{ typeof(StandbyEmployeesAddedListenerComponent), 30 },
+		{ typeof(TotalEmployeesAddedListenerComponent), 31 },
+		{ typeof(WalletAddedListenerComponent), 32 }
 	};
 
 	/// <summary>

@@ -10,13 +10,7 @@ namespace Game.UI.OrderView.Controllers
     public class OrderItemCollectionController : UiController<OrderItemMenuView>,
         IOrderPopupController
     {
-        private readonly DeliveryContext _delivery;
         private readonly Dictionary<Uid, OrderItemView> _orderItemsTable = new();
-
-        public OrderItemCollectionController(DeliveryContext delivery)
-        {
-            _delivery = delivery;
-        }
 
         public void OnOrderCreated(DeliveryEntity deliveryEntity)
         {

@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Db.OrderParameters;
 using Ecs.Delivery.Extensions;
 using Game.Services.DeliveryDestinationService;
 using Game.Services.DeliveryPriceService;
 using Game.Services.DeliveryTargetTimeService;
+using Game.Services.OrderStatusService;
 using Game.Services.RandomProvider;
 using Game.UI.OrderView.Controllers;
 using Game.Utils;
@@ -20,6 +21,8 @@ namespace Ecs.Action.Systems
         private readonly IDeliveryTargetTimeService _deliveryTargetTimeService;
         private readonly IOrderPopupController _orderPopupController;
         private readonly IRandomProvider _randomProvider;
+        private readonly IOrderParametersProvider _orderParametersProvider;
+        private readonly IOrderStatusService _orderStatusService;
 
         public CreateDeliverySystem(ActionContext action, 
             DeliveryContext delivery, 
@@ -28,7 +31,9 @@ namespace Ecs.Action.Systems
             IDeliveryTargetService deliveryTargetService,
             IDeliveryTargetTimeService deliveryTargetTimeService,
             IOrderPopupController orderPopupController,
-            IRandomProvider randomProvider) : base(action)
+            IRandomProvider randomProvider,
+            IOrderParametersProvider orderParametersProvider,
+            IOrderStatusService orderStatusService) : base(action)
         {
             _delivery = delivery;
             _game = game;
@@ -37,6 +42,8 @@ namespace Ecs.Action.Systems
             _deliveryTargetTimeService = deliveryTargetTimeService;
             _orderPopupController = orderPopupController;
             _randomProvider = randomProvider;
+            _orderParametersProvider = orderParametersProvider;
+            _orderStatusService = orderStatusService;
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
@@ -66,27 +73,39 @@ namespace Ecs.Action.Systems
                 deliveryEntity.AddItemsAmount(2); //TODO:
                 var deliveryPrice = _deliveryPriceService.CalculateDeliveryPrice(deliveryEntity);
 
-                var courierType = GetRandomCourierType();
+                var courierType = GetRandomCourierType(deliverySourceLevel);
 
-                var requiredCourierAmount = _randomProvider.Range(0, 3);
+                var requiredCourierAmount = _randomProvider.Range(1, 1);
                 
                 deliveryEntity.AddCourierAmount(requiredCourierAmount);
                 deliveryEntity.AddCourier(courierType);
                 deliveryEntity.AddPrice(deliveryPrice);
 
+
+                var deliveryInitialStatus = _orderStatusService.GetStatus(deliveryEntity);
+                
+                deliveryEntity.AddDeliveryStatus(deliveryInitialStatus);
+                
                 _orderPopupController.OnOrderCreated(deliveryEntity);
             }
         }
 
-        private ECourierType GetRandomCourierType()
+        // private ECourierType GetRandomCourierType()
+        // {
+        //     var values = (ECourierType[])Enum.GetValues(typeof(ECourierType));
+        //
+        //     var random = _randomProvider.Range(0, values.Length - 1);
+        //
+        //     return values[random];
+        // }
+        
+        private ECourierType GetRandomCourierType(int sourceLevel)
         {
-            var values = (ECourierType[])Enum.GetValues(typeof(ECourierType));
+            var orderParameters = _orderParametersProvider.Get(sourceLevel);
 
-            var random = _randomProvider.Range(0, values.Length - 1);
+            var courierType = orderParameters.RequiredCourierType;
 
-            return values[random];
+            return courierType;
         }
-        
-        
     }
 }

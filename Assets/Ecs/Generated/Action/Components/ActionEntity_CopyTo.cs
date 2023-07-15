@@ -18,7 +18,15 @@ public partial class ActionEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Action.Components.SelectShopComponent SelectShop)
+		if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		{
+			IsDestroyed = true;
+		}
+		else if (component is Ecs.Action.Components.CheckDeliveryStatusComponent CheckDeliveryStatus)
+		{
+			IsCheckDeliveryStatus = true;
+		}
+		else if (component is Ecs.Action.Components.SelectShopComponent SelectShop)
 		{
 			CopySelectShopTo(SelectShop);
 		}
@@ -42,9 +50,9 @@ public partial class ActionEntity
 		{
 			IsBuyCourier = true;
 		}
-		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		else if (component is Ecs.Action.Components.StartGameComponent StartGame)
 		{
-			IsDestroyed = true;
+			IsStartGame = true;
 		}
 		#endif
 	}

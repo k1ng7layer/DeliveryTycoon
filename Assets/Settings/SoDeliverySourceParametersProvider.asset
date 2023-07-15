@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoDeliverySourceParametersProvider
   m_EditorClassIdentifier: 
   deliverySourceParametersList:
-  - Level: 0
+  - Level: 1
     TargetTimeRange:
       Min: 100
       Max: 400

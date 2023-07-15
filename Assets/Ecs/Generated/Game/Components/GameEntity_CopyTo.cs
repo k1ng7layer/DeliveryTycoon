@@ -18,21 +18,33 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
+		if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
 		{
-			IsCustomer = true;
+			CopyWalletTo(Wallet);
 		}
 		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
 			CopyShopNameTo(ShopName);
 		}
+		else if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
+		{
+			IsCustomer = true;
+		}
+		else if (component is Ecs.Game.Components.Courier.StandbyEmployeesComponent StandbyEmployees)
+		{
+			CopyStandbyEmployeesTo(StandbyEmployees);
+		}
+		else if (component is Ecs.Game.Components.Courier.BusyComponent Busy)
+		{
+			IsBusy = true;
+		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{
-			IsCourier = true;
+			CopyCourierTo(Courier);
 		}
-		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
+		else if (component is Ecs.Game.Components.Courier.TotalEmployeesComponent TotalEmployees)
 		{
-			CopySelectedShopTo(SelectedShop);
+			CopyTotalEmployeesTo(TotalEmployees);
 		}
 		else if (component is Ecs.Game.Components.Delivery.LevelComponent Level)
 		{
@@ -49,6 +61,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Delivery.NextDeliveryTimerComponent NextDeliveryTimer)
 		{
 			CopyNextDeliveryTimerTo(NextDeliveryTimer);
+		}
+		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
+		{
+			CopySelectedShopTo(SelectedShop);
 		}
 		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
 		{
@@ -105,6 +121,18 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Common.PositionComponent Position)
 		{
 			CopyPositionTo(Position);
+		}
+		else if (component is WalletAddedListenerComponent WalletAddedListener)
+		{
+			CopyWalletAddedListenerTo(WalletAddedListener);
+		}
+		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
+		{
+			CopyStandbyEmployeesAddedListenerTo(StandbyEmployeesAddedListener);
+		}
+		else if (component is TotalEmployeesAddedListenerComponent TotalEmployeesAddedListener)
+		{
+			CopyTotalEmployeesAddedListenerTo(TotalEmployeesAddedListener);
 		}
 		else if (component is RotationAddedListenerComponent RotationAddedListener)
 		{

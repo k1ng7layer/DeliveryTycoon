@@ -27,20 +27,27 @@ public static class GameComponentsLookup
 	public const int Rotation = 11;
 	public const int Transform = 12;
 	public const int Uid = 13;
-	public const int Courier = 14;
-	public const int Customer = 15;
-	public const int DeliverySource = 16;
-	public const int Level = 17;
-	public const int NextDeliveryTimer = 18;
-	public const int Partner = 19;
-	public const int SelectedShop = 20;
-	public const int ShopName = 21;
-	public const int InstantiateAddedListener = 22;
-	public const int LinkRemovedListener = 23;
-	public const int PositionAddedListener = 24;
-	public const int RotationAddedListener = 25;
+	public const int Busy = 14;
+	public const int Courier = 15;
+	public const int StandbyEmployees = 16;
+	public const int TotalEmployees = 17;
+	public const int Customer = 18;
+	public const int DeliverySource = 19;
+	public const int Level = 20;
+	public const int NextDeliveryTimer = 21;
+	public const int Partner = 22;
+	public const int SelectedShop = 23;
+	public const int ShopName = 24;
+	public const int Wallet = 25;
+	public const int InstantiateAddedListener = 26;
+	public const int LinkRemovedListener = 27;
+	public const int PositionAddedListener = 28;
+	public const int RotationAddedListener = 29;
+	public const int StandbyEmployeesAddedListener = 30;
+	public const int TotalEmployeesAddedListener = 31;
+	public const int WalletAddedListener = 32;
 
-	public const int TotalComponents = 26;
+	public const int TotalComponents = 33;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -58,7 +65,10 @@ public static class GameComponentsLookup
 		"Rotation",
 		"Transform",
 		"Uid",
+		"Busy",
 		"Courier",
+		"StandbyEmployees",
+		"TotalEmployees",
 		"Customer",
 		"DeliverySource",
 		"Level",
@@ -66,10 +76,14 @@ public static class GameComponentsLookup
 		"Partner",
 		"SelectedShop",
 		"ShopName",
+		"Wallet",
 		"InstantiateAddedListener",
 		"LinkRemovedListener",
 		"PositionAddedListener",
-		"RotationAddedListener"
+		"RotationAddedListener",
+		"StandbyEmployeesAddedListener",
+		"TotalEmployeesAddedListener",
+		"WalletAddedListener"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
@@ -88,7 +102,10 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Common.RotationComponent),
 		typeof(Ecs.Game.Components.Common.TransformComponent),
 		typeof(Ecs.Game.Components.Common.UidComponent),
+		typeof(Ecs.Game.Components.Courier.BusyComponent),
 		typeof(Ecs.Game.Components.Courier.CourierComponent),
+		typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent),
+		typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent),
 		typeof(Ecs.Game.Components.Customer.CustomerComponent),
 		typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent),
 		typeof(Ecs.Game.Components.Delivery.LevelComponent),
@@ -96,10 +113,14 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Delivery.PartnerComponent),
 		typeof(Ecs.Game.Components.Delivery.SelectedShopComponent),
 		typeof(Ecs.Game.Components.Shop.ShopNameComponent),
+		typeof(Ecs.Game.Components.Wallet.WalletComponent),
 		typeof(InstantiateAddedListenerComponent),
 		typeof(LinkRemovedListenerComponent),
 		typeof(PositionAddedListenerComponent),
-		typeof(RotationAddedListenerComponent)
+		typeof(RotationAddedListenerComponent),
+		typeof(StandbyEmployeesAddedListenerComponent),
+		typeof(TotalEmployeesAddedListenerComponent),
+		typeof(WalletAddedListenerComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
@@ -118,18 +139,25 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Common.RotationComponent), 11 },
 		{ typeof(Ecs.Game.Components.Common.TransformComponent), 12 },
 		{ typeof(Ecs.Game.Components.Common.UidComponent), 13 },
-		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 14 },
-		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 15 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 16 },
-		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 17 },
-		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 18 },
-		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 19 },
-		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 20 },
-		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 21 },
-		{ typeof(InstantiateAddedListenerComponent), 22 },
-		{ typeof(LinkRemovedListenerComponent), 23 },
-		{ typeof(PositionAddedListenerComponent), 24 },
-		{ typeof(RotationAddedListenerComponent), 25 }
+		{ typeof(Ecs.Game.Components.Courier.BusyComponent), 14 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 15 },
+		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 16 },
+		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 17 },
+		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 18 },
+		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 19 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 20 },
+		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 21 },
+		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 22 },
+		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 23 },
+		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 24 },
+		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 25 },
+		{ typeof(InstantiateAddedListenerComponent), 26 },
+		{ typeof(LinkRemovedListenerComponent), 27 },
+		{ typeof(PositionAddedListenerComponent), 28 },
+		{ typeof(RotationAddedListenerComponent), 29 },
+		{ typeof(StandbyEmployeesAddedListenerComponent), 30 },
+		{ typeof(TotalEmployeesAddedListenerComponent), 31 },
+		{ typeof(WalletAddedListenerComponent), 32 }
 	};
 
 	/// <summary>

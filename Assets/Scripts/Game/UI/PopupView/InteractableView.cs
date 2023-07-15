@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Game.Services.Camera;
 using UniRx;
-using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -13,6 +12,7 @@ namespace Game.UI.PopupView
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Canvas canvasPrefab;
         [SerializeField] private Image panel;
+        [SerializeField] private Button selectButton;
         [Inject] private ICameraService _cameraService;
 
         private readonly ReactiveCommand _mouseClick = new();
@@ -22,7 +22,7 @@ namespace Game.UI.PopupView
         private void Awake()
         {
             canvasGroup.alpha = 0;
-            gameObject.OnMouseUpAsButtonAsObservable().Subscribe(_ => OnSelected()).AddTo(gameObject);
+            selectButton.OnClickAsObservable().Subscribe(_ => OnSelected()).AddTo(gameObject);
         }
 
         private void Update()

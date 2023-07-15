@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Utils;
 using UnityEngine;
 using RangeInt = Game.Utils.RangeInt;
 
@@ -9,6 +10,7 @@ namespace Db.DeliveryParametersProvider.Impl
     public class SoDeliveryParametersProvider : ScriptableObject, 
         IDeliveryParametersProvider
     {
+        [KeyValue(nameof(DeliveryItemsParameters.ItemsAmount))]
         [SerializeField] private List<DeliveryItemsParameters> deliveryItemsAmountParameters;
         
         [SerializeField] private RangeInt itemsPerDeliveryRange;

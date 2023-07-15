@@ -18,6 +18,7 @@ namespace Game.Services.DeliveryDestinationService.Impl
         {
             _randomProvider = randomProvider;
             _game = game;
+            _customerGroup = _game.GetGroup(GameMatcher.AllOf(GameMatcher.Customer).NoneOf(GameMatcher.Destroyed));
         }
         
         public Vector3 GetDeliveryTarget()

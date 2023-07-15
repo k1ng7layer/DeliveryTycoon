@@ -3,7 +3,7 @@
 namespace Ecs.Delivery.Components
 {
     [Delivery]
-    public class AmountComponent : IComponent
+    public class ItemsAmountComponent : IComponent
     {
         public int Value;
     }

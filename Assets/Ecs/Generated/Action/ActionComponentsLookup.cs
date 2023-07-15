@@ -13,39 +13,55 @@ using JCMG.EntitasRedux;
 
 public static class ActionComponentsLookup
 {
-	public const int CreateDelivery = 0;
-	public const int MakeContract = 1;
-	public const int SelectShop = 2;
-	public const int StartNextDeliveryTimer = 3;
-	public const int Destroyed = 4;
+	public const int BuyCourier = 0;
+	public const int ChangeCoins = 1;
+	public const int CheckDeliveryStatus = 2;
+	public const int CreateDelivery = 3;
+	public const int MakeContract = 4;
+	public const int SelectShop = 5;
+	public const int StartGame = 6;
+	public const int StartNextDeliveryTimer = 7;
+	public const int Destroyed = 8;
 
-	public const int TotalComponents = 5;
+	public const int TotalComponents = 9;
 
 	public static readonly string[] ComponentNames =
 	{
+		"BuyCourier",
+		"ChangeCoins",
+		"CheckDeliveryStatus",
 		"CreateDelivery",
 		"MakeContract",
 		"SelectShop",
+		"StartGame",
 		"StartNextDeliveryTimer",
 		"Destroyed"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(Ecs.Action.Components.BuyCourierComponent),
+		typeof(Ecs.Action.Components.ChangeCoinsComponent),
+		typeof(Ecs.Action.Components.CheckDeliveryStatusComponent),
 		typeof(Ecs.Action.Components.CreateDeliveryComponent),
 		typeof(Ecs.Action.Components.MakeContractComponent),
 		typeof(Ecs.Action.Components.SelectShopComponent),
+		typeof(Ecs.Action.Components.StartGameComponent),
 		typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(Ecs.Action.Components.CreateDeliveryComponent), 0 },
-		{ typeof(Ecs.Action.Components.MakeContractComponent), 1 },
-		{ typeof(Ecs.Action.Components.SelectShopComponent), 2 },
-		{ typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent), 3 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 4 }
+		{ typeof(Ecs.Action.Components.BuyCourierComponent), 0 },
+		{ typeof(Ecs.Action.Components.ChangeCoinsComponent), 1 },
+		{ typeof(Ecs.Action.Components.CheckDeliveryStatusComponent), 2 },
+		{ typeof(Ecs.Action.Components.CreateDeliveryComponent), 3 },
+		{ typeof(Ecs.Action.Components.MakeContractComponent), 4 },
+		{ typeof(Ecs.Action.Components.SelectShopComponent), 5 },
+		{ typeof(Ecs.Action.Components.StartGameComponent), 6 },
+		{ typeof(Ecs.Action.Components.StartNextDeliveryTimerComponent), 7 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 8 }
 	};
 
 	/// <summary>

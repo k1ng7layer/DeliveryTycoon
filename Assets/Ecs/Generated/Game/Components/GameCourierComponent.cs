@@ -9,31 +9,42 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	static readonly Ecs.Game.Components.Courier.CourierComponent CourierComponent = new Ecs.Game.Components.Courier.CourierComponent();
+	public Ecs.Game.Components.Courier.CourierComponent Courier { get { return (Ecs.Game.Components.Courier.CourierComponent)GetComponent(GameComponentsLookup.Courier); } }
+	public bool HasCourier { get { return HasComponent(GameComponentsLookup.Courier); } }
 
-	public bool IsCourier
+	public void AddCourier(Game.Utils.ECourierType newType)
 	{
-		get { return HasComponent(GameComponentsLookup.Courier); }
-		set
-		{
-			if (value != IsCourier)
-			{
-				var index = GameComponentsLookup.Courier;
-				if (value)
-				{
-					var componentPool = GetComponentPool(index);
-					var component = componentPool.Count > 0
-							? componentPool.Pop()
-							: CourierComponent;
+		var index = GameComponentsLookup.Courier;
+		var component = (Ecs.Game.Components.Courier.CourierComponent)CreateComponent(index, typeof(Ecs.Game.Components.Courier.CourierComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Type = newType;
+		#endif
+		AddComponent(index, component);
+	}
 
-					AddComponent(index, component);
-				}
-				else
-				{
-					RemoveComponent(index);
-				}
-			}
-		}
+	public void ReplaceCourier(Game.Utils.ECourierType newType)
+	{
+		var index = GameComponentsLookup.Courier;
+		var component = (Ecs.Game.Components.Courier.CourierComponent)CreateComponent(index, typeof(Ecs.Game.Components.Courier.CourierComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Type = newType;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void CopyCourierTo(Ecs.Game.Components.Courier.CourierComponent copyComponent)
+	{
+		var index = GameComponentsLookup.Courier;
+		var component = (Ecs.Game.Components.Courier.CourierComponent)CreateComponent(index, typeof(Ecs.Game.Components.Courier.CourierComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Type = copyComponent.Type;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void RemoveCourier()
+	{
+		RemoveComponent(GameComponentsLookup.Courier);
 	}
 }
 

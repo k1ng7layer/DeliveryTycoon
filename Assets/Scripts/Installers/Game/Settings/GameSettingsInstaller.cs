@@ -8,6 +8,8 @@ using Db.EmployeeSettings;
 using Db.EmployeeSettings.Impl;
 using Db.OrderParameters;
 using Db.OrderParameters.Impl;
+using Db.PrefabBase;
+using Db.PrefabBase.Impl;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +23,7 @@ namespace Installers.Game.Settings
         [SerializeField] private SoDeliveryParametersProvider deliveryParametersProvider;
         [SerializeField] private SoEmployeeSettingsProvider employeeSettingsProvider;
         [SerializeField] private SoOrderParametersProvider orderParametersProvider;
+        [SerializeField] private SoPrefabsBase prefabsBase;
         
         public override void InstallBindings()
         {
@@ -29,6 +32,7 @@ namespace Installers.Game.Settings
             Container.Bind<IDeliveryParametersProvider>().To<SoDeliveryParametersProvider>().FromInstance(deliveryParametersProvider).AsSingle();
             Container.Bind<IEmployeeSettingsProvider>().To<SoEmployeeSettingsProvider>().FromInstance(employeeSettingsProvider).AsSingle();
             Container.Bind<IOrderParametersProvider>().To<SoOrderParametersProvider>().FromInstance(orderParametersProvider).AsSingle();
+            Container.Bind<IPrefabsBase>().To<SoPrefabsBase>().FromInstance(prefabsBase).AsSingle();
         }
     }
 }

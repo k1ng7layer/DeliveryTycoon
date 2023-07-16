@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Db.PrefabBase.Impl
 {
     [CreateAssetMenu(menuName = "Settings/PrefabsBase", fileName = "PrefabsBase")]
-    public class PrefabsBase : ScriptableObject, IPrefabsBase
+    public class SoPrefabsBase : ScriptableObject, IPrefabsBase
     {
         [KeyValue(nameof(Prefab.name))] [SerializeField]
         private Prefab[] prefabs;

@@ -62,6 +62,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<InitializeInputSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeCameraSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeDeliverySourcesSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InitializeDeliveryOfficeSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<EmitInputSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraMovementSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<NextDeliveryTimeSystem>().AsSingle();

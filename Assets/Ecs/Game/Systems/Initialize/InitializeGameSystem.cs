@@ -1,4 +1,5 @@
-﻿using Game.Services.Input;
+﻿using Game.Services.GameLevelProvider;
+using Game.Services.Input;
 using Game.UI.Wallet.Controllers;
 using JCMG.EntitasRedux;
 
@@ -12,16 +13,19 @@ namespace Ecs.Game.Systems.Initialize
         private readonly GameContext _game;
         private readonly ActionContext _action;
         private readonly ICoinWalletUiController _coinWalletUiController;
+        private readonly IGameLevelProvider _gameLevelProvider;
 
         public InitializeGameSystem(IGameInputService gameInputService,
             GameContext game,
             ActionContext action,
-            ICoinWalletUiController coinWalletUiController)
+            ICoinWalletUiController coinWalletUiController,
+            IGameLevelProvider gameLevelProvider)
         {
             _gameInputService = gameInputService;
             _game = game;
             _action = action;
             _coinWalletUiController = coinWalletUiController;
+            _gameLevelProvider = gameLevelProvider;
         }
         
         public void Initialize()

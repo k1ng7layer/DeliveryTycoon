@@ -26,7 +26,7 @@ namespace Game.Services.Spawn.Impl
                 var prefabName = entity.Prefab.Name;
                 var prefab = _prefabBase.Get(prefabName);
                 var obj = _diContainer.InstantiatePrefab(prefab, position, rotation, null);
-                entity.AddTransform(obj.transform);
+                //entity.AddTransform(obj.transform);
                 if(obj.TryGetComponent<ILinkableView>(out var view))
                 {
                     return view;

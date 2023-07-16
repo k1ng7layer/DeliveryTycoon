@@ -4,6 +4,7 @@ using Ecs.Action.Systems.Courier;
 using Ecs.Action.Systems.CustomersShop;
 using Ecs.Action.Systems.Delivery;
 using Ecs.Delivery.Systems;
+using Ecs.Game.Systems.Ai;
 using Ecs.Game.Systems.Camera;
 using Ecs.Game.Systems.Common;
 using Ecs.Game.Systems.Initialize;
@@ -75,6 +76,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CheckDeliveryStatusSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CreateCourierSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InstantiateSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BehaviourTreeUpdateSystem>().AsSingle();
         }
 
         private void BindWindows()

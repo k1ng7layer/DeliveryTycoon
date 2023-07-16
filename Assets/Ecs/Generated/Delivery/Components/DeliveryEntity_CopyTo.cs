@@ -18,11 +18,7 @@ public partial class DeliveryEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Delivery.Components.InWorkComponent InWork)
-		{
-			IsInWork = true;
-		}
-		else if (component is Ecs.Delivery.Components.DurationComponent Duration)
+		if (component is Ecs.Delivery.Components.DurationComponent Duration)
 		{
 			CopyDurationTo(Duration);
 		}
@@ -41,6 +37,10 @@ public partial class DeliveryEntity
 		else if (component is Ecs.Delivery.Components.ItemsAmountComponent ItemsAmount)
 		{
 			CopyItemsAmountTo(ItemsAmount);
+		}
+		else if (component is Ecs.Delivery.Components.InWorkComponent InWork)
+		{
+			IsInWork = true;
 		}
 		else if (component is Ecs.Delivery.Components.PriceComponent Price)
 		{

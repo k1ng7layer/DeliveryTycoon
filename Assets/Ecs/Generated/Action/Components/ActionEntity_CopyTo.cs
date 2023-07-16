@@ -34,9 +34,13 @@ public partial class ActionEntity
 		{
 			CopyChangeCoinsTo(ChangeCoins);
 		}
-		else if (component is Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent CheckDeliveryStatus)
+		else if (component is Ecs.Action.Components.Courier.CreateCourierComponent CreateCourier)
 		{
-			IsCheckDeliveryStatus = true;
+			CopyCreateCourierTo(CreateCourier);
+		}
+		else if (component is Ecs.Action.Components.Courier.BuyCourierComponent BuyCourier)
+		{
+			CopyBuyCourierTo(BuyCourier);
 		}
 		else if (component is Ecs.Action.Components.Delivery.StartNextDeliveryTimerComponent StartNextDeliveryTimer)
 		{
@@ -46,13 +50,9 @@ public partial class ActionEntity
 		{
 			CopyCreateDeliveryTo(CreateDelivery);
 		}
-		else if (component is Ecs.Action.Components.Courier.CreateCourierComponent CreateCourier)
+		else if (component is Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent CheckDeliveryStatus)
 		{
-			CopyCreateCourierTo(CreateCourier);
-		}
-		else if (component is Ecs.Action.Components.Courier.BuyCourierComponent BuyCourier)
-		{
-			CopyBuyCourierTo(BuyCourier);
+			IsCheckDeliveryStatus = true;
 		}
 		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
 		{

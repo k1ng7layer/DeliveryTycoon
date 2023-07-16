@@ -35,6 +35,7 @@ namespace Ecs.Action.Systems.Courier
                 courierEntity.AddPosition(courierSpawnPoint);
                 courierEntity.AddPrefab("Courier");
                 courierEntity.IsInstantiate = true;
+                courierEntity.IsAi = true;
             }
         }
     }

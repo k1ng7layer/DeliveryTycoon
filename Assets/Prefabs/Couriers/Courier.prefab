@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3649228103444060814}
   - component: {fileID: 3649228103444060815}
   - component: {fileID: 3649228103444060812}
+  - component: {fileID: 3786812025084866180}
   m_Layer: 0
   m_Name: Courier
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityLink: {fileID: 3649228103444060814}
   navMeshAgent: {fileID: 3649228103444060812}
+  behaviourTreeSetup: {fileID: 3786812025084866180}
 --- !u!195 &3649228103444060812
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -83,6 +85,59 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3786812025084866180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649228103444060816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b1e976f34e43e8b1537e22325afadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root:
+    rid: 2235637365816688711
+  updateType: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2235637365816688711
+      type: {class: Root, ns: UniBT, asm: UniBT}
+      data:
+        graphPosition:
+          serializedVersion: 2
+          x: -140
+          y: -1
+          width: 73
+          height: 77
+        description: 
+        child:
+          rid: 2235637365816688712
+    - rid: 2235637365816688712
+      type: {class: HasOrderCondition, ns: Game.AI.Tasks.Conditions, asm: Assembly-CSharp}
+      data:
+        graphPosition:
+          serializedVersion: 2
+          x: 541
+          y: 214
+          width: 180
+          height: 115
+        description: 
+        dontReEvaluateOnRunning: 0
+        child:
+          rid: 2235637365816688713
+    - rid: 2235637365816688713
+      type: {class: TestTask, ns: Game.AI.Tasks, asm: Assembly-CSharp}
+      data:
+        graphPosition:
+          serializedVersion: 2
+          x: 827
+          y: 255
+          width: 99
+          height: 97
+        description: 
 --- !u!1001 &3649228103072721460
 PrefabInstance:
   m_ObjectHideFlags: 0

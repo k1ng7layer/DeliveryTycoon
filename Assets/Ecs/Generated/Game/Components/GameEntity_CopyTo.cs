@@ -18,7 +18,19 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
+		if (component is Ecs.Game.Components.Ai.AiComponent Ai)
+		{
+			IsAi = true;
+		}
+		else if (component is Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree)
+		{
+			CopyBehaviourTreeTo(BehaviourTree);
+		}
+		else if (component is Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent CourierSpawnPoint)
+		{
+			CopyCourierSpawnPointTo(CourierSpawnPoint);
+		}
+		else if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
 		{
 			CopyWalletTo(Wallet);
 		}
@@ -30,13 +42,13 @@ public partial class GameEntity
 		{
 			IsCustomer = true;
 		}
-		else if (component is Ecs.Game.Components.Courier.StandbyEmployeesComponent StandbyEmployees)
-		{
-			CopyStandbyEmployeesTo(StandbyEmployees);
-		}
 		else if (component is Ecs.Game.Components.Courier.BusyComponent Busy)
 		{
 			IsBusy = true;
+		}
+		else if (component is Ecs.Game.Components.Courier.StandbyEmployeesComponent StandbyEmployees)
+		{
+			CopyStandbyEmployeesTo(StandbyEmployees);
 		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{
@@ -85,10 +97,6 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Camera.CameraGlobalTargetComponent CameraGlobalTarget)
 		{
 			IsCameraGlobalTarget = true;
-		}
-		else if (component is Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent CourierSpawnPoint)
-		{
-			CopyCourierSpawnPointTo(CourierSpawnPoint);
 		}
 		else if (component is Ecs.Game.Components.Common.RotationComponent Rotation)
 		{

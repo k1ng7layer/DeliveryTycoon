@@ -5,6 +5,7 @@ using Ecs.Action.Systems.CustomersShop;
 using Ecs.Action.Systems.Delivery;
 using Ecs.Delivery.Systems;
 using Ecs.Game.Systems.Camera;
+using Ecs.Game.Systems.Common;
 using Ecs.Game.Systems.Initialize;
 using Ecs.Input.Systems;
 using Game.Services.Camera.Impl;
@@ -18,6 +19,7 @@ using Game.Services.OrderStatusService.Impl;
 using Game.Services.PointerRaycastService;
 using Game.Services.PointerRaycastService.Impl;
 using Game.Services.RandomProvider.Impl;
+using Game.Services.Spawn.Impl;
 using Game.Services.TimeProvider.Impl;
 using Game.UI.DeliverySourceShop.Windows;
 using Game.UI.GameHud.Windows;
@@ -49,6 +51,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<DefaultDeliveryPriceService>().AsSingle();
             Container.BindInterfacesAndSelfTo<DeliveryRandomTargetService>().AsSingle();
             Container.BindInterfacesAndSelfTo<OrderStatusService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DiSpawnService>().AsSingle();
             Container.Bind<IRaycastProvider>().To<RaycastProvider>().AsSingle();
         }
 
@@ -70,6 +73,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<ChangeCoinsSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CheckDeliveryStatusSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CreateCourierSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InstantiateSystem>().AsSingle();
         }
 
         private void BindWindows()

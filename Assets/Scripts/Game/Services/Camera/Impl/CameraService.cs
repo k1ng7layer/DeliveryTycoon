@@ -18,7 +18,6 @@ namespace Game.Services.Camera.Impl
         public UnityEngine.Camera PhysicalCamera { get; set; }
         public CinemachineVirtualCamera ActiveCamera { get; private set; }
         
-        
         public void SetActiveCamera(ECameraType cameraType)
         {
             Debug.Log($"CameraService SetActiveCamera {cameraType}");

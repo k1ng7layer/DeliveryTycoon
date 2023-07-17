@@ -21,10 +21,11 @@ public static class ActionComponentsLookup
 	public const int CheckOrderStatus = 5;
 	public const int CreateOrder = 6;
 	public const int StartNextOrderTimer = 7;
-	public const int StartGame = 8;
-	public const int Destroyed = 9;
+	public const int TakeOrder = 8;
+	public const int StartGame = 9;
+	public const int Destroyed = 10;
 
-	public const int TotalComponents = 10;
+	public const int TotalComponents = 11;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -36,6 +37,7 @@ public static class ActionComponentsLookup
 		"CheckOrderStatus",
 		"CreateOrder",
 		"StartNextOrderTimer",
+		"TakeOrder",
 		"StartGame",
 		"Destroyed"
 	};
@@ -47,9 +49,10 @@ public static class ActionComponentsLookup
 		typeof(Ecs.Action.Components.Courier.CreateCourierComponent),
 		typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent),
 		typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent),
-		typeof(Ecs.Action.Components.Delivery.CheckOrderStatusComponent),
-		typeof(Ecs.Action.Components.Delivery.CreateOrderComponent),
-		typeof(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent),
+		typeof(Ecs.Action.Components.Order.CheckOrderStatusComponent),
+		typeof(Ecs.Action.Components.Order.CreateOrderComponent),
+		typeof(Ecs.Action.Components.Order.StartNextOrderTimerComponent),
+		typeof(Ecs.Action.Components.Order.TakeOrderComponent),
 		typeof(Ecs.Action.Components.StartGameComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent)
 	};
@@ -61,11 +64,12 @@ public static class ActionComponentsLookup
 		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 2 },
 		{ typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent), 3 },
 		{ typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent), 4 },
-		{ typeof(Ecs.Action.Components.Delivery.CheckOrderStatusComponent), 5 },
-		{ typeof(Ecs.Action.Components.Delivery.CreateOrderComponent), 6 },
-		{ typeof(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent), 7 },
-		{ typeof(Ecs.Action.Components.StartGameComponent), 8 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 9 }
+		{ typeof(Ecs.Action.Components.Order.CheckOrderStatusComponent), 5 },
+		{ typeof(Ecs.Action.Components.Order.CreateOrderComponent), 6 },
+		{ typeof(Ecs.Action.Components.Order.StartNextOrderTimerComponent), 7 },
+		{ typeof(Ecs.Action.Components.Order.TakeOrderComponent), 8 },
+		{ typeof(Ecs.Action.Components.StartGameComponent), 9 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 10 }
 	};
 
 	/// <summary>

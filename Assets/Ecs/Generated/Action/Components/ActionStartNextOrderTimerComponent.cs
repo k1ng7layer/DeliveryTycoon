@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class ActionEntity
 {
-	public Ecs.Action.Components.Delivery.StartNextOrderTimerComponent StartNextOrderTimer { get { return (Ecs.Action.Components.Delivery.StartNextOrderTimerComponent)GetComponent(ActionComponentsLookup.StartNextOrderTimer); } }
+	public Ecs.Action.Components.Order.StartNextOrderTimerComponent StartNextOrderTimer { get { return (Ecs.Action.Components.Order.StartNextOrderTimerComponent)GetComponent(ActionComponentsLookup.StartNextOrderTimer); } }
 	public bool HasStartNextOrderTimer { get { return HasComponent(ActionComponentsLookup.StartNextOrderTimer); } }
 
 	public void AddStartNextOrderTimer(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.StartNextOrderTimer;
-		var component = (Ecs.Action.Components.Delivery.StartNextOrderTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent));
+		var component = (Ecs.Action.Components.Order.StartNextOrderTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.StartNextOrderTimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
@@ -25,17 +25,17 @@ public partial class ActionEntity
 	public void ReplaceStartNextOrderTimer(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.StartNextOrderTimer;
-		var component = (Ecs.Action.Components.Delivery.StartNextOrderTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent));
+		var component = (Ecs.Action.Components.Order.StartNextOrderTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.StartNextOrderTimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyStartNextOrderTimerTo(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent copyComponent)
+	public void CopyStartNextOrderTimerTo(Ecs.Action.Components.Order.StartNextOrderTimerComponent copyComponent)
 	{
 		var index = ActionComponentsLookup.StartNextOrderTimer;
-		var component = (Ecs.Action.Components.Delivery.StartNextOrderTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent));
+		var component = (Ecs.Action.Components.Order.StartNextOrderTimerComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.StartNextOrderTimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = copyComponent.DeliverySourceUid;
 		#endif

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial class ActionEntity
 {
-	static readonly Ecs.Action.Components.Delivery.CheckOrderStatusComponent CheckOrderStatusComponent = new Ecs.Action.Components.Delivery.CheckOrderStatusComponent();
+	static readonly Ecs.Action.Components.Order.CheckOrderStatusComponent CheckOrderStatusComponent = new Ecs.Action.Components.Order.CheckOrderStatusComponent();
 
 	public bool IsCheckOrderStatus
 	{

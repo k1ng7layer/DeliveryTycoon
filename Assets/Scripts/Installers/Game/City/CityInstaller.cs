@@ -2,7 +2,7 @@
 using Ecs.Action.Systems.Coins;
 using Ecs.Action.Systems.Courier;
 using Ecs.Action.Systems.CustomersShop;
-using Ecs.Action.Systems.Delivery;
+using Ecs.Action.Systems.Order;
 using Ecs.Delivery.Systems;
 using Ecs.Game.Systems.Ai;
 using Ecs.Game.Systems.Camera;
@@ -70,13 +70,14 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CreateOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MakeContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<SelectShopSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<StartNextDeliveryTimerSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StartNextOrderTimerSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuyCourierSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ChangeCoinsSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CheckDeliveryStatusSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CreateCourierSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CheckOrderStatusSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InstantiateSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<BehaviourTreeUpdateSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TakeOrderSystem>().AsSingle();
         }
 
         private void BindWindows()

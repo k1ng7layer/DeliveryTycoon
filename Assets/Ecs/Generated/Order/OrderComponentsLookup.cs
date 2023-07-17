@@ -26,11 +26,12 @@ public static class OrderComponentsLookup
 	public const int TargetTime = 10;
 	public const int Active = 11;
 	public const int Destroyed = 12;
-	public const int Uid = 13;
-	public const int Courier = 14;
-	public const int Order = 15;
+	public const int Owner = 13;
+	public const int Uid = 14;
+	public const int Courier = 15;
+	public const int Order = 16;
 
-	public const int TotalComponents = 16;
+	public const int TotalComponents = 17;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -47,6 +48,7 @@ public static class OrderComponentsLookup
 		"TargetTime",
 		"Active",
 		"Destroyed",
+		"Owner",
 		"Uid",
 		"Courier",
 		"Order"
@@ -67,6 +69,7 @@ public static class OrderComponentsLookup
 		typeof(Ecs.Delivery.Components.TargetTimeComponent),
 		typeof(Ecs.Game.Components.Common.ActiveComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent),
+		typeof(Ecs.Game.Components.Common.OwnerComponent),
 		typeof(Ecs.Game.Components.Common.UidComponent),
 		typeof(Ecs.Game.Components.Courier.CourierComponent),
 		typeof(Ecs.Game.Components.Delivery.OrderComponent)
@@ -87,9 +90,10 @@ public static class OrderComponentsLookup
 		{ typeof(Ecs.Delivery.Components.TargetTimeComponent), 10 },
 		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 11 },
 		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 12 },
-		{ typeof(Ecs.Game.Components.Common.UidComponent), 13 },
-		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 14 },
-		{ typeof(Ecs.Game.Components.Delivery.OrderComponent), 15 }
+		{ typeof(Ecs.Game.Components.Common.OwnerComponent), 13 },
+		{ typeof(Ecs.Game.Components.Common.UidComponent), 14 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 15 },
+		{ typeof(Ecs.Game.Components.Delivery.OrderComponent), 16 }
 	};
 
 	/// <summary>

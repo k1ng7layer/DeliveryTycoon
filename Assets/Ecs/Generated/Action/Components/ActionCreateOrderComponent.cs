@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class ActionEntity
 {
-	public Ecs.Action.Components.Delivery.CreateOrderComponent CreateOrder { get { return (Ecs.Action.Components.Delivery.CreateOrderComponent)GetComponent(ActionComponentsLookup.CreateOrder); } }
+	public Ecs.Action.Components.Order.CreateOrderComponent CreateOrder { get { return (Ecs.Action.Components.Order.CreateOrderComponent)GetComponent(ActionComponentsLookup.CreateOrder); } }
 	public bool HasCreateOrder { get { return HasComponent(ActionComponentsLookup.CreateOrder); } }
 
 	public void AddCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.CreateOrder;
-		var component = (Ecs.Action.Components.Delivery.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.CreateOrderComponent));
+		var component = (Ecs.Action.Components.Order.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.CreateOrderComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
@@ -25,17 +25,17 @@ public partial class ActionEntity
 	public void ReplaceCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = ActionComponentsLookup.CreateOrder;
-		var component = (Ecs.Action.Components.Delivery.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.CreateOrderComponent));
+		var component = (Ecs.Action.Components.Order.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.CreateOrderComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyCreateOrderTo(Ecs.Action.Components.Delivery.CreateOrderComponent copyComponent)
+	public void CopyCreateOrderTo(Ecs.Action.Components.Order.CreateOrderComponent copyComponent)
 	{
 		var index = ActionComponentsLookup.CreateOrder;
-		var component = (Ecs.Action.Components.Delivery.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Delivery.CreateOrderComponent));
+		var component = (Ecs.Action.Components.Order.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.CreateOrderComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = copyComponent.DeliverySourceUid;
 		#endif

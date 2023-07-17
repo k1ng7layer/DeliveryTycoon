@@ -11,7 +11,13 @@ namespace Game.UI.OrderView.Controllers
     public class OrderItemCollectionController : UiController<OrderItemMenuView>,
         IOrderPopupController
     {
+        private readonly ActionContext _action;
         private readonly Dictionary<Uid, OrderItemView> _orderItemsTable = new();
+
+        public OrderItemCollectionController(ActionContext action)
+        {
+            _action = action;
+        }
 
         public void OnOrderCreated(OrderEntity orderEntity)
         {
@@ -45,9 +51,12 @@ namespace Game.UI.OrderView.Controllers
             view.Enable(eOrderStatus == EOrderStatus.Accessible);
         }
 
-        private void TakeOrder(Uid orderUi)
+        private void TakeOrder(Uid orderUid)
         {
+            var orderItemView = _orderItemsTable[orderUid];
+            View.OrderItemCollectionView.Remove(orderItemView);
             
+            _action.CreateEntity().AddTakeOrder(orderUid);
         }
     }
 }

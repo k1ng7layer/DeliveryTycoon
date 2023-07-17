@@ -4,9 +4,9 @@ using Game.UI.OrderView.Controllers;
 using JCMG.EntitasRedux;
 using Zenject;
 
-namespace Ecs.Action.Systems.Delivery
+namespace Ecs.Action.Systems.Order
 {
-    public class CheckDeliveryStatusSystem : ReactiveSystem<ActionEntity>
+    public class CheckOrderStatusSystem : ReactiveSystem<ActionEntity>
     {
         private static readonly ListPool<OrderEntity> DeliveryEntityPool = ListPool<OrderEntity>.Instance;
         
@@ -14,7 +14,7 @@ namespace Ecs.Action.Systems.Delivery
         private readonly IOrderPopupController _orderPopupController;
         private readonly IGroup<OrderEntity> _pendingOrdersGroup;
 
-        public CheckDeliveryStatusSystem(
+        public CheckOrderStatusSystem(
             ActionContext action,
             OrderContext order,
             IOrderStatusService orderStatusService,

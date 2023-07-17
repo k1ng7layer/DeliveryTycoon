@@ -78,6 +78,10 @@ public partial class OrderEntity
 		{
 			IsDestroyed = true;
 		}
+		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
+		{
+			CopyOwnerTo(Owner);
+		}
 		else if (component is DurationAddedListenerComponent DurationAddedListener)
 		{
 			CopyDurationAddedListenerTo(DurationAddedListener);

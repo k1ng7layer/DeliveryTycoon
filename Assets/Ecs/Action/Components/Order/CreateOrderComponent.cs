@@ -1,10 +1,10 @@
 ﻿using Ecs.UidGenerator;
 using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Components.Delivery
+namespace Ecs.Action.Components.Order
 {
     [Action]
-    public class StartNextOrderTimerComponent : IComponent
+    public class CreateOrderComponent : IComponent
     {
         public Uid DeliverySourceUid;
     }

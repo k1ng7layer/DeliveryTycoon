@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface IStartNextOrderTimerEntity
 {
-	Ecs.Action.Components.Delivery.StartNextOrderTimerComponent StartNextOrderTimer { get; }
+	Ecs.Action.Components.Order.StartNextOrderTimerComponent StartNextOrderTimer { get; }
 	bool HasStartNextOrderTimer { get; }
 
 	void AddStartNextOrderTimer(Ecs.UidGenerator.Uid newDeliverySourceUid);

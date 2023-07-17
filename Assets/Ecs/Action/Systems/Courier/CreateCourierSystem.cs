@@ -34,6 +34,7 @@ namespace Ecs.Action.Systems.Courier
                 courierEntity.AddCourier(courierTypeToCreate);
                 courierEntity.AddPosition(courierSpawnPoint);
                 courierEntity.AddPrefab("Courier");
+                courierEntity.AddUid(UidGenerator.UidGenerator.Next());
                 courierEntity.IsInstantiate = true;
                 courierEntity.IsAi = true;
             }

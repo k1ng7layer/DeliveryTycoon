@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using JCMG.EntitasRedux;
 
-namespace Ecs.Action.Systems.Delivery
+namespace Ecs.Action.Systems.Order
 {
-    public class StartNextDeliveryTimerSystem : ReactiveSystem<ActionEntity>
+    public class StartNextOrderTimerSystem : ReactiveSystem<ActionEntity>
     {
         private readonly GameContext _game;
 
-        public StartNextDeliveryTimerSystem(ActionContext action, 
+        public StartNextOrderTimerSystem(ActionContext action, 
             GameContext game) : base(action)
         {
             _game = game;
@@ -28,7 +28,7 @@ namespace Ecs.Action.Systems.Delivery
 
                 var deliverySourceEntity = _game.GetEntityWithUid(shopUid);
                 
-                deliverySourceEntity.ReplaceNextOrderTimer(5f);
+                deliverySourceEntity.ReplaceNextOrderTimer(1f);
 
             }
         }

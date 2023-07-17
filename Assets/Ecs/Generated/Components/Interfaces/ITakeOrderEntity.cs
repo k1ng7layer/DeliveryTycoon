@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface ICreateOrderEntity
+public partial interface ITakeOrderEntity
 {
-	Ecs.Action.Components.Order.CreateOrderComponent CreateOrder { get; }
-	bool HasCreateOrder { get; }
+	Ecs.Action.Components.Order.TakeOrderComponent TakeOrder { get; }
+	bool HasTakeOrder { get; }
 
-	void AddCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid);
-	void ReplaceCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid);
-	void RemoveCreateOrder();
+	void AddTakeOrder(Ecs.UidGenerator.Uid newOrderUid);
+	void ReplaceTakeOrder(Ecs.UidGenerator.Uid newOrderUid);
+	void RemoveTakeOrder();
 }

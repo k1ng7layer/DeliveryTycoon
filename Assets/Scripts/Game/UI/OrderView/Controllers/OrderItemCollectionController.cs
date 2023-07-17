@@ -4,6 +4,7 @@ using Ecs.UidGenerator;
 using Game.UI.OrderView.Views;
 using Game.Utils;
 using SimpleUi.Abstracts;
+using UniRx;
 
 namespace Game.UI.OrderView.Controllers
 {
@@ -27,6 +28,8 @@ namespace Game.UI.OrderView.Controllers
             orderItemView.courierAmountText.text = $"Courier amount required: {courierAmount}";
             orderItemView.courierTypeText.text = $"Courier type required: {courierType}";
 
+            orderItemView.TakeOrderButton.OnClickAsObservable().Subscribe(_ => TakeOrder(orderUid)).AddTo(orderItemView.gameObject);
+            
             ChangeOrderStatus(deliveryEntity, orderStatus);
         }
 
@@ -40,6 +43,11 @@ namespace Game.UI.OrderView.Controllers
                     $"[{nameof(OrderItemCollectionController)}] there is no order with uid {orderUid} registered in OrderItemMenuView");
             
             view.Enable(eOrderStatus == EOrderStatus.Accessible);
+        }
+
+        private void TakeOrder(Uid orderUi)
+        {
+            
         }
     }
 }

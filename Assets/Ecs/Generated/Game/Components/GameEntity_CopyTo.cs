@@ -18,21 +18,21 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Ai.AiComponent Ai)
+		if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
+		{
+			CopyWalletTo(Wallet);
+		}
+		else if (component is Ecs.Game.Components.Ai.TargetComponent Target)
+		{
+			CopyTargetTo(Target);
+		}
+		else if (component is Ecs.Game.Components.Ai.AiComponent Ai)
 		{
 			IsAi = true;
 		}
 		else if (component is Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree)
 		{
 			CopyBehaviourTreeTo(BehaviourTree);
-		}
-		else if (component is Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent CourierSpawnPoint)
-		{
-			CopyCourierSpawnPointTo(CourierSpawnPoint);
-		}
-		else if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
-		{
-			CopyWalletTo(Wallet);
 		}
 		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
@@ -58,9 +58,9 @@ public partial class GameEntity
 		{
 			CopyTotalEmployeesTo(TotalEmployees);
 		}
-		else if (component is Ecs.Game.Components.Delivery.DeliveryOfficeComponent DeliveryOffice)
+		else if (component is Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent CourierSpawnPoint)
 		{
-			IsDeliveryOffice = true;
+			CopyCourierSpawnPointTo(CourierSpawnPoint);
 		}
 		else if (component is Ecs.Game.Components.Delivery.LevelComponent Level)
 		{
@@ -73,6 +73,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Delivery.PartnerComponent Partner)
 		{
 			IsPartner = true;
+		}
+		else if (component is Ecs.Game.Components.Delivery.DeliveryOfficeComponent DeliveryOffice)
+		{
+			IsDeliveryOffice = true;
 		}
 		else if (component is Ecs.Game.Components.Delivery.NextDeliveryTimerComponent NextDeliveryTimer)
 		{

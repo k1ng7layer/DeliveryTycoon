@@ -98,12 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root:
-    rid: 2235637365816688711
-  updateType: 0
+    rid: 2235637395244449792
+  updateType: 1
   references:
     version: 2
     RefIds:
-    - rid: 2235637365816688711
+    - rid: 2235637395244449792
       type: {class: Root, ns: UniBT, asm: UniBT}
       data:
         graphPosition:
@@ -114,8 +114,8 @@ MonoBehaviour:
           height: 77
         description: 
         child:
-          rid: 2235637365816688712
-    - rid: 2235637365816688712
+          rid: 2235637395244449793
+    - rid: 2235637395244449793
       type: {class: HasOrderCondition, ns: Game.AI.Tasks.Conditions, asm: Assembly-CSharp}
       data:
         graphPosition:
@@ -127,8 +127,8 @@ MonoBehaviour:
         description: 
         dontReEvaluateOnRunning: 0
         child:
-          rid: 2235637365816688713
-    - rid: 2235637365816688713
+          rid: 2235637395244449794
+    - rid: 2235637395244449794
       type: {class: TestTask, ns: Game.AI.Tasks, asm: Assembly-CSharp}
       data:
         graphPosition:

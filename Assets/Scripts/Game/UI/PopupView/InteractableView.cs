@@ -40,7 +40,7 @@ namespace Game.UI.PopupView
         
         public void StartInteract()
         {
-            Debug.Log($"Interact start {gameObject.name}");
+            //Debug.Log($"Interact start {gameObject.name}");
             StopAllCoroutines();
             StartCoroutine(TurnOnView());
         }

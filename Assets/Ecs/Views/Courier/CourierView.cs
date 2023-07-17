@@ -24,11 +24,9 @@ namespace Ecs.Views.Courier
 
             _courierEntity = (GameEntity)entity;
             
-            behaviourTreeSetup.InitializeBtWithEntity(_courierEntity);
+            var behaviorTree = behaviourTreeSetup.InitializeBtWithEntity(_courierEntity);
 
-            var behaviorTree = behaviourTreeSetup;
-            
-            _courierEntity.AddBehaviourTree(behaviorTree);
+            _courierEntity.AddBehaviourTree(behaviourTreeSetup);
         }
         
         // private void SetupBT()

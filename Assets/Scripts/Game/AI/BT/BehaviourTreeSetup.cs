@@ -21,9 +21,15 @@ namespace Game.AI.BT
         
         private BehaviorTree Setup(NodeBehavior nodeBehavior)
         {
-            if (nodeBehavior is ILinkedTask actionTask)
+            if (nodeBehavior is ILinkedTask linkedTask)
             {
-                actionTask.Link(_entity);
+                linkedTask.Link(_entity);
+            }
+
+            if (nodeBehavior is AConditionalTask conditional)
+            {
+                if (conditional.Child != null)
+                    Setup(conditional.Child);
             }
             
             if (nodeBehavior is Composite composite)

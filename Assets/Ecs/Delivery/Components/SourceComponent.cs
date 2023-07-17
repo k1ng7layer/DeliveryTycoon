@@ -3,7 +3,7 @@ using JCMG.EntitasRedux;
 
 namespace Ecs.Delivery.Components
 {
-    [Delivery]
+    [Order]
     public class SourceComponent : IComponent
     {
         public Uid DeliverySourceUid;

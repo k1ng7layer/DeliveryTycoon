@@ -14,9 +14,9 @@ namespace Ecs.Action.Systems.Delivery
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
-            context.CreateCollector(ActionMatcher.StartNextDeliveryTimer);
+            context.CreateCollector(ActionMatcher.StartNextOrderTimer);
 
-        protected override bool Filter(ActionEntity entity) => entity.HasStartNextDeliveryTimer && !entity.IsDestroyed;
+        protected override bool Filter(ActionEntity entity) => entity.HasStartNextOrderTimer && !entity.IsDestroyed;
 
         protected override void Execute(List<ActionEntity> entities)
         {
@@ -24,11 +24,11 @@ namespace Ecs.Action.Systems.Delivery
             {
                 entity.IsDestroyed = true;
 
-                var shopUid = entity.StartNextDeliveryTimer.DeliverySourceUid;
+                var shopUid = entity.StartNextOrderTimer.DeliverySourceUid;
 
                 var deliverySourceEntity = _game.GetEntityWithUid(shopUid);
                 
-                deliverySourceEntity.ReplaceNextDeliveryTimer(5f);
+                deliverySourceEntity.ReplaceNextOrderTimer(5f);
 
             }
         }

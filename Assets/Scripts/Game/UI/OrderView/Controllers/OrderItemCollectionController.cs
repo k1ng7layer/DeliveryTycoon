@@ -13,27 +13,27 @@ namespace Game.UI.OrderView.Controllers
     {
         private readonly Dictionary<Uid, OrderItemView> _orderItemsTable = new();
 
-        public void OnOrderCreated(DeliveryEntity deliveryEntity)
+        public void OnOrderCreated(OrderEntity orderEntity)
         {
             var orderItemView = View.OrderItemCollectionView.Create();
-            var orderUid = deliveryEntity.Uid.Value;
-            var orderStatus = deliveryEntity.DeliveryStatus.Value;
+            var orderUid = orderEntity.Uid.Value;
+            var orderStatus = orderEntity.OrderStatus.Value;
             
             if(!_orderItemsTable.ContainsKey(orderUid))
                 _orderItemsTable.Add(orderUid, orderItemView);
 
-            var courierType = deliveryEntity.Courier.Type;
-            var courierAmount = deliveryEntity.CourierAmount.Value;
+            var courierType = orderEntity.Courier.Type;
+            var courierAmount = orderEntity.CourierAmount.Value;
 
             orderItemView.courierAmountText.text = $"Courier amount required: {courierAmount}";
             orderItemView.courierTypeText.text = $"Courier type required: {courierType}";
 
             orderItemView.TakeOrderButton.OnClickAsObservable().Subscribe(_ => TakeOrder(orderUid)).AddTo(orderItemView.gameObject);
             
-            ChangeOrderStatus(deliveryEntity, orderStatus);
+            ChangeOrderStatus(orderEntity, orderStatus);
         }
 
-        public void ChangeOrderStatus(DeliveryEntity deliveryEntity, EOrderStatus eOrderStatus)
+        public void ChangeOrderStatus(OrderEntity deliveryEntity, EOrderStatus eOrderStatus)
         {
             var orderUid = deliveryEntity.Uid.Value;
             var hasOrderView = _orderItemsTable.TryGetValue(orderUid, out var view);

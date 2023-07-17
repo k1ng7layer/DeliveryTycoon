@@ -42,17 +42,17 @@ public partial class ActionEntity
 		{
 			CopyBuyCourierTo(BuyCourier);
 		}
-		else if (component is Ecs.Action.Components.Delivery.StartNextDeliveryTimerComponent StartNextDeliveryTimer)
+		else if (component is Ecs.Action.Components.Delivery.StartNextOrderTimerComponent StartNextOrderTimer)
 		{
-			CopyStartNextDeliveryTimerTo(StartNextDeliveryTimer);
+			CopyStartNextOrderTimerTo(StartNextOrderTimer);
 		}
-		else if (component is Ecs.Action.Components.Delivery.CreateDeliveryComponent CreateDelivery)
+		else if (component is Ecs.Action.Components.Delivery.CreateOrderComponent CreateOrder)
 		{
-			CopyCreateDeliveryTo(CreateDelivery);
+			CopyCreateOrderTo(CreateOrder);
 		}
-		else if (component is Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent CheckDeliveryStatus)
+		else if (component is Ecs.Action.Components.Delivery.CheckOrderStatusComponent CheckOrderStatus)
 		{
-			IsCheckDeliveryStatus = true;
+			IsCheckOrderStatus = true;
 		}
 		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
 		{

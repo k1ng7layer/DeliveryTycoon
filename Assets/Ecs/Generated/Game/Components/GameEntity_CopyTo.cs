@@ -66,9 +66,9 @@ public partial class GameEntity
 		{
 			CopyLevelTo(Level);
 		}
-		else if (component is Ecs.Game.Components.Delivery.DeliverySourceComponent DeliverySource)
+		else if (component is Ecs.Game.Components.Delivery.OrderSourceComponent OrderSource)
 		{
-			IsDeliverySource = true;
+			IsOrderSource = true;
 		}
 		else if (component is Ecs.Game.Components.Delivery.PartnerComponent Partner)
 		{
@@ -78,9 +78,9 @@ public partial class GameEntity
 		{
 			IsDeliveryOffice = true;
 		}
-		else if (component is Ecs.Game.Components.Delivery.NextDeliveryTimerComponent NextDeliveryTimer)
+		else if (component is Ecs.Game.Components.Delivery.NextOrderTimerComponent NextOrderTimer)
 		{
-			CopyNextDeliveryTimerTo(NextDeliveryTimer);
+			CopyNextOrderTimerTo(NextOrderTimer);
 		}
 		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
 		{

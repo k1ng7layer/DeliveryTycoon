@@ -9,5 +9,5 @@
 //------------------------------------------------------------------------------
 public interface IDurationAddedListener
 {
-	void OnDurationAdded(DeliveryEntity entity, float value);
+	void OnDurationAdded(OrderEntity entity, float value);
 }

@@ -66,8 +66,8 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<InitializeDeliveryOfficeSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<EmitInputSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraMovementSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<NextDeliveryTimeSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CreateDeliverySystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<NextOrderTimeSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CreateOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MakeContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<SelectShopSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<StartNextDeliveryTimerSystem>().AsSingle();

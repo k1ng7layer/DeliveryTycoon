@@ -4,6 +4,6 @@ namespace Game.Services.OrderStatusService
 {
     public interface IOrderStatusService
     {
-        EOrderStatus GetStatus(DeliveryEntity deliveryEntity);
+        EOrderStatus GetStatus(OrderEntity orderEntity);
     }
 }

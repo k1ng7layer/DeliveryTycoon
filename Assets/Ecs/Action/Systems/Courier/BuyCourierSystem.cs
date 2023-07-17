@@ -51,7 +51,7 @@ namespace Ecs.Action.Systems.Courier
 
                 _action.CreateEntity().AddChangeCoins(courierSettings.Cost);
                 _action.CreateEntity().AddCreateCourier(ECourierType.Foot);
-                _action.CreateEntity().IsCheckDeliveryStatus = true;
+                _action.CreateEntity().IsCheckOrderStatus = true;
             }
         }
     }

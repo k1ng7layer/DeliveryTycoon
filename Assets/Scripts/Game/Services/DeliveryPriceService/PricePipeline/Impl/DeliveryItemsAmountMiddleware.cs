@@ -11,9 +11,9 @@ namespace Game.Services.DeliveryPriceService.PricePipeline.Impl
             _deliveryParametersProvider = deliveryParametersProvider;
         }
         
-        public float CalculateMultiplier(DeliveryEntity deliveryEntity)
+        public float CalculateMultiplier(OrderEntity orderEntity)
         {
-            var deliveryItemsAmount = deliveryEntity.ItemsAmount.Value;
+            var deliveryItemsAmount = orderEntity.ItemsAmount.Value;
      
             var deliveryItemsAmountMultiplier = _deliveryParametersProvider.GetItemAmountPriceMultiplier(deliveryItemsAmount);
 

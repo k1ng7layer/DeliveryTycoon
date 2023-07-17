@@ -32,7 +32,7 @@ namespace Ecs.Action.Systems.CustomersShop
 
                 contractor.IsPartner = true;
                 
-                _action.CreateEntity().AddStartNextDeliveryTimer(contractorUid);
+                _action.CreateEntity().AddStartNextOrderTimer(contractorUid);
             }
         }
     }

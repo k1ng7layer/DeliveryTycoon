@@ -19,15 +19,15 @@ namespace Game.Services.OrderStatusService.Impl
                 game.GetGroup(GameMatcher.AllOf(GameMatcher.Courier).NoneOf(GameMatcher.Busy, GameMatcher.Destroyed));
         }
         
-        public EOrderStatus GetStatus(DeliveryEntity deliveryEntity)
+        public EOrderStatus GetStatus(OrderEntity orderEntity)
         {
-            var courierRequired = deliveryEntity.CourierAmount.Value;
+            var courierRequired = orderEntity.CourierAmount.Value;
 
             var totalEmployees = _game.TotalEmployees.Value;
 
             var couriersAmountCheck = totalEmployees - courierRequired >= 0;
 
-            var courierTypeRequired = deliveryEntity.Courier.Type;
+            var courierTypeRequired = orderEntity.Courier.Type;
 
             var courierTypeCheck = HasAvailableCouriers(courierTypeRequired);
 

@@ -12,9 +12,9 @@ using JCMG.EntitasRedux;
 
 namespace Ecs.Action.Systems.Delivery
 {
-    public class CreateDeliverySystem : ReactiveSystem<ActionEntity>
+    public class CreateOrderSystem : ReactiveSystem<ActionEntity>
     {
-        private readonly DeliveryContext _delivery;
+        private readonly OrderContext _order;
         private readonly GameContext _game;
         private readonly IDeliveryPriceService _deliveryPriceService;
         private readonly IDeliveryTargetService _deliveryTargetService;
@@ -24,8 +24,8 @@ namespace Ecs.Action.Systems.Delivery
         private readonly IOrderParametersProvider _orderParametersProvider;
         private readonly IOrderStatusService _orderStatusService;
 
-        public CreateDeliverySystem(ActionContext action, 
-            DeliveryContext delivery, 
+        public CreateOrderSystem(ActionContext action, 
+            OrderContext order, 
             GameContext game,
             IDeliveryPriceService deliveryPriceService,
             IDeliveryTargetService deliveryTargetService,
@@ -35,7 +35,7 @@ namespace Ecs.Action.Systems.Delivery
             IOrderParametersProvider orderParametersProvider,
             IOrderStatusService orderStatusService) : base(action)
         {
-            _delivery = delivery;
+            _order = order;
             _game = game;
             _deliveryPriceService = deliveryPriceService;
             _deliveryTargetService = deliveryTargetService;
@@ -47,9 +47,9 @@ namespace Ecs.Action.Systems.Delivery
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
-            context.CreateCollector(ActionMatcher.CreateDelivery);
+            context.CreateCollector(ActionMatcher.CreateOrder);
 
-        protected override bool Filter(ActionEntity entity) => entity.HasCreateDelivery && !entity.IsDestroyed;
+        protected override bool Filter(ActionEntity entity) => entity.HasCreateOrder && !entity.IsDestroyed;
 
         protected override void Execute(List<ActionEntity> entities)
         {
@@ -57,7 +57,7 @@ namespace Ecs.Action.Systems.Delivery
             {
                 entity.IsDestroyed = true;
 
-                var sourceUid = entity.CreateDelivery.DeliverySourceUid;
+                var sourceUid = entity.CreateOrder.DeliverySourceUid;
                 
                 var deliverySourceEntity = _game.GetEntityWithUid(sourceUid);
                 var deliverySourcePosition = deliverySourceEntity.Position.Value;
@@ -68,25 +68,25 @@ namespace Ecs.Action.Systems.Delivery
 
                 var deliveryTargetTime = _deliveryTargetTimeService.GetDeliveryTargetTime(deliverySourceLevel);
                 
-                var deliveryEntity = _delivery.CreateDelivery(deliveryTargetTime, deliverySourcePosition, deliveryTargetPosition);
-                deliveryEntity.AddSource(sourceUid);
-                deliveryEntity.AddItemsAmount(2); //TODO:
-                var deliveryPrice = _deliveryPriceService.CalculateDeliveryPrice(deliveryEntity);
+                var orderEntity = _order.CreateOrder(deliveryTargetTime, deliverySourcePosition, deliveryTargetPosition);
+                orderEntity.AddSource(sourceUid);
+                orderEntity.AddItemsAmount(2); //TODO:
+                var deliveryPrice = _deliveryPriceService.CalculateDeliveryPrice(orderEntity);
 
                 var courierType = GetRandomCourierType(deliverySourceLevel);
 
                 var requiredCourierAmount = _randomProvider.Range(1, 1);
                 
-                deliveryEntity.AddCourierAmount(requiredCourierAmount);
-                deliveryEntity.AddCourier(courierType);
-                deliveryEntity.AddPrice(deliveryPrice);
+                orderEntity.AddCourierAmount(requiredCourierAmount);
+                orderEntity.AddCourier(courierType);
+                orderEntity.AddPrice(deliveryPrice);
 
 
-                var deliveryInitialStatus = _orderStatusService.GetStatus(deliveryEntity);
+                var deliveryInitialStatus = _orderStatusService.GetStatus(orderEntity);
                 
-                deliveryEntity.AddDeliveryStatus(deliveryInitialStatus);
+                orderEntity.AddOrderStatus(deliveryInitialStatus);
                 
-                _orderPopupController.OnOrderCreated(deliveryEntity);
+                _orderPopupController.OnOrderCreated(orderEntity);
             }
         }
 

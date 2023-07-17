@@ -18,9 +18,9 @@ public static class ActionComponentsLookup
 	public const int CreateCourier = 2;
 	public const int MakeContract = 3;
 	public const int SelectShop = 4;
-	public const int CheckDeliveryStatus = 5;
-	public const int CreateDelivery = 6;
-	public const int StartNextDeliveryTimer = 7;
+	public const int CheckOrderStatus = 5;
+	public const int CreateOrder = 6;
+	public const int StartNextOrderTimer = 7;
 	public const int StartGame = 8;
 	public const int Destroyed = 9;
 
@@ -33,9 +33,9 @@ public static class ActionComponentsLookup
 		"CreateCourier",
 		"MakeContract",
 		"SelectShop",
-		"CheckDeliveryStatus",
-		"CreateDelivery",
-		"StartNextDeliveryTimer",
+		"CheckOrderStatus",
+		"CreateOrder",
+		"StartNextOrderTimer",
 		"StartGame",
 		"Destroyed"
 	};
@@ -47,9 +47,9 @@ public static class ActionComponentsLookup
 		typeof(Ecs.Action.Components.Courier.CreateCourierComponent),
 		typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent),
 		typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent),
-		typeof(Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent),
-		typeof(Ecs.Action.Components.Delivery.CreateDeliveryComponent),
-		typeof(Ecs.Action.Components.Delivery.StartNextDeliveryTimerComponent),
+		typeof(Ecs.Action.Components.Delivery.CheckOrderStatusComponent),
+		typeof(Ecs.Action.Components.Delivery.CreateOrderComponent),
+		typeof(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent),
 		typeof(Ecs.Action.Components.StartGameComponent),
 		typeof(Ecs.Game.Components.Common.DestroyedComponent)
 	};
@@ -61,9 +61,9 @@ public static class ActionComponentsLookup
 		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 2 },
 		{ typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent), 3 },
 		{ typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent), 4 },
-		{ typeof(Ecs.Action.Components.Delivery.CheckDeliveryStatusComponent), 5 },
-		{ typeof(Ecs.Action.Components.Delivery.CreateDeliveryComponent), 6 },
-		{ typeof(Ecs.Action.Components.Delivery.StartNextDeliveryTimerComponent), 7 },
+		{ typeof(Ecs.Action.Components.Delivery.CheckOrderStatusComponent), 5 },
+		{ typeof(Ecs.Action.Components.Delivery.CreateOrderComponent), 6 },
+		{ typeof(Ecs.Action.Components.Delivery.StartNextOrderTimerComponent), 7 },
 		{ typeof(Ecs.Action.Components.StartGameComponent), 8 },
 		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 9 }
 	};

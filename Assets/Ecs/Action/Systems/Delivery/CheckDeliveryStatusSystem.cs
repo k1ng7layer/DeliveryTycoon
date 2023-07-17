@@ -8,30 +8,30 @@ namespace Ecs.Action.Systems.Delivery
 {
     public class CheckDeliveryStatusSystem : ReactiveSystem<ActionEntity>
     {
-        private static readonly ListPool<DeliveryEntity> DeliveryEntityPool = ListPool<DeliveryEntity>.Instance;
+        private static readonly ListPool<OrderEntity> DeliveryEntityPool = ListPool<OrderEntity>.Instance;
         
         private readonly IOrderStatusService _orderStatusService;
         private readonly IOrderPopupController _orderPopupController;
-        private readonly IGroup<DeliveryEntity> _pendingOrdersGroup;
+        private readonly IGroup<OrderEntity> _pendingOrdersGroup;
 
         public CheckDeliveryStatusSystem(
             ActionContext action,
-            DeliveryContext delivery,
+            OrderContext order,
             IOrderStatusService orderStatusService,
             IOrderPopupController orderPopupController) : base(action)
         {
             _orderStatusService = orderStatusService;
             _orderPopupController = orderPopupController;
 
-            _pendingOrdersGroup = delivery.GetGroup(DeliveryMatcher.AllOf(DeliveryMatcher.Delivery, 
-                    DeliveryMatcher.DeliveryStatus)
-                .NoneOf(DeliveryMatcher.InWork, DeliveryMatcher.Destroyed));
+            _pendingOrdersGroup = order.GetGroup(OrderMatcher.AllOf(OrderMatcher.Order, 
+                    OrderMatcher.OrderStatus)
+                .NoneOf(OrderMatcher.InWork, OrderMatcher.Destroyed));
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
-            context.CreateCollector(ActionMatcher.CheckDeliveryStatus);
+            context.CreateCollector(ActionMatcher.CheckOrderStatus);
 
-        protected override bool Filter(ActionEntity entity) => entity.IsCheckDeliveryStatus && !entity.IsDestroyed;
+        protected override bool Filter(ActionEntity entity) => entity.IsCheckOrderStatus && !entity.IsDestroyed;
 
         protected override void Execute(List<ActionEntity> entities)
         {
@@ -45,13 +45,13 @@ namespace Ecs.Action.Systems.Delivery
 
                 foreach (var pendingOrder in pendingOrders)
                 {
-                    var currenStatus = pendingOrder.DeliveryStatus.Value;
+                    var currenStatus = pendingOrder.OrderStatus.Value;
                     
                     var newStatus = _orderStatusService.GetStatus(pendingOrder);
 
                     if (currenStatus != newStatus)
                     {
-                        pendingOrder.ReplaceDeliveryStatus(newStatus);
+                        pendingOrder.ReplaceOrderStatus(newStatus);
                         
                         _orderPopupController.ChangeOrderStatus(pendingOrder, newStatus);
                     }

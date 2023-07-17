@@ -3,7 +3,7 @@
 namespace Ecs.Game.Components.Common
 {
     [Game]
-    [Delivery]
+    [Order]
     public class ActiveComponent : IComponent
     {
         

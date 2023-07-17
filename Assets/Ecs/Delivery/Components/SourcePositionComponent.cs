@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ecs.Delivery.Components
 {
-    [Delivery]
+    [Order]
     public class SourcePositionComponent : IComponent
     {
         public Vector3 Value;

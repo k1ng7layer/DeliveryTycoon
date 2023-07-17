@@ -7,29 +7,29 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class DurationAddedEventSystem : JCMG.EntitasRedux.ReactiveSystem<DeliveryEntity>
+public sealed class DurationAddedEventSystem : JCMG.EntitasRedux.ReactiveSystem<OrderEntity>
 {
 	readonly System.Collections.Generic.List<IDurationAddedListener> _listenerBuffer;
 
-	public DurationAddedEventSystem(Contexts contexts) : base(contexts.Delivery)
+	public DurationAddedEventSystem(Contexts contexts) : base(contexts.Order)
 	{
 		_listenerBuffer = new System.Collections.Generic.List<IDurationAddedListener>();
 	}
 
-	protected override JCMG.EntitasRedux.ICollector<DeliveryEntity> GetTrigger(JCMG.EntitasRedux.IContext<DeliveryEntity> context)
+	protected override JCMG.EntitasRedux.ICollector<OrderEntity> GetTrigger(JCMG.EntitasRedux.IContext<OrderEntity> context)
 	{
 		return JCMG.EntitasRedux.CollectorContextExtension.CreateCollector(
 			context,
-			JCMG.EntitasRedux.TriggerOnEventMatcherExtension.Added(DeliveryMatcher.Duration)
+			JCMG.EntitasRedux.TriggerOnEventMatcherExtension.Added(OrderMatcher.Duration)
 		);
 	}
 
-	protected override bool Filter(DeliveryEntity entity)
+	protected override bool Filter(OrderEntity entity)
 	{
 		return entity.HasDuration && entity.HasDurationAddedListener;
 	}
 
-	protected override void Execute(System.Collections.Generic.List<DeliveryEntity> entities)
+	protected override void Execute(System.Collections.Generic.List<OrderEntity> entities)
 	{
 		foreach (var e in entities)
 		{

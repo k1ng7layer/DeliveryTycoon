@@ -36,9 +36,9 @@ public static class GameComponentsLookup
 	public const int TotalEmployees = 20;
 	public const int Customer = 21;
 	public const int DeliveryOffice = 22;
-	public const int DeliverySource = 23;
-	public const int Level = 24;
-	public const int NextDeliveryTimer = 25;
+	public const int Level = 23;
+	public const int NextOrderTimer = 24;
+	public const int OrderSource = 25;
 	public const int Partner = 26;
 	public const int SelectedShop = 27;
 	public const int CourierSpawnPoint = 28;
@@ -79,9 +79,9 @@ public static class GameComponentsLookup
 		"TotalEmployees",
 		"Customer",
 		"DeliveryOffice",
-		"DeliverySource",
 		"Level",
-		"NextDeliveryTimer",
+		"NextOrderTimer",
+		"OrderSource",
 		"Partner",
 		"SelectedShop",
 		"CourierSpawnPoint",
@@ -121,9 +121,9 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent),
 		typeof(Ecs.Game.Components.Customer.CustomerComponent),
 		typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent),
-		typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent),
 		typeof(Ecs.Game.Components.Delivery.LevelComponent),
-		typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent),
+		typeof(Ecs.Game.Components.Delivery.NextOrderTimerComponent),
+		typeof(Ecs.Game.Components.Delivery.OrderSourceComponent),
 		typeof(Ecs.Game.Components.Delivery.PartnerComponent),
 		typeof(Ecs.Game.Components.Delivery.SelectedShopComponent),
 		typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent),
@@ -163,9 +163,9 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 20 },
 		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 21 },
 		{ typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent), 22 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliverySourceComponent), 23 },
-		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 24 },
-		{ typeof(Ecs.Game.Components.Delivery.NextDeliveryTimerComponent), 25 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 23 },
+		{ typeof(Ecs.Game.Components.Delivery.NextOrderTimerComponent), 24 },
+		{ typeof(Ecs.Game.Components.Delivery.OrderSourceComponent), 25 },
 		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 26 },
 		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 27 },
 		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 28 },

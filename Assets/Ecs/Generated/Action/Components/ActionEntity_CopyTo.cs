@@ -42,6 +42,10 @@ public partial class ActionEntity
 		{
 			CopyBuyCourierTo(BuyCourier);
 		}
+		else if (component is Ecs.Action.Components.Order.CompleteOrderComponent CompleteOrder)
+		{
+			CopyCompleteOrderTo(CompleteOrder);
+		}
 		else if (component is Ecs.Action.Components.Order.StartNextOrderTimerComponent StartNextOrderTimer)
 		{
 			CopyStartNextOrderTimerTo(StartNextOrderTimer);

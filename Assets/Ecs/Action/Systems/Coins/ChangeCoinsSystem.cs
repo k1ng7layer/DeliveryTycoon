@@ -32,7 +32,7 @@ namespace Ecs.Action.Systems.Coins
 
                 var wallet = _game.Wallet.Value;
 
-                var newValue = wallet - diff;
+                var newValue = wallet + diff;
                 
                 _game.WalletEntity.ReplaceWallet(newValue);
                 

@@ -1,4 +1,7 @@
-﻿using Game.Models.Ai.Impls;
+﻿using Game.AI.Tasks.Actions;
+using Game.AI.Tasks.Conditions;
+using Game.AI.Tasks.SelfState;
+using Game.Models.Ai.Impls;
 using Game.Models.Ai.Tasks.Default;
 using Game.Models.Ai.Tasks.Default.TaskParents;
 using Game.Models.Ai.Tasks.SelfState;
@@ -34,6 +37,10 @@ namespace Installers.Ai
 			Container.BindInterfacesTo<SuccessWithChanceActionBuilder>().AsSingle();
 			Container.BindInterfacesTo<WaitTimeActionBuilder>().AsSingle();
 			Container.BindInterfacesTo<RepeatAllUntilFailureBuilder>().AsSingle();
+			Container.BindInterfacesTo<HasOrderConditionBuilder>().AsSingle();
+			Container.BindInterfacesTo<MoveToTargetActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<ChangeTargetActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<HasTargetConditionBuilder>().AsSingle();
         }
     }
 }

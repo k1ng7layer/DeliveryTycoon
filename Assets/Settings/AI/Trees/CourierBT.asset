@@ -13,8 +13,63 @@ MonoBehaviour:
   m_Name: CourierBT
   m_EditorClassIdentifier: 
   serializedNodes: []
-  nodes: []
-  edges: []
+  nodes:
+  - rid: 2235637416759132168
+  - rid: 2235637416759132169
+  - rid: 2235637416759132170
+  - rid: 2235637416759132171
+  - rid: 2235637416759132172
+  - rid: 2235637416759132173
+  - rid: 2235637416759132174
+  edges:
+  - GUID: 88c71caa-c3ad-4211-beca-736c15e2c110
+    owner: {fileID: 11400000}
+    inputNodeGUID: de1ddb49-dd22-4955-aea0-b75be04f3476
+    outputNodeGUID: 10c165b7-db11-41a2-98ed-326f31fd0ee0
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 4e3e4130-9ac9-46a7-9df8-ebfa2d90bc61
+    owner: {fileID: 11400000}
+    inputNodeGUID: f528f821-401c-4991-9fc6-ba0b9937c98e
+    outputNodeGUID: de1ddb49-dd22-4955-aea0-b75be04f3476
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 3f084a04-b054-4f89-9711-3895b90486c6
+    owner: {fileID: 11400000}
+    inputNodeGUID: d55eb965-b2f8-463f-8d1a-c285cc7676ec
+    outputNodeGUID: f528f821-401c-4991-9fc6-ba0b9937c98e
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 6165cdbb-df4f-49a4-a940-ea0d410024fc
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1c73cae7-314a-442d-a0a0-1928f8b55e9f
+    outputNodeGUID: f528f821-401c-4991-9fc6-ba0b9937c98e
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 662f3658-804f-4af7-aa0b-72653c74fbde
+    owner: {fileID: 11400000}
+    inputNodeGUID: 05d3c6f4-047a-46e7-b6c1-72f4d87d10d4
+    outputNodeGUID: f528f821-401c-4991-9fc6-ba0b9937c98e
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: cf0703fb-4857-44da-b245-24914025e623
+    owner: {fileID: 11400000}
+    inputNodeGUID: 36c47f98-1b14-4cdc-90b7-d85bac6a63c5
+    outputNodeGUID: f528f821-401c-4991-9fc6-ba0b9937c98e
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
   groups: []
   stackNodes: []
   pinnedElements: []
@@ -22,8 +77,124 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 0, y: 0, z: 0}
+  position: {x: -186, y: -195, z: 0}
   scale: {x: 1, y: 1, z: 1}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2235637416759132168
+      type: {class: RootNode, ns: Plugins.NgpBehaviourTreeDesigner.Nodes.Composites, asm: Assembly-CSharp-firstpass}
+      data:
+        nodeCustomName: 
+        GUID: 10c165b7-db11-41a2-98ed-326f31fd0ee0
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: 1293.0764
+          y: -33.897224
+          width: 136
+          height: 176
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        output: 0
+    - rid: 2235637416759132169
+      type: {class: HasTargetConditionNode, ns: Game.AI.Tasks.Conditions, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: d55eb965-b2f8-463f-8d1a-c285cc7676ec
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: 1072
+          y: 781
+          width: 100
+          height: 48
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        input: 0
+    - rid: 2235637416759132170
+      type: {class: MoveToTargetActionNode, ns: Game.AI.Tasks.Actions, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 1c73cae7-314a-442d-a0a0-1928f8b55e9f
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: 1293
+          y: 781
+          width: 126
+          height: 48
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        input: 0
+    - rid: 2235637416759132171
+      type: {class: SequenceNode, ns: Plugins.NgpBehaviourTreeDesigner.Nodes.Composites, asm: Assembly-CSharp-firstpass}
+      data:
+        nodeCustomName: 
+        GUID: f528f821-401c-4991-9fc6-ba0b9937c98e
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: 1293
+          y: 417
+          width: 136
+          height: 182
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        input: 0
+        output: 0
+    - rid: 2235637416759132172
+      type: {class: RepeaterNode, ns: Plugins.NgpBehaviourTreeDesigner.Nodes.Composites, asm: Assembly-CSharp-firstpass}
+      data:
+        nodeCustomName: 
+        GUID: de1ddb49-dd22-4955-aea0-b75be04f3476
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 1293
+          y: 181
+          width: 136
+          height: 182
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        input: 0
+        output: 0
+    - rid: 2235637416759132173
+      type: {class: ChangeTargetActionNode, ns: Game.AI.Tasks.Actions, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 05d3c6f4-047a-46e7-b6c1-72f4d87d10d4
+        computeOrder: 5
+        position:
+          serializedVersion: 2
+          x: 1705
+          y: 781
+          width: 122
+          height: 48
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        input: 0
+    - rid: 2235637416759132174
+      type: {class: WaitTimeActionNode, ns: Game.Models.Ai.Tasks.SelfState, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 36c47f98-1b14-4cdc-90b7-d85bac6a63c5
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 1487
+          y: 781
+          width: 179
+          height: 88
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        input: 0
+        minWaitTime: 1.3
+        maxWaitTime: 1.3

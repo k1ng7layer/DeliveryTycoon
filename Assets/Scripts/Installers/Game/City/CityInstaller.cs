@@ -64,6 +64,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<InitializeCameraSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeDeliverySourcesSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeDeliveryOfficeSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AiInitializeSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<EmitInputSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraMovementSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<NextOrderTimeSystem>().AsSingle();
@@ -78,6 +79,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<InstantiateSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<BehaviourTreeUpdateSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<TakeOrderSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CompleteOrderSystem>().AsSingle();
         }
 
         private void BindWindows()

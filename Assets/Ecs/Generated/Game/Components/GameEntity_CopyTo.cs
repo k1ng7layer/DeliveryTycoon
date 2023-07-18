@@ -46,6 +46,10 @@ public partial class GameEntity
 		{
 			IsCustomer = true;
 		}
+		else if (component is Ecs.Game.Components.Courier.CourierParametersComponent CourierParameters)
+		{
+			CopyCourierParametersTo(CourierParameters);
+		}
 		else if (component is Ecs.Game.Components.Courier.ActiveOrderComponent ActiveOrder)
 		{
 			CopyActiveOrderTo(ActiveOrder);

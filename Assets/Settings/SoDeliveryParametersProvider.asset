@@ -20,5 +20,5 @@ MonoBehaviour:
   itemsPerDeliveryRange:
     Min: 1
     Max: 2
-  minDeliveryPrice: 100
+  minDeliveryPrice: 10
   distanceRateMultiplier: 1.2

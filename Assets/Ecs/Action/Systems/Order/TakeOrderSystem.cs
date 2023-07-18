@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Game.AI.Data;
+using Game.Utils;
 using JCMG.EntitasRedux;
 using Zenject;
 
@@ -38,8 +40,15 @@ namespace Ecs.Action.Systems.Order
                 var orderEntity = _order.GetEntityWithUid(orderUid);
                 var courier = GetFreeCourier();
                 var courierUid = courier.Uid.Value;
+               
+                var orderSourceUid = orderEntity.Source.DeliverySourceUid;
+                var orderSourceEntity = _game.GetEntityWithUid(orderSourceUid);
+                var orderSourceReception = orderSourceEntity.ReceptionPoint.Value;
                 
                 orderEntity.AddOwner(courierUid);
+                courier.ReplaceActiveOrder(orderUid);
+                courier.ReplaceRouteTarget(new RouteTargetData(orderSourceReception, ERouteTarget.Shop));
+                courier.IsBusy = true;
             }
         }
 

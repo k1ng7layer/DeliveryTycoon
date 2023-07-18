@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using CleverCrow.Fluid.BTs.Trees;
+using Game.AI.Tasks;
 using Game.Models.Ai.Utils;
-using Game.Tasks;
 using GraphProcessor;
 using Plugins.NgpBehaviourTreeDesigner.Nodes.Decorators;
 

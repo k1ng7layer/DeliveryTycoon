@@ -18,8 +18,8 @@ MonoBehaviour:
       Min: 100
       Max: 400
     DeliveryPriceRange:
-      Min: 100
-      Max: 150
+      Min: 10
+      Max: 15
     ItemsRange:
       Min: 1
       Max: 2

@@ -13,6 +13,7 @@ namespace Ecs.Views.Shops
     {
         [SerializeField] private ShopParameters shopParameters;
         [SerializeField] private InteractableView interactableView;
+        [SerializeField] private Transform receptionSpotTransform;
 
         private bool _opened;
         private GameEntity _self;
@@ -35,6 +36,8 @@ namespace Ecs.Views.Shops
             _self.AddShopName(shopParameters.Name);
             
             interactableView.StartInteract();
+            
+            _self.AddReceptionPoint(receptionSpotTransform.position);
         }
 
         private void OnLabelSelected()

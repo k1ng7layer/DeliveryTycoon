@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using CleverCrow.Fluid.BTs.Trees;
-using Game.AI;
 using Game.Models.Ai.Utils;
 using Game.Services.RandomProvider;
 using Game.Services.TimeProvider;
-using Game.Tasks;
 using GraphProcessor;
 using Plugins.NgpBehaviourTreeDesigner.Nodes;
 
-namespace Game.Models.Ai.Tasks.SelfState
+namespace Game.AI.Tasks.SelfState
 {
 	[Serializable, NodeMenuItem(TaskNames.WAIT_RANDOM_TIME_PATH)]
 	public class WaitRandomTimeActionNode : ABehaviourTreeNode

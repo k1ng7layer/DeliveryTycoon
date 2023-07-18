@@ -7,6 +7,7 @@ namespace Ecs.Views.Office
     public class DeliveryOfficeView : ObjectView
     {
         [SerializeField] private Transform courierSpawnTransform;
+        [SerializeField] private Transform receptionSpotTransform;
 
         public override void Link(IEntity entity, IContext context)
         {
@@ -15,6 +16,7 @@ namespace Ecs.Views.Office
             var officeEntity = (GameEntity)entity;
             
             officeEntity.AddCourierSpawnPoint(courierSpawnTransform.position);
+            officeEntity.AddReceptionPoint(receptionSpotTransform.position);
         }
     }
 }

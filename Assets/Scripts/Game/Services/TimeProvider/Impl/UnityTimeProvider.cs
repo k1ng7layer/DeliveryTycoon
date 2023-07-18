@@ -1,5 +1,4 @@
 ﻿using JCMG.EntitasRedux;
-using UnityEngine;
 
 namespace Game.Services.TimeProvider.Impl
 {
@@ -7,17 +6,18 @@ namespace Game.Services.TimeProvider.Impl
         IUpdateSystem, 
         IFixedUpdateSystem
     {
+        public float Time => UnityEngine.Time.time;
         public float DeltaTime { get; private set; }
         public float FixedDeltaTime { get; private set; }
         
         public void Update()
         {
-            DeltaTime = Time.deltaTime;
+            DeltaTime = UnityEngine.Time.deltaTime;
         }
 
         public void FixedUpdate()
         {
-            FixedDeltaTime = Time.fixedDeltaTime;
+            FixedDeltaTime = UnityEngine.Time.fixedDeltaTime;
         }
     }
 }

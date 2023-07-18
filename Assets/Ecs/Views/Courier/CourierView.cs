@@ -1,18 +1,18 @@
-﻿using Ecs.Views.Linkable.Impl;
-using Game.AI.BT;
-using Game.AI.Tasks.Abstraction;
+﻿using Db.Ai;
+using Ecs.Views.Linkable.Impl;
+using Game.AI.Data;
 using JCMG.EntitasRedux;
-using UniBT;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
 namespace Ecs.Views.Courier
 {
-    public class CourierView : ObjectView  
+    public class CourierView : ObjectView, 
+        IRouteTargetAddedListener
     {
+        [SerializeField] private EAiType aiType;
         [SerializeField] private NavMeshAgent navMeshAgent;
-        [SerializeField] private BehaviourTreeSetup behaviourTreeSetup;
 
         [Inject] private DiContainer container;
 
@@ -24,51 +24,14 @@ namespace Ecs.Views.Courier
 
             _courierEntity = (GameEntity)entity;
             
-            var behaviorTree = behaviourTreeSetup.InitializeBtWithEntity(_courierEntity);
-
-            _courierEntity.AddBehaviourTree(behaviourTreeSetup);
-        }
-        
-        // private void SetupBT()
-        // {
-        //     var root = behaviorTree.Root;
-        //     Setup(root.Child);
-        //     // if (root.Child is Composite composite)
-        //     // {
-        //     //     foreach (var child in composite.Children)
-        //     //     {
-        //     //         container.Inject(child);
-        //     //         
-        //     //         if (child is AActionTask actionTask)
-        //     //         {
-        //     //             actionTask.Link(_courierEntity);
-        //     //         }
-        //     //     }
-        //     // }
-        //     //
-        //     // if (root.Child is AActionTask actionTask1)
-        //     // {
-        //     //     actionTask1.Link(_courierEntity);
-        //     // }
-        // }
-
-        void Setup(NodeBehavior nodeBehavior)
-        {
-            if (nodeBehavior is AActionTask actionTask)
-            {
-                actionTask.Link(_courierEntity);
-            }
+            _courierEntity.AddAi(aiType);
             
-            if (nodeBehavior is Composite composite)
-            {
-                foreach (var child in composite.Children)
-                {
-                    container.Inject(nodeBehavior);
-                    
-                    Setup(child);
-                }
-            }
+            _courierEntity.AddRouteTargetAddedListener(this);
         }
-        
+
+        public void OnRouteTargetAdded(GameEntity entity, RouteTargetData value)
+        {
+           
+        }
     }
 }

@@ -1,11 +1,12 @@
-﻿using JCMG.EntitasRedux;
-using UniBT;
+﻿using CleverCrow.Fluid.BTs.Trees;
+using JCMG.EntitasRedux;
 
 namespace Ecs.Game.Components.Ai
 {
     [Game]
+    [Event(EventTarget.Self)]
     public class BehaviourTreeComponent : IComponent
     {
-        public BehaviorTree Value;
+        public IBehaviorTree Value;
     }
 }

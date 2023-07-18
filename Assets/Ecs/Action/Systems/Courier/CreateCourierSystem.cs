@@ -36,7 +36,6 @@ namespace Ecs.Action.Systems.Courier
                 courierEntity.AddPrefab("Courier");
                 courierEntity.AddUid(UidGenerator.UidGenerator.Next());
                 courierEntity.IsInstantiate = true;
-                courierEntity.IsAi = true;
             }
         }
     }

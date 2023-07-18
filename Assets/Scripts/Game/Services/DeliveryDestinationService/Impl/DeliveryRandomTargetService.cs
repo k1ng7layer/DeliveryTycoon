@@ -35,7 +35,7 @@ namespace Game.Services.DeliveryDestinationService.Impl
                 if (i == randomIndex)
                 {
                     var customer = customers[i];
-                    var customerPosition = customer.Position.Value;
+                    var customerPosition = customer.ReceptionPoint.Value;
 
                     target =  customerPosition;
                 }

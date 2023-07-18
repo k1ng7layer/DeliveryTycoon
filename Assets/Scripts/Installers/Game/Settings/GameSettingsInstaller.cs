@@ -1,4 +1,6 @@
-﻿using Db.Camera;
+﻿using Db.Ai;
+using Db.Ai.Impl;
+using Db.Camera;
 using Db.Camera.Impl;
 using Db.DeliveryParametersProvider;
 using Db.DeliveryParametersProvider.Impl;
@@ -24,6 +26,7 @@ namespace Installers.Game.Settings
         [SerializeField] private SoEmployeeSettingsProvider employeeSettingsProvider;
         [SerializeField] private SoOrderParametersProvider orderParametersProvider;
         [SerializeField] private SoPrefabsBase prefabsBase;
+        [SerializeField] private AiBTreeSettingsBase aiBTreeSettingsBase;
         
         public override void InstallBindings()
         {
@@ -33,6 +36,7 @@ namespace Installers.Game.Settings
             Container.Bind<IEmployeeSettingsProvider>().To<SoEmployeeSettingsProvider>().FromInstance(employeeSettingsProvider).AsSingle();
             Container.Bind<IOrderParametersProvider>().To<SoOrderParametersProvider>().FromInstance(orderParametersProvider).AsSingle();
             Container.Bind<IPrefabsBase>().To<SoPrefabsBase>().FromInstance(prefabsBase).AsSingle();
+            Container.Bind<IAiBTreeSettingsBase>().To<AiBTreeSettingsBase>().FromInstance(aiBTreeSettingsBase).AsSingle();
         }
     }
 }

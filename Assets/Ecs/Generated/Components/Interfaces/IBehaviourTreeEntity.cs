@@ -12,7 +12,7 @@ public partial interface IBehaviourTreeEntity
 	Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree { get; }
 	bool HasBehaviourTree { get; }
 
-	void AddBehaviourTree(UniBT.BehaviorTree newValue);
-	void ReplaceBehaviourTree(UniBT.BehaviorTree newValue);
+	void AddBehaviourTree(CleverCrow.Fluid.BTs.Trees.IBehaviorTree newValue);
+	void ReplaceBehaviourTree(CleverCrow.Fluid.BTs.Trees.IBehaviorTree newValue);
 	void RemoveBehaviourTree();
 }

@@ -22,17 +22,21 @@ public partial class GameEntity
 		{
 			CopyWalletTo(Wallet);
 		}
-		else if (component is Ecs.Game.Components.Ai.TargetComponent Target)
+		else if (component is Ecs.Game.Components.Ai.RouteTargetComponent RouteTarget)
 		{
-			CopyTargetTo(Target);
+			CopyRouteTargetTo(RouteTarget);
 		}
 		else if (component is Ecs.Game.Components.Ai.AiComponent Ai)
 		{
-			IsAi = true;
+			CopyAiTo(Ai);
 		}
 		else if (component is Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree)
 		{
 			CopyBehaviourTreeTo(BehaviourTree);
+		}
+		else if (component is Ecs.Game.Components.Shop.ReceptionPointComponent ReceptionPoint)
+		{
+			CopyReceptionPointTo(ReceptionPoint);
 		}
 		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
@@ -41,6 +45,10 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
 		{
 			IsCustomer = true;
+		}
+		else if (component is Ecs.Game.Components.Courier.ActiveOrderComponent ActiveOrder)
+		{
+			CopyActiveOrderTo(ActiveOrder);
 		}
 		else if (component is Ecs.Game.Components.Courier.BusyComponent Busy)
 		{
@@ -145,6 +153,14 @@ public partial class GameEntity
 		else if (component is WalletAddedListenerComponent WalletAddedListener)
 		{
 			CopyWalletAddedListenerTo(WalletAddedListener);
+		}
+		else if (component is RouteTargetAddedListenerComponent RouteTargetAddedListener)
+		{
+			CopyRouteTargetAddedListenerTo(RouteTargetAddedListener);
+		}
+		else if (component is BehaviourTreeAddedListenerComponent BehaviourTreeAddedListener)
+		{
+			CopyBehaviourTreeAddedListenerTo(BehaviourTreeAddedListener);
 		}
 		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
 		{

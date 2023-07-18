@@ -7,6 +7,7 @@ namespace Ecs.Game.Components.Common
     [Order]
     public class OwnerComponent : IComponent
     {
+        [EntityIndex]
         public Uid Value;
     }
 }

@@ -9,5 +9,10 @@
 //------------------------------------------------------------------------------
 public partial interface IAiEntity
 {
-	bool IsAi { get; set; }
+	Ecs.Game.Components.Ai.AiComponent Ai { get; }
+	bool HasAi { get; }
+
+	void AddAi(Db.Ai.EAiType newValue);
+	void ReplaceAi(Db.Ai.EAiType newValue);
+	void RemoveAi();
 }

@@ -98,12 +98,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root:
-    rid: 2235637395244449792
+    rid: 2235637416759132165
   updateType: 1
   references:
     version: 2
     RefIds:
-    - rid: 2235637395244449792
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2235637416759132165
       type: {class: Root, ns: UniBT, asm: UniBT}
       data:
         graphPosition:
@@ -114,30 +116,33 @@ MonoBehaviour:
           height: 77
         description: 
         child:
-          rid: 2235637395244449793
-    - rid: 2235637395244449793
-      type: {class: HasOrderCondition, ns: Game.AI.Tasks.Conditions, asm: Assembly-CSharp}
+          rid: 2235637416759132166
+    - rid: 2235637416759132166
+      type: {class: HasTargetCondition, ns: Game.AI.Tasks.Conditions, asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 541
-          y: 214
+          x: 23
+          y: -1
           width: 180
           height: 115
         description: 
         dontReEvaluateOnRunning: 0
         child:
-          rid: 2235637395244449794
-    - rid: 2235637395244449794
-      type: {class: TestTask, ns: Game.AI.Tasks, asm: Assembly-CSharp}
+          rid: 2235637416759132167
+    - rid: 2235637416759132167
+      type: {class: HasOrderCondition, ns: Game.AI.Tasks.Conditions, asm: Assembly-CSharp}
       data:
         graphPosition:
           serializedVersion: 2
-          x: 827
-          y: 255
-          width: 99
-          height: 97
+          x: 389
+          y: 57
+          width: 180
+          height: 115
         description: 
+        dontReEvaluateOnRunning: 0
+        child:
+          rid: -2
 --- !u!1001 &3649228103072721460
 PrefabInstance:
   m_ObjectHideFlags: 0

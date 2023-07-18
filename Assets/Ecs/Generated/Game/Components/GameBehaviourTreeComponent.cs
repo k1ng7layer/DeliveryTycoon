@@ -12,7 +12,7 @@ public partial class GameEntity
 	public Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree { get { return (Ecs.Game.Components.Ai.BehaviourTreeComponent)GetComponent(GameComponentsLookup.BehaviourTree); } }
 	public bool HasBehaviourTree { get { return HasComponent(GameComponentsLookup.BehaviourTree); } }
 
-	public void AddBehaviourTree(UniBT.BehaviorTree newValue)
+	public void AddBehaviourTree(CleverCrow.Fluid.BTs.Trees.IBehaviorTree newValue)
 	{
 		var index = GameComponentsLookup.BehaviourTree;
 		var component = (Ecs.Game.Components.Ai.BehaviourTreeComponent)CreateComponent(index, typeof(Ecs.Game.Components.Ai.BehaviourTreeComponent));
@@ -22,7 +22,7 @@ public partial class GameEntity
 		AddComponent(index, component);
 	}
 
-	public void ReplaceBehaviourTree(UniBT.BehaviorTree newValue)
+	public void ReplaceBehaviourTree(CleverCrow.Fluid.BTs.Trees.IBehaviorTree newValue)
 	{
 		var index = GameComponentsLookup.BehaviourTree;
 		var component = (Ecs.Game.Components.Ai.BehaviourTreeComponent)CreateComponent(index, typeof(Ecs.Game.Components.Ai.BehaviourTreeComponent));

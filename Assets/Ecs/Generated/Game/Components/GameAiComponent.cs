@@ -9,31 +9,42 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	static readonly Ecs.Game.Components.Ai.AiComponent AiComponent = new Ecs.Game.Components.Ai.AiComponent();
+	public Ecs.Game.Components.Ai.AiComponent Ai { get { return (Ecs.Game.Components.Ai.AiComponent)GetComponent(GameComponentsLookup.Ai); } }
+	public bool HasAi { get { return HasComponent(GameComponentsLookup.Ai); } }
 
-	public bool IsAi
+	public void AddAi(Db.Ai.EAiType newValue)
 	{
-		get { return HasComponent(GameComponentsLookup.Ai); }
-		set
-		{
-			if (value != IsAi)
-			{
-				var index = GameComponentsLookup.Ai;
-				if (value)
-				{
-					var componentPool = GetComponentPool(index);
-					var component = componentPool.Count > 0
-							? componentPool.Pop()
-							: AiComponent;
+		var index = GameComponentsLookup.Ai;
+		var component = (Ecs.Game.Components.Ai.AiComponent)CreateComponent(index, typeof(Ecs.Game.Components.Ai.AiComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Value = newValue;
+		#endif
+		AddComponent(index, component);
+	}
 
-					AddComponent(index, component);
-				}
-				else
-				{
-					RemoveComponent(index);
-				}
-			}
-		}
+	public void ReplaceAi(Db.Ai.EAiType newValue)
+	{
+		var index = GameComponentsLookup.Ai;
+		var component = (Ecs.Game.Components.Ai.AiComponent)CreateComponent(index, typeof(Ecs.Game.Components.Ai.AiComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Value = newValue;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void CopyAiTo(Ecs.Game.Components.Ai.AiComponent copyComponent)
+	{
+		var index = GameComponentsLookup.Ai;
+		var component = (Ecs.Game.Components.Ai.AiComponent)CreateComponent(index, typeof(Ecs.Game.Components.Ai.AiComponent));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.Value = copyComponent.Value;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void RemoveAi()
+	{
+		RemoveComponent(GameComponentsLookup.Ai);
 	}
 }
 

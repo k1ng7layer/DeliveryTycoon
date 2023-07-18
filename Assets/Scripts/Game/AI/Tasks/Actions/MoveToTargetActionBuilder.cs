@@ -27,6 +27,9 @@ namespace Game.AI.Tasks.Actions
             Name,
             () =>
             {
+                if (!entity.IsMoving)
+                    entity.IsMoving = true;
+                
                 var courierPosition = entity.Position.Value;
 
                 var target = entity.RouteTarget.Value;
@@ -38,6 +41,7 @@ namespace Game.AI.Tasks.Actions
                 Debug.Log($"distance = {distance}, checkDistance = {checkDistance * checkDistance}");
                 if (distance <= checkDistance * checkDistance)
                 {
+                    entity.IsMoving = false;
                     return TaskStatus.Success;
                 }
 

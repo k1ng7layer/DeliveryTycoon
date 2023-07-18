@@ -14,6 +14,8 @@ public sealed class GameEventSystems : Feature
 		Add(new BehaviourTreeAddedEventSystem(contexts)); // priority: 0
 		Add(new InstantiateAddedEventSystem(contexts)); // priority: 0
 		Add(new LinkRemovedEventSystem(contexts)); // priority: 0
+		Add(new MovingAddedEventSystem(contexts)); // priority: 0
+		Add(new MovingRemovedEventSystem(contexts)); // priority: 0
 		Add(new PositionAddedEventSystem(contexts)); // priority: 0
 		Add(new RotationAddedEventSystem(contexts)); // priority: 0
 		Add(new RouteTargetAddedEventSystem(contexts)); // priority: 0

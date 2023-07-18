@@ -49,7 +49,7 @@ namespace Ecs.Action.Systems.Courier
                 
                 _couriersUiController.SetEmployees(totalCouriers);
 
-                _action.CreateEntity().AddChangeCoins(courierSettings.Cost);
+                _action.CreateEntity().AddChangeCoins(-courierSettings.Cost);
                 _action.CreateEntity().AddCreateCourier(ECourierType.Foot);
                 _action.CreateEntity().IsCheckOrderStatus = true;
             }

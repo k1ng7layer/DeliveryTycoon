@@ -45,8 +45,8 @@ namespace Game.AI.Tasks.Actions
                 var activeOrder = _order.GetEntityWithUid(activeOrderUid);
                 var currentTargetData = entity.RouteTarget.Value;
 
-                var destination = Vector3.zero;
-                var target = ERouteTarget.Office;
+                Vector3 destination;
+                ERouteTarget target;
                 
                 switch (currentTargetData.RouteTargetType)
                 {
@@ -54,18 +54,20 @@ namespace Game.AI.Tasks.Actions
                         var officeEntity = _game.DeliveryOfficeEntity;
                         destination = officeEntity.ReceptionPoint.Value;
                         target = ERouteTarget.Office;
+                        entity.ReplaceRouteTarget(new RouteTargetData(destination, target));
+                        //entity.IsMoving = true;
                         break;
                     case ERouteTarget.Shop:
                         destination = activeOrder.Destination.Value;
                         target = ERouteTarget.Customer;
+                        entity.ReplaceRouteTarget(new RouteTargetData(destination, target));
+                        //entity.IsMoving = true;
                         break;
                     case ERouteTarget.Office:
                         entity.RemoveRouteTarget();
                         _action.CreateEntity().AddCompleteOrder(activeOrderUid);
                         break;
                 }
-                
-                entity.ReplaceRouteTarget(new RouteTargetData(destination, target));
 
                 return TaskStatus.Success;
                 

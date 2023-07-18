@@ -162,7 +162,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 377132723}
   m_Follow: {fileID: 377132723}
   m_Lens:
-    FieldOfView: 70.11
+    FieldOfView: 92.05
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -186,8 +186,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64945761}
-  m_LocalRotation: {x: 0.41093087, y: 0.57544404, z: -0.41093084, w: 0.57544404}
-  m_LocalPosition: {x: -30.47, y: 32.6, z: -8.999999}
+  m_LocalRotation: {x: 0.37851563, y: 0.59726536, z: -0.3785157, w: 0.59726536}
+  m_LocalPosition: {x: -26.559998, y: 21.02, z: -8.999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -690,7 +690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377132722}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -21, y: 5, z: -9}
+  m_LocalPosition: {x: -15.23, y: -2.98, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1483,7 +1483,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 70.11
+  field of view: 92.05
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1508,8 +1508,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992566588}
-  m_LocalRotation: {x: 0.41093087, y: 0.57544404, z: -0.41093084, w: 0.57544404}
-  m_LocalPosition: {x: -45.059517, y: 31.675, z: -8.999999}
+  m_LocalRotation: {x: 0.37851563, y: 0.59726536, z: -0.3785157, w: 0.59726536}
+  m_LocalPosition: {x: -40.958435, y: 18.491247, z: -8.999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156350043313555664, guid: 6ab0420c1d019f54192082c6a095fd14, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.43
+      value: 3.21
       objectReference: {fileID: 0}
     - target: {fileID: 1156350043313555664, guid: 6ab0420c1d019f54192082c6a095fd14, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2864,7 +2864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 27.6, z: -9.47}
+  m_FollowOffset: {x: 0, y: 24, z: -11.33}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0

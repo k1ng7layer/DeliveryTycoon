@@ -22,18 +22,6 @@ public partial class GameEntity
 		{
 			CopyWalletTo(Wallet);
 		}
-		else if (component is Ecs.Game.Components.Ai.RouteTargetComponent RouteTarget)
-		{
-			CopyRouteTargetTo(RouteTarget);
-		}
-		else if (component is Ecs.Game.Components.Ai.AiComponent Ai)
-		{
-			CopyAiTo(Ai);
-		}
-		else if (component is Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree)
-		{
-			CopyBehaviourTreeTo(BehaviourTree);
-		}
 		else if (component is Ecs.Game.Components.Shop.ReceptionPointComponent ReceptionPoint)
 		{
 			CopyReceptionPointTo(ReceptionPoint);
@@ -154,17 +142,25 @@ public partial class GameEntity
 		{
 			CopyPositionTo(Position);
 		}
+		else if (component is Ecs.Game.Components.Ai.RouteTargetComponent RouteTarget)
+		{
+			CopyRouteTargetTo(RouteTarget);
+		}
+		else if (component is Ecs.Game.Components.Ai.AiComponent Ai)
+		{
+			CopyAiTo(Ai);
+		}
+		else if (component is Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree)
+		{
+			CopyBehaviourTreeTo(BehaviourTree);
+		}
+		else if (component is Ecs.Game.Components.Ai.MovingComponent Moving)
+		{
+			IsMoving = true;
+		}
 		else if (component is WalletAddedListenerComponent WalletAddedListener)
 		{
 			CopyWalletAddedListenerTo(WalletAddedListener);
-		}
-		else if (component is RouteTargetAddedListenerComponent RouteTargetAddedListener)
-		{
-			CopyRouteTargetAddedListenerTo(RouteTargetAddedListener);
-		}
-		else if (component is BehaviourTreeAddedListenerComponent BehaviourTreeAddedListener)
-		{
-			CopyBehaviourTreeAddedListenerTo(BehaviourTreeAddedListener);
 		}
 		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
 		{
@@ -189,6 +185,22 @@ public partial class GameEntity
 		else if (component is PositionAddedListenerComponent PositionAddedListener)
 		{
 			CopyPositionAddedListenerTo(PositionAddedListener);
+		}
+		else if (component is RouteTargetAddedListenerComponent RouteTargetAddedListener)
+		{
+			CopyRouteTargetAddedListenerTo(RouteTargetAddedListener);
+		}
+		else if (component is BehaviourTreeAddedListenerComponent BehaviourTreeAddedListener)
+		{
+			CopyBehaviourTreeAddedListenerTo(BehaviourTreeAddedListener);
+		}
+		else if (component is MovingAddedListenerComponent MovingAddedListener)
+		{
+			CopyMovingAddedListenerTo(MovingAddedListener);
+		}
+		else if (component is MovingRemovedListenerComponent MovingRemovedListener)
+		{
+			CopyMovingRemovedListenerTo(MovingRemovedListener);
 		}
 		#endif
 	}

@@ -2,6 +2,6 @@
 {
     public interface IDeliveryPriceService
     {
-        float CalculateDeliveryPrice(DeliveryEntity deliveryEntity);
+        float CalculateDeliveryPrice(OrderEntity orderEntity);
     }
 }

@@ -11,10 +11,10 @@ namespace Game.Services.DeliveryPriceService.PricePipeline.Impl
             _deliveryParametersProvider = deliveryParametersProvider;
         }
         
-        public float CalculateMultiplier(DeliveryEntity deliveryEntity)
+        public float CalculateMultiplier(OrderEntity orderEntity)
         {
-            var sourcePosition = deliveryEntity.SourcePosition.Value;
-            var destinationPosition = deliveryEntity.Destination.Value;
+            var sourcePosition = orderEntity.SourcePosition.Value;
+            var destinationPosition = orderEntity.Destination.Value;
             var distance = (sourcePosition - destinationPosition).magnitude;
             var result = distance * _deliveryParametersProvider.DistanceRateMultiplier;
             

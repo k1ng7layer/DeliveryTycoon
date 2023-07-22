@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface ISelectShopEntity
 {
-	Ecs.Action.Components.SelectShopComponent SelectShop { get; }
+	Ecs.Action.Components.CustomersShop.SelectShopComponent SelectShop { get; }
 	bool HasSelectShop { get; }
 
 	void AddSelectShop(Ecs.UidGenerator.Uid newShopUid);

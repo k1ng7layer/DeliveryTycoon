@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface IChangeCoinsEntity
 {
-	Ecs.Action.Components.ChangeCoinsComponent ChangeCoins { get; }
+	Ecs.Action.Components.Coins.ChangeCoinsComponent ChangeCoins { get; }
 	bool HasChangeCoins { get; }
 
 	void AddChangeCoins(float newValue);

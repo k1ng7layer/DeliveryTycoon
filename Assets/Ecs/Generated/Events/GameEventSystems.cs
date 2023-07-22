@@ -11,10 +11,14 @@ public sealed class GameEventSystems : Feature
 {
 	public GameEventSystems(Contexts contexts)
 	{
+		Add(new BehaviourTreeAddedEventSystem(contexts)); // priority: 0
 		Add(new InstantiateAddedEventSystem(contexts)); // priority: 0
 		Add(new LinkRemovedEventSystem(contexts)); // priority: 0
+		Add(new MovingAddedEventSystem(contexts)); // priority: 0
+		Add(new MovingRemovedEventSystem(contexts)); // priority: 0
 		Add(new PositionAddedEventSystem(contexts)); // priority: 0
 		Add(new RotationAddedEventSystem(contexts)); // priority: 0
+		Add(new RouteTargetAddedEventSystem(contexts)); // priority: 0
 		Add(new StandbyEmployeesAddedEventSystem(contexts)); // priority: 0
 		Add(new TotalEmployeesAddedEventSystem(contexts)); // priority: 0
 		Add(new WalletAddedEventSystem(contexts)); // priority: 0

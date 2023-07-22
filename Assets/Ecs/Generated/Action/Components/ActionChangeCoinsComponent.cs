@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class ActionEntity
 {
-	public Ecs.Action.Components.ChangeCoinsComponent ChangeCoins { get { return (Ecs.Action.Components.ChangeCoinsComponent)GetComponent(ActionComponentsLookup.ChangeCoins); } }
+	public Ecs.Action.Components.Coins.ChangeCoinsComponent ChangeCoins { get { return (Ecs.Action.Components.Coins.ChangeCoinsComponent)GetComponent(ActionComponentsLookup.ChangeCoins); } }
 	public bool HasChangeCoins { get { return HasComponent(ActionComponentsLookup.ChangeCoins); } }
 
 	public void AddChangeCoins(float newValue)
 	{
 		var index = ActionComponentsLookup.ChangeCoins;
-		var component = (Ecs.Action.Components.ChangeCoinsComponent)CreateComponent(index, typeof(Ecs.Action.Components.ChangeCoinsComponent));
+		var component = (Ecs.Action.Components.Coins.ChangeCoinsComponent)CreateComponent(index, typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class ActionEntity
 	public void ReplaceChangeCoins(float newValue)
 	{
 		var index = ActionComponentsLookup.ChangeCoins;
-		var component = (Ecs.Action.Components.ChangeCoinsComponent)CreateComponent(index, typeof(Ecs.Action.Components.ChangeCoinsComponent));
+		var component = (Ecs.Action.Components.Coins.ChangeCoinsComponent)CreateComponent(index, typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyChangeCoinsTo(Ecs.Action.Components.ChangeCoinsComponent copyComponent)
+	public void CopyChangeCoinsTo(Ecs.Action.Components.Coins.ChangeCoinsComponent copyComponent)
 	{
 		var index = ActionComponentsLookup.ChangeCoins;
-		var component = (Ecs.Action.Components.ChangeCoinsComponent)CreateComponent(index, typeof(Ecs.Action.Components.ChangeCoinsComponent));
+		var component = (Ecs.Action.Components.Coins.ChangeCoinsComponent)CreateComponent(index, typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

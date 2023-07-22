@@ -2,7 +2,6 @@
 using Ecs.Views.Linkable.Impl;
 using Game.UI.PopupView;
 using JCMG.EntitasRedux;
-using SimpleUi.Signals;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -13,6 +12,7 @@ namespace Ecs.Views.Shops
     {
         [SerializeField] private ShopParameters shopParameters;
         [SerializeField] private InteractableView interactableView;
+        [SerializeField] private Transform receptionSpotTransform;
 
         private bool _opened;
         private GameEntity _self;
@@ -35,21 +35,26 @@ namespace Ecs.Views.Shops
             _self.AddShopName(shopParameters.Name);
             
             interactableView.StartInteract();
+            
+            _self.AddReceptionPoint(receptionSpotTransform.position);
         }
 
         private void OnLabelSelected()
         {
-            if (!_opened)
-            {
-                var selfUid = _self.Uid.Value;
-                _action.CreateEntity().AddSelectShop(selfUid);
-                _opened = true;
-            }
-            else
-            {
-                _opened = false;
-                _signalBus.BackWindow();
-            }
+            // if (!_opened)
+            // {
+            //     var selfUid = _self.Uid.Value;
+            //     _action.CreateEntity().AddSelectShop(selfUid);
+            //     _opened = true;
+            // }
+            // else
+            // {
+            //     _opened = false;
+            //     _signalBus.BackWindow();
+            // }
+            
+            var selfUid = _self.Uid.Value;
+            _action.CreateEntity().AddSelectShop(selfUid);
         }
         
     }

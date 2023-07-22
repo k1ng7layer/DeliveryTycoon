@@ -17,3 +17,5 @@ MonoBehaviour:
   deliveryParametersProvider: {fileID: 11400000, guid: 1458f6e229e942d428f30ee1e1dfdb0b, type: 2}
   employeeSettingsProvider: {fileID: 11400000, guid: 1b2831bcd738d7d40bd07956184ffe5f, type: 2}
   orderParametersProvider: {fileID: 11400000, guid: cda029582f191904385666a5187a4e19, type: 2}
+  prefabsBase: {fileID: 11400000, guid: 5de13f12894034a4d87736f2a641593d, type: 2}
+  aiBTreeSettingsBase: {fileID: 11400000, guid: 0600afe0dd62c8145830f64a44172c4e, type: 2}

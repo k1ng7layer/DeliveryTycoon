@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class ActionEntity
 {
-	public Ecs.Action.Components.SelectShopComponent SelectShop { get { return (Ecs.Action.Components.SelectShopComponent)GetComponent(ActionComponentsLookup.SelectShop); } }
+	public Ecs.Action.Components.CustomersShop.SelectShopComponent SelectShop { get { return (Ecs.Action.Components.CustomersShop.SelectShopComponent)GetComponent(ActionComponentsLookup.SelectShop); } }
 	public bool HasSelectShop { get { return HasComponent(ActionComponentsLookup.SelectShop); } }
 
 	public void AddSelectShop(Ecs.UidGenerator.Uid newShopUid)
 	{
 		var index = ActionComponentsLookup.SelectShop;
-		var component = (Ecs.Action.Components.SelectShopComponent)CreateComponent(index, typeof(Ecs.Action.Components.SelectShopComponent));
+		var component = (Ecs.Action.Components.CustomersShop.SelectShopComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.ShopUid = newShopUid;
 		#endif
@@ -25,17 +25,17 @@ public partial class ActionEntity
 	public void ReplaceSelectShop(Ecs.UidGenerator.Uid newShopUid)
 	{
 		var index = ActionComponentsLookup.SelectShop;
-		var component = (Ecs.Action.Components.SelectShopComponent)CreateComponent(index, typeof(Ecs.Action.Components.SelectShopComponent));
+		var component = (Ecs.Action.Components.CustomersShop.SelectShopComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.ShopUid = newShopUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopySelectShopTo(Ecs.Action.Components.SelectShopComponent copyComponent)
+	public void CopySelectShopTo(Ecs.Action.Components.CustomersShop.SelectShopComponent copyComponent)
 	{
 		var index = ActionComponentsLookup.SelectShop;
-		var component = (Ecs.Action.Components.SelectShopComponent)CreateComponent(index, typeof(Ecs.Action.Components.SelectShopComponent));
+		var component = (Ecs.Action.Components.CustomersShop.SelectShopComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.ShopUid = copyComponent.ShopUid;
 		#endif

@@ -4,7 +4,7 @@ namespace Ecs.Game.Components.Common
 {
     [Game]
     [Input]
-    [Delivery]
+    [Order]
     [Action]
     public class DestroyedComponent : IComponent
     {

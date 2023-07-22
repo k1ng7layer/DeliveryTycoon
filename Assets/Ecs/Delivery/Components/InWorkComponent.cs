@@ -2,7 +2,7 @@
 
 namespace Ecs.Delivery.Components
 {
-    [Delivery]
+    [Order]
     public class InWorkComponent : IComponent
     {
         

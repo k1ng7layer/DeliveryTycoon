@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface IMakeContractEntity
 {
-	Ecs.Action.Components.MakeContractComponent MakeContract { get; }
+	Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract { get; }
 	bool HasMakeContract { get; }
 
 	void AddMakeContract(Ecs.UidGenerator.Uid newShopUid);

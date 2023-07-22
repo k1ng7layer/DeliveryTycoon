@@ -18,41 +18,53 @@ public partial class ActionEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		if (component is Ecs.Action.Components.StartGameComponent StartGame)
 		{
-			IsDestroyed = true;
+			IsStartGame = true;
 		}
-		else if (component is Ecs.Action.Components.CheckDeliveryStatusComponent CheckDeliveryStatus)
-		{
-			IsCheckDeliveryStatus = true;
-		}
-		else if (component is Ecs.Action.Components.SelectShopComponent SelectShop)
+		else if (component is Ecs.Action.Components.CustomersShop.SelectShopComponent SelectShop)
 		{
 			CopySelectShopTo(SelectShop);
 		}
-		else if (component is Ecs.Action.Components.StartNextDeliveryTimerComponent StartNextDeliveryTimer)
-		{
-			CopyStartNextDeliveryTimerTo(StartNextDeliveryTimer);
-		}
-		else if (component is Ecs.Action.Components.MakeContractComponent MakeContract)
+		else if (component is Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract)
 		{
 			CopyMakeContractTo(MakeContract);
 		}
-		else if (component is Ecs.Action.Components.ChangeCoinsComponent ChangeCoins)
+		else if (component is Ecs.Action.Components.Coins.ChangeCoinsComponent ChangeCoins)
 		{
 			CopyChangeCoinsTo(ChangeCoins);
 		}
-		else if (component is Ecs.Action.Components.CreateDeliveryComponent CreateDelivery)
+		else if (component is Ecs.Action.Components.Courier.CreateCourierComponent CreateCourier)
 		{
-			CopyCreateDeliveryTo(CreateDelivery);
+			CopyCreateCourierTo(CreateCourier);
 		}
-		else if (component is Ecs.Action.Components.BuyCourierComponent BuyCourier)
+		else if (component is Ecs.Action.Components.Courier.BuyCourierComponent BuyCourier)
 		{
-			IsBuyCourier = true;
+			CopyBuyCourierTo(BuyCourier);
 		}
-		else if (component is Ecs.Action.Components.StartGameComponent StartGame)
+		else if (component is Ecs.Action.Components.Order.CompleteOrderComponent CompleteOrder)
 		{
-			IsStartGame = true;
+			CopyCompleteOrderTo(CompleteOrder);
+		}
+		else if (component is Ecs.Action.Components.Order.StartNextOrderTimerComponent StartNextOrderTimer)
+		{
+			CopyStartNextOrderTimerTo(StartNextOrderTimer);
+		}
+		else if (component is Ecs.Action.Components.Order.CreateOrderComponent CreateOrder)
+		{
+			CopyCreateOrderTo(CreateOrder);
+		}
+		else if (component is Ecs.Action.Components.Order.TakeOrderComponent TakeOrder)
+		{
+			CopyTakeOrderTo(TakeOrder);
+		}
+		else if (component is Ecs.Action.Components.Order.CheckOrderStatusComponent CheckOrderStatus)
+		{
+			IsCheckOrderStatus = true;
+		}
+		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
+		{
+			IsDestroyed = true;
 		}
 		#endif
 	}

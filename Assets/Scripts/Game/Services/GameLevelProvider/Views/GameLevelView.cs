@@ -2,6 +2,7 @@
 using Ecs.Views.Camera;
 using Ecs.Views.Customers;
 using Ecs.Views.Linkable.Impl;
+using Ecs.Views.Office;
 using Ecs.Views.Shops;
 using Helpers.Autolink;
 using UnityEngine;
@@ -15,12 +16,14 @@ namespace Game.Services.GameLevelProvider.Views
         [SerializeField] private CameraFollowView cameraFollowView;
         [SerializeField] private List<ShopView> deliveryShops;
         [SerializeField] private List<CustomerSpotView> customerSpotViews;
+        [SerializeField] private DeliveryOfficeView deliveryOfficeView;
         
         public VirtualCameraView VirtualCameraView => virtualCameraView;
         public PhysicalCameraView PhysicalCameraView => physicalCameraView;
         public CameraFollowView CameraFollowView => cameraFollowView;
         public List<ShopView> DeliveryShops => deliveryShops;
         public List<CustomerSpotView> CustomerSpotViews => customerSpotViews;
+        public DeliveryOfficeView DeliveryOfficeView => deliveryOfficeView;
         
         public void Autolink()
         {

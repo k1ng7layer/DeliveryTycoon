@@ -23,7 +23,7 @@ namespace Ecs.Game.Systems.Initialize
             {
                 var deliverySourceEntity = _game.CreateEntity();
 
-                deliverySourceEntity.IsDeliverySource = true;
+                deliverySourceEntity.IsOrderSource = true;
                 deliverySourceEntity.AddLink(source);
                 deliverySourceEntity.AddPosition(source.transform.position);
                 deliverySourceEntity.AddUid(UidGenerator.UidGenerator.Next());

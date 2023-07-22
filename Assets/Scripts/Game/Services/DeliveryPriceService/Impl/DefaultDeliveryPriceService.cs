@@ -23,9 +23,9 @@ namespace Game.Services.DeliveryPriceService.Impl
             _game = game;
         }
 
-        public float CalculateDeliveryPrice(DeliveryEntity deliveryEntity)
+        public float CalculateDeliveryPrice(OrderEntity orderEntity)
         {
-            var deliverySourceUid = deliveryEntity.Source.DeliverySourceUid;
+            var deliverySourceUid = orderEntity.Source.DeliverySourceUid;
             var deliverySource = _game.GetEntityWithUid(deliverySourceUid);
             var deliverySourceLevel = deliverySource.Level.Value;
             var deliveryLevelParams = _deliverySourceParametersProvider.Get(deliverySourceLevel);
@@ -36,7 +36,7 @@ namespace Game.Services.DeliveryPriceService.Impl
             
             foreach (var priceMultiplierMiddleware in _priceMultiplierMiddlewares)
             {
-                price += (minPrice * priceMultiplierMiddleware.CalculateMultiplier(deliveryEntity) - minPrice);
+                price += (minPrice * priceMultiplierMiddleware.CalculateMultiplier(orderEntity) - minPrice);
             }
 
             return price;

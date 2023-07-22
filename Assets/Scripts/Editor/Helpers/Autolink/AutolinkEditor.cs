@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Helpers.Autolink
 {
-    public class AutolinkEditor : Editor
+    public class AutolinkEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

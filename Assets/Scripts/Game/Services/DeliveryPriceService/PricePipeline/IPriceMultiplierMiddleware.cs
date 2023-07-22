@@ -2,6 +2,6 @@
 {
     public interface IPriceMultiplierMiddleware
     {
-        float CalculateMultiplier(DeliveryEntity deliveryEntity);
+        float CalculateMultiplier(OrderEntity orderEntity);
     }
 }

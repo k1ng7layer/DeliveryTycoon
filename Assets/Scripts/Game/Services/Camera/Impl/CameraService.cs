@@ -18,7 +18,6 @@ namespace Game.Services.Camera.Impl
         public UnityEngine.Camera PhysicalCamera { get; set; }
         public CinemachineVirtualCamera ActiveCamera { get; private set; }
         
-        
         public void SetActiveCamera(ECameraType cameraType)
         {
             Debug.Log($"CameraService SetActiveCamera {cameraType}");
@@ -40,7 +39,7 @@ namespace Game.Services.Camera.Impl
 
         public void AttachVirtualCameras(IReadOnlyDictionary<ECameraType, CinemachineVirtualCamera> cameras)
         {
-            Debug.Log($"CameraService AttachVirtualCameras");
+            //Debug.Log($"CameraService AttachVirtualCameras");
             _camerasMap = cameras;
         }
 
@@ -51,7 +50,7 @@ namespace Game.Services.Camera.Impl
 
         public void SetCameraTarget(Transform transform)
         {
-            Debug.Log($"CameraService SetCameraTarget {transform}");
+            //Debug.Log($"CameraService SetCameraTarget {transform}");
             _cameraFollowTarget = transform;
             
             if (ActiveCamera != null)
@@ -62,7 +61,7 @@ namespace Game.Services.Camera.Impl
 
         public void SetCameraLookAt(Transform transform)
         {
-            Debug.Log($"CameraService SetCameraLookAt {transform}");
+            //Debug.Log($"CameraService SetCameraLookAt {transform}");
             _cameraLookAt = transform;
 
             if (ActiveCamera != null)

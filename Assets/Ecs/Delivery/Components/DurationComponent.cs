@@ -2,7 +2,7 @@
 
 namespace Ecs.Delivery.Components
 {
-    [Delivery]
+    [Order]
     [Event(EventTarget.Self)]
     public class DurationComponent : IComponent
     {

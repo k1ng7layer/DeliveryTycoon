@@ -11,7 +11,7 @@ namespace Game.UI.DeliverySourceShop.Windows
         
         protected override void AddControllers()
         {
-            AddController<ShopWindowController>();
+            AddController<ContractWindowController>();
         }
     }
 }

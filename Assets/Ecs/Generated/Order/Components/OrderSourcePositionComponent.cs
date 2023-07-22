@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.SourcePositionComponent SourcePosition { get { return (Ecs.Delivery.Components.SourcePositionComponent)GetComponent(OrderComponentsLookup.SourcePosition); } }
+	public Ecs.Order.Components.SourcePositionComponent SourcePosition { get { return (Ecs.Order.Components.SourcePositionComponent)GetComponent(OrderComponentsLookup.SourcePosition); } }
 	public bool HasSourcePosition { get { return HasComponent(OrderComponentsLookup.SourcePosition); } }
 
 	public void AddSourcePosition(UnityEngine.Vector3 newValue)
 	{
 		var index = OrderComponentsLookup.SourcePosition;
-		var component = (Ecs.Delivery.Components.SourcePositionComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.SourcePositionComponent));
+		var component = (Ecs.Order.Components.SourcePositionComponent)CreateComponent(index, typeof(Ecs.Order.Components.SourcePositionComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplaceSourcePosition(UnityEngine.Vector3 newValue)
 	{
 		var index = OrderComponentsLookup.SourcePosition;
-		var component = (Ecs.Delivery.Components.SourcePositionComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.SourcePositionComponent));
+		var component = (Ecs.Order.Components.SourcePositionComponent)CreateComponent(index, typeof(Ecs.Order.Components.SourcePositionComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopySourcePositionTo(Ecs.Delivery.Components.SourcePositionComponent copyComponent)
+	public void CopySourcePositionTo(Ecs.Order.Components.SourcePositionComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.SourcePosition;
-		var component = (Ecs.Delivery.Components.SourcePositionComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.SourcePositionComponent));
+		var component = (Ecs.Order.Components.SourcePositionComponent)CreateComponent(index, typeof(Ecs.Order.Components.SourcePositionComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

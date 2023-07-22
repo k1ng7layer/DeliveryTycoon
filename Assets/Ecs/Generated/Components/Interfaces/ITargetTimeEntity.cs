@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface ITargetTimeEntity
 {
-	Ecs.Delivery.Components.TargetTimeComponent TargetTime { get; }
+	Ecs.Order.Components.TargetTimeComponent TargetTime { get; }
 	bool HasTargetTime { get; }
 
 	void AddTargetTime(float newValue);

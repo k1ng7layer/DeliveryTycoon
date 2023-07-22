@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Db.OrderParameters;
-using Ecs.Delivery.Extensions;
+using Ecs.Order.Extensions;
 using Game.Services.DeliveryDestinationService;
 using Game.Services.DeliveryPriceService;
 using Game.Services.DeliveryTargetTimeService;
@@ -66,9 +66,7 @@ namespace Ecs.Action.Systems.Order
                 
                 var deliveryTargetPosition = _deliveryTargetService.GetDeliveryTarget();
 
-                var deliveryTargetTime = _deliveryTargetTimeService.GetDeliveryTargetTime(deliverySourceLevel);
-                
-                var orderEntity = _order.CreateOrder(deliveryTargetTime, deliverySourcePosition, deliveryTargetPosition);
+                var orderEntity = _order.CreateOrder(deliverySourcePosition, deliveryTargetPosition);
                 orderEntity.AddSource(sourceUid);
                 orderEntity.AddItemsAmount(2); //TODO:
                 var deliveryPrice = _deliveryPriceService.CalculateDeliveryPrice(orderEntity);
@@ -89,16 +87,8 @@ namespace Ecs.Action.Systems.Order
                 _orderPopupController.OnOrderCreated(orderEntity);
             }
         }
-
-        // private ECourierType GetRandomCourierType()
-        // {
-        //     var values = (ECourierType[])Enum.GetValues(typeof(ECourierType));
-        //
-        //     var random = _randomProvider.Range(0, values.Length - 1);
-        //
-        //     return values[random];
-        // }
         
+
         private ECourierType GetRandomCourierType(int sourceLevel)
         {
             var orderParameters = _orderParametersProvider.Get(sourceLevel);

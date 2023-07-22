@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	static readonly Ecs.Delivery.Components.InWorkComponent InWorkComponent = new Ecs.Delivery.Components.InWorkComponent();
+	static readonly Ecs.Order.Components.InWorkComponent InWorkComponent = new Ecs.Order.Components.InWorkComponent();
 
 	public bool IsInWork
 	{

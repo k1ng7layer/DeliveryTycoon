@@ -18,51 +18,63 @@ public partial class OrderEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Delivery.Components.DurationComponent Duration)
+		if (component is Ecs.Order.Components.ContractComponent Contract)
+		{
+			CopyContractTo(Contract);
+		}
+		else if (component is Ecs.Order.Components.DurationComponent Duration)
 		{
 			CopyDurationTo(Duration);
 		}
-		else if (component is Ecs.Delivery.Components.DestinationComponent Destination)
+		else if (component is Ecs.Order.Components.DestinationComponent Destination)
 		{
 			CopyDestinationTo(Destination);
 		}
-		else if (component is Ecs.Delivery.Components.TargetTimeComponent TargetTime)
+		else if (component is Ecs.Order.Components.TargetTimeComponent TargetTime)
 		{
 			CopyTargetTimeTo(TargetTime);
 		}
-		else if (component is Ecs.Delivery.Components.SourceComponent Source)
+		else if (component is Ecs.Order.Components.SourceComponent Source)
 		{
 			CopySourceTo(Source);
 		}
-		else if (component is Ecs.Delivery.Components.ItemsAmountComponent ItemsAmount)
+		else if (component is Ecs.Order.Components.ItemsAmountComponent ItemsAmount)
 		{
 			CopyItemsAmountTo(ItemsAmount);
 		}
-		else if (component is Ecs.Delivery.Components.InWorkComponent InWork)
+		else if (component is Ecs.Order.Components.InWorkComponent InWork)
 		{
 			IsInWork = true;
 		}
-		else if (component is Ecs.Delivery.Components.PriceComponent Price)
+		else if (component is Ecs.Order.Components.PriceComponent Price)
 		{
 			CopyPriceTo(Price);
 		}
-		else if (component is Ecs.Delivery.Components.OrderStatusComponent OrderStatus)
+		else if (component is Ecs.Order.Components.OrderStatusComponent OrderStatus)
 		{
 			CopyOrderStatusTo(OrderStatus);
 		}
-		else if (component is Ecs.Delivery.Components.CourierAmountComponent CourierAmount)
+		else if (component is Ecs.Order.Components.CourierAmountComponent CourierAmount)
 		{
 			CopyCourierAmountTo(CourierAmount);
 		}
-		else if (component is Ecs.Delivery.Components.SourcePositionComponent SourcePosition)
+		else if (component is Ecs.Order.Components.SourcePositionComponent SourcePosition)
 		{
 			CopySourcePositionTo(SourcePosition);
+		}
+		else if (component is Ecs.Order.Components.ContractStatusComponent ContractStatus)
+		{
+			CopyContractStatusTo(ContractStatus);
 		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{
 			CopyCourierTo(Courier);
 		}
-		else if (component is Ecs.Game.Components.Delivery.OrderComponent Order)
+		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
+		{
+			CopyRewardTo(Reward);
+		}
+		else if (component is Ecs.Game.Components.Order.OrderComponent Order)
 		{
 			IsOrder = true;
 		}

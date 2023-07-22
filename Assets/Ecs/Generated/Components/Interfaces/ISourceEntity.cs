@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface ISourceEntity
 {
-	Ecs.Delivery.Components.SourceComponent Source { get; }
+	Ecs.Order.Components.SourceComponent Source { get; }
 	bool HasSource { get; }
 
 	void AddSource(Ecs.UidGenerator.Uid newDeliverySourceUid);

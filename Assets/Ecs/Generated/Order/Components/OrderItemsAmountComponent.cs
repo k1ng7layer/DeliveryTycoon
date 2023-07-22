@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.ItemsAmountComponent ItemsAmount { get { return (Ecs.Delivery.Components.ItemsAmountComponent)GetComponent(OrderComponentsLookup.ItemsAmount); } }
+	public Ecs.Order.Components.ItemsAmountComponent ItemsAmount { get { return (Ecs.Order.Components.ItemsAmountComponent)GetComponent(OrderComponentsLookup.ItemsAmount); } }
 	public bool HasItemsAmount { get { return HasComponent(OrderComponentsLookup.ItemsAmount); } }
 
 	public void AddItemsAmount(int newValue)
 	{
 		var index = OrderComponentsLookup.ItemsAmount;
-		var component = (Ecs.Delivery.Components.ItemsAmountComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.ItemsAmountComponent));
+		var component = (Ecs.Order.Components.ItemsAmountComponent)CreateComponent(index, typeof(Ecs.Order.Components.ItemsAmountComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplaceItemsAmount(int newValue)
 	{
 		var index = OrderComponentsLookup.ItemsAmount;
-		var component = (Ecs.Delivery.Components.ItemsAmountComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.ItemsAmountComponent));
+		var component = (Ecs.Order.Components.ItemsAmountComponent)CreateComponent(index, typeof(Ecs.Order.Components.ItemsAmountComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyItemsAmountTo(Ecs.Delivery.Components.ItemsAmountComponent copyComponent)
+	public void CopyItemsAmountTo(Ecs.Order.Components.ItemsAmountComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.ItemsAmount;
-		var component = (Ecs.Delivery.Components.ItemsAmountComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.ItemsAmountComponent));
+		var component = (Ecs.Order.Components.ItemsAmountComponent)CreateComponent(index, typeof(Ecs.Order.Components.ItemsAmountComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

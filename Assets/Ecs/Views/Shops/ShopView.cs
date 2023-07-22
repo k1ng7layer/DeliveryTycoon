@@ -8,11 +8,15 @@ using Zenject;
 
 namespace Ecs.Views.Shops
 {
-    public class ShopView : ObjectView
+    public class ShopView : ObjectView, IContractAddedListener, 
+        IContractRemovedListener
     {
         [SerializeField] private ShopParameters shopParameters;
         [SerializeField] private InteractableView interactableView;
         [SerializeField] private Transform receptionSpotTransform;
+        
+        [Header("Start contract params")] [SerializeField]
+        private bool launchContractTimerOnGameStart;
 
         private bool _opened;
         private GameEntity _self;
@@ -21,6 +25,7 @@ namespace Ecs.Views.Shops
         [Inject] private readonly ActionContext _action;
 
         public ShopParameters ShopParameters => shopParameters;
+        public bool LaunchContractTimerOnGameStart => launchContractTimerOnGameStart;
 
         private void Awake()
         {
@@ -34,28 +39,25 @@ namespace Ecs.Views.Shops
             _self = (GameEntity)entity;
             _self.AddShopName(shopParameters.Name);
             
-            interactableView.StartInteract();
+            interactableView.StopInteract();
             
             _self.AddReceptionPoint(receptionSpotTransform.position);
         }
 
         private void OnLabelSelected()
         {
-            // if (!_opened)
-            // {
-            //     var selfUid = _self.Uid.Value;
-            //     _action.CreateEntity().AddSelectShop(selfUid);
-            //     _opened = true;
-            // }
-            // else
-            // {
-            //     _opened = false;
-            //     _signalBus.BackWindow();
-            // }
-            
             var selfUid = _self.Uid.Value;
             _action.CreateEntity().AddSelectShop(selfUid);
         }
-        
+
+        public void OnContractAdded(GameEntity entity)
+        {
+            interactableView.StartInteract();
+        }
+
+        public void OnContractRemoved(GameEntity entity)
+        {
+            interactableView.StopInteract();
+        }
     }
 }

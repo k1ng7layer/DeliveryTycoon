@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.Services.RandomProvider;
 using JCMG.EntitasRedux;
 
 namespace Ecs.Action.Systems.CustomersShop
@@ -7,12 +8,15 @@ namespace Ecs.Action.Systems.CustomersShop
     {
         private readonly ActionContext _action;
         private readonly GameContext _game;
+        private readonly IRandomProvider _randomProvider;
 
         public MakeContractSystem(ActionContext action, 
-            GameContext game) : base(action)
+            GameContext game,
+            IRandomProvider randomProvider) : base(action)
         {
             _action = action;
             _game = game;
+            _randomProvider = randomProvider;
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
@@ -32,7 +36,7 @@ namespace Ecs.Action.Systems.CustomersShop
 
                 contractor.IsPartner = true;
                 
-                _action.CreateEntity().AddStartNextOrderTimer(contractorUid);
+                _action.CreateEntity().AddCreateOrder(contractorUid);
             }
         }
     }

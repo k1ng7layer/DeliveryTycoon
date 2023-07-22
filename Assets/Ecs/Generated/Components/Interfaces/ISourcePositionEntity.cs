@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface ISourcePositionEntity
 {
-	Ecs.Delivery.Components.SourcePositionComponent SourcePosition { get; }
+	Ecs.Order.Components.SourcePositionComponent SourcePosition { get; }
 	bool HasSourcePosition { get; }
 
 	void AddSourcePosition(UnityEngine.Vector3 newValue);

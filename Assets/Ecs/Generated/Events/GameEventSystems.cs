@@ -12,6 +12,8 @@ public sealed class GameEventSystems : Feature
 	public GameEventSystems(Contexts contexts)
 	{
 		Add(new BehaviourTreeAddedEventSystem(contexts)); // priority: 0
+		Add(new ContractProviderAddedEventSystem(contexts)); // priority: 0
+		Add(new ContractProviderRemovedEventSystem(contexts)); // priority: 0
 		Add(new InstantiateAddedEventSystem(contexts)); // priority: 0
 		Add(new LinkRemovedEventSystem(contexts)); // priority: 0
 		Add(new MovingAddedEventSystem(contexts)); // priority: 0

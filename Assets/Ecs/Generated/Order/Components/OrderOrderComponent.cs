@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	static readonly Ecs.Game.Components.Delivery.OrderComponent OrderComponent = new Ecs.Game.Components.Delivery.OrderComponent();
+	static readonly Ecs.Game.Components.Order.OrderComponent OrderComponent = new Ecs.Game.Components.Order.OrderComponent();
 
 	public bool IsOrder
 	{

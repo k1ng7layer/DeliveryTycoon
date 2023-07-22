@@ -9,5 +9,8 @@ namespace Game.UI.DeliverySourceShop.Views
         public Button EngageContractButton;
         public Button CloseArea;
         public TextMeshProUGUI ShopName;
+        public TextMeshProUGUI CourierTypeText;
+        public TextMeshProUGUI CourierAmountText;
+        public TextMeshProUGUI ContractTotalRewardText;
     }
 }

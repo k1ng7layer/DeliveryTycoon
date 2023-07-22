@@ -33,7 +33,7 @@ namespace Installers.Game
             var canvasTransform = canvasView.transform;
             
             Container.BindUiView<MainMenuController, MainMenuView>(mainMenuView, canvasTransform);
-            Container.BindUiView<ShopWindowController, ShopWindowView>(shopWindowView, canvasTransform);
+            Container.BindUiView<ContractWindowController, ShopWindowView>(shopWindowView, canvasTransform);
             Container.BindUiView<OrderItemCollectionController, OrderItemMenuView>(orderItemMenuView, canvasTransform);
             
             Container.BindUiView<BuyCourierButtonController, BuyCourierButtonView>(buyCourierButtonView, canvasTransform);

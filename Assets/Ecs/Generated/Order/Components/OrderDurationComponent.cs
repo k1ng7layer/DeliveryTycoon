@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.DurationComponent Duration { get { return (Ecs.Delivery.Components.DurationComponent)GetComponent(OrderComponentsLookup.Duration); } }
+	public Ecs.Order.Components.DurationComponent Duration { get { return (Ecs.Order.Components.DurationComponent)GetComponent(OrderComponentsLookup.Duration); } }
 	public bool HasDuration { get { return HasComponent(OrderComponentsLookup.Duration); } }
 
 	public void AddDuration(float newValue)
 	{
 		var index = OrderComponentsLookup.Duration;
-		var component = (Ecs.Delivery.Components.DurationComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.DurationComponent));
+		var component = (Ecs.Order.Components.DurationComponent)CreateComponent(index, typeof(Ecs.Order.Components.DurationComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplaceDuration(float newValue)
 	{
 		var index = OrderComponentsLookup.Duration;
-		var component = (Ecs.Delivery.Components.DurationComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.DurationComponent));
+		var component = (Ecs.Order.Components.DurationComponent)CreateComponent(index, typeof(Ecs.Order.Components.DurationComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyDurationTo(Ecs.Delivery.Components.DurationComponent copyComponent)
+	public void CopyDurationTo(Ecs.Order.Components.DurationComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.Duration;
-		var component = (Ecs.Delivery.Components.DurationComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.DurationComponent));
+		var component = (Ecs.Order.Components.DurationComponent)CreateComponent(index, typeof(Ecs.Order.Components.DurationComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

@@ -3,13 +3,14 @@ using Ecs.Action.Systems.Coins;
 using Ecs.Action.Systems.Courier;
 using Ecs.Action.Systems.CustomersShop;
 using Ecs.Action.Systems.Order;
-using Ecs.Delivery.Systems;
 using Ecs.Game.Systems.Ai;
 using Ecs.Game.Systems.Camera;
 using Ecs.Game.Systems.Common;
 using Ecs.Game.Systems.Initialize;
 using Ecs.Input.Systems;
+using Ecs.Order.Systems;
 using Game.Services.Camera.Impl;
+using Game.Services.ContractStatusService.Impl;
 using Game.Services.DeliveryDestinationService.Impl;
 using Game.Services.DeliveryPriceService.Impl;
 using Game.Services.DeliveryTargetTimeService.Impl;
@@ -53,6 +54,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<DeliveryRandomTargetService>().AsSingle();
             Container.BindInterfacesAndSelfTo<OrderStatusService>().AsSingle();
             Container.BindInterfacesAndSelfTo<DiSpawnService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ContractStatusService>().AsSingle();
             Container.Bind<IRaycastProvider>().To<RaycastProvider>().AsSingle();
         }
 
@@ -71,7 +73,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CreateOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MakeContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<SelectShopSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<StartNextOrderTimerSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StartNextContractTimerSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuyCourierSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ChangeCoinsSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CreateCourierSystem>().AsSingle();

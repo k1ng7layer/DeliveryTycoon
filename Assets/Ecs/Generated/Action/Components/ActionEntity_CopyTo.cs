@@ -22,6 +22,10 @@ public partial class ActionEntity
 		{
 			IsStartGame = true;
 		}
+		else if (component is Ecs.Action.Components.Contract.CreateContractComponent CreateContract)
+		{
+			CopyCreateContractTo(CreateContract);
+		}
 		else if (component is Ecs.Action.Components.CustomersShop.SelectShopComponent SelectShop)
 		{
 			CopySelectShopTo(SelectShop);
@@ -42,13 +46,9 @@ public partial class ActionEntity
 		{
 			CopyBuyCourierTo(BuyCourier);
 		}
-		else if (component is Ecs.Action.Components.Order.CompleteOrderComponent CompleteOrder)
+		else if (component is Ecs.Action.Components.Order.StartNextContractTimerComponent StartNextContractTimer)
 		{
-			CopyCompleteOrderTo(CompleteOrder);
-		}
-		else if (component is Ecs.Action.Components.Order.StartNextOrderTimerComponent StartNextOrderTimer)
-		{
-			CopyStartNextOrderTimerTo(StartNextOrderTimer);
+			CopyStartNextContractTimerTo(StartNextContractTimer);
 		}
 		else if (component is Ecs.Action.Components.Order.CreateOrderComponent CreateOrder)
 		{
@@ -57,6 +57,10 @@ public partial class ActionEntity
 		else if (component is Ecs.Action.Components.Order.TakeOrderComponent TakeOrder)
 		{
 			CopyTakeOrderTo(TakeOrder);
+		}
+		else if (component is Ecs.Action.Components.Order.CompleteOrderComponent CompleteOrder)
+		{
+			CopyCompleteOrderTo(CompleteOrder);
 		}
 		else if (component is Ecs.Action.Components.Order.CheckOrderStatusComponent CheckOrderStatus)
 		{

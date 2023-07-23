@@ -18,6 +18,7 @@ namespace Game.Services.ContractStatusService.Impl
             var hasCouriers = _courierRepository.TryGetCouriersAmount(contractData.CourierType, contractData.CourierAmount, 
                 out var actualAmount);
 
+            
             return hasCouriers ? EContractStatus.Accessible : EContractStatus.NotAccessible;
         }
 

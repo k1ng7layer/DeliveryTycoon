@@ -120,14 +120,15 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var requiredCourierType = contractData.CourierType;
 
             var engagedCouriers = _game.GetEntitiesWithOwner(contractUid);
-            var contractStatus = _contractStatusService.GetStatus(contractEntity);
+            // var contractStatus = _contractStatusService.GetStatus(contractEntity);
+            var contractStatus = contractEntity.ContractStatus.Value;
             var activeOrders = contractEntity.AvailableOrders.Value;
             
             _courierRepository.TryGetCouriersAmount(requiredCourierType, _proposedCouriers, out var actual);
             
             if (contractStatus == EContractStatus.InProgress)
             {
-                _canDecrease = (_proposedCouriers - 1) <= contractData.CourierAmount;
+                _canDecrease = (_proposedCouriers - 1) >= contractData.CourierAmount;
                 _canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < engagedCouriers.Count;
             }
             else
@@ -142,6 +143,9 @@ namespace Game.UI.DeliverySourceShop.Controllers
             View.ReduceCouriersBtn.interactable = _canDecrease;
 
             View.EngageContractButton.interactable = _proposedCouriers >= contractData.CourierAmount;
+            View.ChangeCouriersBtn.interactable = _proposedCouriers != engagedCouriers.Count;
+            View.ChangeCouriersBtn.gameObject.SetActive(contractStatus == EContractStatus.InProgress);
+            View.EngageContractButton.gameObject.SetActive(contractStatus is EContractStatus.Accessible or EContractStatus.NotAccessible);
         }
         
         private void Close()

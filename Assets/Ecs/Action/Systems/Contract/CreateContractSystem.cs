@@ -60,6 +60,7 @@ namespace Ecs.Action.Systems.Contract
                 contractEntity.AddOwner(sourceUid);
 
                 var contractStatus = _contractStatusService.GetStatus(contractEntity);
+                contractEntity.ReplaceContractStatus(contractStatus);
                 _contractWindowController.ChangeContractStatus(contractStatus, contractEntity);
             }
         }

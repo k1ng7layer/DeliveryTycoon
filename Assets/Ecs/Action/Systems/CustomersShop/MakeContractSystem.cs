@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Utils;
+using Game.Utils.Order;
 using JCMG.EntitasRedux;
 using Zenject;
 
@@ -58,10 +59,13 @@ namespace Ecs.Action.Systems.CustomersShop
                 {
                     courier.ReplaceOwner(contractUid);
                 }
+
+                var totalReward = contractEntity.Reward.Value;
+                var rewardPerOrder = totalReward / contractData.OrdersAmount;
                 
-                for (int i = 0; i < contractData.OrdersAmount; i++)
+                for (var i = 0; i < contractData.OrdersAmount; i++)
                 {
-                    _action.CreateEntity().AddCreateOrder(contractUid);
+                    _action.CreateEntity().AddCreateOrder(new CreateOrderData(contractUid, rewardPerOrder));
                 }
             }
         }

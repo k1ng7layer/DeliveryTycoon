@@ -41,7 +41,9 @@ namespace Ecs.Action.Systems.Order
             {
                 entity.IsDestroyed = true;
 
-                var contractUid = entity.CreateOrder.ContractUid;
+                var orderData = entity.CreateOrder.Value;
+                
+                var contractUid = orderData.ContractUid;
                 var contractEntity = _order.GetEntityWithUid(contractUid);
                 var shopUid = contractEntity.Owner.Value;
                 
@@ -62,7 +64,7 @@ namespace Ecs.Action.Systems.Order
                 var courierType = GetRandomCourierType(deliverySourceLevel);
 
                 orderEntity.AddCourier(courierType);
-                orderEntity.AddPrice(deliveryPrice);
+                orderEntity.AddReward(orderData.Reward);
 
                 orderEntity.AddOrderStatus(EOrderStatus.Created);
             }

@@ -1,4 +1,4 @@
-﻿using Ecs.UidGenerator;
+﻿using Game.Utils.Order;
 using JCMG.EntitasRedux;
 
 namespace Ecs.Action.Components.Order
@@ -6,6 +6,6 @@ namespace Ecs.Action.Components.Order
     [Action]
     public class CreateOrderComponent : IComponent
     {
-        public Uid ContractUid;
+        public CreateOrderData Value;
     }
 }

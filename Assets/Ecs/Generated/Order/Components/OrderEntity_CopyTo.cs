@@ -74,10 +74,6 @@ public partial class OrderEntity
 		{
 			CopySourcePositionTo(SourcePosition);
 		}
-		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
-		{
-			CopyCourierTo(Courier);
-		}
 		else if (component is Ecs.Game.Components.Order.OrderComponent Order)
 		{
 			IsOrder = true;
@@ -101,6 +97,10 @@ public partial class OrderEntity
 		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
 		{
 			CopyOwnerTo(Owner);
+		}
+		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
+		{
+			CopyCourierTo(Courier);
 		}
 		else if (component is DurationAddedListenerComponent DurationAddedListener)
 		{

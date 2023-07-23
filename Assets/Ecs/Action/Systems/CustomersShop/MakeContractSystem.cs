@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Services.RandomProvider;
+using Game.Utils;
 using JCMG.EntitasRedux;
 
 namespace Ecs.Action.Systems.CustomersShop
@@ -43,9 +44,14 @@ namespace Ecs.Action.Systems.CustomersShop
                 var contractUid = contractor.ContractProvider.ContractUid;
                 
                 var contractEntity = _order.GetEntityWithUid(contractUid);
+                contractEntity.ReplaceContractStatus(EContractStatus.InProgress);
+                
                 var contractData = contractEntity.Contract.Value;
                 
-                _action.CreateEntity().AddCreateOrder(shopUid);
+                for (int i = 0; i < contractData.OrdersAmount; i++)
+                {
+                    _action.CreateEntity().AddCreateOrder(shopUid);
+                }
             }
         }
     }

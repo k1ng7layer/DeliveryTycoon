@@ -56,6 +56,7 @@ namespace Ecs.Action.Systems.Contract
                     
                 contractEntity.AddUid(contractUid);
                 contractEntity.AddReward(contractParameters.Reward);
+                contractEntity.AddAvailableOrders(contractParameters.OrdersAmount);
 
                 var contractStatus = _contractStatusService.GetStatus(contractEntity);
                 _contractWindowController.ChangeContractStatus(contractStatus, contractEntity);

@@ -62,6 +62,8 @@ namespace Game.UI.DeliverySourceShop.Controllers
             
             _action.CreateEntity().AddMakeContract(new MakeContractData(currentShopUid, _proposedCouriers));
             View.EngageContractButton.interactable = false;
+            
+            Close();
         }
 
         public override void OnShow()
@@ -119,20 +121,21 @@ namespace Game.UI.DeliverySourceShop.Controllers
 
             var engagedCouriers = _game.GetEntitiesWithOwner(contractUid);
             var contractStatus = _contractStatusService.GetStatus(contractEntity);
-
+            var activeOrders = contractEntity.AvailableOrders.Value;
+            
             _courierRepository.TryGetCouriersAmount(requiredCourierType, _proposedCouriers, out var actual);
             
             if (contractStatus == EContractStatus.InProgress)
             {
                 _canDecrease = (_proposedCouriers - 1) <= contractData.CourierAmount;
+                _canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < activeOrders;
             }
             else
             {
                 _canDecrease = _proposedCouriers - 1 >= 0;
+                _canIncrease = _proposedCouriers + 1 <= actual && (_proposedCouriers + 1) <= contractData.OrdersAmount;
             }
 
-            _canIncrease = _proposedCouriers + 1 <= actual;
-            
             View.SelectedCouriersAmountText.text = $"{_proposedCouriers}";
             
             View.IncreaseCouriersBtn.interactable = _canIncrease;

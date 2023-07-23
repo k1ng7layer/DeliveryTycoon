@@ -6,7 +6,6 @@ using Game.UI.DeliverySourceShop.Controllers;
 using Game.UI.DeliverySourceShop.Views;
 using Game.UI.MainMenu.Controllers;
 using Game.UI.MainMenu.Views;
-using Game.UI.OrderView.Controllers;
 using Game.UI.OrderView.Views;
 using Game.UI.Wallet.Controllers;
 using Game.UI.Wallet.Views;
@@ -34,7 +33,7 @@ namespace Installers.Game
             
             Container.BindUiView<MainMenuController, MainMenuView>(mainMenuView, canvasTransform);
             Container.BindUiView<ContractWindowController, ShopWindowView>(shopWindowView, canvasTransform);
-            Container.BindUiView<OrderItemCollectionController, OrderItemMenuView>(orderItemMenuView, canvasTransform);
+            //Container.BindUiView<OrderItemCollectionController, OrderItemMenuView>(orderItemMenuView, canvasTransform);
             
             Container.BindUiView<BuyCourierButtonController, BuyCourierButtonView>(buyCourierButtonView, canvasTransform);
             Container.BindUiView<WalletController, WalletView>(walletView, canvasTransform);

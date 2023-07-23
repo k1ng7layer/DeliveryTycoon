@@ -6,7 +6,6 @@ using Game.Services.DeliveryPriceService;
 using Game.Services.DeliveryTargetTimeService;
 using Game.Services.OrderStatusService;
 using Game.Services.RandomProvider;
-using Game.UI.OrderView.Controllers;
 using Game.Utils;
 using JCMG.EntitasRedux;
 
@@ -19,7 +18,6 @@ namespace Ecs.Action.Systems.Order
         private readonly IDeliveryPriceService _deliveryPriceService;
         private readonly IDeliveryTargetService _deliveryTargetService;
         private readonly IDeliveryTargetTimeService _deliveryTargetTimeService;
-        private readonly IOrderPopupController _orderPopupController;
         private readonly IRandomProvider _randomProvider;
         private readonly IOrderParametersProvider _orderParametersProvider;
         private readonly IOrderStatusService _orderStatusService;
@@ -30,7 +28,6 @@ namespace Ecs.Action.Systems.Order
             IDeliveryPriceService deliveryPriceService,
             IDeliveryTargetService deliveryTargetService,
             IDeliveryTargetTimeService deliveryTargetTimeService,
-            IOrderPopupController orderPopupController,
             IRandomProvider randomProvider,
             IOrderParametersProvider orderParametersProvider,
             IOrderStatusService orderStatusService) : base(action)
@@ -40,7 +37,6 @@ namespace Ecs.Action.Systems.Order
             _deliveryPriceService = deliveryPriceService;
             _deliveryTargetService = deliveryTargetService;
             _deliveryTargetTimeService = deliveryTargetTimeService;
-            _orderPopupController = orderPopupController;
             _randomProvider = randomProvider;
             _orderParametersProvider = orderParametersProvider;
             _orderStatusService = orderStatusService;
@@ -80,7 +76,7 @@ namespace Ecs.Action.Systems.Order
 
                 orderEntity.AddOrderStatus(EOrderStatus.InProgress);
                 
-                _orderPopupController.OnOrderCreated(orderEntity);
+                //_orderPopupController.OnOrderCreated(orderEntity);
             }
         }
         

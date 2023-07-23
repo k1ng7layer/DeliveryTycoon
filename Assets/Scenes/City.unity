@@ -186,7 +186,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64945761}
-  m_LocalRotation: {x: 0.37851563, y: 0.59726536, z: -0.3785157, w: 0.59726536}
+  m_LocalRotation: {x: 0.37851563, y: 0.5972654, z: -0.37851566, w: 0.5972653}
   m_LocalPosition: {x: -26.559998, y: 21.02, z: -8.999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1508,8 +1508,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992566588}
-  m_LocalRotation: {x: 0.37851563, y: 0.59726536, z: -0.3785157, w: 0.59726536}
-  m_LocalPosition: {x: -40.958435, y: 18.491247, z: -8.999998}
+  m_LocalRotation: {x: 0.37851563, y: 0.5972654, z: -0.37851566, w: 0.5972653}
+  m_LocalPosition: {x: -40.958435, y: 18.491245, z: -8.999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8961,6 +8961,7 @@ MonoBehaviour:
     ShopLevel: 1
   interactableView: {fileID: 1040147186}
   receptionSpotTransform: {fileID: 1246314881}
+  launchContractTimerOnGameStart: 1
 --- !u!114 &7830572653242160174
 MonoBehaviour:
   m_ObjectHideFlags: 0

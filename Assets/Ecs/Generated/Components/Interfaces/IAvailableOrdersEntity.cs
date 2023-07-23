@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IMakeContractEntity
+public partial interface IAvailableOrdersEntity
 {
-	Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract { get; }
-	bool HasMakeContract { get; }
+	Ecs.Order.Components.AvailableOrdersComponent AvailableOrders { get; }
+	bool HasAvailableOrders { get; }
 
-	void AddMakeContract(Game.Utils.Contract.MakeContractData newValue);
-	void ReplaceMakeContract(Game.Utils.Contract.MakeContractData newValue);
-	void RemoveMakeContract();
+	void AddAvailableOrders(int newValue);
+	void ReplaceAvailableOrders(int newValue);
+	void RemoveAvailableOrders();
 }

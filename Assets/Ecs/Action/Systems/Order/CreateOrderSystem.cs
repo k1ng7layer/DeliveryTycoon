@@ -75,14 +75,10 @@ namespace Ecs.Action.Systems.Order
 
                 var requiredCourierAmount = _randomProvider.Range(1, 1);
                 
-                orderEntity.AddCourierAmount(requiredCourierAmount);
                 orderEntity.AddCourier(courierType);
                 orderEntity.AddPrice(deliveryPrice);
 
-
-                var deliveryInitialStatus = _orderStatusService.GetStatus(orderEntity);
-                
-                orderEntity.AddOrderStatus(deliveryInitialStatus);
+                orderEntity.AddOrderStatus(EOrderStatus.InProgress);
                 
                 _orderPopupController.OnOrderCreated(orderEntity);
             }

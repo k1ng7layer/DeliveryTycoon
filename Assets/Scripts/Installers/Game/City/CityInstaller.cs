@@ -1,5 +1,6 @@
 ﻿using Ecs.Action.Systems;
 using Ecs.Action.Systems.Coins;
+using Ecs.Action.Systems.Contract;
 using Ecs.Action.Systems.Courier;
 using Ecs.Action.Systems.CustomersShop;
 using Ecs.Action.Systems.Order;
@@ -14,6 +15,7 @@ using Game.Services.ContractStatusService.Impl;
 using Game.Services.DeliveryDestinationService.Impl;
 using Game.Services.DeliveryPriceService.Impl;
 using Game.Services.DeliveryTargetTimeService.Impl;
+using Game.Services.EmployeeRepository.Impl;
 using Game.Services.GameLevelProvider.Impl;
 using Game.Services.GameLevelProvider.Views;
 using Game.Services.Input.Impl;
@@ -55,6 +57,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<OrderStatusService>().AsSingle();
             Container.BindInterfacesAndSelfTo<DiSpawnService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ContractStatusService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CourierRepository>().AsSingle();
             Container.Bind<IRaycastProvider>().To<RaycastProvider>().AsSingle();
         }
 
@@ -69,7 +72,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<AiInitializeSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<EmitInputSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraMovementSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<NextOrderTimeSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<NextContractTimerSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CreateOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<MakeContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<SelectShopSystem>().AsSingle();
@@ -82,6 +85,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<BehaviourTreeUpdateSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<TakeOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CompleteOrderSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CreateContractSystem>().AsSingle();
         }
 
         private void BindWindows()

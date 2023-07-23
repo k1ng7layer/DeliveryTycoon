@@ -1,4 +1,5 @@
 ﻿using Db.Shop;
+using Ecs.UidGenerator;
 using Ecs.Views.Linkable.Impl;
 using Game.UI.PopupView;
 using JCMG.EntitasRedux;
@@ -8,8 +9,9 @@ using Zenject;
 
 namespace Ecs.Views.Shops
 {
-    public class ShopView : ObjectView, IContractAddedListener, 
-        IContractRemovedListener
+    public class ShopView : ObjectView, 
+        IContractProviderAddedListener,
+        IContractProviderRemovedListener
     {
         [SerializeField] private ShopParameters shopParameters;
         [SerializeField] private InteractableView interactableView;
@@ -42,6 +44,8 @@ namespace Ecs.Views.Shops
             interactableView.StopInteract();
             
             _self.AddReceptionPoint(receptionSpotTransform.position);
+            _self.AddContractProviderAddedListener(this);
+            _self.AddContractProviderRemovedListener(this);
         }
 
         private void OnLabelSelected()
@@ -50,12 +54,12 @@ namespace Ecs.Views.Shops
             _action.CreateEntity().AddSelectShop(selfUid);
         }
 
-        public void OnContractAdded(GameEntity entity)
+        public void OnContractProviderAdded(GameEntity entity, Uid contractUid)
         {
             interactableView.StartInteract();
         }
 
-        public void OnContractRemoved(GameEntity entity)
+        public void OnContractProviderRemoved(GameEntity entity)
         {
             interactableView.StopInteract();
         }

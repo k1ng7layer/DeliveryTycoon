@@ -21,20 +21,22 @@ public static class OrderComponentsLookup
 	public const int Courier = 5;
 	public const int Order = 6;
 	public const int Reward = 7;
-	public const int Contract = 8;
-	public const int ContractStatus = 9;
-	public const int CourierAmount = 10;
-	public const int Destination = 11;
-	public const int Duration = 12;
-	public const int InWork = 13;
-	public const int ItemsAmount = 14;
-	public const int OrderStatus = 15;
-	public const int Price = 16;
-	public const int Source = 17;
-	public const int SourcePosition = 18;
-	public const int TargetTime = 19;
+	public const int AvailableOrders = 8;
+	public const int Contract = 9;
+	public const int ContractStatus = 10;
+	public const int CourierAmount = 11;
+	public const int Destination = 12;
+	public const int Duration = 13;
+	public const int InWork = 14;
+	public const int ItemsAmount = 15;
+	public const int OrderStatus = 16;
+	public const int Performer = 17;
+	public const int Price = 18;
+	public const int Source = 19;
+	public const int SourcePosition = 20;
+	public const int TargetTime = 21;
 
-	public const int TotalComponents = 20;
+	public const int TotalComponents = 22;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -46,6 +48,7 @@ public static class OrderComponentsLookup
 		"Courier",
 		"Order",
 		"Reward",
+		"AvailableOrders",
 		"Contract",
 		"ContractStatus",
 		"CourierAmount",
@@ -54,6 +57,7 @@ public static class OrderComponentsLookup
 		"InWork",
 		"ItemsAmount",
 		"OrderStatus",
+		"Performer",
 		"Price",
 		"Source",
 		"SourcePosition",
@@ -70,6 +74,7 @@ public static class OrderComponentsLookup
 		typeof(Ecs.Game.Components.Courier.CourierComponent),
 		typeof(Ecs.Game.Components.Order.OrderComponent),
 		typeof(Ecs.Game.Components.Order.RewardComponent),
+		typeof(Ecs.Order.Components.AvailableOrdersComponent),
 		typeof(Ecs.Order.Components.ContractComponent),
 		typeof(Ecs.Order.Components.ContractStatusComponent),
 		typeof(Ecs.Order.Components.CourierAmountComponent),
@@ -78,6 +83,7 @@ public static class OrderComponentsLookup
 		typeof(Ecs.Order.Components.InWorkComponent),
 		typeof(Ecs.Order.Components.ItemsAmountComponent),
 		typeof(Ecs.Order.Components.OrderStatusComponent),
+		typeof(Ecs.Order.Components.PerformerComponent),
 		typeof(Ecs.Order.Components.PriceComponent),
 		typeof(Ecs.Order.Components.SourceComponent),
 		typeof(Ecs.Order.Components.SourcePositionComponent),
@@ -94,18 +100,20 @@ public static class OrderComponentsLookup
 		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 5 },
 		{ typeof(Ecs.Game.Components.Order.OrderComponent), 6 },
 		{ typeof(Ecs.Game.Components.Order.RewardComponent), 7 },
-		{ typeof(Ecs.Order.Components.ContractComponent), 8 },
-		{ typeof(Ecs.Order.Components.ContractStatusComponent), 9 },
-		{ typeof(Ecs.Order.Components.CourierAmountComponent), 10 },
-		{ typeof(Ecs.Order.Components.DestinationComponent), 11 },
-		{ typeof(Ecs.Order.Components.DurationComponent), 12 },
-		{ typeof(Ecs.Order.Components.InWorkComponent), 13 },
-		{ typeof(Ecs.Order.Components.ItemsAmountComponent), 14 },
-		{ typeof(Ecs.Order.Components.OrderStatusComponent), 15 },
-		{ typeof(Ecs.Order.Components.PriceComponent), 16 },
-		{ typeof(Ecs.Order.Components.SourceComponent), 17 },
-		{ typeof(Ecs.Order.Components.SourcePositionComponent), 18 },
-		{ typeof(Ecs.Order.Components.TargetTimeComponent), 19 }
+		{ typeof(Ecs.Order.Components.AvailableOrdersComponent), 8 },
+		{ typeof(Ecs.Order.Components.ContractComponent), 9 },
+		{ typeof(Ecs.Order.Components.ContractStatusComponent), 10 },
+		{ typeof(Ecs.Order.Components.CourierAmountComponent), 11 },
+		{ typeof(Ecs.Order.Components.DestinationComponent), 12 },
+		{ typeof(Ecs.Order.Components.DurationComponent), 13 },
+		{ typeof(Ecs.Order.Components.InWorkComponent), 14 },
+		{ typeof(Ecs.Order.Components.ItemsAmountComponent), 15 },
+		{ typeof(Ecs.Order.Components.OrderStatusComponent), 16 },
+		{ typeof(Ecs.Order.Components.PerformerComponent), 17 },
+		{ typeof(Ecs.Order.Components.PriceComponent), 18 },
+		{ typeof(Ecs.Order.Components.SourceComponent), 19 },
+		{ typeof(Ecs.Order.Components.SourcePositionComponent), 20 },
+		{ typeof(Ecs.Order.Components.TargetTimeComponent), 21 }
 	};
 
 	/// <summary>

@@ -21,7 +21,7 @@ namespace Installers.Game.Settings
     public class GameSettingsInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private CameraParameters cameraParameters;
-        [SerializeField] private SoContractParametersProviderProvider contractParametersProviderProvider;
+        [SerializeField] private SoContractParametersProvider contractParametersProvider;
         [SerializeField] private SoDeliveryParametersProvider deliveryParametersProvider;
         [SerializeField] private SoEmployeeSettingsProvider employeeSettingsProvider;
         [SerializeField] private SoOrderParametersProvider orderParametersProvider;
@@ -31,7 +31,7 @@ namespace Installers.Game.Settings
         public override void InstallBindings()
         {
             Container.Bind<ICameraParameters>().To<CameraParameters>().FromInstance(cameraParameters);
-            Container.Bind<IContractParametersProvider>().To<SoContractParametersProviderProvider>().FromInstance(contractParametersProviderProvider).AsSingle();
+            Container.Bind<IContractParametersProvider>().To<SoContractParametersProvider>().FromInstance(contractParametersProvider).AsSingle();
             Container.Bind<IDeliveryParametersProvider>().To<SoDeliveryParametersProvider>().FromInstance(deliveryParametersProvider).AsSingle();
             Container.Bind<IEmployeeSettingsProvider>().To<SoEmployeeSettingsProvider>().FromInstance(employeeSettingsProvider).AsSingle();
             Container.Bind<IOrderParametersProvider>().To<SoOrderParametersProvider>().FromInstance(orderParametersProvider).AsSingle();

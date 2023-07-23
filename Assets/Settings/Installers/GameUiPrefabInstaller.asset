@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 3425348182263550762, guid: 66a1b6c86e645fd4ead7331cae7bf5c5, type: 3}
   mainMenuView: {fileID: 5042488118018591376, guid: 96a1f0a19f5a9404f9e482b847bec430, type: 3}
-  shopWindowView: {fileID: 50153831859132919, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
+  shopWindowView: {fileID: 3932141066444550582, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
   orderItemMenuView: {fileID: 1992090893928360801, guid: d841dc4dfd3463946b1d8d996130292d, type: 3}
   buyCourierButtonView: {fileID: 8852783420347599168, guid: 6d1083c0d089db3489b5f7828f4b7973, type: 3}
   walletView: {fileID: 6774948768122008898, guid: b0241d0e74020f744ba37b794a8caee3, type: 3}

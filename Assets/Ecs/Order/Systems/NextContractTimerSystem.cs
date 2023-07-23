@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Ecs.Order.Systems
 {
-    public class NextOrderTimeSystem : IUpdateSystem
+    public class NextContractTimerSystem : IUpdateSystem
     {
         private static readonly ListPool<GameEntity> EntityPool = ListPool<GameEntity>.Instance;
         
@@ -13,15 +13,15 @@ namespace Ecs.Order.Systems
         private readonly ITimeProvider _timeProvider;
         private readonly IGroup<GameEntity> _deliverySourceGroup;
 
-        public NextOrderTimeSystem(GameContext game, 
+        public NextContractTimerSystem(GameContext game, 
             ActionContext action,
             ITimeProvider timeProvider)
         {
             _action = action;
             _timeProvider = timeProvider;
             _deliverySourceGroup =
-                game.GetGroup(GameMatcher.AllOf(GameMatcher.OrderSource)
-                    .NoneOf(GameMatcher.Destroyed, GameMatcher.Contract));
+                game.GetGroup(GameMatcher.AllOf(GameMatcher.OrderSource, GameMatcher.NextContractTimer)
+                    .NoneOf(GameMatcher.Destroyed, GameMatcher.ContractProvider));
         }
         
         public void Update()
@@ -40,7 +40,7 @@ namespace Ecs.Order.Systems
                 {
                     var deliverySourceUid = deliverySourceEntity.Uid.Value; 
                     
-                    _action.CreateEntity().AddCreateOrder(deliverySourceUid);
+                    _action.CreateEntity().AddCreateContract(deliverySourceUid);
                     //_action.CreateEntity().AddStartNextDeliveryTimer(deliverySourceUid);
                     deliverySourceEntity.RemoveNextContractTimer();
                 }

@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IMakeContractEntity
+public partial interface IPerformerEntity
 {
-	Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract { get; }
-	bool HasMakeContract { get; }
+	Ecs.Order.Components.PerformerComponent Performer { get; }
+	bool HasPerformer { get; }
 
-	void AddMakeContract(Game.Utils.Contract.MakeContractData newValue);
-	void ReplaceMakeContract(Game.Utils.Contract.MakeContractData newValue);
-	void RemoveMakeContract();
+	void AddPerformer(Ecs.UidGenerator.Uid newPerformerUid);
+	void ReplacePerformer(Ecs.UidGenerator.Uid newPerformerUid);
+	void RemovePerformer();
 }

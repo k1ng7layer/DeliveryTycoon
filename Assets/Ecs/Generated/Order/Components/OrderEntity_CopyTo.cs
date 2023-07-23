@@ -18,9 +18,9 @@ public partial class OrderEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Order.Components.ContractComponent Contract)
+		if (component is Ecs.Order.Components.PerformerComponent Performer)
 		{
-			CopyContractTo(Contract);
+			CopyPerformerTo(Performer);
 		}
 		else if (component is Ecs.Order.Components.DurationComponent Duration)
 		{
@@ -46,6 +46,10 @@ public partial class OrderEntity
 		{
 			IsInWork = true;
 		}
+		else if (component is Ecs.Order.Components.ContractComponent Contract)
+		{
+			CopyContractTo(Contract);
+		}
 		else if (component is Ecs.Order.Components.PriceComponent Price)
 		{
 			CopyPriceTo(Price);
@@ -53,6 +57,10 @@ public partial class OrderEntity
 		else if (component is Ecs.Order.Components.OrderStatusComponent OrderStatus)
 		{
 			CopyOrderStatusTo(OrderStatus);
+		}
+		else if (component is Ecs.Order.Components.ContractStatusComponent ContractStatus)
+		{
+			CopyContractStatusTo(ContractStatus);
 		}
 		else if (component is Ecs.Order.Components.CourierAmountComponent CourierAmount)
 		{
@@ -62,21 +70,21 @@ public partial class OrderEntity
 		{
 			CopySourcePositionTo(SourcePosition);
 		}
-		else if (component is Ecs.Order.Components.ContractStatusComponent ContractStatus)
+		else if (component is Ecs.Order.Components.AvailableOrdersComponent AvailableOrders)
 		{
-			CopyContractStatusTo(ContractStatus);
+			CopyAvailableOrdersTo(AvailableOrders);
 		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{
 			CopyCourierTo(Courier);
 		}
-		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
-		{
-			CopyRewardTo(Reward);
-		}
 		else if (component is Ecs.Game.Components.Order.OrderComponent Order)
 		{
 			IsOrder = true;
+		}
+		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
+		{
+			CopyRewardTo(Reward);
 		}
 		else if (component is Ecs.Game.Components.Common.ActiveComponent Active)
 		{

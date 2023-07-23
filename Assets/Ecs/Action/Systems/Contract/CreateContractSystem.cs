@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Db.ContractParametersProvider;
+using Game.Services.ContractStatusService;
+using Game.UI.DeliverySourceShop.Controllers;
 using Game.Utils.Contract;
 using JCMG.EntitasRedux;
 
@@ -10,15 +12,21 @@ namespace Ecs.Action.Systems.Contract
         private readonly GameContext _game;
         private readonly OrderContext _order;
         private readonly IContractParametersProvider _contractParametersProvider;
+        private readonly IContractStatusService _contractStatusService;
+        private readonly IContractWindowController _contractWindowController;
 
         public CreateContractSystem(ActionContext action, 
             GameContext game,
             OrderContext order,
-            IContractParametersProvider contractParametersProvider) : base(action)
+            IContractParametersProvider contractParametersProvider,
+            IContractStatusService contractStatusService,
+            IContractWindowController contractWindowController) : base(action)
         {
             _game = game;
             _order = order;
             _contractParametersProvider = contractParametersProvider;
+            _contractStatusService = contractStatusService;
+            _contractWindowController = contractWindowController;
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
@@ -48,6 +56,9 @@ namespace Ecs.Action.Systems.Contract
                     
                 contractEntity.AddUid(contractUid);
                 contractEntity.AddReward(contractParameters.Reward);
+
+                var contractStatus = _contractStatusService.GetStatus(contractEntity);
+                _contractWindowController.ChangeContractStatus(contractStatus, contractEntity);
             }
         }
         

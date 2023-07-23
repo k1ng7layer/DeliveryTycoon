@@ -22,6 +22,10 @@ public partial class ActionEntity
 		{
 			IsStartGame = true;
 		}
+		else if (component is Ecs.Action.Components.Contract.ChangeCouriersInContractComponent ChangeCouriersInContract)
+		{
+			CopyChangeCouriersInContractTo(ChangeCouriersInContract);
+		}
 		else if (component is Ecs.Action.Components.Contract.CreateContractComponent CreateContract)
 		{
 			CopyCreateContractTo(CreateContract);

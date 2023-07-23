@@ -3,6 +3,8 @@
     public enum EContractStatus
     {
         Accessible,
-        NotAccessible
+        NotAccessible,
+        InProgress,
+        Completed
     }
 }

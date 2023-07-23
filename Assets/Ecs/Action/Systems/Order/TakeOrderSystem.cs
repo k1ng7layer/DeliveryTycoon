@@ -45,7 +45,7 @@ namespace Ecs.Action.Systems.Order
                 var orderSourceEntity = _game.GetEntityWithUid(orderSourceUid);
                 var orderSourceReception = orderSourceEntity.ReceptionPoint.Value;
                 
-                orderEntity.AddOwner(courierUid);
+                orderEntity.AddPerformer(courierUid);
                 courier.ReplaceActiveOrder(orderUid);
                 courier.ReplaceRouteTarget(new RouteTargetData(orderSourceReception, ERouteTarget.Shop));
                 courier.IsBusy = true;

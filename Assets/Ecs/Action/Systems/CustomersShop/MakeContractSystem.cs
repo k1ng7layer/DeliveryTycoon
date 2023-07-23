@@ -8,14 +8,17 @@ namespace Ecs.Action.Systems.CustomersShop
     {
         private readonly ActionContext _action;
         private readonly GameContext _game;
+        private readonly OrderContext _order;
         private readonly IRandomProvider _randomProvider;
 
         public MakeContractSystem(ActionContext action, 
             GameContext game,
+            OrderContext order,
             IRandomProvider randomProvider) : base(action)
         {
             _action = action;
             _game = game;
+            _order = order;
             _randomProvider = randomProvider;
         }
 
@@ -30,13 +33,19 @@ namespace Ecs.Action.Systems.CustomersShop
             {
                 entity.IsDestroyed = true;
 
-                var contractorUid = entity.MakeContract.ShopUid;
+                var newContractData = entity.MakeContract.Value;
 
-                var contractor = _game.GetEntityWithUid(contractorUid);
+                var shopUid = newContractData.ShopUid;
+                var contractor = _game.GetEntityWithUid(shopUid);
 
                 contractor.IsPartner = true;
+
+                var contractUid = contractor.ContractProvider.ContractUid;
                 
-                _action.CreateEntity().AddCreateOrder(contractorUid);
+                var contractEntity = _order.GetEntityWithUid(contractUid);
+                var contractData = contractEntity.Contract.Value;
+                
+                _action.CreateEntity().AddCreateOrder(shopUid);
             }
         }
     }

@@ -14,24 +14,26 @@ using JCMG.EntitasRedux;
 public static class ActionComponentsLookup
 {
 	public const int ChangeCoins = 0;
-	public const int CreateContract = 1;
-	public const int BuyCourier = 2;
-	public const int CreateCourier = 3;
-	public const int MakeContract = 4;
-	public const int SelectShop = 5;
-	public const int CheckOrderStatus = 6;
-	public const int CompleteOrder = 7;
-	public const int CreateOrder = 8;
-	public const int StartNextContractTimer = 9;
-	public const int TakeOrder = 10;
-	public const int StartGame = 11;
-	public const int Destroyed = 12;
+	public const int ChangeCouriersInContract = 1;
+	public const int CreateContract = 2;
+	public const int BuyCourier = 3;
+	public const int CreateCourier = 4;
+	public const int MakeContract = 5;
+	public const int SelectShop = 6;
+	public const int CheckOrderStatus = 7;
+	public const int CompleteOrder = 8;
+	public const int CreateOrder = 9;
+	public const int StartNextContractTimer = 10;
+	public const int TakeOrder = 11;
+	public const int StartGame = 12;
+	public const int Destroyed = 13;
 
-	public const int TotalComponents = 13;
+	public const int TotalComponents = 14;
 
 	public static readonly string[] ComponentNames =
 	{
 		"ChangeCoins",
+		"ChangeCouriersInContract",
 		"CreateContract",
 		"BuyCourier",
 		"CreateCourier",
@@ -49,6 +51,7 @@ public static class ActionComponentsLookup
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent),
+		typeof(Ecs.Action.Components.Contract.ChangeCouriersInContractComponent),
 		typeof(Ecs.Action.Components.Contract.CreateContractComponent),
 		typeof(Ecs.Action.Components.Courier.BuyCourierComponent),
 		typeof(Ecs.Action.Components.Courier.CreateCourierComponent),
@@ -66,18 +69,19 @@ public static class ActionComponentsLookup
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent), 0 },
-		{ typeof(Ecs.Action.Components.Contract.CreateContractComponent), 1 },
-		{ typeof(Ecs.Action.Components.Courier.BuyCourierComponent), 2 },
-		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 3 },
-		{ typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent), 4 },
-		{ typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent), 5 },
-		{ typeof(Ecs.Action.Components.Order.CheckOrderStatusComponent), 6 },
-		{ typeof(Ecs.Action.Components.Order.CompleteOrderComponent), 7 },
-		{ typeof(Ecs.Action.Components.Order.CreateOrderComponent), 8 },
-		{ typeof(Ecs.Action.Components.Order.StartNextContractTimerComponent), 9 },
-		{ typeof(Ecs.Action.Components.Order.TakeOrderComponent), 10 },
-		{ typeof(Ecs.Action.Components.StartGameComponent), 11 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 12 }
+		{ typeof(Ecs.Action.Components.Contract.ChangeCouriersInContractComponent), 1 },
+		{ typeof(Ecs.Action.Components.Contract.CreateContractComponent), 2 },
+		{ typeof(Ecs.Action.Components.Courier.BuyCourierComponent), 3 },
+		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 4 },
+		{ typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent), 5 },
+		{ typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent), 6 },
+		{ typeof(Ecs.Action.Components.Order.CheckOrderStatusComponent), 7 },
+		{ typeof(Ecs.Action.Components.Order.CompleteOrderComponent), 8 },
+		{ typeof(Ecs.Action.Components.Order.CreateOrderComponent), 9 },
+		{ typeof(Ecs.Action.Components.Order.StartNextContractTimerComponent), 10 },
+		{ typeof(Ecs.Action.Components.Order.TakeOrderComponent), 11 },
+		{ typeof(Ecs.Action.Components.StartGameComponent), 12 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 13 }
 	};
 
 	/// <summary>

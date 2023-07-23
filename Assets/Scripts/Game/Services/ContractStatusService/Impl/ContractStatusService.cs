@@ -1,49 +1,31 @@
-﻿using Game.Utils;
-using JCMG.EntitasRedux;
-using Zenject;
+﻿using Game.Services.EmployeeRepository;
+using Game.Utils;
 
 namespace Game.Services.ContractStatusService.Impl
 {
     public class ContractStatusService : IContractStatusService
     {
-        private static readonly ListPool<GameEntity> EntityPool = ListPool<GameEntity>.Instance;
-        
-        private readonly IGroup<GameEntity> _availableCouriersGroup;
-        private readonly GameContext _game;
+        private readonly ICourierRepository _courierRepository;
 
-        public ContractStatusService(GameContext game)
+        public ContractStatusService(ICourierRepository courierRepository)
         {
-            _game = game;
+            _courierRepository = courierRepository;
         }
         
         public EContractStatus GetStatus(OrderEntity contractEntity)
         {
             var contractData = contractEntity.Contract.Value;
-            var hasCouriers = HasAvailableCouriers(contractData.CourierType, contractData.CourierAmount, 
+            var hasCouriers = _courierRepository.TryGetCouriersAmount(contractData.CourierType, contractData.CourierAmount, 
                 out var actualAmount);
 
             return hasCouriers ? EContractStatus.Accessible : EContractStatus.NotAccessible;
         }
-        
-        private bool HasAvailableCouriers(ECourierType courierType, int requiredAmount, out int actualAmount)
+
+        public EContractStatus CheckStatus(ECourierType checkCourierType, int checkCourierAmount)
         {
-            var availableCouriers = EntityPool.Spawn();
-            _availableCouriersGroup.GetEntities(availableCouriers);
-            actualAmount = 0;
-            foreach (var courier in availableCouriers)
-            {
-                var type = courier.Courier.Type;
+            var hasCouriers = _courierRepository.HasAmountCouriersOfType(checkCourierType, checkCourierAmount);
 
-                if (type == courierType)
-                {
-                    actualAmount++;
-                }
-            }
-            
-            EntityPool.Despawn(availableCouriers);
-
-
-            return actualAmount >= requiredAmount;
+            return hasCouriers ? EContractStatus.Accessible : EContractStatus.NotAccessible;
         }
     }
 }

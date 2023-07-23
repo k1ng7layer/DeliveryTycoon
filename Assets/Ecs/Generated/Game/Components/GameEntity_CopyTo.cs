@@ -78,14 +78,6 @@ public partial class GameEntity
 		{
 			CopyTotalEmployeesTo(TotalEmployees);
 		}
-		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
-		{
-			CopyRewardTo(Reward);
-		}
-		else if (component is Ecs.Game.Components.Order.NextContractTimerComponent NextContractTimer)
-		{
-			CopyNextContractTimerTo(NextContractTimer);
-		}
 		else if (component is Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent CourierSpawnPoint)
 		{
 			CopyCourierSpawnPointTo(CourierSpawnPoint);
@@ -109,6 +101,14 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
 		{
 			CopySelectedShopTo(SelectedShop);
+		}
+		else if (component is Ecs.Game.Components.Order.NextContractTimerComponent NextContractTimer)
+		{
+			CopyNextContractTimerTo(NextContractTimer);
+		}
+		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
+		{
+			CopyRewardTo(Reward);
 		}
 		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
 		{

@@ -1,11 +1,11 @@
-﻿using JCMG.EntitasRedux;
-using UnityEngine;
+﻿using Ecs.UidGenerator;
+using JCMG.EntitasRedux;
 
 namespace Ecs.Order.Components
 {
     [Order]
     public class DestinationComponent : IComponent
     {
-        public Vector3 Value;
+        public Uid DestinationUid;
     }
 }

@@ -194,6 +194,14 @@ public partial class GameEntity
 		{
 			CopyMovingRemovedListenerTo(MovingRemovedListener);
 		}
+		else if (component is BusyAddedListenerComponent BusyAddedListener)
+		{
+			CopyBusyAddedListenerTo(BusyAddedListener);
+		}
+		else if (component is BusyRemovedListenerComponent BusyRemovedListener)
+		{
+			CopyBusyRemovedListenerTo(BusyRemovedListener);
+		}
 		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
 		{
 			CopyStandbyEmployeesAddedListenerTo(StandbyEmployeesAddedListener);

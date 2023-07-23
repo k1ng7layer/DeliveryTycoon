@@ -7,12 +7,12 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IDestinationEntity
+public partial interface IBusyAddedListenerEntity
 {
-	Ecs.Order.Components.DestinationComponent Destination { get; }
-	bool HasDestination { get; }
+	BusyAddedListenerComponent BusyAddedListener { get; }
+	bool HasBusyAddedListener { get; }
 
-	void AddDestination(Ecs.UidGenerator.Uid newDestinationUid);
-	void ReplaceDestination(Ecs.UidGenerator.Uid newDestinationUid);
-	void RemoveDestination();
+	void AddBusyAddedListener(System.Collections.Generic.List<IBusyAddedListener> newValue);
+	void ReplaceBusyAddedListener(System.Collections.Generic.List<IBusyAddedListener> newValue);
+	void RemoveBusyAddedListener();
 }

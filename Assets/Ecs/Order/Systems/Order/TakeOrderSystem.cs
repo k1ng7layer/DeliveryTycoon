@@ -4,7 +4,7 @@ using Game.Utils;
 using JCMG.EntitasRedux;
 using Zenject;
 
-namespace Ecs.Order.Systems
+namespace Ecs.Order.Systems.Order
 {
     public class TakeOrderSystem : ReactiveSystem<OrderEntity>
     {
@@ -55,7 +55,7 @@ namespace Ecs.Order.Systems
                     courier.ReplaceActiveOrder(orderUid);
                     courier.ReplaceRouteTarget(new RouteTargetData(orderSourceReception, ERouteTarget.Shop));
                     courier.IsBusy = true;
-                    
+                    orderEntity.ReplaceOrderStatus(EOrderStatus.InProgress);
                     break;
                 }
                 

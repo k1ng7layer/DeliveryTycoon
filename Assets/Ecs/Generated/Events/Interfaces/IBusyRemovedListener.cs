@@ -7,12 +7,7 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IDestinationEntity
+public interface IBusyRemovedListener
 {
-	Ecs.Order.Components.DestinationComponent Destination { get; }
-	bool HasDestination { get; }
-
-	void AddDestination(Ecs.UidGenerator.Uid newDestinationUid);
-	void ReplaceDestination(Ecs.UidGenerator.Uid newDestinationUid);
-	void RemoveDestination();
+	void OnBusyRemoved(GameEntity entity);
 }

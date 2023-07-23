@@ -2,7 +2,7 @@
 using JCMG.EntitasRedux;
 using Zenject;
 
-namespace Ecs.Order.Systems
+namespace Ecs.Order.Systems.Contract
 {
     public class NextContractTimerSystem : IUpdateSystem
     {

@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using Ecs.UidGenerator;
 
 namespace Game.Services.DeliveryDestinationService
 {
     public interface IDeliveryTargetService
     {
-        Vector3 GetDeliveryTarget();
+        Uid GetDeliveryTarget();
     }
 }

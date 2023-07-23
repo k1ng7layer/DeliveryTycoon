@@ -7,12 +7,8 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IDestinationEntity
+[JCMG.EntitasRedux.DontGenerate(false)]
+public sealed class BusyAddedListenerComponent : JCMG.EntitasRedux.IComponent
 {
-	Ecs.Order.Components.DestinationComponent Destination { get; }
-	bool HasDestination { get; }
-
-	void AddDestination(Ecs.UidGenerator.Uid newDestinationUid);
-	void ReplaceDestination(Ecs.UidGenerator.Uid newDestinationUid);
-	void RemoveDestination();
+	public System.Collections.Generic.List<IBusyAddedListener> value;
 }

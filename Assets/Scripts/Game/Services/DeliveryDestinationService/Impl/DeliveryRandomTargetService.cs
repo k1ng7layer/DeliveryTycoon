@@ -1,6 +1,6 @@
-﻿using Game.Services.RandomProvider;
+﻿using Ecs.UidGenerator;
+using Game.Services.RandomProvider;
 using JCMG.EntitasRedux;
-using UnityEngine;
 using Zenject;
 
 namespace Game.Services.DeliveryDestinationService.Impl
@@ -21,23 +21,24 @@ namespace Game.Services.DeliveryDestinationService.Impl
             _customerGroup = _game.GetGroup(GameMatcher.AllOf(GameMatcher.Customer).NoneOf(GameMatcher.Destroyed, GameMatcher.Busy));
         }
         
-        public Vector3 GetDeliveryTarget()
+        public Uid GetDeliveryTarget()
         {
             var customers = EntityPool.Spawn();
             _customerGroup.GetEntities(customers);
 
             var randomIndex = _randomProvider.Range(0, customers.Count - 1);
             
-            var target = Vector3.zero;
+            var target = Uid.Empty;
             
             for (var i = 0; i < customers.Count; i++)
             {
                 if (i == randomIndex)
                 {
                     var customer = customers[i];
-                    var customerPosition = customer.ReceptionPoint.Value;
+                    //var customerPosition = customer.ReceptionPoint.Value;
+                    var customerUid = customer.Uid.Value;
 
-                    target = customerPosition;
+                    target = customerUid;
 
                     customer.IsBusy = true;
                 }

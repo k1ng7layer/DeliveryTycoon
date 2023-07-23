@@ -9,7 +9,8 @@ using Ecs.Game.Systems.Camera;
 using Ecs.Game.Systems.Common;
 using Ecs.Game.Systems.Initialize;
 using Ecs.Input.Systems;
-using Ecs.Order.Systems;
+using Ecs.Order.Systems.Contract;
+using Ecs.Order.Systems.Order;
 using Game.Services.Camera.Impl;
 using Game.Services.ContractStatusService.Impl;
 using Game.Services.DeliveryDestinationService.Impl;
@@ -86,6 +87,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<BehaviourTreeUpdateSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<TakeOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CompleteOrderSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CompleteContractSystem>().AsSingle();
         }
 
         private void BindWindows()

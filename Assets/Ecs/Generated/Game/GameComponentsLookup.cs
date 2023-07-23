@@ -14,61 +14,65 @@ using JCMG.EntitasRedux;
 public static class GameComponentsLookup
 {
 	public const int BehaviourTreeAddedListener = 0;
-	public const int ContractProviderAddedListener = 1;
-	public const int ContractProviderRemovedListener = 2;
-	public const int Ai = 3;
-	public const int BehaviourTree = 4;
-	public const int Moving = 5;
-	public const int RouteTarget = 6;
-	public const int Camera = 7;
-	public const int CameraGlobalTarget = 8;
-	public const int PhysicalCamera = 9;
-	public const int VirtualCamera = 10;
-	public const int Active = 11;
-	public const int Destroyed = 12;
-	public const int Instantiate = 13;
-	public const int Link = 14;
-	public const int Owner = 15;
-	public const int Position = 16;
-	public const int Prefab = 17;
-	public const int Rotation = 18;
-	public const int Transform = 19;
-	public const int Uid = 20;
-	public const int ContractProvider = 21;
-	public const int ActiveOrder = 22;
-	public const int Busy = 23;
-	public const int Courier = 24;
-	public const int CourierParameters = 25;
-	public const int StandbyEmployees = 26;
-	public const int TotalEmployees = 27;
-	public const int Customer = 28;
-	public const int DeliveryOffice = 29;
-	public const int Level = 30;
-	public const int OrderSource = 31;
-	public const int Partner = 32;
-	public const int SelectedShop = 33;
-	public const int CourierSpawnPoint = 34;
-	public const int NextContractTimer = 35;
-	public const int Reward = 36;
-	public const int ReceptionPoint = 37;
-	public const int ShopName = 38;
-	public const int Wallet = 39;
-	public const int InstantiateAddedListener = 40;
-	public const int LinkRemovedListener = 41;
-	public const int MovingAddedListener = 42;
-	public const int MovingRemovedListener = 43;
-	public const int PositionAddedListener = 44;
-	public const int RotationAddedListener = 45;
-	public const int RouteTargetAddedListener = 46;
-	public const int StandbyEmployeesAddedListener = 47;
-	public const int TotalEmployeesAddedListener = 48;
-	public const int WalletAddedListener = 49;
+	public const int BusyAddedListener = 1;
+	public const int BusyRemovedListener = 2;
+	public const int ContractProviderAddedListener = 3;
+	public const int ContractProviderRemovedListener = 4;
+	public const int Ai = 5;
+	public const int BehaviourTree = 6;
+	public const int Moving = 7;
+	public const int RouteTarget = 8;
+	public const int Camera = 9;
+	public const int CameraGlobalTarget = 10;
+	public const int PhysicalCamera = 11;
+	public const int VirtualCamera = 12;
+	public const int Active = 13;
+	public const int Destroyed = 14;
+	public const int Instantiate = 15;
+	public const int Link = 16;
+	public const int Owner = 17;
+	public const int Position = 18;
+	public const int Prefab = 19;
+	public const int Rotation = 20;
+	public const int Transform = 21;
+	public const int Uid = 22;
+	public const int ContractProvider = 23;
+	public const int ActiveOrder = 24;
+	public const int Busy = 25;
+	public const int Courier = 26;
+	public const int CourierParameters = 27;
+	public const int StandbyEmployees = 28;
+	public const int TotalEmployees = 29;
+	public const int Customer = 30;
+	public const int DeliveryOffice = 31;
+	public const int Level = 32;
+	public const int OrderSource = 33;
+	public const int Partner = 34;
+	public const int SelectedShop = 35;
+	public const int CourierSpawnPoint = 36;
+	public const int NextContractTimer = 37;
+	public const int Reward = 38;
+	public const int ReceptionPoint = 39;
+	public const int ShopName = 40;
+	public const int Wallet = 41;
+	public const int InstantiateAddedListener = 42;
+	public const int LinkRemovedListener = 43;
+	public const int MovingAddedListener = 44;
+	public const int MovingRemovedListener = 45;
+	public const int PositionAddedListener = 46;
+	public const int RotationAddedListener = 47;
+	public const int RouteTargetAddedListener = 48;
+	public const int StandbyEmployeesAddedListener = 49;
+	public const int TotalEmployeesAddedListener = 50;
+	public const int WalletAddedListener = 51;
 
-	public const int TotalComponents = 50;
+	public const int TotalComponents = 52;
 
 	public static readonly string[] ComponentNames =
 	{
 		"BehaviourTreeAddedListener",
+		"BusyAddedListener",
+		"BusyRemovedListener",
 		"ContractProviderAddedListener",
 		"ContractProviderRemovedListener",
 		"Ai",
@@ -123,6 +127,8 @@ public static class GameComponentsLookup
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(BehaviourTreeAddedListenerComponent),
+		typeof(BusyAddedListenerComponent),
+		typeof(BusyRemovedListenerComponent),
 		typeof(ContractProviderAddedListenerComponent),
 		typeof(ContractProviderRemovedListenerComponent),
 		typeof(Ecs.Game.Components.Ai.AiComponent),
@@ -177,55 +183,57 @@ public static class GameComponentsLookup
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(BehaviourTreeAddedListenerComponent), 0 },
-		{ typeof(ContractProviderAddedListenerComponent), 1 },
-		{ typeof(ContractProviderRemovedListenerComponent), 2 },
-		{ typeof(Ecs.Game.Components.Ai.AiComponent), 3 },
-		{ typeof(Ecs.Game.Components.Ai.BehaviourTreeComponent), 4 },
-		{ typeof(Ecs.Game.Components.Ai.MovingComponent), 5 },
-		{ typeof(Ecs.Game.Components.Ai.RouteTargetComponent), 6 },
-		{ typeof(Ecs.Game.Components.Camera.CameraComponent), 7 },
-		{ typeof(Ecs.Game.Components.Camera.CameraGlobalTargetComponent), 8 },
-		{ typeof(Ecs.Game.Components.Camera.PhysicalCameraComponent), 9 },
-		{ typeof(Ecs.Game.Components.Camera.VirtualCameraComponent), 10 },
-		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 11 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 12 },
-		{ typeof(Ecs.Game.Components.Common.InstantiateComponent), 13 },
-		{ typeof(Ecs.Game.Components.Common.LinkComponent), 14 },
-		{ typeof(Ecs.Game.Components.Common.OwnerComponent), 15 },
-		{ typeof(Ecs.Game.Components.Common.PositionComponent), 16 },
-		{ typeof(Ecs.Game.Components.Common.PrefabComponent), 17 },
-		{ typeof(Ecs.Game.Components.Common.RotationComponent), 18 },
-		{ typeof(Ecs.Game.Components.Common.TransformComponent), 19 },
-		{ typeof(Ecs.Game.Components.Common.UidComponent), 20 },
-		{ typeof(Ecs.Game.Components.Contract.ContractProviderComponent), 21 },
-		{ typeof(Ecs.Game.Components.Courier.ActiveOrderComponent), 22 },
-		{ typeof(Ecs.Game.Components.Courier.BusyComponent), 23 },
-		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 24 },
-		{ typeof(Ecs.Game.Components.Courier.CourierParametersComponent), 25 },
-		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 26 },
-		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 27 },
-		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 28 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent), 29 },
-		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 30 },
-		{ typeof(Ecs.Game.Components.Delivery.OrderSourceComponent), 31 },
-		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 32 },
-		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 33 },
-		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 34 },
-		{ typeof(Ecs.Game.Components.Order.NextContractTimerComponent), 35 },
-		{ typeof(Ecs.Game.Components.Order.RewardComponent), 36 },
-		{ typeof(Ecs.Game.Components.Shop.ReceptionPointComponent), 37 },
-		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 38 },
-		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 39 },
-		{ typeof(InstantiateAddedListenerComponent), 40 },
-		{ typeof(LinkRemovedListenerComponent), 41 },
-		{ typeof(MovingAddedListenerComponent), 42 },
-		{ typeof(MovingRemovedListenerComponent), 43 },
-		{ typeof(PositionAddedListenerComponent), 44 },
-		{ typeof(RotationAddedListenerComponent), 45 },
-		{ typeof(RouteTargetAddedListenerComponent), 46 },
-		{ typeof(StandbyEmployeesAddedListenerComponent), 47 },
-		{ typeof(TotalEmployeesAddedListenerComponent), 48 },
-		{ typeof(WalletAddedListenerComponent), 49 }
+		{ typeof(BusyAddedListenerComponent), 1 },
+		{ typeof(BusyRemovedListenerComponent), 2 },
+		{ typeof(ContractProviderAddedListenerComponent), 3 },
+		{ typeof(ContractProviderRemovedListenerComponent), 4 },
+		{ typeof(Ecs.Game.Components.Ai.AiComponent), 5 },
+		{ typeof(Ecs.Game.Components.Ai.BehaviourTreeComponent), 6 },
+		{ typeof(Ecs.Game.Components.Ai.MovingComponent), 7 },
+		{ typeof(Ecs.Game.Components.Ai.RouteTargetComponent), 8 },
+		{ typeof(Ecs.Game.Components.Camera.CameraComponent), 9 },
+		{ typeof(Ecs.Game.Components.Camera.CameraGlobalTargetComponent), 10 },
+		{ typeof(Ecs.Game.Components.Camera.PhysicalCameraComponent), 11 },
+		{ typeof(Ecs.Game.Components.Camera.VirtualCameraComponent), 12 },
+		{ typeof(Ecs.Game.Components.Common.ActiveComponent), 13 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 14 },
+		{ typeof(Ecs.Game.Components.Common.InstantiateComponent), 15 },
+		{ typeof(Ecs.Game.Components.Common.LinkComponent), 16 },
+		{ typeof(Ecs.Game.Components.Common.OwnerComponent), 17 },
+		{ typeof(Ecs.Game.Components.Common.PositionComponent), 18 },
+		{ typeof(Ecs.Game.Components.Common.PrefabComponent), 19 },
+		{ typeof(Ecs.Game.Components.Common.RotationComponent), 20 },
+		{ typeof(Ecs.Game.Components.Common.TransformComponent), 21 },
+		{ typeof(Ecs.Game.Components.Common.UidComponent), 22 },
+		{ typeof(Ecs.Game.Components.Contract.ContractProviderComponent), 23 },
+		{ typeof(Ecs.Game.Components.Courier.ActiveOrderComponent), 24 },
+		{ typeof(Ecs.Game.Components.Courier.BusyComponent), 25 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 26 },
+		{ typeof(Ecs.Game.Components.Courier.CourierParametersComponent), 27 },
+		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 28 },
+		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 29 },
+		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 30 },
+		{ typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent), 31 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 32 },
+		{ typeof(Ecs.Game.Components.Delivery.OrderSourceComponent), 33 },
+		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 34 },
+		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 35 },
+		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 36 },
+		{ typeof(Ecs.Game.Components.Order.NextContractTimerComponent), 37 },
+		{ typeof(Ecs.Game.Components.Order.RewardComponent), 38 },
+		{ typeof(Ecs.Game.Components.Shop.ReceptionPointComponent), 39 },
+		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 40 },
+		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 41 },
+		{ typeof(InstantiateAddedListenerComponent), 42 },
+		{ typeof(LinkRemovedListenerComponent), 43 },
+		{ typeof(MovingAddedListenerComponent), 44 },
+		{ typeof(MovingRemovedListenerComponent), 45 },
+		{ typeof(PositionAddedListenerComponent), 46 },
+		{ typeof(RotationAddedListenerComponent), 47 },
+		{ typeof(RouteTargetAddedListenerComponent), 48 },
+		{ typeof(StandbyEmployeesAddedListenerComponent), 49 },
+		{ typeof(TotalEmployeesAddedListenerComponent), 50 },
+		{ typeof(WalletAddedListenerComponent), 51 }
 	};
 
 	/// <summary>

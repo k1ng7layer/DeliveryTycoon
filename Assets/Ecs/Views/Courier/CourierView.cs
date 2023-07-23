@@ -12,7 +12,9 @@ namespace Ecs.Views.Courier
     public class CourierView : ObjectView, 
         IRouteTargetAddedListener,
         IMovingAddedListener,
-        IMovingRemovedListener
+        IMovingRemovedListener,
+        IBusyAddedListener,
+        IBusyRemovedListener
     {
         [SerializeField] private EAiType aiType;
         [SerializeField] private NavMeshAgent navMeshAgent;
@@ -38,6 +40,9 @@ namespace Ecs.Views.Courier
 
         public void OnRouteTargetAdded(GameEntity entity, RouteTargetData value)
         {
+            if (!navMeshAgent.enabled)
+                navMeshAgent.enabled = true;
+            
             navMeshAgent.SetDestination(value.Destination);
         }
 
@@ -54,6 +59,16 @@ namespace Ecs.Views.Courier
         public void OnMovingRemoved(GameEntity entity)
         {
             animator.SetBool(AnimationKeys.Move, false);
+        }
+
+        public void OnBusyAdded(GameEntity entity)
+        {
+            navMeshAgent.enabled = true;
+        }
+
+        public void OnBusyRemoved(GameEntity entity)
+        {
+            navMeshAgent.enabled = false;
         }
     }
 }

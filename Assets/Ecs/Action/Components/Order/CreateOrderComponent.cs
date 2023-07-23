@@ -6,6 +6,6 @@ namespace Ecs.Action.Components.Order
     [Action]
     public class CreateOrderComponent : IComponent
     {
-        public Uid DeliverySourceUid;
+        public Uid ContractUid;
     }
 }

@@ -128,7 +128,7 @@ namespace Game.UI.DeliverySourceShop.Controllers
             if (contractStatus == EContractStatus.InProgress)
             {
                 _canDecrease = (_proposedCouriers - 1) <= contractData.CourierAmount;
-                _canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < activeOrders;
+                _canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < engagedCouriers.Count;
             }
             else
             {

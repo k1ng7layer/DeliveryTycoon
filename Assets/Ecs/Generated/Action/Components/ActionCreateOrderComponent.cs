@@ -12,22 +12,22 @@ public partial class ActionEntity
 	public Ecs.Action.Components.Order.CreateOrderComponent CreateOrder { get { return (Ecs.Action.Components.Order.CreateOrderComponent)GetComponent(ActionComponentsLookup.CreateOrder); } }
 	public bool HasCreateOrder { get { return HasComponent(ActionComponentsLookup.CreateOrder); } }
 
-	public void AddCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid)
+	public void AddCreateOrder(Ecs.UidGenerator.Uid newContractUid)
 	{
 		var index = ActionComponentsLookup.CreateOrder;
 		var component = (Ecs.Action.Components.Order.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.CreateOrderComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.DeliverySourceUid = newDeliverySourceUid;
+		component.ContractUid = newContractUid;
 		#endif
 		AddComponent(index, component);
 	}
 
-	public void ReplaceCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid)
+	public void ReplaceCreateOrder(Ecs.UidGenerator.Uid newContractUid)
 	{
 		var index = ActionComponentsLookup.CreateOrder;
 		var component = (Ecs.Action.Components.Order.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.CreateOrderComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.DeliverySourceUid = newDeliverySourceUid;
+		component.ContractUid = newContractUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
@@ -37,7 +37,7 @@ public partial class ActionEntity
 		var index = ActionComponentsLookup.CreateOrder;
 		var component = (Ecs.Action.Components.Order.CreateOrderComponent)CreateComponent(index, typeof(Ecs.Action.Components.Order.CreateOrderComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.DeliverySourceUid = copyComponent.DeliverySourceUid;
+		component.ContractUid = copyComponent.ContractUid;
 		#endif
 		ReplaceComponent(index, component);
 	}

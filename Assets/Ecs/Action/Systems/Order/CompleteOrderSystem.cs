@@ -31,7 +31,7 @@ namespace Ecs.Action.Systems.Order
 
                 var orderUid = entity.CompleteOrder.OrderUid;
                 var orderEntity = _order.GetEntityWithUid(orderUid);
-                var courierUid = orderEntity.Owner.Value;
+                var courierUid = orderEntity.Performer.PerformerUid;
                 var courierEntity = _game.GetEntityWithUid(courierUid);
                 
                 var price = orderEntity.Price.Value;

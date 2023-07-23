@@ -1,26 +1,29 @@
 ﻿using System.Collections.Generic;
-using Game.Services.RandomProvider;
 using Game.Utils;
 using JCMG.EntitasRedux;
+using Zenject;
 
 namespace Ecs.Action.Systems.CustomersShop
 {
     public class MakeContractSystem : ReactiveSystem<ActionEntity>
     {
+        private static readonly ListPool<GameEntity> GameEntityPool = ListPool<GameEntity>.Instance;
+            
         private readonly ActionContext _action;
         private readonly GameContext _game;
         private readonly OrderContext _order;
-        private readonly IRandomProvider _randomProvider;
+        private readonly IGroup<GameEntity> _freeCouriersGroup;
 
         public MakeContractSystem(ActionContext action, 
             GameContext game,
-            OrderContext order,
-            IRandomProvider randomProvider) : base(action)
+            OrderContext order) : base(action)
         {
             _action = action;
             _game = game;
             _order = order;
-            _randomProvider = randomProvider;
+            
+            _freeCouriersGroup = game.GetGroup(GameMatcher.AllOf(GameMatcher.Courier)
+                .NoneOf(GameMatcher.Busy, GameMatcher.Destroyed));
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
@@ -44,15 +47,44 @@ namespace Ecs.Action.Systems.CustomersShop
                 var contractUid = contractor.ContractProvider.ContractUid;
                 
                 var contractEntity = _order.GetEntityWithUid(contractUid);
-                contractEntity.ReplaceContractStatus(EContractStatus.InProgress);
-                
                 var contractData = contractEntity.Contract.Value;
+                
+                contractEntity.ReplaceContractStatus(EContractStatus.InProgress);
+                contractEntity.ReplaceAvailableOrders(contractData.OrdersAmount);
+
+                var couriers = GetFreeCouriers(newContractData.CouriersAmount);
+                
+                foreach (var courier in couriers)
+                {
+                    courier.ReplaceOwner(contractUid);
+                }
                 
                 for (int i = 0; i < contractData.OrdersAmount; i++)
                 {
-                    _action.CreateEntity().AddCreateOrder(shopUid);
+                    _action.CreateEntity().AddCreateOrder(contractUid);
                 }
             }
+        }
+
+        private HashSet<GameEntity> GetFreeCouriers(int amount)
+        {
+            var result = new HashSet<GameEntity>();
+
+            var couriers = GameEntityPool.Spawn();
+            _freeCouriersGroup.GetEntities(couriers);
+
+            foreach (var courier in couriers)
+            {
+                result.Add(courier);
+                amount--;
+                
+                if(amount == 0)
+                    break;
+            }
+            
+            GameEntityPool.Despawn(couriers);
+
+            return result;
         }
     }
 }

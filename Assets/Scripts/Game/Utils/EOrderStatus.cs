@@ -3,6 +3,7 @@
     public enum EOrderStatus
     {
         InProgress,
-        Completed
+        Completed,
+        Created
     }
 }

@@ -3,9 +3,6 @@ using Db.OrderParameters;
 using Ecs.Order.Extensions;
 using Game.Services.DeliveryDestinationService;
 using Game.Services.DeliveryPriceService;
-using Game.Services.DeliveryTargetTimeService;
-using Game.Services.OrderStatusService;
-using Game.Services.RandomProvider;
 using Game.Utils;
 using JCMG.EntitasRedux;
 
@@ -17,29 +14,20 @@ namespace Ecs.Action.Systems.Order
         private readonly GameContext _game;
         private readonly IDeliveryPriceService _deliveryPriceService;
         private readonly IDeliveryTargetService _deliveryTargetService;
-        private readonly IDeliveryTargetTimeService _deliveryTargetTimeService;
-        private readonly IRandomProvider _randomProvider;
         private readonly IOrderParametersProvider _orderParametersProvider;
-        private readonly IOrderStatusService _orderStatusService;
 
         public CreateOrderSystem(ActionContext action, 
             OrderContext order, 
             GameContext game,
             IDeliveryPriceService deliveryPriceService,
             IDeliveryTargetService deliveryTargetService,
-            IDeliveryTargetTimeService deliveryTargetTimeService,
-            IRandomProvider randomProvider,
-            IOrderParametersProvider orderParametersProvider,
-            IOrderStatusService orderStatusService) : base(action)
+            IOrderParametersProvider orderParametersProvider) : base(action)
         {
             _order = order;
             _game = game;
             _deliveryPriceService = deliveryPriceService;
             _deliveryTargetService = deliveryTargetService;
-            _deliveryTargetTimeService = deliveryTargetTimeService;
-            _randomProvider = randomProvider;
             _orderParametersProvider = orderParametersProvider;
-            _orderStatusService = orderStatusService;
         }
 
         protected override ICollector<ActionEntity> GetTrigger(IContext<ActionEntity> context) =>
@@ -53,9 +41,11 @@ namespace Ecs.Action.Systems.Order
             {
                 entity.IsDestroyed = true;
 
-                var sourceUid = entity.CreateOrder.DeliverySourceUid;
+                var contractUid = entity.CreateOrder.ContractUid;
+                var contractEntity = _order.GetEntityWithUid(contractUid);
+                var shopUid = contractEntity.Owner.Value;
                 
-                var deliverySourceEntity = _game.GetEntityWithUid(sourceUid);
+                var deliverySourceEntity = _game.GetEntityWithUid(shopUid);
                 var deliverySourcePosition = deliverySourceEntity.Position.Value;
                
                 var deliverySourceLevel = deliverySourceEntity.Level.Value;
@@ -63,20 +53,18 @@ namespace Ecs.Action.Systems.Order
                 var deliveryTargetPosition = _deliveryTargetService.GetDeliveryTarget();
 
                 var orderEntity = _order.CreateOrder(deliverySourcePosition, deliveryTargetPosition);
-                orderEntity.AddSource(sourceUid);
+                orderEntity.AddSource(shopUid);
                 orderEntity.AddItemsAmount(2); //TODO:
+                orderEntity.AddOwner(contractUid);
+                
                 var deliveryPrice = _deliveryPriceService.CalculateDeliveryPrice(orderEntity);
 
                 var courierType = GetRandomCourierType(deliverySourceLevel);
 
-                var requiredCourierAmount = _randomProvider.Range(1, 1);
-                
                 orderEntity.AddCourier(courierType);
                 orderEntity.AddPrice(deliveryPrice);
 
-                orderEntity.AddOrderStatus(EOrderStatus.InProgress);
-                
-                //_orderPopupController.OnOrderCreated(orderEntity);
+                orderEntity.AddOrderStatus(EOrderStatus.Created);
             }
         }
         

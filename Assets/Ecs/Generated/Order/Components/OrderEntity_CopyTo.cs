@@ -18,7 +18,11 @@ public partial class OrderEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Order.Components.PerformerComponent Performer)
+		if (component is Ecs.Order.Components.AvailableOrdersComponent AvailableOrders)
+		{
+			CopyAvailableOrdersTo(AvailableOrders);
+		}
+		else if (component is Ecs.Order.Components.PerformerComponent Performer)
 		{
 			CopyPerformerTo(Performer);
 		}
@@ -69,10 +73,6 @@ public partial class OrderEntity
 		else if (component is Ecs.Order.Components.SourcePositionComponent SourcePosition)
 		{
 			CopySourcePositionTo(SourcePosition);
-		}
-		else if (component is Ecs.Order.Components.AvailableOrdersComponent AvailableOrders)
-		{
-			CopyAvailableOrdersTo(AvailableOrders);
 		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{

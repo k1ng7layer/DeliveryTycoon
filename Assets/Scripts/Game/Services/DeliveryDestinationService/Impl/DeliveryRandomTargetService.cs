@@ -18,7 +18,7 @@ namespace Game.Services.DeliveryDestinationService.Impl
         {
             _randomProvider = randomProvider;
             _game = game;
-            _customerGroup = _game.GetGroup(GameMatcher.AllOf(GameMatcher.Customer).NoneOf(GameMatcher.Destroyed));
+            _customerGroup = _game.GetGroup(GameMatcher.AllOf(GameMatcher.Customer).NoneOf(GameMatcher.Destroyed, GameMatcher.Busy));
         }
         
         public Vector3 GetDeliveryTarget()
@@ -37,7 +37,9 @@ namespace Game.Services.DeliveryDestinationService.Impl
                     var customer = customers[i];
                     var customerPosition = customer.ReceptionPoint.Value;
 
-                    target =  customerPosition;
+                    target = customerPosition;
+
+                    customer.IsBusy = true;
                 }
             }
             

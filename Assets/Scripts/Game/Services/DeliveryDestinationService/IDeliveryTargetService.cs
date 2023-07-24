@@ -4,6 +4,6 @@ namespace Game.Services.DeliveryDestinationService
 {
     public interface IDeliveryTargetService
     {
-        Uid GetDeliveryTarget();
+        Uid GetDeliveryTarget(OrderEntity contractEntity);
     }
 }

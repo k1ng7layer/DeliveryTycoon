@@ -13,6 +13,7 @@ using Ecs.Order.Systems.Contract;
 using Ecs.Order.Systems.Order;
 using Game.Services.Camera.Impl;
 using Game.Services.ContractStatusService.Impl;
+using Game.Services.Customers.Impl;
 using Game.Services.DeliveryDestinationService.Impl;
 using Game.Services.DeliveryPriceService.Impl;
 using Game.Services.DeliveryTargetTimeService.Impl;
@@ -59,6 +60,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<DiSpawnService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ContractStatusService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CourierRepository>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CustomersProvider>().AsSingle();
             Container.Bind<IRaycastProvider>().To<RaycastProvider>().AsSingle();
         }
 

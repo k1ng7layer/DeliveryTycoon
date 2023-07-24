@@ -52,7 +52,7 @@ namespace Ecs.Action.Systems.Order
                
                 var deliverySourceLevel = deliverySourceEntity.Level.Value;
                 
-                var deliveryTargetPosition = _deliveryTargetService.GetDeliveryTarget();
+                var deliveryTargetPosition = _deliveryTargetService.GetDeliveryTarget(contractEntity);
                 var courierType = GetRandomCourierType(deliverySourceLevel);
                 var orderEntity = _order.CreateOrder(deliverySourcePosition, deliveryTargetPosition);
               

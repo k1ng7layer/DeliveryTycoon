@@ -106,18 +106,6 @@ public partial class GameEntity
 		{
 			CopySelectedShopTo(SelectedShop);
 		}
-		else if (component is Ecs.Game.Components.Order.DeliveryOfficeComponent DeliveryOffice)
-		{
-			IsDeliveryOffice = true;
-		}
-		else if (component is Ecs.Game.Components.Order.NextContractTimerComponent NextContractTimer)
-		{
-			CopyNextContractTimerTo(NextContractTimer);
-		}
-		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
-		{
-			CopyRewardTo(Reward);
-		}
 		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
 		{
 			IsCamera = true;
@@ -173,6 +161,18 @@ public partial class GameEntity
 		else if (component is Ecs.Game.Components.Common.PositionComponent Position)
 		{
 			CopyPositionTo(Position);
+		}
+		else if (component is Ecs.Game.Components.Order.DeliveryOfficeComponent DeliveryOffice)
+		{
+			IsDeliveryOffice = true;
+		}
+		else if (component is Ecs.Game.Components.Order.NextContractTimerComponent NextContractTimer)
+		{
+			CopyNextContractTimerTo(NextContractTimer);
+		}
+		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
+		{
+			CopyRewardTo(Reward);
 		}
 		else if (component is ContractProviderAddedListenerComponent ContractProviderAddedListener)
 		{

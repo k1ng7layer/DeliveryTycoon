@@ -78,14 +78,6 @@ public partial class OrderEntity
 		{
 			CopyCourierTo(Courier);
 		}
-		else if (component is Ecs.Game.Components.Order.OrderComponent Order)
-		{
-			IsOrder = true;
-		}
-		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
-		{
-			CopyRewardTo(Reward);
-		}
 		else if (component is Ecs.Game.Components.Common.ActiveComponent Active)
 		{
 			IsActive = true;
@@ -101,6 +93,18 @@ public partial class OrderEntity
 		else if (component is Ecs.Game.Components.Common.OwnerComponent Owner)
 		{
 			CopyOwnerTo(Owner);
+		}
+		else if (component is Ecs.Game.Components.Order.OrderComponent Order)
+		{
+			IsOrder = true;
+		}
+		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
+		{
+			CopyRewardTo(Reward);
+		}
+		else if (component is Ecs.Game.Components.Order.AttachedCustomersComponent AttachedCustomers)
+		{
+			CopyAttachedCustomersTo(AttachedCustomers);
 		}
 		else if (component is DurationAddedListenerComponent DurationAddedListener)
 		{

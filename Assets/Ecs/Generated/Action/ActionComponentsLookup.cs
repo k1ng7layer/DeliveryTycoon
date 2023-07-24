@@ -14,7 +14,7 @@ using JCMG.EntitasRedux;
 public static class ActionComponentsLookup
 {
 	public const int ChangeCoins = 0;
-	public const int ChangeCouriersInContract = 1;
+	public const int AttachCouriersToContract = 1;
 	public const int CreateContract = 2;
 	public const int BuyCourier = 3;
 	public const int CreateCourier = 4;
@@ -33,7 +33,7 @@ public static class ActionComponentsLookup
 	public static readonly string[] ComponentNames =
 	{
 		"ChangeCoins",
-		"ChangeCouriersInContract",
+		"AttachCouriersToContract",
 		"CreateContract",
 		"BuyCourier",
 		"CreateCourier",
@@ -51,7 +51,7 @@ public static class ActionComponentsLookup
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent),
-		typeof(Ecs.Action.Components.Contract.ChangeCouriersInContractComponent),
+		typeof(Ecs.Action.Components.Contract.AttachCouriersToContractComponent),
 		typeof(Ecs.Action.Components.Contract.CreateContractComponent),
 		typeof(Ecs.Action.Components.Courier.BuyCourierComponent),
 		typeof(Ecs.Action.Components.Courier.CreateCourierComponent),
@@ -69,7 +69,7 @@ public static class ActionComponentsLookup
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent), 0 },
-		{ typeof(Ecs.Action.Components.Contract.ChangeCouriersInContractComponent), 1 },
+		{ typeof(Ecs.Action.Components.Contract.AttachCouriersToContractComponent), 1 },
 		{ typeof(Ecs.Action.Components.Contract.CreateContractComponent), 2 },
 		{ typeof(Ecs.Action.Components.Courier.BuyCourierComponent), 3 },
 		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 4 },

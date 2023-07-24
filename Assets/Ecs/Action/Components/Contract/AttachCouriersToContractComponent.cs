@@ -4,7 +4,7 @@ using JCMG.EntitasRedux;
 namespace Ecs.Action.Components.Contract
 {
     [Action]
-    public class ChangeCouriersInContractComponent : IComponent
+    public class AttachCouriersToContractComponent : IComponent
     {
         public ChangeCouriersData Value;
     }

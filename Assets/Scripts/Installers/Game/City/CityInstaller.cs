@@ -85,9 +85,10 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CheckOrderStatusSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<InstantiateSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<BehaviourTreeUpdateSystem>().AsSingle();
-            Container.BindInterfacesAndSelfTo<TakeOrderSystem>().AsSingle();
+            //Container.BindInterfacesAndSelfTo<TakeOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CompleteOrderSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<CompleteContractSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ChangeCouriersInContractSystem>().AsSingle();
         }
 
         private void BindWindows()

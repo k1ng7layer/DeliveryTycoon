@@ -66,9 +66,9 @@ public partial class ActionEntity
 		{
 			CopyCreateContractTo(CreateContract);
 		}
-		else if (component is Ecs.Action.Components.Contract.ChangeCouriersInContractComponent ChangeCouriersInContract)
+		else if (component is Ecs.Action.Components.Contract.AttachCouriersToContractComponent AttachCouriersToContract)
 		{
-			CopyChangeCouriersInContractTo(ChangeCouriersInContract);
+			CopyAttachCouriersToContractTo(AttachCouriersToContract);
 		}
 		else if (component is Ecs.Game.Components.Common.DestroyedComponent Destroyed)
 		{

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Utils;
+using Game.Utils.Contract;
 using Game.Utils.Order;
 using JCMG.EntitasRedux;
 using Zenject;
@@ -67,6 +68,8 @@ namespace Ecs.Action.Systems.CustomersShop
                 {
                     _action.CreateEntity().AddCreateOrder(new CreateOrderData(contractUid, rewardPerOrder));
                 }
+                
+                _action.CreateEntity().AddAttachCouriersToContract(new ChangeCouriersData(contractUid, newContractData.CouriersAmount));
             }
         }
 

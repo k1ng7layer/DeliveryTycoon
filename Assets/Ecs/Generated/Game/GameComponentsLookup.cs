@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using Ecs.Game.Components.Order;
 using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
@@ -49,12 +48,12 @@ public static class GameComponentsLookup
 	public const int StandbyEmployees = 32;
 	public const int TotalEmployees = 33;
 	public const int Customer = 34;
-	public const int DeliveryOffice = 35;
-	public const int Level = 36;
-	public const int OrderSource = 37;
-	public const int Partner = 38;
-	public const int SelectedShop = 39;
-	public const int CourierSpawnPoint = 40;
+	public const int Level = 35;
+	public const int OrderSource = 36;
+	public const int Partner = 37;
+	public const int SelectedShop = 38;
+	public const int CourierSpawnPoint = 39;
+	public const int DeliveryOffice = 40;
 	public const int NextContractTimer = 41;
 	public const int Reward = 42;
 	public const int ReceptionPoint = 43;
@@ -110,12 +109,12 @@ public static class GameComponentsLookup
 		"StandbyEmployees",
 		"TotalEmployees",
 		"Customer",
-		"DeliveryOffice",
 		"Level",
 		"OrderSource",
 		"Partner",
 		"SelectedShop",
 		"CourierSpawnPoint",
+		"DeliveryOffice",
 		"NextContractTimer",
 		"Reward",
 		"ReceptionPoint",
@@ -170,12 +169,12 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent),
 		typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent),
 		typeof(Ecs.Game.Components.Customer.CustomerComponent),
-		typeof(DeliveryOfficeComponent),
 		typeof(Ecs.Game.Components.Delivery.LevelComponent),
 		typeof(Ecs.Game.Components.Delivery.OrderSourceComponent),
 		typeof(Ecs.Game.Components.Delivery.PartnerComponent),
 		typeof(Ecs.Game.Components.Delivery.SelectedShopComponent),
 		typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent),
+		typeof(Ecs.Game.Components.Order.DeliveryOfficeComponent),
 		typeof(Ecs.Game.Components.Order.NextContractTimerComponent),
 		typeof(Ecs.Game.Components.Order.RewardComponent),
 		typeof(Ecs.Game.Components.Shop.ReceptionPointComponent),
@@ -230,12 +229,12 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 32 },
 		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 33 },
 		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 34 },
-		{ typeof(DeliveryOfficeComponent), 35 },
-		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 36 },
-		{ typeof(Ecs.Game.Components.Delivery.OrderSourceComponent), 37 },
-		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 38 },
-		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 39 },
-		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 40 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 35 },
+		{ typeof(Ecs.Game.Components.Delivery.OrderSourceComponent), 36 },
+		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 37 },
+		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 38 },
+		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 39 },
+		{ typeof(Ecs.Game.Components.Order.DeliveryOfficeComponent), 40 },
 		{ typeof(Ecs.Game.Components.Order.NextContractTimerComponent), 41 },
 		{ typeof(Ecs.Game.Components.Order.RewardComponent), 42 },
 		{ typeof(Ecs.Game.Components.Shop.ReceptionPointComponent), 43 },

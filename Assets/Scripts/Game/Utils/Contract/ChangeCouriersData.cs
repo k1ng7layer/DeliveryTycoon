@@ -4,13 +4,13 @@ namespace Game.Utils.Contract
 {
     public readonly struct ChangeCouriersData
     {
-        private readonly Uid _contractUid;
-        private readonly int _couriersDelta;
+        public readonly Uid ContractUid;
+        public readonly int CouriersAmount;
 
-        public ChangeCouriersData(Uid contractUid, int couriersDelta)
+        public ChangeCouriersData(Uid contractUid, int couriersAmount)
         {
-            _contractUid = contractUid;
-            _couriersDelta = couriersDelta;
+            ContractUid = contractUid;
+            CouriersAmount = couriersAmount;
         }
     }
 }

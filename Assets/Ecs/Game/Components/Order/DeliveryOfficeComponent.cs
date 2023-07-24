@@ -1,6 +1,6 @@
 ﻿using JCMG.EntitasRedux;
 
-namespace Ecs.Game.Components.Delivery
+namespace Ecs.Game.Components.Order
 {
     [Game]
     [Unique]

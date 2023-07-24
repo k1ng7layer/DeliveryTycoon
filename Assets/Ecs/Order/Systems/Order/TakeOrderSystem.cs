@@ -53,9 +53,14 @@ namespace Ecs.Order.Systems.Order
                 
                     orderEntity.AddPerformer(courierUid);
                     courier.ReplaceActiveOrder(orderUid);
+                    courier.ReplaceActiveContract(contractUid);
                     courier.ReplaceRouteTarget(new RouteTargetData(orderSourceReception, ERouteTarget.Shop));
                     courier.IsBusy = true;
                     orderEntity.ReplaceOrderStatus(EOrderStatus.InProgress);
+                    
+                    var ordersAmount = contractEntity.AvailableOrders.Value;
+                    contractEntity.ReplaceAvailableOrders(--ordersAmount);
+                    
                     break;
                 }
                 

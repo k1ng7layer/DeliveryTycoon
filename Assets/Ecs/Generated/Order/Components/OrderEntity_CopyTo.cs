@@ -18,15 +18,7 @@ public partial class OrderEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Order.Components.AvailableOrdersComponent AvailableOrders)
-		{
-			CopyAvailableOrdersTo(AvailableOrders);
-		}
-		else if (component is Ecs.Order.Components.PerformerComponent Performer)
-		{
-			CopyPerformerTo(Performer);
-		}
-		else if (component is Ecs.Order.Components.DurationComponent Duration)
+		if (component is Ecs.Order.Components.DurationComponent Duration)
 		{
 			CopyDurationTo(Duration);
 		}
@@ -58,6 +50,10 @@ public partial class OrderEntity
 		{
 			CopyPriceTo(Price);
 		}
+		else if (component is Ecs.Order.Components.AvailableOrdersComponent AvailableOrders)
+		{
+			CopyAvailableOrdersTo(AvailableOrders);
+		}
 		else if (component is Ecs.Order.Components.OrderStatusComponent OrderStatus)
 		{
 			CopyOrderStatusTo(OrderStatus);
@@ -69,6 +65,10 @@ public partial class OrderEntity
 		else if (component is Ecs.Order.Components.CourierAmountComponent CourierAmount)
 		{
 			CopyCourierAmountTo(CourierAmount);
+		}
+		else if (component is Ecs.Order.Components.PerformerComponent Performer)
+		{
+			CopyPerformerTo(Performer);
 		}
 		else if (component is Ecs.Order.Components.SourcePositionComponent SourcePosition)
 		{

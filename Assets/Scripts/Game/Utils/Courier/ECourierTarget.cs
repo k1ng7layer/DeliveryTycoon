@@ -4,6 +4,7 @@
     {
         Customer,
         Shop,
-        Office
+        Office,
+        Any
     }
 }

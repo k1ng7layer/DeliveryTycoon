@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using Ecs.Game.Components.Order;
 using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
@@ -39,37 +40,38 @@ public static class GameComponentsLookup
 	public const int Transform = 23;
 	public const int Uid = 24;
 	public const int ContractProvider = 25;
-	public const int ActiveOrder = 26;
-	public const int Busy = 27;
-	public const int Cargo = 28;
-	public const int Courier = 29;
-	public const int CourierParameters = 30;
-	public const int StandbyEmployees = 31;
-	public const int TotalEmployees = 32;
-	public const int Customer = 33;
-	public const int DeliveryOffice = 34;
-	public const int Level = 35;
-	public const int OrderSource = 36;
-	public const int Partner = 37;
-	public const int SelectedShop = 38;
-	public const int CourierSpawnPoint = 39;
-	public const int NextContractTimer = 40;
-	public const int Reward = 41;
-	public const int ReceptionPoint = 42;
-	public const int ShopName = 43;
-	public const int Wallet = 44;
-	public const int InstantiateAddedListener = 45;
-	public const int LinkRemovedListener = 46;
-	public const int MovingAddedListener = 47;
-	public const int MovingRemovedListener = 48;
-	public const int PositionAddedListener = 49;
-	public const int RotationAddedListener = 50;
-	public const int RouteTargetAddedListener = 51;
-	public const int StandbyEmployeesAddedListener = 52;
-	public const int TotalEmployeesAddedListener = 53;
-	public const int WalletAddedListener = 54;
+	public const int ActiveContract = 26;
+	public const int ActiveOrder = 27;
+	public const int Busy = 28;
+	public const int Cargo = 29;
+	public const int Courier = 30;
+	public const int CourierParameters = 31;
+	public const int StandbyEmployees = 32;
+	public const int TotalEmployees = 33;
+	public const int Customer = 34;
+	public const int DeliveryOffice = 35;
+	public const int Level = 36;
+	public const int OrderSource = 37;
+	public const int Partner = 38;
+	public const int SelectedShop = 39;
+	public const int CourierSpawnPoint = 40;
+	public const int NextContractTimer = 41;
+	public const int Reward = 42;
+	public const int ReceptionPoint = 43;
+	public const int ShopName = 44;
+	public const int Wallet = 45;
+	public const int InstantiateAddedListener = 46;
+	public const int LinkRemovedListener = 47;
+	public const int MovingAddedListener = 48;
+	public const int MovingRemovedListener = 49;
+	public const int PositionAddedListener = 50;
+	public const int RotationAddedListener = 51;
+	public const int RouteTargetAddedListener = 52;
+	public const int StandbyEmployeesAddedListener = 53;
+	public const int TotalEmployeesAddedListener = 54;
+	public const int WalletAddedListener = 55;
 
-	public const int TotalComponents = 55;
+	public const int TotalComponents = 56;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -99,6 +101,7 @@ public static class GameComponentsLookup
 		"Transform",
 		"Uid",
 		"ContractProvider",
+		"ActiveContract",
 		"ActiveOrder",
 		"Busy",
 		"Cargo",
@@ -158,6 +161,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Common.TransformComponent),
 		typeof(Ecs.Game.Components.Common.UidComponent),
 		typeof(Ecs.Game.Components.Contract.ContractProviderComponent),
+		typeof(Ecs.Game.Components.Courier.ActiveContractComponent),
 		typeof(Ecs.Game.Components.Courier.ActiveOrderComponent),
 		typeof(Ecs.Game.Components.Courier.BusyComponent),
 		typeof(Ecs.Game.Components.Courier.CargoComponent),
@@ -166,7 +170,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent),
 		typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent),
 		typeof(Ecs.Game.Components.Customer.CustomerComponent),
-		typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent),
+		typeof(DeliveryOfficeComponent),
 		typeof(Ecs.Game.Components.Delivery.LevelComponent),
 		typeof(Ecs.Game.Components.Delivery.OrderSourceComponent),
 		typeof(Ecs.Game.Components.Delivery.PartnerComponent),
@@ -217,35 +221,36 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Common.TransformComponent), 23 },
 		{ typeof(Ecs.Game.Components.Common.UidComponent), 24 },
 		{ typeof(Ecs.Game.Components.Contract.ContractProviderComponent), 25 },
-		{ typeof(Ecs.Game.Components.Courier.ActiveOrderComponent), 26 },
-		{ typeof(Ecs.Game.Components.Courier.BusyComponent), 27 },
-		{ typeof(Ecs.Game.Components.Courier.CargoComponent), 28 },
-		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 29 },
-		{ typeof(Ecs.Game.Components.Courier.CourierParametersComponent), 30 },
-		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 31 },
-		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 32 },
-		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 33 },
-		{ typeof(Ecs.Game.Components.Delivery.DeliveryOfficeComponent), 34 },
-		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 35 },
-		{ typeof(Ecs.Game.Components.Delivery.OrderSourceComponent), 36 },
-		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 37 },
-		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 38 },
-		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 39 },
-		{ typeof(Ecs.Game.Components.Order.NextContractTimerComponent), 40 },
-		{ typeof(Ecs.Game.Components.Order.RewardComponent), 41 },
-		{ typeof(Ecs.Game.Components.Shop.ReceptionPointComponent), 42 },
-		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 43 },
-		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 44 },
-		{ typeof(InstantiateAddedListenerComponent), 45 },
-		{ typeof(LinkRemovedListenerComponent), 46 },
-		{ typeof(MovingAddedListenerComponent), 47 },
-		{ typeof(MovingRemovedListenerComponent), 48 },
-		{ typeof(PositionAddedListenerComponent), 49 },
-		{ typeof(RotationAddedListenerComponent), 50 },
-		{ typeof(RouteTargetAddedListenerComponent), 51 },
-		{ typeof(StandbyEmployeesAddedListenerComponent), 52 },
-		{ typeof(TotalEmployeesAddedListenerComponent), 53 },
-		{ typeof(WalletAddedListenerComponent), 54 }
+		{ typeof(Ecs.Game.Components.Courier.ActiveContractComponent), 26 },
+		{ typeof(Ecs.Game.Components.Courier.ActiveOrderComponent), 27 },
+		{ typeof(Ecs.Game.Components.Courier.BusyComponent), 28 },
+		{ typeof(Ecs.Game.Components.Courier.CargoComponent), 29 },
+		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 30 },
+		{ typeof(Ecs.Game.Components.Courier.CourierParametersComponent), 31 },
+		{ typeof(Ecs.Game.Components.Courier.StandbyEmployeesComponent), 32 },
+		{ typeof(Ecs.Game.Components.Courier.TotalEmployeesComponent), 33 },
+		{ typeof(Ecs.Game.Components.Customer.CustomerComponent), 34 },
+		{ typeof(DeliveryOfficeComponent), 35 },
+		{ typeof(Ecs.Game.Components.Delivery.LevelComponent), 36 },
+		{ typeof(Ecs.Game.Components.Delivery.OrderSourceComponent), 37 },
+		{ typeof(Ecs.Game.Components.Delivery.PartnerComponent), 38 },
+		{ typeof(Ecs.Game.Components.Delivery.SelectedShopComponent), 39 },
+		{ typeof(Ecs.Game.Components.DeliveryOffice.CourierSpawnPointComponent), 40 },
+		{ typeof(Ecs.Game.Components.Order.NextContractTimerComponent), 41 },
+		{ typeof(Ecs.Game.Components.Order.RewardComponent), 42 },
+		{ typeof(Ecs.Game.Components.Shop.ReceptionPointComponent), 43 },
+		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 44 },
+		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 45 },
+		{ typeof(InstantiateAddedListenerComponent), 46 },
+		{ typeof(LinkRemovedListenerComponent), 47 },
+		{ typeof(MovingAddedListenerComponent), 48 },
+		{ typeof(MovingRemovedListenerComponent), 49 },
+		{ typeof(PositionAddedListenerComponent), 50 },
+		{ typeof(RotationAddedListenerComponent), 51 },
+		{ typeof(RouteTargetAddedListenerComponent), 52 },
+		{ typeof(StandbyEmployeesAddedListenerComponent), 53 },
+		{ typeof(TotalEmployeesAddedListenerComponent), 54 },
+		{ typeof(WalletAddedListenerComponent), 55 }
 	};
 
 	/// <summary>

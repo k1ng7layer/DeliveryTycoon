@@ -7,6 +7,9 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Ecs.Game.Components.Order;
+
 public partial class GameContext
 {
 	public GameEntity DeliveryOfficeEntity { get { return GetGroup(GameMatcher.DeliveryOffice).GetSingleEntity(); } }
@@ -43,7 +46,7 @@ public partial class GameContext
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	static readonly Ecs.Game.Components.Delivery.DeliveryOfficeComponent DeliveryOfficeComponent = new Ecs.Game.Components.Delivery.DeliveryOfficeComponent();
+	static readonly DeliveryOfficeComponent DeliveryOfficeComponent = new DeliveryOfficeComponent();
 
 	public bool IsDeliveryOffice
 	{

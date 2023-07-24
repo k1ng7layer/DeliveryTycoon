@@ -53,16 +53,12 @@ namespace Ecs.Action.Systems.Order
                 var deliverySourceLevel = deliverySourceEntity.Level.Value;
                 
                 var deliveryTargetPosition = _deliveryTargetService.GetDeliveryTarget();
-
+                var courierType = GetRandomCourierType(deliverySourceLevel);
                 var orderEntity = _order.CreateOrder(deliverySourcePosition, deliveryTargetPosition);
+              
                 orderEntity.AddSource(shopUid);
                 orderEntity.AddItemsAmount(2); //TODO:
                 orderEntity.AddOwner(contractUid);
-                
-                var deliveryPrice = _deliveryPriceService.CalculateDeliveryPrice(orderEntity);
-
-                var courierType = GetRandomCourierType(deliverySourceLevel);
-
                 orderEntity.AddCourier(courierType);
                 orderEntity.AddReward(orderData.Reward);
 

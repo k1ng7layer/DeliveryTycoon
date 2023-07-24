@@ -35,9 +35,9 @@ namespace Ecs.Order.Systems.Order
                 
                 var price = entity.Reward.Value;
                 
-                courierEntity.RemoveActiveOrder();
+                //courierEntity.RemoveActiveOrder();
 
-                courierEntity.IsBusy = false;
+                //courierEntity.IsBusy = false;
                 
                 _action.CreateEntity().AddChangeCoins(price);
                 
@@ -45,7 +45,7 @@ namespace Ecs.Order.Systems.Order
                 var contractEntity = _order.GetEntityWithUid(contractUid);
                 var ordersAmount = contractEntity.AvailableOrders.Value;
                 
-                contractEntity.ReplaceAvailableOrders(--ordersAmount);
+                //TODO: should be replaced when courier take order
             }
         }
     }

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Ecs.Game.Components.Order;
 using JCMG.EntitasRedux;
 
 public partial class GameEntity
@@ -70,7 +71,7 @@ public partial class GameEntity
 		{
 			IsPartner = true;
 		}
-		else if (component is Ecs.Game.Components.Delivery.DeliveryOfficeComponent DeliveryOffice)
+		else if (component is DeliveryOfficeComponent DeliveryOffice)
 		{
 			IsDeliveryOffice = true;
 		}
@@ -142,6 +143,10 @@ public partial class GameEntity
 		{
 			CopyPositionTo(Position);
 		}
+		else if (component is Ecs.Game.Components.Courier.CargoComponent Cargo)
+		{
+			IsCargo = true;
+		}
 		else if (component is Ecs.Game.Components.Courier.BusyComponent Busy)
 		{
 			IsBusy = true;
@@ -166,9 +171,9 @@ public partial class GameEntity
 		{
 			CopyTotalEmployeesTo(TotalEmployees);
 		}
-		else if (component is Ecs.Game.Components.Courier.CargoComponent Cargo)
+		else if (component is Ecs.Game.Components.Courier.ActiveContractComponent ActiveContract)
 		{
-			IsCargo = true;
+			CopyActiveContractTo(ActiveContract);
 		}
 		else if (component is ContractProviderAddedListenerComponent ContractProviderAddedListener)
 		{
@@ -214,6 +219,14 @@ public partial class GameEntity
 		{
 			CopyPositionAddedListenerTo(PositionAddedListener);
 		}
+		else if (component is CargoAddedListenerComponent CargoAddedListener)
+		{
+			CopyCargoAddedListenerTo(CargoAddedListener);
+		}
+		else if (component is CargoRemovedListenerComponent CargoRemovedListener)
+		{
+			CopyCargoRemovedListenerTo(CargoRemovedListener);
+		}
 		else if (component is BusyAddedListenerComponent BusyAddedListener)
 		{
 			CopyBusyAddedListenerTo(BusyAddedListener);
@@ -229,14 +242,6 @@ public partial class GameEntity
 		else if (component is TotalEmployeesAddedListenerComponent TotalEmployeesAddedListener)
 		{
 			CopyTotalEmployeesAddedListenerTo(TotalEmployeesAddedListener);
-		}
-		else if (component is CargoAddedListenerComponent CargoAddedListener)
-		{
-			CopyCargoAddedListenerTo(CargoAddedListener);
-		}
-		else if (component is CargoRemovedListenerComponent CargoRemovedListener)
-		{
-			CopyCargoRemovedListenerTo(CargoRemovedListener);
 		}
 		#endif
 	}

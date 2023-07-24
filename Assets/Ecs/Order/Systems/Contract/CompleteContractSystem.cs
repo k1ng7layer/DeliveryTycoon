@@ -20,29 +20,35 @@ namespace Ecs.Order.Systems.Contract
         }
 
         protected override ICollector<OrderEntity> GetTrigger(IContext<OrderEntity> context) =>
-            context.CreateCollector(OrderMatcher.AvailableOrders);
+            context.CreateCollector(OrderMatcher.OrderStatus);
 
         protected override bool Filter(OrderEntity entity) 
-            => entity.HasContract 
-            && entity.HasAvailableOrders 
-            && entity.AvailableOrders.Value == 0 
+            => entity.HasOrderStatus
+               && entity.OrderStatus.Value == EOrderStatus.Completed 
             && !entity.IsDestroyed;
 
         protected override void Execute(List<OrderEntity> entities)
         {
             foreach (var entity in entities)
             {
-                entity.ReplaceContractStatus(EContractStatus.Completed);
-                var contractUid = entity.Uid.Value;
-
+                var contractUid = entity.Owner.Value;
+                var contractEntity = _order.GetEntityWithUid(contractUid);
+                
                 var orders = _order.GetEntitiesWithOwner(contractUid);
-
+                
+                var hasActiveOrders = HasActiveOrders(orders);
+                
+                if(hasActiveOrders)
+                    continue;
+                
+                entity.ReplaceContractStatus(EContractStatus.Completed);
+                
                 foreach (var order in orders)
                 {
                     order.IsDestroyed = true;
                 }
 
-                var shopUid = entity.Owner.Value;
+                var shopUid = contractEntity.Owner.Value;
                 var shop = _game.GetEntityWithUid(shopUid);
                 
                 shop.RemoveContractProvider();
@@ -51,6 +57,25 @@ namespace Ecs.Order.Systems.Contract
                 
                 _action.CreateEntity().AddStartNextContractTimer(shopUid);
             }    
+        }
+
+        private bool HasActiveOrders(HashSet<OrderEntity> orderEntities)
+        {
+            bool result = false;
+            
+            foreach (var order in orderEntities)
+            {
+                var orderStatus = order.OrderStatus.Value;
+
+                if (orderStatus != EOrderStatus.Completed)
+                {
+                    result = true;
+                    break;
+                }
+                    
+            }
+
+            return result;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Ecs.Action.Systems.Order
 
                 var deliverySourceEntity = _game.GetEntityWithUid(shopUid);
 
-                deliverySourceEntity.ReplaceNextContractTimer(1f);
+                deliverySourceEntity.ReplaceNextContractTimer(5f);
             }
         }
     }

@@ -21,6 +21,7 @@ using Game.Services.EmployeeRepository.Impl;
 using Game.Services.GameLevelProvider.Impl;
 using Game.Services.GameLevelProvider.Views;
 using Game.Services.Input.Impl;
+using Game.Services.OrderProvider.Impl;
 using Game.Services.OrderStatusService.Impl;
 using Game.Services.PointerRaycastService;
 using Game.Services.PointerRaycastService.Impl;
@@ -61,6 +62,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<ContractStatusService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CourierRepository>().AsSingle();
             Container.BindInterfacesAndSelfTo<CustomersProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<OrderProvider>().AsSingle();
             Container.Bind<IRaycastProvider>().To<RaycastProvider>().AsSingle();
         }
 

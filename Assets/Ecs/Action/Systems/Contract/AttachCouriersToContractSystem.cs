@@ -50,6 +50,7 @@ namespace Ecs.Action.Systems.Contract
                     
                     courier.ReplaceActiveContract(changeData.ContractUid);
                     courier.ReplaceRouteTarget(new RouteTargetData(shopReceptionPoint, ERouteTarget.Shop));
+                    courier.ReplaceOwner(changeData.ContractUid);
                     courier.IsBusy = true;
                 }
                 

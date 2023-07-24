@@ -53,14 +53,7 @@ namespace Ecs.Action.Systems.CustomersShop
                 
                 contractEntity.ReplaceContractStatus(EContractStatus.InProgress);
                 contractEntity.ReplaceAvailableOrders(contractData.OrdersAmount);
-
-                var couriers = GetFreeCouriers(newContractData.CouriersAmount);
                 
-                foreach (var courier in couriers)
-                {
-                    courier.ReplaceOwner(contractUid);
-                }
-
                 var totalReward = contractEntity.Reward.Value;
                 var rewardPerOrder = totalReward / contractData.OrdersAmount;
                 

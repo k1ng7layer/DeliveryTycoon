@@ -1,6 +1,7 @@
 ﻿using Core.Systems;
 using Game.Services.ContractStatusService;
 using Game.Services.EmployeeRepository;
+using Game.Services.OrderProvider;
 using Game.UI.DeliverySourceShop.Views;
 using Game.Utils;
 using Game.Utils.Contract;
@@ -21,6 +22,7 @@ namespace Game.UI.DeliverySourceShop.Controllers
         private readonly SignalBus _signalBus;
         private readonly IContractStatusService _contractStatusService;
         private readonly ICourierRepository _courierRepository;
+        private readonly IOrderProvider _orderProvider;
 
         private int _proposedCouriers;
         private bool _canIncrease;
@@ -31,7 +33,8 @@ namespace Game.UI.DeliverySourceShop.Controllers
             OrderContext order,
             SignalBus signalBus,
             IContractStatusService contractStatusService,
-            ICourierRepository courierRepository)
+            ICourierRepository courierRepository,
+            IOrderProvider orderProvider)
         {
             _action = action;
             _game = game;
@@ -39,6 +42,7 @@ namespace Game.UI.DeliverySourceShop.Controllers
             _signalBus = signalBus;
             _contractStatusService = contractStatusService;
             _courierRepository = courierRepository;
+            _orderProvider = orderProvider;
         }
         
         public void Initialize()
@@ -124,17 +128,20 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var contractStatus = contractEntity.ContractStatus.Value;
             var activeOrders = contractEntity.AvailableOrders.Value;
             
-            _courierRepository.TryGetCouriersAmount(requiredCourierType, _proposedCouriers, out var actual);
+            _courierRepository.TryGetCouriersAmount(requiredCourierType, _proposedCouriers, out var availableCouriersQuantity);
             
             if (contractStatus == EContractStatus.InProgress)
             {
+                var availableOrderCount = _orderProvider.GetContractOrderWithStatus(contractUid, EOrderStatus.Created);
+                
                 _canDecrease = (_proposedCouriers - 1) >= contractData.CourierAmount;
-                _canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < engagedCouriers.Count;
+                _canIncrease = _proposedCouriers + 1 <= contractData.OrdersAmount && availableCouriersQuantity != 0 && availableOrderCount != 0;
+                //_canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < engagedCouriers.Count;
             }
             else
             {
                 _canDecrease = _proposedCouriers - 1 >= 0;
-                _canIncrease = _proposedCouriers + 1 <= actual && (_proposedCouriers + 1) <= contractData.OrdersAmount;
+                _canIncrease = _proposedCouriers + 1 <= availableCouriersQuantity && (_proposedCouriers + 1) <= contractData.OrdersAmount;
             }
 
             View.SelectedCouriersAmountText.text = $"{_proposedCouriers}";
@@ -174,6 +181,8 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var delta = _proposedCouriers - engagedCouriers.Count;
             
             _action.CreateEntity().AddAttachCouriersToContract(new ChangeCouriersData(contractUid, delta));
+            
+            Close();
         }
     }
 }

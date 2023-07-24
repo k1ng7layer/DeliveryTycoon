@@ -374,6 +374,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6558347417458990696}
     m_Modifications:
+    - target: {fileID: 3901220997564268207, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901220997564268207, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901220997564268207, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901220997564268207, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901220997564268207, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1220.5208
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901220997564268207, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 801.1179
+      objectReference: {fileID: 0}
     - target: {fileID: 3932141066444550568, guid: 76b23ef0c15d4e54285b801dfbcaf7bc, type: 3}
       propertyPath: m_Name
       value: SelectedShopWindow

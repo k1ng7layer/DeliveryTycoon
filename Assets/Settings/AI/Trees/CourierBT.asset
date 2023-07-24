@@ -45,7 +45,6 @@ MonoBehaviour:
   - rid: 2235637542765199377
   - rid: 2235637542765199379
   - rid: 2235637542765199380
-  - rid: 2235637542765199381
   edges:
   - GUID: 88c71caa-c3ad-4211-beca-736c15e2c110
     owner: {fileID: 11400000}
@@ -294,7 +293,7 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -605, y: -797, z: 0}
+  position: {x: 504, y: -398, z: 0}
   scale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
@@ -811,22 +810,6 @@ MonoBehaviour:
           x: 931
           y: 1681
           width: 150
-          height: 48
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        input: 0
-    - rid: 2235637542765199381
-      type: {class: HasOrderConditionNode, ns: Game.AI.Tasks.Conditions, asm: Assembly-CSharp}
-      data:
-        nodeCustomName: 
-        GUID: 6fd36065-7bc9-4f37-82b2-98f09f9ab65e
-        computeOrder: 31
-        position:
-          serializedVersion: 2
-          x: 266.9001
-          y: 959.3501
-          width: 97
           height: 48
         expanded: 0
         debug: 0

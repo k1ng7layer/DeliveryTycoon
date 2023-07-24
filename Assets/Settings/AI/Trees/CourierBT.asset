@@ -53,6 +53,7 @@ MonoBehaviour:
   - rid: 2235637542765199391
   - rid: 2235637542765199392
   - rid: 2235637542765199393
+  - rid: 2235637542765199394
   edges:
   - GUID: 88c71caa-c3ad-4211-beca-736c15e2c110
     owner: {fileID: 11400000}
@@ -358,6 +359,14 @@ MonoBehaviour:
     outputFieldName: output
     inputPortIdentifier: 
     outputPortIdentifier: 
+  - GUID: 733abdd1-2449-4df9-afba-2e60999b0004
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1eab10ca-a6cd-4e1f-9609-e9eec11ac22e
+    outputNodeGUID: f528f821-401c-4991-9fc6-ba0b9937c98e
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 
   groups: []
   stackNodes: []
   pinnedElements: []
@@ -365,8 +374,8 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -759, y: -2673, z: 0}
-  scale: {x: 0.8695652, y: 0.8695652, z: 1}
+  position: {x: -1205, y: -2556, z: 0}
+  scale: {x: 1.7490063, y: 1.7490063, z: 1}
   references:
     version: 2
     RefIds:
@@ -853,7 +862,7 @@ MonoBehaviour:
         debug: 0
         nodeLock: 0
         input: 0
-        minWaitTime: 1
+        minWaitTime: 0.2
         maxWaitTime: 1
     - rid: 2235637542765199379
       type: {class: FinishOrderActionNode, ns: Game.AI.Tasks.Actions, asm: Assembly-CSharp}
@@ -1019,3 +1028,21 @@ MonoBehaviour:
         debug: 0
         nodeLock: 0
         input: 0
+    - rid: 2235637542765199394
+      type: {class: WaitTimeActionNode, ns: Game.Models.Ai.Tasks.SelfState, asm: Assembly-CSharp}
+      data:
+        nodeCustomName: 
+        GUID: 1eab10ca-a6cd-4e1f-9609-e9eec11ac22e
+        computeOrder: 39
+        position:
+          serializedVersion: 2
+          x: 916.50006
+          y: 785.00006
+          width: 179
+          height: 88
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        input: 0
+        minWaitTime: 0.5
+        maxWaitTime: 1.1

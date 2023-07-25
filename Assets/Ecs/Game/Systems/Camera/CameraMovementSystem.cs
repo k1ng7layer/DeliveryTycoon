@@ -1,6 +1,5 @@
 ﻿using Db.Camera;
 using Game.Services.Camera;
-using Game.Services.Input;
 using Game.Services.TimeProvider;
 using JCMG.EntitasRedux;
 using UnityEngine;
@@ -30,7 +29,12 @@ namespace Ecs.Game.Systems.Camera
         
         public void Update()
         {
+            if(!_input.InputEntity.HasInputVector)
+                return;
+            
             var inputVector = _input.InputEntity.InputVector.Value;
+            
+            Debug.Log($"CameraMovementSystem = {inputVector}");
             if(inputVector.sqrMagnitude == 0)
                 return;
 

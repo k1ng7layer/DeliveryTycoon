@@ -7,6 +7,8 @@ using Game.UI.DeliverySourceShop.Views;
 using Game.UI.MainMenu.Controllers;
 using Game.UI.MainMenu.Views;
 using Game.UI.OrderView.Views;
+using Game.UI.TouchInput.Controllers;
+using Game.UI.TouchInput.Views;
 using Game.UI.Wallet.Controllers;
 using Game.UI.Wallet.Views;
 using SimpleUi;
@@ -25,6 +27,7 @@ namespace Installers.Game
         [SerializeField] private BuyCourierButtonView buyCourierButtonView;
         [SerializeField] private WalletView walletView;
         [SerializeField] private CouriersView couriersView;
+        [SerializeField] private TouchInputView touchInputView;
 
         public override void InstallBindings()
         {
@@ -38,6 +41,7 @@ namespace Installers.Game
             Container.BindUiView<BuyCourierButtonController, BuyCourierButtonView>(buyCourierButtonView, canvasTransform);
             Container.BindUiView<WalletController, WalletView>(walletView, canvasTransform);
             Container.BindUiView<CouriersUiController, CouriersView>(couriersView, canvasTransform);
+            Container.BindUiView<TouchInputController, TouchInputView>(touchInputView, canvasTransform);
         }
     }
 }

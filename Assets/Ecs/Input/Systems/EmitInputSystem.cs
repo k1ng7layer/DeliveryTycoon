@@ -30,7 +30,7 @@ namespace Ecs.Input.Systems
         
         public void Update()
         {
-            _input.InputEntity.ReplaceInputVector(_inputService.InputVector);
+            //_input.InputEntity.ReplaceInputVector(_inputService.InputVector);
         }
 
         private void UnlockCameraMovement(bool value)

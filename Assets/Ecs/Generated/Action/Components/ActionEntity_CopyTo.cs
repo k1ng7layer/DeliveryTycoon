@@ -62,6 +62,10 @@ public partial class ActionEntity
 		{
 			IsCheckOrderStatus = true;
 		}
+		else if (component is Ecs.Action.Components.Contract.ReduceContractCouriersComponent ReduceContractCouriers)
+		{
+			CopyReduceContractCouriersTo(ReduceContractCouriers);
+		}
 		else if (component is Ecs.Action.Components.Contract.CreateContractComponent CreateContract)
 		{
 			CopyCreateContractTo(CreateContract);

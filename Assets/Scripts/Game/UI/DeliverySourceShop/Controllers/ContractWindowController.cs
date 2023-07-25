@@ -178,8 +178,16 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var contractUid = currentShop.ContractProvider.ContractUid;
             var engagedCouriers = _game.GetEntitiesWithOwner(contractUid);
             var delta = _proposedCouriers - engagedCouriers.Count;
-            
-            _action.CreateEntity().AddAttachCouriersToContract(new ChangeCouriersData(contractUid, _proposedCouriers));
+
+            if (_proposedCouriers > 0)
+            {
+                _action.CreateEntity().AddAttachCouriersToContract(new ChangeCouriersData(contractUid, _proposedCouriers));
+            }
+            else
+            {
+                _action.CreateEntity().AddReduceContractCouriers(new ChangeCouriersData(contractUid, _proposedCouriers));
+            }
+           
             
             Close();
         }

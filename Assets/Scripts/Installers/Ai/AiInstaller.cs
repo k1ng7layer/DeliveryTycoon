@@ -52,6 +52,8 @@ namespace Installers.Ai
 			Container.BindInterfacesTo<CheckOrderStatusConditionBuilder>().AsSingle();
 			Container.BindInterfacesTo<HasFreeOrdersConditionBuilder>().AsSingle();
 			Container.BindInterfacesTo<SetOrderDeliveredActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<ContractHasReduceCouriersConditionBuilder>().AsSingle();
+			Container.BindInterfacesTo<NotifyContractAndSetFreeActionBuilder>().AsSingle();
         }
     }
 }

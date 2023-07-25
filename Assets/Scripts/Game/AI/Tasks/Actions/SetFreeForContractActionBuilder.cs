@@ -28,7 +28,9 @@ namespace Game.AI.Tasks.Actions
                 entity.IsBusy = false;
                 entity.RemoveRouteTarget();
                 entity.RemoveActiveContract();
-                entity.RemoveActiveOrder();
+                
+                if(entity.HasActiveOrder)
+                    entity.RemoveActiveOrder();
                 
                 return TaskStatus.Success;
             });

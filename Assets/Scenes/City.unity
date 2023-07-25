@@ -1412,8 +1412,11 @@ MonoBehaviour:
   cameraFollowView: {fileID: 377132724}
   deliveryShops:
   - {fileID: 7830572653242160173}
+  - {fileID: 7830572655217265963}
   customerSpotViews:
   - {fileID: 7830572653512084850}
+  - {fileID: 7830572654165775602}
+  - {fileID: 7830572654249352327}
   deliveryOfficeView: {fileID: 7830572655126015347}
 --- !u!4 &804363412
 Transform:
@@ -3178,7 +3181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160961906965978501, guid: 95bf55bdf16b6ad4e94deaf61d633d1b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.12
+      value: 2.92
       objectReference: {fileID: 0}
     - target: {fileID: 4160961906965978501, guid: 95bf55bdf16b6ad4e94deaf61d633d1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -76779,7 +76782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160961906965978501, guid: 95bf55bdf16b6ad4e94deaf61d633d1b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.85
+      value: 2.99
       objectReference: {fileID: 0}
     - target: {fileID: 4160961906965978501, guid: 95bf55bdf16b6ad4e94deaf61d633d1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

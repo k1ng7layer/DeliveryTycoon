@@ -135,7 +135,6 @@ namespace Game.UI.DeliverySourceShop.Controllers
                 
                 _canDecrease = (_proposedCouriers + engagedCouriers - 1) >= contractData.CourierAmount;
                 _canIncrease = engagedCouriers < contractData.OrdersAmount && _proposedCouriers < availableCouriersQuantity && availableOrderCount != 0;
-                //_canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < engagedCouriers.Count;
             }
             else
             {

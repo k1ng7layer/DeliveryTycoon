@@ -128,12 +128,12 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var contractStatus = contractEntity.ContractStatus.Value;
 
             _courierRepository.TryGetCouriersAmount(requiredCourierType, _proposedCouriers, out var availableCouriersQuantity);
-            
+            var add = contractEntity.HasCouriersToFreeNumber ? contractEntity.CouriersToFreeNumber.Value : 0;
             if (contractStatus == EContractStatus.InProgress)
             {
                 var availableOrderCount = _orderProvider.GetContractOrderWithStatus(contractUid, EOrderStatus.Created);
                 
-                _canDecrease = (_proposedCouriers + engagedCouriers - 1) >= contractData.CourierAmount;
+                _canDecrease = (_proposedCouriers + engagedCouriers - add) > contractData.CourierAmount;
                 _canIncrease = engagedCouriers < contractData.OrdersAmount && _proposedCouriers < availableCouriersQuantity && availableOrderCount != 0;
             }
             else
@@ -142,7 +142,9 @@ namespace Game.UI.DeliverySourceShop.Controllers
                 _canIncrease = _proposedCouriers + 1 <= availableCouriersQuantity && (_proposedCouriers + 1) <= contractData.OrdersAmount;
             }
 
-            View.SelectedCouriersAmountText.text = $"{engagedCouriers + _proposedCouriers}";
+           
+            
+            View.SelectedCouriersAmountText.text = $"{engagedCouriers + _proposedCouriers - add}";
             
             View.IncreaseCouriersBtn.interactable = _canIncrease;
             View.ReduceCouriersBtn.interactable = _canDecrease;

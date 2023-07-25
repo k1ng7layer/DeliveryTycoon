@@ -1,4 +1,5 @@
-﻿using Game.Utils;
+﻿using Ecs.UidGenerator;
+using Game.Utils;
 using JCMG.EntitasRedux;
 using Zenject;
 
@@ -9,11 +10,15 @@ namespace Game.Services.EmployeeRepository.Impl
         private static readonly ListPool<GameEntity> EntityPool = ListPool<GameEntity>.Instance;
         
         private readonly IGroup<GameEntity> _availableCouriersGroup;
+        private readonly IGroup<GameEntity> _couriersWithContractGroup;
 
         public CourierRepository(GameContext game)
         {
             _availableCouriersGroup =
                 game.GetGroup(GameMatcher.AllOf(GameMatcher.Courier).NoneOf(GameMatcher.Busy, GameMatcher.Destroyed));
+            
+            _couriersWithContractGroup = 
+                game.GetGroup(GameMatcher.AllOf(GameMatcher.Courier, GameMatcher.ActiveContract).NoneOf(GameMatcher.Destroyed));
         }
         
         public bool HasAnyCouriersOfType(ECourierType courierType)
@@ -87,6 +92,26 @@ namespace Game.Services.EmployeeRepository.Impl
                 var type = courier.Courier.Type;
 
                 if (type == courierType)
+                {
+                    result++;
+                }
+            }
+            
+            EntityPool.Despawn(availableCouriers);
+            
+            return result;
+        }
+
+        public int CouriersWithContractQuantity(Uid contractUid)
+        {
+            var availableCouriers = EntityPool.Spawn();
+            _couriersWithContractGroup.GetEntities(availableCouriers);
+            var result = 0;
+            foreach (var courier in availableCouriers)
+            {
+                var attachedContract = courier.ActiveContract.Value;
+
+                if (attachedContract == contractUid)
                 {
                     result++;
                 }

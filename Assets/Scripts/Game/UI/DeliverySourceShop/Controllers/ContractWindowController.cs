@@ -91,8 +91,8 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var contractEntity = _order.GetEntityWithUid(contractUid);
             var reward = contractEntity.Reward.Value;
             var contractData = contractEntity.Contract.Value;
-            var engagedCouriers = _game.GetEntitiesWithOwner(contractUid);
-            _proposedCouriers = engagedCouriers.Count;
+            var engagedCouriers = _courierRepository.CouriersWithContractQuantity(contractUid);
+            //_proposedCouriers = engagedCouriers;
             
             View.ShopName.text = currentShopName;
             View.ContractTotalRewardText.text = $"Reward: {reward}";
@@ -110,7 +110,7 @@ namespace Game.UI.DeliverySourceShop.Controllers
                                                      && _proposedCouriers >= contractData.CourierAmount;
             
             View.ChangeCouriersBtn.gameObject.SetActive(contractStatus == EContractStatus.InProgress);
-            View.ChangeCouriersBtn.interactable = _proposedCouriers != engagedCouriers.Count;
+            View.ChangeCouriersBtn.interactable = _proposedCouriers != engagedCouriers;
         }
         
         private void UpdateCourierChangeButtonsStates()
@@ -123,19 +123,18 @@ namespace Game.UI.DeliverySourceShop.Controllers
 
             var requiredCourierType = contractData.CourierType;
 
-            var engagedCouriers = _game.GetEntitiesWithOwner(contractUid);
+            var engagedCouriers = _courierRepository.CouriersWithContractQuantity(contractUid);
             // var contractStatus = _contractStatusService.GetStatus(contractEntity);
             var contractStatus = contractEntity.ContractStatus.Value;
-            var activeOrders = contractEntity.AvailableOrders.Value;
-            
+
             _courierRepository.TryGetCouriersAmount(requiredCourierType, _proposedCouriers, out var availableCouriersQuantity);
             
             if (contractStatus == EContractStatus.InProgress)
             {
                 var availableOrderCount = _orderProvider.GetContractOrderWithStatus(contractUid, EOrderStatus.Created);
                 
-                _canDecrease = (_proposedCouriers - 1) >= contractData.CourierAmount;
-                _canIncrease = _proposedCouriers + 1 <= contractData.OrdersAmount && availableCouriersQuantity != 0 && availableOrderCount != 0;
+                _canDecrease = (_proposedCouriers + engagedCouriers - 1) >= contractData.CourierAmount;
+                _canIncrease = engagedCouriers < contractData.OrdersAmount && _proposedCouriers < availableCouriersQuantity && availableOrderCount != 0;
                 //_canIncrease = _proposedCouriers + 1 <= actual && _proposedCouriers + 1 < engagedCouriers.Count;
             }
             else
@@ -144,19 +143,20 @@ namespace Game.UI.DeliverySourceShop.Controllers
                 _canIncrease = _proposedCouriers + 1 <= availableCouriersQuantity && (_proposedCouriers + 1) <= contractData.OrdersAmount;
             }
 
-            View.SelectedCouriersAmountText.text = $"{_proposedCouriers}";
+            View.SelectedCouriersAmountText.text = $"{engagedCouriers + _proposedCouriers}";
             
             View.IncreaseCouriersBtn.interactable = _canIncrease;
             View.ReduceCouriersBtn.interactable = _canDecrease;
 
             View.EngageContractButton.interactable = _proposedCouriers >= contractData.CourierAmount;
-            View.ChangeCouriersBtn.interactable = _proposedCouriers != engagedCouriers.Count;
+            View.ChangeCouriersBtn.interactable = _proposedCouriers != 0;
             View.ChangeCouriersBtn.gameObject.SetActive(contractStatus == EContractStatus.InProgress);
             View.EngageContractButton.gameObject.SetActive(contractStatus is EContractStatus.Accessible or EContractStatus.NotAccessible);
         }
         
         private void Close()
         {
+            _proposedCouriers = 0;
             _signalBus.BackWindow();
         }
 
@@ -180,7 +180,7 @@ namespace Game.UI.DeliverySourceShop.Controllers
             var engagedCouriers = _game.GetEntitiesWithOwner(contractUid);
             var delta = _proposedCouriers - engagedCouriers.Count;
             
-            _action.CreateEntity().AddAttachCouriersToContract(new ChangeCouriersData(contractUid, delta));
+            _action.CreateEntity().AddAttachCouriersToContract(new ChangeCouriersData(contractUid, _proposedCouriers));
             
             Close();
         }

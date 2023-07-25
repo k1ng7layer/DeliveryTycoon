@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contractParameters:
   - ShopLevel: 1
-    OrdersAmount: 7
+    OrdersAmount: 5
     CouriersAmount: 2
     Reward: 1000
     CourierType: 0

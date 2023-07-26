@@ -26,18 +26,19 @@ public static class OrderComponentsLookup
 	public const int Contract = 10;
 	public const int ContractStatus = 11;
 	public const int CourierAmount = 12;
-	public const int Destination = 13;
-	public const int Duration = 14;
-	public const int InWork = 15;
-	public const int ItemsAmount = 16;
-	public const int OrderStatus = 17;
-	public const int Performer = 18;
-	public const int Price = 19;
-	public const int Source = 20;
-	public const int SourcePosition = 21;
-	public const int TargetTime = 22;
+	public const int CouriersToFreeNumber = 13;
+	public const int Destination = 14;
+	public const int Duration = 15;
+	public const int InWork = 16;
+	public const int ItemsAmount = 17;
+	public const int OrderStatus = 18;
+	public const int Performer = 19;
+	public const int Price = 20;
+	public const int Source = 21;
+	public const int SourcePosition = 22;
+	public const int TargetTime = 23;
 
-	public const int TotalComponents = 23;
+	public const int TotalComponents = 24;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -54,6 +55,7 @@ public static class OrderComponentsLookup
 		"Contract",
 		"ContractStatus",
 		"CourierAmount",
+		"CouriersToFreeNumber",
 		"Destination",
 		"Duration",
 		"InWork",
@@ -81,6 +83,7 @@ public static class OrderComponentsLookup
 		typeof(Ecs.Order.Components.ContractComponent),
 		typeof(Ecs.Order.Components.ContractStatusComponent),
 		typeof(Ecs.Order.Components.CourierAmountComponent),
+		typeof(Ecs.Order.Components.CouriersToFreeNumberComponent),
 		typeof(Ecs.Order.Components.DestinationComponent),
 		typeof(Ecs.Order.Components.DurationComponent),
 		typeof(Ecs.Order.Components.InWorkComponent),
@@ -108,16 +111,17 @@ public static class OrderComponentsLookup
 		{ typeof(Ecs.Order.Components.ContractComponent), 10 },
 		{ typeof(Ecs.Order.Components.ContractStatusComponent), 11 },
 		{ typeof(Ecs.Order.Components.CourierAmountComponent), 12 },
-		{ typeof(Ecs.Order.Components.DestinationComponent), 13 },
-		{ typeof(Ecs.Order.Components.DurationComponent), 14 },
-		{ typeof(Ecs.Order.Components.InWorkComponent), 15 },
-		{ typeof(Ecs.Order.Components.ItemsAmountComponent), 16 },
-		{ typeof(Ecs.Order.Components.OrderStatusComponent), 17 },
-		{ typeof(Ecs.Order.Components.PerformerComponent), 18 },
-		{ typeof(Ecs.Order.Components.PriceComponent), 19 },
-		{ typeof(Ecs.Order.Components.SourceComponent), 20 },
-		{ typeof(Ecs.Order.Components.SourcePositionComponent), 21 },
-		{ typeof(Ecs.Order.Components.TargetTimeComponent), 22 }
+		{ typeof(Ecs.Order.Components.CouriersToFreeNumberComponent), 13 },
+		{ typeof(Ecs.Order.Components.DestinationComponent), 14 },
+		{ typeof(Ecs.Order.Components.DurationComponent), 15 },
+		{ typeof(Ecs.Order.Components.InWorkComponent), 16 },
+		{ typeof(Ecs.Order.Components.ItemsAmountComponent), 17 },
+		{ typeof(Ecs.Order.Components.OrderStatusComponent), 18 },
+		{ typeof(Ecs.Order.Components.PerformerComponent), 19 },
+		{ typeof(Ecs.Order.Components.PriceComponent), 20 },
+		{ typeof(Ecs.Order.Components.SourceComponent), 21 },
+		{ typeof(Ecs.Order.Components.SourcePositionComponent), 22 },
+		{ typeof(Ecs.Order.Components.TargetTimeComponent), 23 }
 	};
 
 	/// <summary>

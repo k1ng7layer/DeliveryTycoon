@@ -12,10 +12,10 @@ namespace Game.AI.Tasks.Conditions
         [GraphProcessor.Input("In"), Vertical]
         public float input;
 		
-        public override string name => TaskNames.HAS_ORDER;
+        public override string name => TaskNames.HAS_ORDER; 
     }
     
-    public class HasOrderConditionBuilder : ATaskBuilder
+    public class HasOrderConditionBuilder : ATaskBuilder        
     {
         public override string Name => TaskNames.HAS_ORDER;
 

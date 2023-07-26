@@ -16,25 +16,27 @@ public static class ActionComponentsLookup
 	public const int ChangeCoins = 0;
 	public const int AttachCouriersToContract = 1;
 	public const int CreateContract = 2;
-	public const int BuyCourier = 3;
-	public const int CreateCourier = 4;
-	public const int MakeContract = 5;
-	public const int SelectShop = 6;
-	public const int CheckOrderStatus = 7;
-	public const int CompleteOrder = 8;
-	public const int CreateOrder = 9;
-	public const int StartNextContractTimer = 10;
-	public const int TakeOrder = 11;
-	public const int StartGame = 12;
-	public const int Destroyed = 13;
+	public const int ReduceContractCouriers = 3;
+	public const int BuyCourier = 4;
+	public const int CreateCourier = 5;
+	public const int MakeContract = 6;
+	public const int SelectShop = 7;
+	public const int CheckOrderStatus = 8;
+	public const int CompleteOrder = 9;
+	public const int CreateOrder = 10;
+	public const int StartNextContractTimer = 11;
+	public const int TakeOrder = 12;
+	public const int StartGame = 13;
+	public const int Destroyed = 14;
 
-	public const int TotalComponents = 14;
+	public const int TotalComponents = 15;
 
 	public static readonly string[] ComponentNames =
 	{
 		"ChangeCoins",
 		"AttachCouriersToContract",
 		"CreateContract",
+		"ReduceContractCouriers",
 		"BuyCourier",
 		"CreateCourier",
 		"MakeContract",
@@ -53,6 +55,7 @@ public static class ActionComponentsLookup
 		typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent),
 		typeof(Ecs.Action.Components.Contract.AttachCouriersToContractComponent),
 		typeof(Ecs.Action.Components.Contract.CreateContractComponent),
+		typeof(Ecs.Action.Components.Contract.ReduceContractCouriersComponent),
 		typeof(Ecs.Action.Components.Courier.BuyCourierComponent),
 		typeof(Ecs.Action.Components.Courier.CreateCourierComponent),
 		typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent),
@@ -71,17 +74,18 @@ public static class ActionComponentsLookup
 		{ typeof(Ecs.Action.Components.Coins.ChangeCoinsComponent), 0 },
 		{ typeof(Ecs.Action.Components.Contract.AttachCouriersToContractComponent), 1 },
 		{ typeof(Ecs.Action.Components.Contract.CreateContractComponent), 2 },
-		{ typeof(Ecs.Action.Components.Courier.BuyCourierComponent), 3 },
-		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 4 },
-		{ typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent), 5 },
-		{ typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent), 6 },
-		{ typeof(Ecs.Action.Components.Order.CheckOrderStatusComponent), 7 },
-		{ typeof(Ecs.Action.Components.Order.CompleteOrderComponent), 8 },
-		{ typeof(Ecs.Action.Components.Order.CreateOrderComponent), 9 },
-		{ typeof(Ecs.Action.Components.Order.StartNextContractTimerComponent), 10 },
-		{ typeof(Ecs.Action.Components.Order.TakeOrderComponent), 11 },
-		{ typeof(Ecs.Action.Components.StartGameComponent), 12 },
-		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 13 }
+		{ typeof(Ecs.Action.Components.Contract.ReduceContractCouriersComponent), 3 },
+		{ typeof(Ecs.Action.Components.Courier.BuyCourierComponent), 4 },
+		{ typeof(Ecs.Action.Components.Courier.CreateCourierComponent), 5 },
+		{ typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent), 6 },
+		{ typeof(Ecs.Action.Components.CustomersShop.SelectShopComponent), 7 },
+		{ typeof(Ecs.Action.Components.Order.CheckOrderStatusComponent), 8 },
+		{ typeof(Ecs.Action.Components.Order.CompleteOrderComponent), 9 },
+		{ typeof(Ecs.Action.Components.Order.CreateOrderComponent), 10 },
+		{ typeof(Ecs.Action.Components.Order.StartNextContractTimerComponent), 11 },
+		{ typeof(Ecs.Action.Components.Order.TakeOrderComponent), 12 },
+		{ typeof(Ecs.Action.Components.StartGameComponent), 13 },
+		{ typeof(Ecs.Game.Components.Common.DestroyedComponent), 14 }
 	};
 
 	/// <summary>

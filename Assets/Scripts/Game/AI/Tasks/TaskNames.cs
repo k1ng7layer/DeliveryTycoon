@@ -56,10 +56,16 @@ namespace Game.AI.Tasks
 		public const string HAS_FREE_ORDERS = "has free orders";
 		public const string HAS_FREE_ORDERS_PATH = "Conditions/has free orders";
 		
+		public const string NOTIFY_CONTRACT_AND_SET_FREE = "notify contract and set free";
+		public const string NOTIFY_CONTRACT_AND_SET_FREE_PATH = "Actions/notify contract and set free";
+		
 		public const string RETURN_OFFICE = "return to office";
 		public const string RETURN_OFFICE_PATH = "Actions/return to office";
 		
 		public const string SET_ORDER_DELIVERED = "set order delivered";
 		public const string SET_ORDER_DELIVERED_PATH = "Actions/set order delivered";
+		
+		public const string CONTRACT_REDUCE = "contract reduced couriers";
+		public const string CONTRACT_REDUCE_PATH = "Conditions/contract reduced couriers";
 	}
 }

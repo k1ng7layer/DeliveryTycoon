@@ -37,28 +37,28 @@ namespace Game.UI.TouchInput.Controllers
             var delta = pointerEventData.delta;
             var input = -delta.normalized * 2f;
             
-            _input.InputEntity.ReplaceInputVector(new Vector3(input.x, 0, input.y));
+            //_input.InputEntity.ReplaceInputVector(new Vector3(input.x, 0, input.y));
             Debug.Log($"OnDrag = {delta}");
         }
         
         private void OnEndDrag(PointerEventData pointerEventData)
         {
             Debug.Log($"OnEndDrag");
-            _input.InputEntity.ReplaceInputVector(Vector3.zero);
+            //_input.InputEntity.ReplaceInputVector(Vector3.zero);
         }
 
         private void OnPointerDown(PointerEventData pointerEventData)
         {
-            var camera = _cameraService.PhysicalCamera;
-            var ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out var hit, Mathf.Infinity))
-            {
-                Debug.Log($"Raycast = {hit.transform.name}");
-                if (_objectRepository.TryGet(hit.transform.GetInstanceID(), out var instance))
-                {
-                    instance.OnSelected();
-                }
-            }
+            // var camera = _cameraService.PhysicalCamera;
+            // var ray = camera.ScreenPointToRay(Input.mousePosition);
+            // if (Physics.Raycast(ray, out var hit, Mathf.Infinity))
+            // {
+            //     Debug.Log($"Raycast = {hit.transform.name}");
+            //     if (_objectRepository.TryGet(hit.transform.GetInstanceID(), out var instance))
+            //     {
+            //         instance.OnSelected();
+            //     }
+            // }
         }
     }
 }

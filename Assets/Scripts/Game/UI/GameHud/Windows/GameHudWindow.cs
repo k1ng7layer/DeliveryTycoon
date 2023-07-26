@@ -16,7 +16,7 @@ namespace Game.UI.GameHud.Windows
             AddController<BuyCourierButtonController>();
             AddController<WalletController>();
             AddController<CouriersUiController>();
-            AddController<TouchInputController>();
+            //AddController<TouchInputController>();
         }
     }
 }

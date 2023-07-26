@@ -95,6 +95,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CompleteContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ChangeCouriersInContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ReduceContractCouriersSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TouchInputSystem>().AsSingle();
         }
 
         private void BindWindows()

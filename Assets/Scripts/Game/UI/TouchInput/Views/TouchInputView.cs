@@ -11,6 +11,7 @@ namespace Game.UI.TouchInput.Views
     {
         public ReactiveCommand<PointerEventData> OnTouchDrag { get; } = new();
         public ReactiveCommand<PointerEventData> OnTouchEndDrag { get; } = new();
+        public ReactiveCommand<PointerEventData> OnPointerDownCmd { get; } = new();
 
         public void OnDrag(PointerEventData eventData)
         {
@@ -24,7 +25,7 @@ namespace Game.UI.TouchInput.Views
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            
+            OnPointerDownCmd.Execute(eventData);
         }
 
         public void OnPointerMove(PointerEventData eventData)

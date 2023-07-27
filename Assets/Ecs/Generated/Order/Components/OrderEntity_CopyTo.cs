@@ -78,13 +78,13 @@ public partial class OrderEntity
 		{
 			CopyCouriersToFreeNumberTo(CouriersToFreeNumber);
 		}
+		else if (component is Ecs.Order.Components.OrderComponent Order)
+		{
+			IsOrder = true;
+		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{
 			CopyCourierTo(Courier);
-		}
-		else if (component is Ecs.Game.Components.Order.OrderComponent Order)
-		{
-			IsOrder = true;
 		}
 		else if (component is Ecs.Game.Components.Order.AttachedCustomersComponent AttachedCustomers)
 		{
@@ -113,6 +113,10 @@ public partial class OrderEntity
 		else if (component is DurationAddedListenerComponent DurationAddedListener)
 		{
 			CopyDurationAddedListenerTo(DurationAddedListener);
+		}
+		else if (component is OrderRewardAddedListenerComponent OrderRewardAddedListener)
+		{
+			CopyOrderRewardAddedListenerTo(OrderRewardAddedListener);
 		}
 		#endif
 	}

@@ -43,6 +43,11 @@ namespace Ecs.Order.Systems.Order
                 
                 var contractUid = entity.Owner.Value;
                 var contractEntity = _order.GetEntityWithUid(contractUid);
+                var contractSourceUid = contractEntity.Owner.Value;
+                var contractSource = _game.GetEntityWithUid(contractSourceUid);
+                
+                contractSource.ReplaceReward(price);
+                
                 var ordersAmount = contractEntity.AvailableOrders.Value;
                 
                 //TODO: should be replaced when courier take order

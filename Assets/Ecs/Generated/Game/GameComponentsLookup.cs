@@ -59,18 +59,19 @@ public static class GameComponentsLookup
 	public const int ReceptionPoint = 43;
 	public const int ShopName = 44;
 	public const int Wallet = 45;
-	public const int InstantiateAddedListener = 46;
-	public const int LinkRemovedListener = 47;
-	public const int MovingAddedListener = 48;
-	public const int MovingRemovedListener = 49;
-	public const int PositionAddedListener = 50;
-	public const int RotationAddedListener = 51;
-	public const int RouteTargetAddedListener = 52;
-	public const int StandbyEmployeesAddedListener = 53;
-	public const int TotalEmployeesAddedListener = 54;
-	public const int WalletAddedListener = 55;
+	public const int GameRewardAddedListener = 46;
+	public const int InstantiateAddedListener = 47;
+	public const int LinkRemovedListener = 48;
+	public const int MovingAddedListener = 49;
+	public const int MovingRemovedListener = 50;
+	public const int PositionAddedListener = 51;
+	public const int RotationAddedListener = 52;
+	public const int RouteTargetAddedListener = 53;
+	public const int StandbyEmployeesAddedListener = 54;
+	public const int TotalEmployeesAddedListener = 55;
+	public const int WalletAddedListener = 56;
 
-	public const int TotalComponents = 56;
+	public const int TotalComponents = 57;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -120,6 +121,7 @@ public static class GameComponentsLookup
 		"ReceptionPoint",
 		"ShopName",
 		"Wallet",
+		"GameRewardAddedListener",
 		"InstantiateAddedListener",
 		"LinkRemovedListener",
 		"MovingAddedListener",
@@ -180,6 +182,7 @@ public static class GameComponentsLookup
 		typeof(Ecs.Game.Components.Shop.ReceptionPointComponent),
 		typeof(Ecs.Game.Components.Shop.ShopNameComponent),
 		typeof(Ecs.Game.Components.Wallet.WalletComponent),
+		typeof(GameRewardAddedListenerComponent),
 		typeof(InstantiateAddedListenerComponent),
 		typeof(LinkRemovedListenerComponent),
 		typeof(MovingAddedListenerComponent),
@@ -240,16 +243,17 @@ public static class GameComponentsLookup
 		{ typeof(Ecs.Game.Components.Shop.ReceptionPointComponent), 43 },
 		{ typeof(Ecs.Game.Components.Shop.ShopNameComponent), 44 },
 		{ typeof(Ecs.Game.Components.Wallet.WalletComponent), 45 },
-		{ typeof(InstantiateAddedListenerComponent), 46 },
-		{ typeof(LinkRemovedListenerComponent), 47 },
-		{ typeof(MovingAddedListenerComponent), 48 },
-		{ typeof(MovingRemovedListenerComponent), 49 },
-		{ typeof(PositionAddedListenerComponent), 50 },
-		{ typeof(RotationAddedListenerComponent), 51 },
-		{ typeof(RouteTargetAddedListenerComponent), 52 },
-		{ typeof(StandbyEmployeesAddedListenerComponent), 53 },
-		{ typeof(TotalEmployeesAddedListenerComponent), 54 },
-		{ typeof(WalletAddedListenerComponent), 55 }
+		{ typeof(GameRewardAddedListenerComponent), 46 },
+		{ typeof(InstantiateAddedListenerComponent), 47 },
+		{ typeof(LinkRemovedListenerComponent), 48 },
+		{ typeof(MovingAddedListenerComponent), 49 },
+		{ typeof(MovingRemovedListenerComponent), 50 },
+		{ typeof(PositionAddedListenerComponent), 51 },
+		{ typeof(RotationAddedListenerComponent), 52 },
+		{ typeof(RouteTargetAddedListenerComponent), 53 },
+		{ typeof(StandbyEmployeesAddedListenerComponent), 54 },
+		{ typeof(TotalEmployeesAddedListenerComponent), 55 },
+		{ typeof(WalletAddedListenerComponent), 56 }
 	};
 
 	/// <summary>

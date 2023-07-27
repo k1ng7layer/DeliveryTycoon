@@ -226,6 +226,10 @@ public partial class GameEntity
 		{
 			CopyTotalEmployeesAddedListenerTo(TotalEmployeesAddedListener);
 		}
+		else if (component is GameRewardAddedListenerComponent GameRewardAddedListener)
+		{
+			CopyGameRewardAddedListenerTo(GameRewardAddedListener);
+		}
 		else if (component is RotationAddedListenerComponent RotationAddedListener)
 		{
 			CopyRotationAddedListenerTo(RotationAddedListener);

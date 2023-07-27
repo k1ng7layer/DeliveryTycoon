@@ -23,6 +23,7 @@ public sealed class GameEventSystems : Feature
 		Add(new MovingAddedEventSystem(contexts)); // priority: 0
 		Add(new MovingRemovedEventSystem(contexts)); // priority: 0
 		Add(new PositionAddedEventSystem(contexts)); // priority: 0
+		Add(new GameRewardAddedEventSystem(contexts)); // priority: 0
 		Add(new RotationAddedEventSystem(contexts)); // priority: 0
 		Add(new RouteTargetAddedEventSystem(contexts)); // priority: 0
 		Add(new StandbyEmployeesAddedEventSystem(contexts)); // priority: 0

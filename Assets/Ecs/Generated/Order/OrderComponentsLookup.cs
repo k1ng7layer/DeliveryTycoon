@@ -20,25 +20,26 @@ public static class OrderComponentsLookup
 	public const int Uid = 4;
 	public const int Courier = 5;
 	public const int AttachedCustomers = 6;
-	public const int Order = 7;
-	public const int Reward = 8;
-	public const int AvailableOrders = 9;
-	public const int Contract = 10;
-	public const int ContractStatus = 11;
-	public const int CourierAmount = 12;
-	public const int CouriersToFreeNumber = 13;
-	public const int Destination = 14;
-	public const int Duration = 15;
-	public const int InWork = 16;
-	public const int ItemsAmount = 17;
+	public const int Reward = 7;
+	public const int AvailableOrders = 8;
+	public const int Contract = 9;
+	public const int ContractStatus = 10;
+	public const int CourierAmount = 11;
+	public const int CouriersToFreeNumber = 12;
+	public const int Destination = 13;
+	public const int Duration = 14;
+	public const int InWork = 15;
+	public const int ItemsAmount = 16;
+	public const int Order = 17;
 	public const int OrderStatus = 18;
 	public const int Performer = 19;
 	public const int Price = 20;
 	public const int Source = 21;
 	public const int SourcePosition = 22;
 	public const int TargetTime = 23;
+	public const int OrderRewardAddedListener = 24;
 
-	public const int TotalComponents = 24;
+	public const int TotalComponents = 25;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -49,7 +50,6 @@ public static class OrderComponentsLookup
 		"Uid",
 		"Courier",
 		"AttachedCustomers",
-		"Order",
 		"Reward",
 		"AvailableOrders",
 		"Contract",
@@ -60,12 +60,14 @@ public static class OrderComponentsLookup
 		"Duration",
 		"InWork",
 		"ItemsAmount",
+		"Order",
 		"OrderStatus",
 		"Performer",
 		"Price",
 		"Source",
 		"SourcePosition",
-		"TargetTime"
+		"TargetTime",
+		"OrderRewardAddedListener"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
@@ -77,7 +79,6 @@ public static class OrderComponentsLookup
 		typeof(Ecs.Game.Components.Common.UidComponent),
 		typeof(Ecs.Game.Components.Courier.CourierComponent),
 		typeof(Ecs.Game.Components.Order.AttachedCustomersComponent),
-		typeof(Ecs.Game.Components.Order.OrderComponent),
 		typeof(Ecs.Game.Components.Order.RewardComponent),
 		typeof(Ecs.Order.Components.AvailableOrdersComponent),
 		typeof(Ecs.Order.Components.ContractComponent),
@@ -88,12 +89,14 @@ public static class OrderComponentsLookup
 		typeof(Ecs.Order.Components.DurationComponent),
 		typeof(Ecs.Order.Components.InWorkComponent),
 		typeof(Ecs.Order.Components.ItemsAmountComponent),
+		typeof(Ecs.Order.Components.OrderComponent),
 		typeof(Ecs.Order.Components.OrderStatusComponent),
 		typeof(Ecs.Order.Components.PerformerComponent),
 		typeof(Ecs.Order.Components.PriceComponent),
 		typeof(Ecs.Order.Components.SourceComponent),
 		typeof(Ecs.Order.Components.SourcePositionComponent),
-		typeof(Ecs.Order.Components.TargetTimeComponent)
+		typeof(Ecs.Order.Components.TargetTimeComponent),
+		typeof(OrderRewardAddedListenerComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
@@ -105,23 +108,24 @@ public static class OrderComponentsLookup
 		{ typeof(Ecs.Game.Components.Common.UidComponent), 4 },
 		{ typeof(Ecs.Game.Components.Courier.CourierComponent), 5 },
 		{ typeof(Ecs.Game.Components.Order.AttachedCustomersComponent), 6 },
-		{ typeof(Ecs.Game.Components.Order.OrderComponent), 7 },
-		{ typeof(Ecs.Game.Components.Order.RewardComponent), 8 },
-		{ typeof(Ecs.Order.Components.AvailableOrdersComponent), 9 },
-		{ typeof(Ecs.Order.Components.ContractComponent), 10 },
-		{ typeof(Ecs.Order.Components.ContractStatusComponent), 11 },
-		{ typeof(Ecs.Order.Components.CourierAmountComponent), 12 },
-		{ typeof(Ecs.Order.Components.CouriersToFreeNumberComponent), 13 },
-		{ typeof(Ecs.Order.Components.DestinationComponent), 14 },
-		{ typeof(Ecs.Order.Components.DurationComponent), 15 },
-		{ typeof(Ecs.Order.Components.InWorkComponent), 16 },
-		{ typeof(Ecs.Order.Components.ItemsAmountComponent), 17 },
+		{ typeof(Ecs.Game.Components.Order.RewardComponent), 7 },
+		{ typeof(Ecs.Order.Components.AvailableOrdersComponent), 8 },
+		{ typeof(Ecs.Order.Components.ContractComponent), 9 },
+		{ typeof(Ecs.Order.Components.ContractStatusComponent), 10 },
+		{ typeof(Ecs.Order.Components.CourierAmountComponent), 11 },
+		{ typeof(Ecs.Order.Components.CouriersToFreeNumberComponent), 12 },
+		{ typeof(Ecs.Order.Components.DestinationComponent), 13 },
+		{ typeof(Ecs.Order.Components.DurationComponent), 14 },
+		{ typeof(Ecs.Order.Components.InWorkComponent), 15 },
+		{ typeof(Ecs.Order.Components.ItemsAmountComponent), 16 },
+		{ typeof(Ecs.Order.Components.OrderComponent), 17 },
 		{ typeof(Ecs.Order.Components.OrderStatusComponent), 18 },
 		{ typeof(Ecs.Order.Components.PerformerComponent), 19 },
 		{ typeof(Ecs.Order.Components.PriceComponent), 20 },
 		{ typeof(Ecs.Order.Components.SourceComponent), 21 },
 		{ typeof(Ecs.Order.Components.SourcePositionComponent), 22 },
-		{ typeof(Ecs.Order.Components.TargetTimeComponent), 23 }
+		{ typeof(Ecs.Order.Components.TargetTimeComponent), 23 },
+		{ typeof(OrderRewardAddedListenerComponent), 24 }
 	};
 
 	/// <summary>

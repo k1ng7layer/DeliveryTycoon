@@ -1,6 +1,6 @@
 ﻿using JCMG.EntitasRedux;
 
-namespace Ecs.Game.Components.Order
+namespace Ecs.Order.Components
 {
     [Order]
     public class OrderComponent : IComponent

@@ -41,6 +41,19 @@ namespace Installers.Ai
 			Container.BindInterfacesTo<MoveToTargetActionBuilder>().AsSingle();
 			Container.BindInterfacesTo<ChangeTargetActionBuilder>().AsSingle();
 			Container.BindInterfacesTo<HasTargetConditionBuilder>().AsSingle();
+			Container.BindInterfacesTo<HasCargoConditionBuilder>().AsSingle();
+			Container.BindInterfacesTo<SwitchCargoActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<GoToCustomerActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<GoToOfficeActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<GoToShopActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<SetFreeForContractActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<FinishOrderActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<TakeOrderActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<CheckOrderStatusConditionBuilder>().AsSingle();
+			Container.BindInterfacesTo<HasFreeOrdersConditionBuilder>().AsSingle();
+			Container.BindInterfacesTo<SetOrderDeliveredActionBuilder>().AsSingle();
+			Container.BindInterfacesTo<ContractHasReduceCouriersConditionBuilder>().AsSingle();
+			Container.BindInterfacesTo<NotifyContractAndSetFreeActionBuilder>().AsSingle();
         }
     }
 }

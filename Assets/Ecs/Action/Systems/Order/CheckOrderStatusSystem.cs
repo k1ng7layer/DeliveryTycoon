@@ -17,11 +17,9 @@ namespace Ecs.Action.Systems.Order
         public CheckOrderStatusSystem(
             ActionContext action,
             OrderContext order,
-            IOrderStatusService orderStatusService,
-            IOrderPopupController orderPopupController) : base(action)
+            IOrderStatusService orderStatusService) : base(action)
         {
             _orderStatusService = orderStatusService;
-            _orderPopupController = orderPopupController;
 
             _pendingOrdersGroup = order.GetGroup(OrderMatcher.AllOf(OrderMatcher.Order, 
                     OrderMatcher.OrderStatus)

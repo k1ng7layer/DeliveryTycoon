@@ -9,10 +9,10 @@
 //------------------------------------------------------------------------------
 public partial interface IDestinationEntity
 {
-	Ecs.Delivery.Components.DestinationComponent Destination { get; }
+	Ecs.Order.Components.DestinationComponent Destination { get; }
 	bool HasDestination { get; }
 
-	void AddDestination(UnityEngine.Vector3 newValue);
-	void ReplaceDestination(UnityEngine.Vector3 newValue);
+	void AddDestination(Ecs.UidGenerator.Uid newDestinationUid);
+	void ReplaceDestination(Ecs.UidGenerator.Uid newDestinationUid);
 	void RemoveDestination();
 }

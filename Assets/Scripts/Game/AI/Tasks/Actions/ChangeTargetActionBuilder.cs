@@ -47,26 +47,36 @@ namespace Game.AI.Tasks.Actions
 
                 Vector3 destination;
                 ERouteTarget target;
-                
+                var destinationUid = activeOrder.Destination.DestinationUid;
+                var destinationEntity = _game.GetEntityWithUid(destinationUid);
                 switch (currentTargetData.RouteTargetType)
                 {
                     case ERouteTarget.Customer:
+                    {
                         var officeEntity = _game.DeliveryOfficeEntity;
                         destination = officeEntity.ReceptionPoint.Value;
                         target = ERouteTarget.Office;
                         entity.ReplaceRouteTarget(new RouteTargetData(destination, target));
-                        //entity.IsMoving = true;
+                        destinationEntity.IsBusy = false;
+                        entity.IsCargo = false;
                         break;
+                    }
                     case ERouteTarget.Shop:
-                        destination = activeOrder.Destination.Value;
+                    {
+                        var destinationPosition = destinationEntity.ReceptionPoint.Value;
+                        destination = destinationPosition;
                         target = ERouteTarget.Customer;
                         entity.ReplaceRouteTarget(new RouteTargetData(destination, target));
-                        //entity.IsMoving = true;
+                        entity.IsCargo = true;
                         break;
+                    }
                     case ERouteTarget.Office:
+                    {
                         entity.RemoveRouteTarget();
                         _action.CreateEntity().AddCompleteOrder(activeOrderUid);
+                        activeOrder.ReplaceOrderStatus(EOrderStatus.Completed);
                         break;
+                    }
                 }
 
                 return TaskStatus.Success;

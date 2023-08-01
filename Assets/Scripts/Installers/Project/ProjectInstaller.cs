@@ -2,6 +2,7 @@
 using Core.SceneLoading;
 using Game.Services.SceneLoading.Impls;
 using Game.UI.LoadingWindow.Windows;
+using UnityEngine;
 using Zenject;
 
 namespace Installers.Project
@@ -10,6 +11,8 @@ namespace Installers.Project
     {
         public override void InstallBindings()
         {
+            Application.targetFrameRate = 60;
+            
             Container.Bind<ISceneLoadingManager>().To<SceneLoadingManager>().AsSingle();
             Container.BindInterfacesTo<LoadingProcessor>().AsSingle();
        

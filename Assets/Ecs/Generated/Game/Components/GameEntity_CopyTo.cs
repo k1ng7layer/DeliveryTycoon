@@ -18,29 +18,49 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
+		if (component is Ecs.Game.Components.Contract.ContractProviderComponent ContractProvider)
+		{
+			CopyContractProviderTo(ContractProvider);
+		}
+		else if (component is Ecs.Game.Components.Wallet.WalletComponent Wallet)
 		{
 			CopyWalletTo(Wallet);
-		}
-		else if (component is Ecs.Game.Components.Shop.ReceptionPointComponent ReceptionPoint)
-		{
-			CopyReceptionPointTo(ReceptionPoint);
-		}
-		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
-		{
-			CopyShopNameTo(ShopName);
 		}
 		else if (component is Ecs.Game.Components.Customer.CustomerComponent Customer)
 		{
 			IsCustomer = true;
 		}
-		else if (component is Ecs.Game.Components.Courier.CourierParametersComponent CourierParameters)
+		else if (component is Ecs.Game.Components.Shop.ShopNameComponent ShopName)
 		{
-			CopyCourierParametersTo(CourierParameters);
+			CopyShopNameTo(ShopName);
 		}
-		else if (component is Ecs.Game.Components.Courier.ActiveOrderComponent ActiveOrder)
+		else if (component is Ecs.Game.Components.Shop.ReceptionPointComponent ReceptionPoint)
 		{
-			CopyActiveOrderTo(ActiveOrder);
+			CopyReceptionPointTo(ReceptionPoint);
+		}
+		else if (component is Ecs.Game.Components.Ai.RouteTargetComponent RouteTarget)
+		{
+			CopyRouteTargetTo(RouteTarget);
+		}
+		else if (component is Ecs.Game.Components.Ai.AiComponent Ai)
+		{
+			CopyAiTo(Ai);
+		}
+		else if (component is Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree)
+		{
+			CopyBehaviourTreeTo(BehaviourTree);
+		}
+		else if (component is Ecs.Game.Components.Ai.MovingComponent Moving)
+		{
+			IsMoving = true;
+		}
+		else if (component is Ecs.Game.Components.Courier.ActiveContractComponent ActiveContract)
+		{
+			CopyActiveContractTo(ActiveContract);
+		}
+		else if (component is Ecs.Game.Components.Courier.CargoComponent Cargo)
+		{
+			IsCargo = true;
 		}
 		else if (component is Ecs.Game.Components.Courier.BusyComponent Busy)
 		{
@@ -50,9 +70,17 @@ public partial class GameEntity
 		{
 			CopyStandbyEmployeesTo(StandbyEmployees);
 		}
+		else if (component is Ecs.Game.Components.Courier.ActiveOrderComponent ActiveOrder)
+		{
+			CopyActiveOrderTo(ActiveOrder);
+		}
 		else if (component is Ecs.Game.Components.Courier.CourierComponent Courier)
 		{
 			CopyCourierTo(Courier);
+		}
+		else if (component is Ecs.Game.Components.Courier.CourierParametersComponent CourierParameters)
+		{
+			CopyCourierParametersTo(CourierParameters);
 		}
 		else if (component is Ecs.Game.Components.Courier.TotalEmployeesComponent TotalEmployees)
 		{
@@ -74,17 +102,21 @@ public partial class GameEntity
 		{
 			IsPartner = true;
 		}
-		else if (component is Ecs.Game.Components.Delivery.DeliveryOfficeComponent DeliveryOffice)
-		{
-			IsDeliveryOffice = true;
-		}
-		else if (component is Ecs.Game.Components.Delivery.NextOrderTimerComponent NextOrderTimer)
-		{
-			CopyNextOrderTimerTo(NextOrderTimer);
-		}
 		else if (component is Ecs.Game.Components.Delivery.SelectedShopComponent SelectedShop)
 		{
 			CopySelectedShopTo(SelectedShop);
+		}
+		else if (component is Ecs.Game.Components.Order.DeliveryOfficeComponent DeliveryOffice)
+		{
+			IsDeliveryOffice = true;
+		}
+		else if (component is Ecs.Game.Components.Order.NextContractTimerComponent NextContractTimer)
+		{
+			CopyNextContractTimerTo(NextContractTimer);
+		}
+		else if (component is Ecs.Game.Components.Order.RewardComponent Reward)
+		{
+			CopyRewardTo(Reward);
 		}
 		else if (component is Ecs.Game.Components.Camera.CameraComponent Camera)
 		{
@@ -142,49 +174,17 @@ public partial class GameEntity
 		{
 			CopyPositionTo(Position);
 		}
-		else if (component is Ecs.Game.Components.Ai.RouteTargetComponent RouteTarget)
+		else if (component is ContractProviderAddedListenerComponent ContractProviderAddedListener)
 		{
-			CopyRouteTargetTo(RouteTarget);
+			CopyContractProviderAddedListenerTo(ContractProviderAddedListener);
 		}
-		else if (component is Ecs.Game.Components.Ai.AiComponent Ai)
+		else if (component is ContractProviderRemovedListenerComponent ContractProviderRemovedListener)
 		{
-			CopyAiTo(Ai);
-		}
-		else if (component is Ecs.Game.Components.Ai.BehaviourTreeComponent BehaviourTree)
-		{
-			CopyBehaviourTreeTo(BehaviourTree);
-		}
-		else if (component is Ecs.Game.Components.Ai.MovingComponent Moving)
-		{
-			IsMoving = true;
+			CopyContractProviderRemovedListenerTo(ContractProviderRemovedListener);
 		}
 		else if (component is WalletAddedListenerComponent WalletAddedListener)
 		{
 			CopyWalletAddedListenerTo(WalletAddedListener);
-		}
-		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
-		{
-			CopyStandbyEmployeesAddedListenerTo(StandbyEmployeesAddedListener);
-		}
-		else if (component is TotalEmployeesAddedListenerComponent TotalEmployeesAddedListener)
-		{
-			CopyTotalEmployeesAddedListenerTo(TotalEmployeesAddedListener);
-		}
-		else if (component is RotationAddedListenerComponent RotationAddedListener)
-		{
-			CopyRotationAddedListenerTo(RotationAddedListener);
-		}
-		else if (component is InstantiateAddedListenerComponent InstantiateAddedListener)
-		{
-			CopyInstantiateAddedListenerTo(InstantiateAddedListener);
-		}
-		else if (component is LinkRemovedListenerComponent LinkRemovedListener)
-		{
-			CopyLinkRemovedListenerTo(LinkRemovedListener);
-		}
-		else if (component is PositionAddedListenerComponent PositionAddedListener)
-		{
-			CopyPositionAddedListenerTo(PositionAddedListener);
 		}
 		else if (component is RouteTargetAddedListenerComponent RouteTargetAddedListener)
 		{
@@ -201,6 +201,50 @@ public partial class GameEntity
 		else if (component is MovingRemovedListenerComponent MovingRemovedListener)
 		{
 			CopyMovingRemovedListenerTo(MovingRemovedListener);
+		}
+		else if (component is CargoAddedListenerComponent CargoAddedListener)
+		{
+			CopyCargoAddedListenerTo(CargoAddedListener);
+		}
+		else if (component is CargoRemovedListenerComponent CargoRemovedListener)
+		{
+			CopyCargoRemovedListenerTo(CargoRemovedListener);
+		}
+		else if (component is BusyAddedListenerComponent BusyAddedListener)
+		{
+			CopyBusyAddedListenerTo(BusyAddedListener);
+		}
+		else if (component is BusyRemovedListenerComponent BusyRemovedListener)
+		{
+			CopyBusyRemovedListenerTo(BusyRemovedListener);
+		}
+		else if (component is StandbyEmployeesAddedListenerComponent StandbyEmployeesAddedListener)
+		{
+			CopyStandbyEmployeesAddedListenerTo(StandbyEmployeesAddedListener);
+		}
+		else if (component is TotalEmployeesAddedListenerComponent TotalEmployeesAddedListener)
+		{
+			CopyTotalEmployeesAddedListenerTo(TotalEmployeesAddedListener);
+		}
+		else if (component is GameRewardAddedListenerComponent GameRewardAddedListener)
+		{
+			CopyGameRewardAddedListenerTo(GameRewardAddedListener);
+		}
+		else if (component is RotationAddedListenerComponent RotationAddedListener)
+		{
+			CopyRotationAddedListenerTo(RotationAddedListener);
+		}
+		else if (component is InstantiateAddedListenerComponent InstantiateAddedListener)
+		{
+			CopyInstantiateAddedListenerTo(InstantiateAddedListener);
+		}
+		else if (component is LinkRemovedListenerComponent LinkRemovedListener)
+		{
+			CopyLinkRemovedListenerTo(LinkRemovedListener);
+		}
+		else if (component is PositionAddedListenerComponent PositionAddedListener)
+		{
+			CopyPositionAddedListenerTo(PositionAddedListener);
 		}
 		#endif
 	}

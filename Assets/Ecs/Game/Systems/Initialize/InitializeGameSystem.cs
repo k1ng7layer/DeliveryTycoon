@@ -7,7 +7,7 @@ namespace Ecs.Game.Systems.Initialize
 {
     public class InitializeGameSystem : IInitializeSystem
     {
-        private const float StartCoins = 100f;
+        private const float StartCoins = 1000f;
         
         private readonly IGameInputService _gameInputService;
         private readonly GameContext _game;

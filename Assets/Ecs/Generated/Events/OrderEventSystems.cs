@@ -12,5 +12,6 @@ public sealed class OrderEventSystems : Feature
 	public OrderEventSystems(Contexts contexts)
 	{
 		Add(new DurationAddedEventSystem(contexts)); // priority: 0
+		Add(new OrderRewardAddedEventSystem(contexts)); // priority: 0
 	}
 }

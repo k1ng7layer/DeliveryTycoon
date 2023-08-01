@@ -43,7 +43,7 @@ public partial class GameContext
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	static readonly Ecs.Game.Components.Delivery.DeliveryOfficeComponent DeliveryOfficeComponent = new Ecs.Game.Components.Delivery.DeliveryOfficeComponent();
+	static readonly Ecs.Game.Components.Order.DeliveryOfficeComponent DeliveryOfficeComponent = new Ecs.Game.Components.Order.DeliveryOfficeComponent();
 
 	public bool IsDeliveryOffice
 	{

@@ -2,7 +2,9 @@
 {
     public enum EOrderStatus
     {
-        Accessible,
-        NotAccessible
+        Created,
+        InProgress,
+        Delivered,
+        Completed,
     }
 }

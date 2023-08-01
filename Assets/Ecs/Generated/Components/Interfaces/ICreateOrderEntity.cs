@@ -12,7 +12,7 @@ public partial interface ICreateOrderEntity
 	Ecs.Action.Components.Order.CreateOrderComponent CreateOrder { get; }
 	bool HasCreateOrder { get; }
 
-	void AddCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid);
-	void ReplaceCreateOrder(Ecs.UidGenerator.Uid newDeliverySourceUid);
+	void AddCreateOrder(Game.Utils.Order.CreateOrderData newValue);
+	void ReplaceCreateOrder(Game.Utils.Order.CreateOrderData newValue);
 	void RemoveCreateOrder();
 }

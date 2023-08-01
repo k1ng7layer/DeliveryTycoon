@@ -12,7 +12,7 @@ public partial interface IMakeContractEntity
 	Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract { get; }
 	bool HasMakeContract { get; }
 
-	void AddMakeContract(Ecs.UidGenerator.Uid newShopUid);
-	void ReplaceMakeContract(Ecs.UidGenerator.Uid newShopUid);
+	void AddMakeContract(Game.Utils.Contract.MakeContractData newValue);
+	void ReplaceMakeContract(Game.Utils.Contract.MakeContractData newValue);
 	void RemoveMakeContract();
 }

@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.TargetTimeComponent TargetTime { get { return (Ecs.Delivery.Components.TargetTimeComponent)GetComponent(OrderComponentsLookup.TargetTime); } }
+	public Ecs.Order.Components.TargetTimeComponent TargetTime { get { return (Ecs.Order.Components.TargetTimeComponent)GetComponent(OrderComponentsLookup.TargetTime); } }
 	public bool HasTargetTime { get { return HasComponent(OrderComponentsLookup.TargetTime); } }
 
 	public void AddTargetTime(float newValue)
 	{
 		var index = OrderComponentsLookup.TargetTime;
-		var component = (Ecs.Delivery.Components.TargetTimeComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.TargetTimeComponent));
+		var component = (Ecs.Order.Components.TargetTimeComponent)CreateComponent(index, typeof(Ecs.Order.Components.TargetTimeComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplaceTargetTime(float newValue)
 	{
 		var index = OrderComponentsLookup.TargetTime;
-		var component = (Ecs.Delivery.Components.TargetTimeComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.TargetTimeComponent));
+		var component = (Ecs.Order.Components.TargetTimeComponent)CreateComponent(index, typeof(Ecs.Order.Components.TargetTimeComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyTargetTimeTo(Ecs.Delivery.Components.TargetTimeComponent copyComponent)
+	public void CopyTargetTimeTo(Ecs.Order.Components.TargetTimeComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.TargetTime;
-		var component = (Ecs.Delivery.Components.TargetTimeComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.TargetTimeComponent));
+		var component = (Ecs.Order.Components.TargetTimeComponent)CreateComponent(index, typeof(Ecs.Order.Components.TargetTimeComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

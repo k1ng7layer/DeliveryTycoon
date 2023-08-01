@@ -15,3 +15,5 @@ MonoBehaviour:
   prefabs:
   - name: Courier
     gameObject: {fileID: 3649228103444060816, guid: 632000886b1434741acb1b999c6415dc, type: 3}
+  - name: Coin
+    gameObject: {fileID: 5657843698796637638, guid: 25696bb4b2653e6418222064d16d4f52, type: 3}

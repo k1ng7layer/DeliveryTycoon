@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.SourceComponent Source { get { return (Ecs.Delivery.Components.SourceComponent)GetComponent(OrderComponentsLookup.Source); } }
+	public Ecs.Order.Components.SourceComponent Source { get { return (Ecs.Order.Components.SourceComponent)GetComponent(OrderComponentsLookup.Source); } }
 	public bool HasSource { get { return HasComponent(OrderComponentsLookup.Source); } }
 
 	public void AddSource(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = OrderComponentsLookup.Source;
-		var component = (Ecs.Delivery.Components.SourceComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.SourceComponent));
+		var component = (Ecs.Order.Components.SourceComponent)CreateComponent(index, typeof(Ecs.Order.Components.SourceComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplaceSource(Ecs.UidGenerator.Uid newDeliverySourceUid)
 	{
 		var index = OrderComponentsLookup.Source;
-		var component = (Ecs.Delivery.Components.SourceComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.SourceComponent));
+		var component = (Ecs.Order.Components.SourceComponent)CreateComponent(index, typeof(Ecs.Order.Components.SourceComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = newDeliverySourceUid;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopySourceTo(Ecs.Delivery.Components.SourceComponent copyComponent)
+	public void CopySourceTo(Ecs.Order.Components.SourceComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.Source;
-		var component = (Ecs.Delivery.Components.SourceComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.SourceComponent));
+		var component = (Ecs.Order.Components.SourceComponent)CreateComponent(index, typeof(Ecs.Order.Components.SourceComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.DeliverySourceUid = copyComponent.DeliverySourceUid;
 		#endif

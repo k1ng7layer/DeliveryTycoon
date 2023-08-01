@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface IOrderStatusEntity
 {
-	Ecs.Delivery.Components.OrderStatusComponent OrderStatus { get; }
+	Ecs.Order.Components.OrderStatusComponent OrderStatus { get; }
 	bool HasOrderStatus { get; }
 
 	void AddOrderStatus(Game.Utils.EOrderStatus newValue);

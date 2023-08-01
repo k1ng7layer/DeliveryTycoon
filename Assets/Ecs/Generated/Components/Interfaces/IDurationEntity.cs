@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface IDurationEntity
 {
-	Ecs.Delivery.Components.DurationComponent Duration { get; }
+	Ecs.Order.Components.DurationComponent Duration { get; }
 	bool HasDuration { get; }
 
 	void AddDuration(float newValue);

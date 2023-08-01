@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.OrderStatusComponent OrderStatus { get { return (Ecs.Delivery.Components.OrderStatusComponent)GetComponent(OrderComponentsLookup.OrderStatus); } }
+	public Ecs.Order.Components.OrderStatusComponent OrderStatus { get { return (Ecs.Order.Components.OrderStatusComponent)GetComponent(OrderComponentsLookup.OrderStatus); } }
 	public bool HasOrderStatus { get { return HasComponent(OrderComponentsLookup.OrderStatus); } }
 
 	public void AddOrderStatus(Game.Utils.EOrderStatus newValue)
 	{
 		var index = OrderComponentsLookup.OrderStatus;
-		var component = (Ecs.Delivery.Components.OrderStatusComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.OrderStatusComponent));
+		var component = (Ecs.Order.Components.OrderStatusComponent)CreateComponent(index, typeof(Ecs.Order.Components.OrderStatusComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplaceOrderStatus(Game.Utils.EOrderStatus newValue)
 	{
 		var index = OrderComponentsLookup.OrderStatus;
-		var component = (Ecs.Delivery.Components.OrderStatusComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.OrderStatusComponent));
+		var component = (Ecs.Order.Components.OrderStatusComponent)CreateComponent(index, typeof(Ecs.Order.Components.OrderStatusComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyOrderStatusTo(Ecs.Delivery.Components.OrderStatusComponent copyComponent)
+	public void CopyOrderStatusTo(Ecs.Order.Components.OrderStatusComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.OrderStatus;
-		var component = (Ecs.Delivery.Components.OrderStatusComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.OrderStatusComponent));
+		var component = (Ecs.Order.Components.OrderStatusComponent)CreateComponent(index, typeof(Ecs.Order.Components.OrderStatusComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

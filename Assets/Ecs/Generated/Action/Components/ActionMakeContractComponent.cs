@@ -12,22 +12,22 @@ public partial class ActionEntity
 	public Ecs.Action.Components.CustomersShop.MakeContractComponent MakeContract { get { return (Ecs.Action.Components.CustomersShop.MakeContractComponent)GetComponent(ActionComponentsLookup.MakeContract); } }
 	public bool HasMakeContract { get { return HasComponent(ActionComponentsLookup.MakeContract); } }
 
-	public void AddMakeContract(Ecs.UidGenerator.Uid newShopUid)
+	public void AddMakeContract(Game.Utils.Contract.MakeContractData newValue)
 	{
 		var index = ActionComponentsLookup.MakeContract;
 		var component = (Ecs.Action.Components.CustomersShop.MakeContractComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.ShopUid = newShopUid;
+		component.Value = newValue;
 		#endif
 		AddComponent(index, component);
 	}
 
-	public void ReplaceMakeContract(Ecs.UidGenerator.Uid newShopUid)
+	public void ReplaceMakeContract(Game.Utils.Contract.MakeContractData newValue)
 	{
 		var index = ActionComponentsLookup.MakeContract;
 		var component = (Ecs.Action.Components.CustomersShop.MakeContractComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.ShopUid = newShopUid;
+		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
@@ -37,7 +37,7 @@ public partial class ActionEntity
 		var index = ActionComponentsLookup.MakeContract;
 		var component = (Ecs.Action.Components.CustomersShop.MakeContractComponent)CreateComponent(index, typeof(Ecs.Action.Components.CustomersShop.MakeContractComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.ShopUid = copyComponent.ShopUid;
+		component.Value = copyComponent.Value;
 		#endif
 		ReplaceComponent(index, component);
 	}

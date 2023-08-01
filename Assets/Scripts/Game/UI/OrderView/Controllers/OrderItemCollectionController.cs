@@ -48,7 +48,7 @@ namespace Game.UI.OrderView.Controllers
                 throw new Exception(
                     $"[{nameof(OrderItemCollectionController)}] there is no order with uid {orderUid} registered in OrderItemMenuView");
             
-            view.Enable(eOrderStatus == EOrderStatus.Accessible);
+            //view.Enable(eOrderStatus == EOrderStatus.Accessible);
         }
 
         private void TakeOrder(Uid orderUid)

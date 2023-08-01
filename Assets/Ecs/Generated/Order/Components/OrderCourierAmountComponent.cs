@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.CourierAmountComponent CourierAmount { get { return (Ecs.Delivery.Components.CourierAmountComponent)GetComponent(OrderComponentsLookup.CourierAmount); } }
+	public Ecs.Order.Components.CourierAmountComponent CourierAmount { get { return (Ecs.Order.Components.CourierAmountComponent)GetComponent(OrderComponentsLookup.CourierAmount); } }
 	public bool HasCourierAmount { get { return HasComponent(OrderComponentsLookup.CourierAmount); } }
 
 	public void AddCourierAmount(int newValue)
 	{
 		var index = OrderComponentsLookup.CourierAmount;
-		var component = (Ecs.Delivery.Components.CourierAmountComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.CourierAmountComponent));
+		var component = (Ecs.Order.Components.CourierAmountComponent)CreateComponent(index, typeof(Ecs.Order.Components.CourierAmountComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplaceCourierAmount(int newValue)
 	{
 		var index = OrderComponentsLookup.CourierAmount;
-		var component = (Ecs.Delivery.Components.CourierAmountComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.CourierAmountComponent));
+		var component = (Ecs.Order.Components.CourierAmountComponent)CreateComponent(index, typeof(Ecs.Order.Components.CourierAmountComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyCourierAmountTo(Ecs.Delivery.Components.CourierAmountComponent copyComponent)
+	public void CopyCourierAmountTo(Ecs.Order.Components.CourierAmountComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.CourierAmount;
-		var component = (Ecs.Delivery.Components.CourierAmountComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.CourierAmountComponent));
+		var component = (Ecs.Order.Components.CourierAmountComponent)CreateComponent(index, typeof(Ecs.Order.Components.CourierAmountComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

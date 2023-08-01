@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class OrderEntity
 {
-	public Ecs.Delivery.Components.PriceComponent Price { get { return (Ecs.Delivery.Components.PriceComponent)GetComponent(OrderComponentsLookup.Price); } }
+	public Ecs.Order.Components.PriceComponent Price { get { return (Ecs.Order.Components.PriceComponent)GetComponent(OrderComponentsLookup.Price); } }
 	public bool HasPrice { get { return HasComponent(OrderComponentsLookup.Price); } }
 
 	public void AddPrice(float newValue)
 	{
 		var index = OrderComponentsLookup.Price;
-		var component = (Ecs.Delivery.Components.PriceComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.PriceComponent));
+		var component = (Ecs.Order.Components.PriceComponent)CreateComponent(index, typeof(Ecs.Order.Components.PriceComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
@@ -25,17 +25,17 @@ public partial class OrderEntity
 	public void ReplacePrice(float newValue)
 	{
 		var index = OrderComponentsLookup.Price;
-		var component = (Ecs.Delivery.Components.PriceComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.PriceComponent));
+		var component = (Ecs.Order.Components.PriceComponent)CreateComponent(index, typeof(Ecs.Order.Components.PriceComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = newValue;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyPriceTo(Ecs.Delivery.Components.PriceComponent copyComponent)
+	public void CopyPriceTo(Ecs.Order.Components.PriceComponent copyComponent)
 	{
 		var index = OrderComponentsLookup.Price;
-		var component = (Ecs.Delivery.Components.PriceComponent)CreateComponent(index, typeof(Ecs.Delivery.Components.PriceComponent));
+		var component = (Ecs.Order.Components.PriceComponent)CreateComponent(index, typeof(Ecs.Order.Components.PriceComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.Value = copyComponent.Value;
 		#endif

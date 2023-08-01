@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface ICourierAmountEntity
 {
-	Ecs.Delivery.Components.CourierAmountComponent CourierAmount { get; }
+	Ecs.Order.Components.CourierAmountComponent CourierAmount { get; }
 	bool HasCourierAmount { get; }
 
 	void AddCourierAmount(int newValue);

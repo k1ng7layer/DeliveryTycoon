@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface IPriceEntity
 {
-	Ecs.Delivery.Components.PriceComponent Price { get; }
+	Ecs.Order.Components.PriceComponent Price { get; }
 	bool HasPrice { get; }
 
 	void AddPrice(float newValue);

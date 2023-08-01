@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface IItemsAmountEntity
 {
-	Ecs.Delivery.Components.ItemsAmountComponent ItemsAmount { get; }
+	Ecs.Order.Components.ItemsAmountComponent ItemsAmount { get; }
 	bool HasItemsAmount { get; }
 
 	void AddItemsAmount(int newValue);

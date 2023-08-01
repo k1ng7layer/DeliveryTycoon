@@ -21,17 +21,19 @@ namespace Game.Services.OrderStatusService.Impl
         
         public EOrderStatus GetStatus(OrderEntity orderEntity)
         {
-            var courierRequired = orderEntity.CourierAmount.Value;
+            // var courierRequired = orderEntity.CourierAmount.Value;
+            //
+            // var totalEmployees = _game.TotalEmployees.Value;
+            //
+            // var couriersAmountCheck = totalEmployees - courierRequired >= 0;
+            //
+            // var courierTypeRequired = orderEntity.Courier.Type;
+            //
+            // var courierTypeCheck = HasAvailableCouriers(courierTypeRequired);
+            //
+            // return couriersAmountCheck && courierTypeCheck ? EOrderStatus.Accessible : EOrderStatus.NotAccessible;
 
-            var totalEmployees = _game.TotalEmployees.Value;
-
-            var couriersAmountCheck = totalEmployees - courierRequired >= 0;
-
-            var courierTypeRequired = orderEntity.Courier.Type;
-
-            var courierTypeCheck = HasAvailableCouriers(courierTypeRequired);
-
-            return couriersAmountCheck && courierTypeCheck ? EOrderStatus.Accessible : EOrderStatus.NotAccessible;
+            return EOrderStatus.Completed;
         }
 
         private bool HasAvailableCouriers()

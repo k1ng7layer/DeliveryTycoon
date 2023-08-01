@@ -1,13 +1,12 @@
 ﻿using Db.PrefabBase;
 using Db.Shop;
-using DG.Tweening;
 using Ecs.UidGenerator;
 using Ecs.Views.Linkable.Impl;
 using Game.UI.PopupView;
+using Game.Views.Reward;
 using JCMG.EntitasRedux;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Ecs.Views.Shops
@@ -20,7 +19,7 @@ namespace Ecs.Views.Shops
         [SerializeField] private ShopParameters shopParameters;
         [SerializeField] private InteractableView interactableView;
         [SerializeField] private Transform receptionSpotTransform;
-        [SerializeField] private Transform rewardPos;
+        [SerializeField] private RewardSpawnerView rewardSpawnerView;
 
         [Header("Start contract params")] [SerializeField]
         private bool launchContractTimerOnGameStart;
@@ -72,9 +71,7 @@ namespace Ecs.Views.Shops
 
         public void OnRewardAdded(GameEntity entity, int value)
         {
-            var rewardPrefab = _prefabsBase.Get("Coin");
-            var reward = Instantiate(rewardPrefab, rewardPos.position, Quaternion.identity);
-            reward.transform.DOMove(rewardPos.transform.position + rewardPos.transform.up * 3f , 1.4f);
+            rewardSpawnerView.SpawnReward();
         }
     }
 }

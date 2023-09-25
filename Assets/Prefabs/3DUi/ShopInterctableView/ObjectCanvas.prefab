@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 8922255457937623249}
   - component: {fileID: 1493593289577175709}
   - component: {fileID: 7991744358099746872}
+  - component: {fileID: 8191148317121792375}
   m_Layer: 0
   m_Name: InteractablePanel
   m_TagString: Untagged
@@ -265,7 +266,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6693223582661457126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.28}
+  m_LocalPosition: {x: 0, y: 0, z: -2.287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -388,3 +389,16 @@ MonoBehaviour:
   canvasPrefab: {fileID: 448909954715201449}
   panel: {fileID: 6803529550589437458}
   selectButton: {fileID: 1493593289577175709}
+--- !u!65 &8191148317121792375
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693223582661457126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.8187075, y: 1.8298013, z: 0.044306513}
+  m_Center: {x: 0, y: -0.029042888, z: 0}

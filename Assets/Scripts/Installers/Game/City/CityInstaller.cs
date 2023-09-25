@@ -21,6 +21,7 @@ using Game.Services.EmployeeRepository.Impl;
 using Game.Services.GameLevelProvider.Impl;
 using Game.Services.GameLevelProvider.Views;
 using Game.Services.Input.Impl;
+using Game.Services.InteractableRepository.Impl;
 using Game.Services.OrderProvider.Impl;
 using Game.Services.OrderStatusService.Impl;
 using Game.Services.PointerRaycastService;
@@ -45,6 +46,7 @@ namespace Installers.Game.City
             BindSystems();
             StartGameSystems();
             BindWindows();
+            BindGameObjectRepositories();
         }
 
         private void BindServices()
@@ -93,6 +95,7 @@ namespace Installers.Game.City
             Container.BindInterfacesAndSelfTo<CompleteContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ChangeCouriersInContractSystem>().AsSingle();
             Container.BindInterfacesAndSelfTo<ReduceContractCouriersSystem>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TouchInputSystem>().AsSingle();
         }
 
         private void BindWindows()
@@ -104,6 +107,12 @@ namespace Installers.Game.City
         private void StartGameSystems()
         {
             Container.BindInterfacesAndSelfTo<StartGameSystem>().AsSingle();
+        }
+
+        private void BindGameObjectRepositories()
+        {
+            Container.BindInterfacesAndSelfTo<InteractableObjectRepository>().FromNewComponentOnNewGameObject()
+                .AsSingle();
         }
     }
 }

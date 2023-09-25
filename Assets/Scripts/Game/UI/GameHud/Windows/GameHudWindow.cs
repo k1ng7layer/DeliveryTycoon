@@ -1,5 +1,6 @@
 ﻿using Game.UI.BuyCourierButton.Controllers;
 using Game.UI.CouriersView.Controllers;
+using Game.UI.TouchInput.Controllers;
 using Game.UI.Wallet.Controllers;
 using SimpleUi;
 
@@ -15,6 +16,7 @@ namespace Game.UI.GameHud.Windows
             AddController<BuyCourierButtonController>();
             AddController<WalletController>();
             AddController<CouriersUiController>();
+            //AddController<TouchInputController>();
         }
     }
 }

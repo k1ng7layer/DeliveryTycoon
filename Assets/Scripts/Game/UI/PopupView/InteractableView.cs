@@ -69,7 +69,7 @@ namespace Game.UI.PopupView
             StartCoroutine(TurnOffView());
         }
 
-        private void OnSelected()
+        public void OnSelected()
         {
             MouseClick?.Execute();
         }

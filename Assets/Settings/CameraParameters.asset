@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797acf33e39e4d259aa892fb2c067c5b, type: 3}
   m_Name: CameraParameters
   m_EditorClassIdentifier: 
-  movementSpeed: 20
+  movementSpeed: 0.2
   xAngle: 45

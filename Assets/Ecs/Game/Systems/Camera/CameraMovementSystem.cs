@@ -43,8 +43,15 @@ namespace Ecs.Game.Systems.Camera
             var objPosition = followObject.Position.Value;
             var objRotation = followObject.Rotation.Value;
             var dir = objRotation * inputVector;
+
+            var camera = _cameraService.PhysicalCamera;
+
+            var camPos = camera.gameObject.transform.position;
+            
             // += dir * _timeProvider.DeltaTime * _cameraParameters.MovementSpeed;
-            objPosition += inputVector * _timeProvider.DeltaTime;
+            camPos += inputVector.normalized * _timeProvider.DeltaTime;
+
+            //camera.transform.position = camPos;
 
             followObject.ReplacePosition(objPosition);
         }

@@ -48,7 +48,7 @@ namespace Ecs.Input.Systems
             //
             // if (UnityEngine.Input.GetMouseButton(0))
             // {
-            //     var direction = _start - _cameraService.PhysicalCamera.ScreenToWorldPoint(new Vector3(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y, 1f));
+            //     var direction = _cameraService.PhysicalCamera.ScreenToWorldPoint(new Vector3(UnityEngine.Input.mousePosition.x, UnityEngine.Input.mousePosition.y, 1f)) - _start ;
             //     _input.InputEntity.ReplaceInputVector(new Vector3(direction.x, 0f, direction.y));
             //     Debug.Log($"TouchInputSystem = {direction}");
             // }
@@ -63,7 +63,9 @@ namespace Ecs.Input.Systems
             if (UnityEngine.Input.GetMouseButton(0)){
                 Vector3 direction = _start - GetWorldPosition(0);
                 Debug.Log($"TouchInputSystem = {direction}");
-                _input.InputEntity.ReplaceInputVector(new Vector3(direction.x, 0, direction.y));
+                var cameraRot = _cameraService.ActiveCamera.transform.rotation.eulerAngles;
+                var dir = Quaternion.Euler(70, cameraRot.y, cameraRot.z) * direction;
+                _input.InputEntity.ReplaceInputVector(new Vector3(dir.x, 0, dir.y));
             }
             else
             {

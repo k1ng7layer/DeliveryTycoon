@@ -44,8 +44,8 @@ namespace Ecs.Game.Systems.Initialize
             cameraFollowEntity.AddLink(view);
             view.Link(cameraFollowEntity, _game);
             
-            _cameraService.SetCameraLookAt(view.transform);
-            _cameraService.SetCameraTarget(view.transform);
+            // _cameraService.SetCameraLookAt(view.transform);
+            // _cameraService.SetCameraTarget(view.transform);
         }
 
         private void CreatePhysicalCamera()
